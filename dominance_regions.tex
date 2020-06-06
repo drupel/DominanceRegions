@@ -1,0 +1,107 @@
+\documentclass{amsart}
+\usepackage{amsmath,amssymb,latexsym,color}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{theorem}{section}
+
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfg}{\mathbf{g}}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+
+\newcommand{\fp}{\mathfrak{p}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\ol}[1]{{\overline{#1}}}
+
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\obeta}{{\overline{\beta}}}
+\newcommand{\oi}{{\overline{\imath}}}
+\newcommand{\ot}{{\overline{t}}}
+
+\title{Dominance Regions for Imaginary $\bfg$-vectors}
+
+\author{Dylan Rupel}
+\author{Salvatore Stella}
+
+\begin{document}
+  \begin{abstract}
+    We investigate the shapes of the polytopes defining the dominance order for imaginary $\bfg$-vectors in rank two.
+    We conjecture how our observations might generalize to higher dimensions.
+  \end{abstract}
+  \maketitle
+
+  \section{Introduction}
+  The investigations of this paper are inspired by the dominance order for the tropical labellings for bases of cluster algebras.
+  This dominance order is used by Qin to understand how these bases may be deformed in the case when there is a green-to-red sequence of mutations.
+
+  \section{Lattice Mutations}
+  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric.
+  For $b\in\ZZ$, write $[b]_+=max(b,0)$.
+  Given a sign $\varepsilon\in\{\pm\}$ and $k\in\{1,\ldots,n\}$, define a matrix $E_{k,\varepsilon}=(e_{ij})$ with
+  \[ e_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ [\varepsilon b_{ik}]_+ & \text{if $i\ne j=k$;}\\ 0 & \text{otherwise.} \end{cases} \]
+  The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_kB=(b'_{ij})$ given by
+  \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
+  To record sequences of these matrix mutations, we introduce the labelled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B_t$ for $t\in\TT_n$ satisfying:
+  \begin{itemize}
+    \item $B_{t_0}=B$;
+    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $B_{t'}=\mu_k B_t$.
+  \end{itemize}
+
+  Define $\phi_k:\ZZ^n\to\ZZ^n$ as the piecewise-linear map $\phi_k(\lambda)=\begin{cases} E_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E_{k,-}\lambda & \text{if $\lambda_k<0$.} \end{cases}$.
+  Define the piecewise-linear automorphisms $\phi_t:\ZZ^n\to\ZZ^n$ by
+  \begin{itemize}
+    \item $\phi_{t_0}=\Id$;
+    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $\phi_{t'}=\phi_k \phi_t$.
+  \end{itemize}
+  For $\lambda\in\ZZ^n$, define the $B$-cone $\cC(\lambda)=\lambda+B\RR_{\ge0}^n$ pointed at $\lambda$.
+  \begin{definition}
+    For $\lambda\in\ZZ^n$, define the \emph{dominance polytope} 
+    \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC(\phi_t \lambda). \]
+  \end{definition}
+  Our goal is to understand the dominance polytopes for all $\lambda$.
+
+  \section{Rank Two}
+  Fix integers $b,c>0$ and assume $bc\ge4$.
+  Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
+  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} spanned by the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$.
+
+  Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2r}$ joined to $t_{2r+1}$ by an edge labelled $1$ and $t_{2r-1}$ joined to $t_{2r}$ by an edge labelled $2$.
+  \begin{lemma}
+    If $\lambda\in\ZZ^2\setminus\cI$, then $\cP(\lambda)=\{\lambda\}$.
+  \end{lemma}
+  \begin{proof}
+    It is enough to consider $\phi_{t_{-2}}^{-1}\cC(\phi_{t_{-2}}\lambda) \cap \cC(\lambda) \cap \phi_{t_2}^{-1}\cC(\phi_{t_2}\lambda)$, we leave the details to the reader.
+  \end{proof}
+
+  \begin{theorem}
+    For $\lambda\in\cI\cap\ZZ^2$, there are five classes of dominance polytopes.
+    \begin{enumerate}
+      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cC(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and ???.
+      \item if $\lambda$ lies on the ray spanned by $(2,-c)$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,0)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$.
+      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cC(\lambda)$ is the kite with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$.
+      \item if $\lambda$ lies on the ray spanned by $(b,-2)$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(0,c\lambda_1+2\lambda_2)$.
+      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(0,c\lambda_1+2\lambda_2)$, and ???.
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    Tedious calculation once we have proven what the slopes of the boundaries are.
+  \end{proof}
+
+\end{document}
