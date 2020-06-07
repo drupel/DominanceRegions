@@ -81,6 +81,9 @@
   Fix integers $b,c>0$ and assume $bc\ge4$.
   Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
   Write $\cI \subset \RR^2$ for the \emph{imaginary cone} spanned by the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$.
+  \begin{lemma}
+    The vectors $(2b, -bc+\sqrt{bc(bc-4)})$ (resp. $(2b, -bc-\sqrt{bc(bc-4)})$) and $(2c, bc+\sqrt{bc(bc-4)})$ (resp. $(2c, bc-\sqrt{bc(bc-4)})$) are perpendicular.
+  \end{lemma}
 
   Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2r}$ joined to $t_{2r+1}$ by an edge labelled $1$ and $t_{2r-1}$ joined to $t_{2r}$ by an edge labelled $2$.
   \begin{lemma}
@@ -90,18 +93,37 @@
     It is enough to consider $\phi_{t_{-2}}^{-1}\cC(\phi_{t_{-2}}\lambda) \cap \cC(\lambda) \cap \phi_{t_2}^{-1}\cC(\phi_{t_2}\lambda)$, we leave the details to the reader.
   \end{proof}
 
+  \begin{lemma}
+    \label{le:one direction}
+    For $\lambda\in\cI\cap\ZZ^2$, 
+    \begin{enumerate}
+      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-b\lambda_2,\lambda_2)$.
+      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $(\lambda_1,-c\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$.
+    \end{enumerate}
+  \end{lemma}
+
   \begin{theorem}
     For $\lambda\in\cI\cap\ZZ^2$, there are five classes of dominance polytopes.
     \begin{enumerate}
-      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cC(\lambda)$ is the trapezoid with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and ???.
+      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cC(\lambda)$ is the trapezoid with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and ???.
       \item if $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0)$, and $(0,\frac{\sqrt{bc(bc-4)}}{b}\ell)$.
       \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cC(\lambda)$ is the kite with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$.
       \item if $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell)$.
-      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and ???.
+      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and ???.
     \end{enumerate}
   \end{theorem}
   \begin{proof}
-    Tedious calculation once we have proven what the slopes of the boundaries are.
+    Following Lemma~\ref{le:one direction}, we see that the intersection $\cP_+(\lambda)\cap\cP_-(\lambda)$ degenerates to a triangle precisely when
+    \[\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2\]
+    or 
+    \[\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2=-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2.\]
+    The first equations reduces to $c\lambda_1+2\lambda_2=0$, while the second reduces to $2\lambda_1+b\lambda_2=0$.
+    In particular, the rays spanned by $(2,-c)$ and $(b,-2)$ determine this change of state in the dominance regions $\cP(\lambda)$.
   \end{proof}
+
+  \begin{remark}
+    Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
+    This unexpected coincidence is our reason for writing these results.
+  \end{remark}
 
 \end{document}
