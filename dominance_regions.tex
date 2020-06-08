@@ -116,8 +116,20 @@
   Define Chebyshev polynomials $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
   \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
   \begin{lemma}
+    For $i\ge1$ and any $\varepsilon$, we have $u_{i,\varepsilon}>0$ and $u_{i-1,\varepsilon}u_{i+1,-\varepsilon}<u_{i,\varepsilon}u_{i,-\varepsilon}$.
+    Moreover,
     \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}\]
   \end{lemma}
+  \begin{proof}
+    We prove the inequalities by induction, the base case $i=1$ being clear from the definitions.
+    Without loss of generality, assume $\varepsilon=+$.
+    For $i>1$, we have 
+    \[u_{i-1,\varepsilon}u_{i+1,-\varepsilon}=cu_{i-1,\varepsilon}u_{i,\varepsilon}-u_{i-1,\varepsilon}u_{i-1,-\varepsilon}<cu_{i-1,\varepsilon}u_{i,\varepsilon}-u_{i-2,-\varepsilon}u_{i,\varepsilon}=u_{i,-\varepsilon}u_{i,\varepsilon},\]
+    where the inequality follows by induction.
+
+    Thus we see that the sequence $\frac{-u_{i,-}}{u_{i-1,+}}$ is increasing and the sequence $\frac{-u_{i-1,-}}{u_{i,+}}$ is decreasing.
+    As the first is bounded above by $\frac{-1}{b}$ and the second is bounded below by $-c$, they both converge.
+  \end{proof}
 
   \begin{lemma}
     If $\lambda\in\ZZ^2\setminus\cI$, then $\cP(\lambda)=\{\lambda\}$.
