@@ -80,12 +80,38 @@
   \section{Rank Two}
   Fix integers $b,c>0$ and assume $bc\ge4$.
   Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
+  Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2r}$ joined to $t_{2r+1}$ by an edge labelled $1$ and $t_{2r-1}$ joined to $t_{2r}$ by an edge labelled $2$.
+
+  Observe that $\phi_{t_2}=\phi_{t_{-2}}^{-1}$ is the piecewise-linear map given by
+  \begin{equation}
+    \label{eq:forward two step mutation}
+    \phi_{t_2}(\lambda)=\begin{cases} ((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\ (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\ (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}\end{cases}
+  \end{equation}
+  and $\phi_{t_2}^{-1}=\phi_{t_{-2}}$ is the piecewise-linear map given by
+  \begin{equation}
+    \label{eq:backward two step mutation}
+    \phi_{t_2}^{-1}(\lambda)=\begin{cases} (-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\ (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\ (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$;}\end{cases}
+  \end{equation}
+
+  By an eigenvector of a piecewise-linear map $\phi$ we mean a vector $\lambda$ such that for each $k\ge0$, there exists a scalar $\alpha_k$ so that $\phi^k(\lambda)=\alpha_k\lambda$.
+  \begin{lemma}
+    Any eigenvector of $\phi_{t_2}$ is a multiple of one of the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$.
+  \end{lemma}
+  \begin{proof}
+    First observe that the equation $\phi_{t_2}^k(\lambda)=\alpha_k\lambda$ cannot be satisfied for all $k\ge0$ unless $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$.
+    In this region, $\phi_{t_2}$ is linear with eigenvalue $\alpha$ satisfying $\alpha^2-(bc-2)+1=0$, i.e. $\alpha=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
+    We thus require that 
+    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1=(bc-1)\lambda_1+b\lambda_2 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_2= -c\lambda_1-\lambda_2,\]
+    or
+    \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_1=\lambda_2 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1.\]
+    As these represent the same relation, the result follows.
+  \end{proof}
+
   Write $\cI \subset \RR^2$ for the \emph{imaginary cone} spanned by the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$.
   \begin{lemma}
     The vectors $(2b, -bc+\sqrt{bc(bc-4)})$ (resp. $(2b, -bc-\sqrt{bc(bc-4)})$) and $(2c, bc+\sqrt{bc(bc-4)})$ (resp. $(2c, bc-\sqrt{bc(bc-4)})$) are perpendicular.
   \end{lemma}
 
-  Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2r}$ joined to $t_{2r+1}$ by an edge labelled $1$ and $t_{2r-1}$ joined to $t_{2r}$ by an edge labelled $2$.
   \begin{lemma}
     If $\lambda\in\ZZ^2\setminus\cI$, then $\cP(\lambda)=\{\lambda\}$.
   \end{lemma}
