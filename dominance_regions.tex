@@ -93,13 +93,13 @@
     \phi_{t_2}^{-1}(\lambda)=\begin{cases} (-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\ (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\ (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$;}\end{cases}
   \end{equation}
 
-  By an eigenvector of a piecewise-linear map $\phi$ we mean a vector $\lambda$ such that for each $k\ge0$, there exists a scalar $\alpha_k$ so that $\phi^k(\lambda)=\alpha_k\lambda$.
+  By an eigenvector of a piecewise-linear map $\phi$, we mean a vector $\lambda$ such that for each $k\ge0$, there exists a scalar $\alpha_k$ so that $\phi^k(\lambda)=\alpha_k\lambda$.
   \begin{lemma}
-    Any eigenvector of $\phi_{t_2}$ is a multiple of one of the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$.
+    Any nonzero eigenvector of $\phi_{t_2}$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
   \end{lemma}
   \begin{proof}
     First observe that the equation $\phi_{t_2}^k(\lambda)=\alpha_k\lambda$ cannot be satisfied for all $k\ge0$ unless $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$.
-    In this region, $\phi_{t_2}$ is linear with eigenvalue $\alpha$ satisfying $\alpha^2-(bc-2)+1=0$, i.e. $\alpha=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
+    In this region, $\phi_{t_2}$ is linear with eigenvalue $\alpha$ satisfying $\alpha^2-(bc-2)\alpha+1=0$, i.e. $\alpha=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
     We thus require that 
     \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1=(bc-1)\lambda_1+b\lambda_2 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_2= -c\lambda_1-\lambda_2,\]
     or
