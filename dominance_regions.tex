@@ -78,7 +78,7 @@
   Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
 
   \section{Rank Two}
-  Fix integers $b,c>0$ and assume $bc\ge4$.
+  Fix integers $b,c>0$ and assume $bc\ge 4$.
   Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
   Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2r}$ joined to $t_{2r+1}$ by an edge labelled $1$ and $t_{2r-1}$ joined to $t_{2r}$ by an edge labelled $2$.
   We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
@@ -113,22 +113,31 @@
     The vectors $(2b, -bc+\sqrt{bc(bc-4)})$ (resp. $(2b, -bc-\sqrt{bc(bc-4)})$) and $(2c, bc+\sqrt{bc(bc-4)})$ (resp. $(2c, bc-\sqrt{bc(bc-4)})$) are perpendicular.
   \end{lemma}
 
-  Define Chebyshev polynomials $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
+  Define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
   \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
+  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
+  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
+  By the equalities 
+  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
+  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
+  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
+
+
   \begin{lemma}
-    For $i\ge1$ and any $\varepsilon$, we have $u_{i,\varepsilon}>0$ and $u_{i-1,\varepsilon}u_{i+1,-\varepsilon}<u_{i,\varepsilon}u_{i,-\varepsilon}$.
-    Moreover,
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}\]
+    We have
+    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
   \end{lemma}
   \begin{proof}
-    We prove the inequalities by induction, the base case $i=1$ being clear from the definitions.
-    Without loss of generality, assume $\varepsilon=+$.
-    For $i>1$, we have 
-    \[u_{i-1,\varepsilon}u_{i+1,-\varepsilon}=cu_{i-1,\varepsilon}u_{i,\varepsilon}-u_{i-1,\varepsilon}u_{i-1,-\varepsilon}<cu_{i-1,\varepsilon}u_{i,\varepsilon}-u_{i-2,-\varepsilon}u_{i,\varepsilon}=u_{i,-\varepsilon}u_{i,\varepsilon},\]
-    where the inequality follows by induction.
-
-    Thus we see that the sequence $\frac{-u_{i,-}}{u_{i-1,+}}$ is increasing and the sequence $\frac{-u_{i-1,-}}{u_{i,+}}$ is decreasing.
-    As the first is bounded above by $\frac{-1}{b}$ and the second is bounded below by $-c$, they both converge.
+    For any $i\ge 1$, we have
+    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
+    It follows that
+    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
+    which is equivalent to the desired expression.
+    Similarly, 
+    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
+    so that
+    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
+    which is again equivalent to the desired expression.
   \end{proof}
 
   \begin{lemma}
