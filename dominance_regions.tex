@@ -134,6 +134,20 @@
   it follows that $u_{i,\varepsilon}$ can be computed explicitly as
   \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
 
+  The Chebyshev polynomials, in particular, allow us to explicitly compute $\phi_{t_i}(\lambda)$ for $\lambda\in\cI$.
+  \begin{lemma}
+    For $j\in\ZZ$ and $\lambda\in\cI$, we have
+    \begin{align*}
+      \phi_{t_{2j}}(\lambda)&=(u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,+}\lambda_2);\\
+      \phi_{t_{2j+1}}(\lambda)&=(-u_{2j+1,-}\lambda_1-u_{2j,+}\lambda_2,u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2).
+    \end{align*}
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $j$, the case $j=0$ being clear from the definitions.
+    As observed above, we have $\phi_{t_{2j}}=\phi_{t_2}^j$ and $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$.
+    For $j\ge 0$, using that $(bc-1)u_{2j+1,-}-bu_{2j,-}=u_{2j+3,-}$ and we have
+    \[\phi_{t_{2j+2}(\lambda)}=\phi_{t_2}\phi_{t_{2j}}(\lambda)=(u_{2j+3,-}\lambda_1
+  \end{proof}
 
   \begin{lemma}
     We have
