@@ -81,7 +81,7 @@
   Fix integers $b,c>0$ and assume $bc\ge 4$.
   Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
   Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2j}$ joined to $t_{2j+1}$ by an edge labelled $1$ and $t_{2j-1}$ joined to $t_{2j}$ by an edge labelled $2$.
-  We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
+  We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC_{t_i}(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
 
   Observe that $\phi_{t_2}=\phi_{t_{-2}}^{-1}$ is the piecewise-linear map given by
   \begin{equation}
@@ -125,7 +125,8 @@
     Now, we have $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ and so $\phi_{t_1}\big( (2b,-bc\pm\sqrt{bc(bc-4)}) \big)=(-2b,bc\pm\sqrt{bc(bc-4)})$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$ and the result follows.
   \end{proof}
 
-  Define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
+  It will be useful to have explicit expressions for $\phi_{t_i}(\lambda)$ for $\lambda\in\cI$.
+  For this, we define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
   \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
   Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
 
@@ -133,17 +134,45 @@
   This leads to the following more general recursive structure.
   \begin{lemma}
     For $i,k\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
-    \[u_{i+k,\varepsilon}=\begin{cases} u_{k+1,\varepsilon}u_{i,-\varepsilon}-u_{k,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i,\varepsilon}-u_{k,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even.} \end{cases}\]
+    \begin{equation}
+      \label{eq:long Chebyshev recursion}
+      u_{i+k,\varepsilon}=\begin{cases} u_{k+1,\varepsilon}u_{i,-\varepsilon}-u_{k,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i,\varepsilon}-u_{k,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even.} \end{cases}
+    \end{equation}
   \end{lemma}
   \begin{proof}
     We work by induction on $k$, the cases $k=0,1$ being tautological and reproducing the defining recursion respectively.
-    Using the claim for $k$ and then the defining recursion twice, we get
+    Using the claim for $k>0$ and then the defining recursion twice, we get
     \begin{align*}
       u_{i+k+1,\varepsilon}&=\begin{cases} u_{k+1,\varepsilon}u_{i+1,-\varepsilon}-u_{k,-\varepsilon}u_{i,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i+1,\varepsilon}-u_{k,\varepsilon}u_{i,-\varepsilon} & \text{if $k$ is even;} \end{cases}\\
       &=\begin{cases} (u_{2,-\varepsilon}u_{k+1,\varepsilon}-u_{k,-\varepsilon})u_{i,\varepsilon}-u_{k+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ (u_{2,\varepsilon}u_{k+1,-\varepsilon}-u_{k,\varepsilon})u_{i,-\varepsilon}-u_{k+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even;} \end{cases}\\
       &=\begin{cases} u_{k+2,-\varepsilon}u_{i,\varepsilon}-u_{k+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k+1$ is even;}\\ u_{k+2,\varepsilon}u_{i,-\varepsilon}-u_{k+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k+1$ is odd;} \end{cases}
     \end{align*}
     which is the claimed recursion for $k+1$.
+    These calculations can be reverses to show the result for $k<0$.
+  \end{proof}
+
+  \begin{lemma}
+    For $j\in\ZZ$ and $\lambda\in\cI$, we have
+    \begin{align*}
+      \phi_{t_{2j}}(\lambda)&=(u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,-}\lambda_2);\\
+      \phi_{t_{2j+1}}(\lambda)&=(-u_{2j+1,+}\lambda_1-u_{2j,+}\lambda_2,u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2).
+    \end{align*}
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $j$, the case $j=0$ being clear from the definitions.
+    As observed above, we have $\phi_{t_{2j}}=\phi_{t_2}^j$.
+    For $\lambda\in\cI$, the action of $\phi_{t_2}$ from \eqref{eq:forward two step mutation} can be rewritten as
+    \[\phi_{t_2}(\lambda)=(u_{3,-}\lambda_1+u_{2,+}\lambda_2,-u_{2,-}\lambda_1-u_{1,+}\lambda_2),\]
+    and so
+    \begin{align*}
+      \phi_{t_{2j+2}(\lambda)}&=\phi_{t_2}\phi_{t_{2j}}(\lambda)\\
+      &=\big( (u_{3,-}u_{2j+1,+}-u_{2,+}u_{2j,-})\lambda_1+(u_{3,-}u_{2j,+}-u_{2,+}u_{2j-1,-})\lambda_2,\\
+      &\qquad -(u_{2,-}u_{2j+1,+}-u_{1,+}u_{2j,-})\lambda_1-(u_{2,-}u_{2j,+}-u_{1,+}u_{2j-1,-})\lambda_2 \big)\\
+      &=(u_{2j+3,+}\lambda_1+u_{2j+2,+}\lambda_2, -u_{2j+2,-}\lambda_1-u_{2j+1,-}\lambda_2)
+    \end{align*}
+    where the last equality uses \eqref{eq:long Chebyshev recursion}.
+
+    Similarly, using $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ gives the given formula for $\phi_{t_{2j+1}}$ from that of $\phi_{t_{2j}}$.
   \end{proof}
   
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
@@ -154,21 +183,6 @@
   \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
   Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
   Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
-
-  The Chebyshev polynomials, in particular, allow us to explicitly compute $\phi_{t_i}(\lambda)$ for $\lambda\in\cI$.
-  \begin{lemma}
-    For $j\in\ZZ$ and $\lambda\in\cI$, we have
-    \begin{align*}
-      \phi_{t_{2j}}(\lambda)&=(u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,+}\lambda_2);\\
-      \phi_{t_{2j+1}}(\lambda)&=(-u_{2j+1,-}\lambda_1-u_{2j,+}\lambda_2,u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2).
-    \end{align*}
-  \end{lemma}
-  \begin{proof}
-    We work by induction on $j$, the case $j=0$ being clear from the definitions.
-    As observed above, we have $\phi_{t_{2j}}=\phi_{t_2}^j$ and $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$.
-    For $j\ge 0$, using that $(bc-1)u_{2j+1,-}-bu_{2j,-}=u_{2j+3,-}$ and $(bc-1)u_{2j,+}-bu_{2j-1,+}=u_{2j+2,+}$, we have
-    \[\phi_{t_{2j+2}(\lambda)}=\phi_{t_2}\phi_{t_{2j}}(\lambda)=(u_{2j+3,-}\lambda_1+u_{2j+2,+}\lambda_2,-u_{2j+2,-}\lambda_1-u_{2j+1,+}\lambda_2).\]
-  \end{proof}
 
   \begin{lemma}
     We have
