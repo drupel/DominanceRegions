@@ -127,12 +127,33 @@
 
   Define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
   \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
+  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
+
+  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
+  This leads to the following more general recursive structure.
+  \begin{lemma}
+    For $i,k\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
+    \[u_{i+k,\varepsilon}=\begin{cases} u_{k+1,\varepsilon}u_{i,-\varepsilon}-u_{k,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i,\varepsilon}-u_{k,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even.} \end{cases}\]
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $k$, the cases $k=0,1$ being tautological and reproducing the defining recursion respectively.
+    Using the claim for $k$ and then the defining recursion twice, we get
+    \begin{align*}
+      u_{i+k+1,\varepsilon}&=\begin{cases} u_{k+1,\varepsilon}u_{i+1,-\varepsilon}-u_{k,-\varepsilon}u_{i,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i+1,\varepsilon}-u_{k,\varepsilon}u_{i,-\varepsilon} & \text{if $k$ is even;} \end{cases}\\
+      &=\begin{cases} (u_{2,-\varepsilon}u_{k+1,\varepsilon}-u_{k,-\varepsilon})u_{i,\varepsilon}-u_{k+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ (u_{2,\varepsilon}u_{k+1,-\varepsilon}-u_{k,\varepsilon})u_{i,-\varepsilon}-u_{k+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even;} \end{cases}\\
+      &=\begin{cases} u_{k+2,-\varepsilon}u_{i,\varepsilon}-u_{k+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k+1$ is even;}\\ u_{k+2,\varepsilon}u_{i,-\varepsilon}-u_{k+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k+1$ is odd;} \end{cases}
+    \end{align*}
+    which is the claimed recursion for $k+1$.
+  \end{proof}
+  
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
   \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
   By the equalities 
   \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
   it follows that $u_{i,\varepsilon}$ can be computed explicitly as
   \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
+  Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
+  Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
 
   The Chebyshev polynomials, in particular, allow us to explicitly compute $\phi_{t_i}(\lambda)$ for $\lambda\in\cI$.
   \begin{lemma}
