@@ -1,6 +1,7 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,latexsym,color}
 \usepackage[margin=1in]{geometry}
+\usepackage{tikz}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -83,12 +84,14 @@
   Here we may take $\TT_2$ to have vertices labelled $t_\ell$ for $\ell\in\ZZ$, with $t_{2j}$ joined to $t_{2j+1}$ by an edge labelled $1$ and $t_{2j-1}$ joined to $t_{2j}$ by an edge labelled $2$.
   We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC_{t_i}(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
 
-  Observe that $\phi_{t_2}=\phi_{t_{-2}}^{-1}$ is the piecewise-linear map given by
+  Observe that $\phi_{t_1}$ is the piecewise-linear map given by
+  \[\phi_{t_1}(\lambda)=\begin{cases} (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1\ge0$;}\\ (-\lambda_1,\lambda_2) & \text{if $\lambda_1<0$;} \end{cases}\]
+  and $\phi_{t_2}=\phi_{t_{-2}}^{-1}$ is the piecewise-linear map given by
   \begin{equation}
     \label{eq:forward two step mutation}
     \phi_{t_2}(\lambda)=\begin{cases} ((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\ (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\ (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}\end{cases}
   \end{equation}
-  and $\phi_{t_2}^{-1}=\phi_{t_{-2}}$ is the piecewise-linear map given by
+  while $\phi_{t_2}^{-1}=\phi_{t_{-2}}$ is the piecewise-linear map given by
   \begin{equation}
     \label{eq:backward two step mutation}
     \phi_{t_2}^{-1}(\lambda)=\begin{cases} (-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\ (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\ (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$;}\end{cases}
@@ -152,6 +155,7 @@
   \end{proof}
 
   \begin{lemma}
+    \label{le:imaginary transformations}
     For $j\in\ZZ$ and $\lambda\in\cI$, we have
     \begin{align*}
       \phi_{t_{2j}}(\lambda)&=(u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,-}\lambda_2);\\
@@ -172,17 +176,57 @@
     \end{align*}
     where the last equality uses \eqref{eq:long Chebyshev recursion}.
 
-    Similarly, using $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ gives the given formula for $\phi_{t_{2j+1}}$ from that of $\phi_{t_{2j}}$.
+    Similarly, using $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ gives the claimed formula for $\phi_{t_{2j+1}}$ from that of $\phi_{t_{2j}}$.
   \end{proof}
   
+  \begin{lemma}
+    For $i\ge2$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
+    \begin{align*}
+      u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
+      u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      -u_{i-1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      -u_{i-1,-}x-u_{i-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
+    \end{align*}
+    
+    given as in the figure below:
+    \[
+      \begin{tikzpicture}
+        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
+        \draw[-] (-8,0) -- (5,0);
+        \draw[-] (0,-5) -- (0,5);
+        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
+        \draw[-] (0,0) -- (5,-2.113);
+        \draw[-] (0,0) -- (3.17,-5);
+        \node at (1,-0.9) {$\cI$};
+        \draw[fill=black] (3.5,-3) circle (2pt);
+        \node[below right] at (3.5,-3) {$\lambda$};
+        \draw[->,thick] (3.5,-3) -- (47/10,-5);
+        \draw[-,thick] (3.5,-3) -- (0,26/10);
+        \draw[-,thick] (0,26/10) -- (-26/4,0);
+        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
+      \end{tikzpicture}
+    \]
+  \end{lemma}
+  \begin{proof}
+    Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
+
+    For $i=2j$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+
+    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2. \]
+  \end{proof}
+
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
   \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
   By the equalities 
   \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
   it follows that $u_{i,\varepsilon}$ can be computed explicitly as
   \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-  Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
-  Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
+  \begin{remark}
+    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
+    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
+  \end{remark}
 
   \begin{lemma}
     We have
