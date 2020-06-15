@@ -180,9 +180,16 @@
   \end{proof}
 
   \begin{lemma}
-    Let $A=(a_{ij})$ be a $2\times 2$ matrix.
-    Under the action of $A$, the region inside $\RR^2$ defined by the inequality $rx+sy\le t$ is transformed to the region defined by the inequality $\frac{ra_{22}-sa_{21}}{a_{11}a_{22}-a_{12}a_{21}}x + \frac{-ra_{12}+sa_{11}}{a_{11}a_{22}-a_{12}a_{21}}y\le t$.
+    \label{le:transformed inequalities}
+    Let $A=(a_{ij})$ be an invertible $2\times 2$ matrix.
+    Under the action of $A$, the region inside $\RR^2$ defined by the inequality $rx+sy\le t$ is transformed to the region defined by the inequality \[\frac{ra_{22}-sa_{21}}{a_{11}a_{22}-a_{12}a_{21}}x + \frac{-ra_{12}+sa_{11}}{a_{11}a_{22}-a_{12}a_{21}}y\le t.\]
   \end{lemma}
+  \begin{proof}
+    Assume $r,s,t\ne0$, the cases when one of these vanishes follows by the continuity of the transformation.
+    Observe that the points $\big(\frac{t}{r},0\big)$ and $\big(0,\frac{t}{s}\big)$ lie on the boundary line of the region defined by the inequality $rx+sy\le t$.
+    These are transformed under the action of $A$ into the points $\big(a_{11}\frac{t}{r},a_{21}\frac{t}{r}\big)$ and $\big(a_{12}\frac{t}{s},a_{22}\frac{t}{s}\big)$, respectively, which one readily checks lie along the purported boundary of the image region.
+    By the linearity of this transformation of $\RR^2$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
+  \end{proof}
   
   \begin{lemma}
     For $i\ge2$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
@@ -219,8 +226,20 @@
   \begin{proof}
     Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
 
-    For $i=2j$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    For $i=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    We inductively compute the region $\phi_{t_{2j}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{t_{2j}}^{-1}=\phi_{t_2}^{-j}$.
+
+    \subsubsection*{Claim:} For $k>0$, $\phi_{t_{2k}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ is the region determined by the inequalities 
+    \begin{align*}
+      \tag{a} u_{2k,-}x+u_{2k-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
+      \tag{b} u_{2k+1,-}x+u_{2k,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \tag{c} -u_{2k-1,-}x+u_{2k,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \tag{d} -u_{2k-1,-}x-u_{2k-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
+    \end{align*}
+
+    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $-cx-y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$.
 
     For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
     \[ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2. \]
