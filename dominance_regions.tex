@@ -136,22 +136,22 @@
   The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
   This leads to the following more general recursive structure.
   \begin{lemma}
-    For $i,k\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
+    For $i,j\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
     \begin{equation}
       \label{eq:long Chebyshev recursion}
-      u_{i+k,\varepsilon}=\begin{cases} u_{k+1,\varepsilon}u_{i,-\varepsilon}-u_{k,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i,\varepsilon}-u_{k,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even.} \end{cases}
+      u_{i+j,\varepsilon}=\begin{cases} u_{j+1,\varepsilon}u_{i,-\varepsilon}-u_{j,-\varepsilon}u_{i-1,\varepsilon} & \text{if $j$ is odd;}\\ u_{j+1,-\varepsilon}u_{i,\varepsilon}-u_{j,\varepsilon}u_{i-1,-\varepsilon} & \text{if $j$ is even.} \end{cases}
     \end{equation}
   \end{lemma}
   \begin{proof}
-    We work by induction on $k$, the cases $k=0,1$ being tautological and reproducing the defining recursion respectively.
-    Using the claim for $k>0$ and then the defining recursion twice, we get
+    We work by induction on $j$, the cases $j=0,1$ being tautological and reproducing the defining recursion respectively.
+    Using the claim for $j>0$ and then the defining recursion twice, we get
     \begin{align*}
-      u_{i+k+1,\varepsilon}&=\begin{cases} u_{k+1,\varepsilon}u_{i+1,-\varepsilon}-u_{k,-\varepsilon}u_{i,\varepsilon} & \text{if $k$ is odd;}\\ u_{k+1,-\varepsilon}u_{i+1,\varepsilon}-u_{k,\varepsilon}u_{i,-\varepsilon} & \text{if $k$ is even;} \end{cases}\\
-      &=\begin{cases} (u_{2,-\varepsilon}u_{k+1,\varepsilon}-u_{k,-\varepsilon})u_{i,\varepsilon}-u_{k+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k$ is odd;}\\ (u_{2,\varepsilon}u_{k+1,-\varepsilon}-u_{k,\varepsilon})u_{i,-\varepsilon}-u_{k+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k$ is even;} \end{cases}\\
-      &=\begin{cases} u_{k+2,-\varepsilon}u_{i,\varepsilon}-u_{k+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $k+1$ is even;}\\ u_{k+2,\varepsilon}u_{i,-\varepsilon}-u_{k+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $k+1$ is odd;} \end{cases}
+      u_{i+j+1,\varepsilon}&=\begin{cases} u_{j+1,\varepsilon}u_{i+1,-\varepsilon}-u_{j,-\varepsilon}u_{i,\varepsilon} & \text{if $j$ is odd;}\\ u_{j+1,-\varepsilon}u_{i+1,\varepsilon}-u_{j,\varepsilon}u_{i,-\varepsilon} & \text{if $j$ is even;} \end{cases}\\
+      &=\begin{cases} (u_{2,-\varepsilon}u_{j+1,\varepsilon}-u_{j,-\varepsilon})u_{i,\varepsilon}-u_{j+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $j$ is odd;}\\ (u_{2,\varepsilon}u_{j+1,-\varepsilon}-u_{j,\varepsilon})u_{i,-\varepsilon}-u_{j+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $j$ is even;} \end{cases}\\
+      &=\begin{cases} u_{j+2,-\varepsilon}u_{i,\varepsilon}-u_{j+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $j+1$ is even;}\\ u_{j+2,\varepsilon}u_{i,-\varepsilon}-u_{j+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $j+1$ is odd;} \end{cases}
     \end{align*}
-    which is the claimed recursion for $k+1$.
-    These calculations can be reverses to show the result for $k<0$.
+    which is the claimed recursion for $j+1$.
+    These calculations can be reverses to show the result for $j<0$.
   \end{proof}
 
   \begin{lemma}
@@ -239,10 +239,26 @@
     \end{align*}
 
     We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $-cx-y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$ which corresponds to (a) with $k=1$.
+    Similarly, the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\dagger$) intersects three domains of linearity in which $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $k=1$.
+    This establishes the base of an induction on $k$.
+
+    Assuming the inequalities (a-d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
+    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$.
+    Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
+    \[(u_{3,+}u_{2k,-}-u_{2,-}u_{2k-1,+})x+(u_{2,+}u_{2k,-}-u_{1,-}u_{2k-1,+})y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2,\]
+    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying this to (d) gives the inequality 
+    \[(-u_{3,+}u_{2k-1,-}+u_{2,-}u_{2k-2,+})x+(-u_{2,+}u_{2k-1,-}+u_{1,-}u_{2k-2,+})y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
+    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}.
+    Similarly, the boundary segment corresponding to (b) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
+    Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
+    \[(u_{1,+}u_{2k-1,-}-u_{2,-}u_{2k,+})x+(-u_{0,+}u_{2k-1,-}-u_{1,-}u_{2k,+})y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
+    which is the inequality (d) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
+
 
     For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2. \]
+    \[ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2. \]
   \end{proof}
 
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
