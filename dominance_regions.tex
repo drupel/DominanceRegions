@@ -85,7 +85,10 @@
   We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC_{t_i}(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
 
   Observe that $\phi_{t_1}$ is the piecewise-linear map given by
-  \[\phi_{t_1}(\lambda)=\begin{cases} (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1\ge0$;}\\ (-\lambda_1,\lambda_2) & \text{if $\lambda_1<0$;} \end{cases}\]
+  \begin{equation}
+    \label{eq:forward mutation 1}
+    \phi_{t_1}(\lambda)=\begin{cases} (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1\ge0$;}\\ (-\lambda_1,\lambda_2) & \text{if $\lambda_1<0$;} \end{cases}
+  \end{equation}
   and $\phi_{t_2}=\phi_{t_{-2}}^{-1}$ is the piecewise-linear map given by
   \begin{equation}
     \label{eq:forward two step mutation}
@@ -120,6 +123,7 @@
     This is immediate from the equality $(-bc+\sqrt{bc(bc-4)})(bc+\sqrt{bc(bc-4)})=-4bc$.
   \end{proof}
   \begin{lemma}
+    \label{le:imaginary stability}
     For $j\in\ZZ$ and $\lambda\in\cI$, we have $\phi_{t_{2j}}(\lambda)\in\cI$ and $\phi_{t_{2j+1}}(\lambda)\in\cI'$.
   \end{lemma}
   \begin{proof}
@@ -192,7 +196,7 @@
   \end{proof}
   
   \begin{lemma}
-    For $i\ge2$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
+    For $i\ge1$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
     \begin{align}
       \label{ineq:1} u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
       \label{ineq:2} u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
@@ -244,21 +248,45 @@
     By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $k=1$.
     This establishes the base of an induction on $k$.
 
-    Assuming the inequalities (a-d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
-    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$.
+    Assuming the inequalities (a)-(d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
+    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
     Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
     \[(u_{3,+}u_{2k,-}-u_{2,-}u_{2k-1,+})x+(u_{2,+}u_{2k,-}-u_{1,-}u_{2k-1,+})y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2,\]
-    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying this to (d) gives the inequality 
+    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
     \[(-u_{3,+}u_{2k-1,-}+u_{2,-}u_{2k-2,+})x+(-u_{2,+}u_{2k-1,-}+u_{1,-}u_{2k-2,+})y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
-    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}.
-    Similarly, the boundary segment corresponding to (b) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
+    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
+    \[(u_{3,+}u_{2k+1,-}-u_{2,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
+    which is the inequality (b) for $k+1$
+    .
+    Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
     Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
     \[(u_{1,+}u_{2k-1,-}-u_{2,-}u_{2k,+})x+(-u_{0,+}u_{2k-1,-}-u_{1,-}u_{2k,+})y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
     which is the inequality (d) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
+    Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
+    Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
+    \[(-u_{1,+}u_{2k+1,-}+u_{0,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
+    which is the inequality (c) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2,\]
+    which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
 
 
-    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2. \]
+    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2.\]
+    Using that $\phi_{t_{2j+1}}^{-1}=\phi_{t_2}^{-j}\phi_{t_1}^{-1}$, we compute the image inductively as above.
+    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_{t_1}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
+    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_{t_1}^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2$.
+    The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_{t_1}^{-1}$ and thus produces the inequalities
+    \[ cx+y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2.\]
+
+
+    \subsubsection*{Claim:} For $k\ge 0$, $\phi_{t_{2k+1}}^{-1}\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ is the region determined by the inequalities 
+    \begin{align*}
+      \tag{a$'$} u_{2k+1,-}x+u_{2k,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
+      \tag{b$'$} u_{2k+2,-}x+u_{2k+1,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \tag{c$'$} -u_{2k,-}x+u_{2k+1,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \tag{d$'$} -u_{2k,-}x-u_{2k-1,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
+    \end{align*}
+    By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_{t_2}^{-1}$ and this completes the proof.
   \end{proof}
 
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
