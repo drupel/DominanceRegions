@@ -53,23 +53,31 @@
   This dominance order is used by Qin to understand how these bases may be deformed in the case when there is a green-to-red sequence of mutations.
 
   \section{Lattice Mutations}
-  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric.
+  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
   For $b\in\ZZ$, write $[b]_+=max(b,0)$.
   Given a sign $\varepsilon\in\{\pm\}$ and $k\in\{1,\ldots,n\}$, define a matrix $E_{k,\varepsilon}=(e_{ij})$ with
-  \[ e_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ [\varepsilon b_{ik}]_+ & \text{if $i\ne j=k$;}\\ 0 & \text{otherwise.} \end{cases} \]
+  \begin{equation}
+    \label{eq:mutation matrix}
+    e_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ [\varepsilon b_{ik}]_+ & \text{if $i\ne j=k$;}\\ 0 & \text{otherwise.} \end{cases}
+  \end{equation}
   The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_kB=(b'_{ij})$ given by
   \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
-  To record sequences of these matrix mutations, we introduce the labelled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B_t$ for $t\in\TT_n$ satisfying:
+  One easily observes that $\mu_k B$ is again skew-symmetrizable using the same matrix $D$.
+
+  To record sequences of these matrix mutations, we introduce the labelled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B^t$ for $t\in\TT_n$ satisfying:
   \begin{itemize}
-    \item $B_{t_0}=B$;
-    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $B_{t'}=\mu_k B_t$.
+    \item $B^{t_0}=B$;
+    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $B^{t'}=\mu_k B^t$.
   \end{itemize}
 
-  Define $\phi_k:\ZZ^n\to\ZZ^n$ as the piecewise-linear map $\phi_k(\lambda)=\begin{cases} E_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E_{k,-}\lambda & \text{if $\lambda_k<0$.} \end{cases}$.
-  Define the piecewise-linear automorphisms $\phi_t:\ZZ^n\to\ZZ^n$ by
+  For $t\in\TT_n$, define $\phi^t_k:\ZZ^n\to\ZZ^n$ as the piecewise-linear map
+  \[\phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}\]
+  where the entries of $E^t_{k,\varepsilon}$ is given by \eqref{eq:mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
+  We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labelled $k$.
+  For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\ZZ^n\to\ZZ^n$ by
   \begin{itemize}
     \item $\phi_{t_0}=\Id$;
-    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $\phi_{t'}=\phi_k \phi_t$.
+    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
   \end{itemize}
   For $\lambda\in\ZZ^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
   \begin{definition}
