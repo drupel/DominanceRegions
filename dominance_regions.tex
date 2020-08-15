@@ -16,6 +16,7 @@
 \newcommand{\bfg}{\mathbf{g}}
 
 \newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
 \newcommand{\cI}{\mathcal{I}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cQ}{\mathcal{Q}}
@@ -71,21 +72,26 @@
     \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $B^{t'}=\mu_k B^t$.
   \end{itemize}
 
-  For $t\in\TT_n$, define $\phi^t_k:\ZZ^n\to\ZZ^n$ as the piecewise-linear map
+  (DR: I changed to $\RR$ because it didn't seem like we really cared about integer points at the moment, when we try to link up with minors this will need to be added.)
+  For $t\in\TT_n$, define $\phi^t_k:\RR^n\to\RR^n$ as the piecewise-linear map
   \[\phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}\]
   where the entries of $E^t_{k,\varepsilon}$ is given by \eqref{eq:mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
   We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labelled $k$.
-  For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\ZZ^n\to\ZZ^n$ by
+  For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\RR^n\to\RR^n$ by
   \begin{itemize}
     \item $\phi_{t_0}=\Id$;
     \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
   \end{itemize}
-  For $\lambda\in\ZZ^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
+  For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
   \begin{definition}
-    For $\lambda\in\ZZ^n$, define the \emph{dominance polytope} 
+    For $\lambda\in\RR^n$, define the \emph{dominance polytope} 
     \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda). \]
+    When $\mu\in\cP(\lambda)$, we say \emph{$\lambda$ dominates $\mu$}.
   \end{definition}
   Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
+  \begin{lemma}
+    The sets $\cP(\lambda)$ are actually polytopes.
+  \end{lemma}
 
   \section{Rank Two}
   Fix integers $b,c>0$ and assume $bc\ge 4$.
@@ -419,4 +425,26 @@
     \\
     (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1-b\lambda_2
   \end{align}
+
+  \section{The Total Domination Polyhedron}
+
+  Define the \emph{total domination polyhedron} $\cD:=\{(\lambda,\mu):\mu\in\cP(\lambda)\}$, i.e. this is the set of all pairs where $\lambda$ dominates $\mu$.
+  Write $\pi_1:\cD\to\RR^n$ for the projection to $\lambda$ and $\pi_2:\cD\to\RR^n$ for the projection to $\mu$.
+  \begin{itemize}
+    \item Is it a polyhedron?
+    \item The lemma below might suggest so.  
+      Indeed, if it is, by the Decomposition Theorem, we can write $\cD$ as the Minkowski sum of a polyhedral cone (almost certainly $\cI$) and a convex polytope (what is it?).
+      I am ignoring that it should really be the union of this polyhedron with a plane if the previous sentence holds any water.
+    \item Actually, we might need to take the union of several polyhedra to account for the variations in the fibers $\pi_1^{-1}(\lambda)$.
+  \end{itemize}
+
+  Is the following result true beyond rank 2?
+  \begin{lemma}
+    For $\mu\in\RR^2$, $\pi_2^{-1}(\mu)$ is a translate of the imaginary cone $\cI$ or the union of such with a single point.
+  \end{lemma}
+  \begin{proof}
+    Maybe the vertex of this cone is given by $\lambda=(\lambda_1,\lambda_2)$ where
+    \[\lambda_1=\frac{2b\mu_2-4\mu_1}{bc-4+\sqrt{bc(bc-4)}} \qquad \text{and} \qquad \lambda_2=\frac{2c\mu_1-4\mu_2}{bc-4+\sqrt{bc(bc-4)}}.\]
+  \end{proof}
+
 \end{document}
