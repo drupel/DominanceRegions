@@ -51,8 +51,9 @@
   \maketitle
 
   \section{Introduction}
-  The investigations of this paper are inspired by the dominance order for the tropical labellings for bases of cluster algebras.
+  The investigations of this paper are inspired by the dominance order on the tropical labelings for bases of cluster algebras.
   This dominance order is used by Qin to understand how these bases may be deformed in the case when there is a green-to-red sequence of mutations.
+  In particular, these calculations can be carried out for any acyclic cluster algebra.
 
   \section{Lattice Mutations}
   Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
@@ -66,56 +67,56 @@
   \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
   One easily observes that $\mu_k B$ is again skew-symmetrizable using the same matrix $D$.
 
-  To record sequences of these matrix mutations, we introduce the labelled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B^t$ for $t\in\TT_n$ satisfying:
+  To record sequences of these matrix mutations, we introduce the labeled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B^t$ for $t\in\TT_n$ satisfying:
   \begin{itemize}
     \item $B^{t_0}=B$;
-    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $B^{t'}=\mu_k B^t$.
+    \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $B^{t'}=\mu_k B^t$.
   \end{itemize}
 
   (DR: I changed to $\RR$ because it didn't seem like we really cared about integer points at the moment, when we try to link up with minors this will need to be added.)
   For $t\in\TT_n$, define $\phi^t_k:\RR^n\to\RR^n$ as the piecewise-linear map
   \[\phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}\]
   where the entries of $E^t_{k,\varepsilon}$ is given by \eqref{eq:mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
-  We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labelled $k$.
+  We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labeled $k$.
   For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\RR^n\to\RR^n$ by
   \begin{itemize}
     \item $\phi_{t_0}=\Id$;
-    \item if $t,t'\in\TT_n$ are joined by an edge labelled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
+    \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
   \end{itemize}
   For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
   \begin{definition}
-    For $\lambda\in\RR^n$, define the \emph{dominance polytope} 
+    For $\lambda\in\RR^n$, define the \emph{dominance region} 
     \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda). \]
     When $\mu\in\cP(\lambda)$, we say \emph{$\lambda$ dominates $\mu$}.
   \end{definition}
   Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
   \begin{lemma}
-    The sets $\cP(\lambda)$ are actually polytopes.
+    The sets $\cP(\lambda)$ are polytopes.
   \end{lemma}
 
   \section{Rank Two}
   Fix integers $b,c>0$ and assume $bc\ge 4$.
   Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
-  Here we may take $\TT_2$ to have vertices labelled $t_i$ for $i\in\ZZ$, with $t_{2j}$ joined to $t_{2j+1}$ by an edge labelled $1$ and $t_{2j-1}$ joined to $t_{2j}$ by an edge labelled $2$.
+  Here we may take the 2-regular tree $\TT_2$ to have vertices labeled $t_i$ for $i\in\ZZ$, with $t_{2j}$ joined to $t_{2j+1}$ by an edge labeled $1$ and $t_{2j-1}$ joined to $t_{2j}$ by an edge labeled $2$.
   We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC_{t_i}(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
 
-  Observe that $\phi_{t_1}$ is the piecewise-linear map given by
+  Observe that $\phi_{t_1}:=\phi_1^{t_0}$ is the piecewise-linear map given by
   \begin{equation}
     \label{eq:forward mutation 1}
     \phi_{t_1}(\lambda)=\begin{cases} (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1\ge0$;}\\ (-\lambda_1,\lambda_2) & \text{if $\lambda_1<0$;} \end{cases}
   \end{equation}
-  and $\phi_{t_2}=\phi_{t_{-2}}^{-1}$ is the piecewise-linear map given by
+  and $\phi_{t_2}:=\phi_2^{t_1}\phi_1^{t_0}$ is the piecewise-linear map given by
   \begin{equation}
     \label{eq:forward two step mutation}
-    \phi_{t_2}(\lambda)=\begin{cases} ((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\ (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\ (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}\end{cases}
+    \phi_{t_2}(\lambda)=\begin{cases} \big((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2\big) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\ (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\ (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}\end{cases}
   \end{equation}
   while $\phi_{t_2}^{-1}=\phi_{t_{-2}}$ is the piecewise-linear map given by
   \begin{equation}
     \label{eq:backward two step mutation}
-    \phi_{t_2}^{-1}(\lambda)=\begin{cases} (-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\ (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\ (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$;}\end{cases}
+    \phi_{t_2}^{-1}(\lambda)=\begin{cases} \big(-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2\big) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\ (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\ (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$;}\end{cases}
   \end{equation}
 
-  By an eigenvector of a piecewise-linear map $\phi$, we mean a vector $\lambda$ such that for each $k\ge0$, there exists a scalar $\nu_k$ so that $\phi^k(\lambda)=\nu_k\lambda$.
+  By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $k\ge0$, there exists a scalar $\nu_k$ so that $\phi^k(\lambda)=\nu_k\lambda$.
   \begin{lemma}
     Any nonzero eigenvector of $\phi_{t_2}$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
   \end{lemma}
@@ -124,27 +125,27 @@
     In this region, $\phi_{t_2}$ is linear with eigenvalue $\nu$ satisfying $\nu^2-(bc-2)\nu+1=0$, i.e. $\nu=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
     We thus require that 
     \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1=(bc-1)\lambda_1+b\lambda_2 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_2= -c\lambda_1-\lambda_2,\]
-    or
+    or, equivalently, that
     \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_1=\lambda_2 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1.\]
     As these represent the same relation, the result immediately follows by inspection.
   \end{proof}
 
-  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$.
-  Also, write $\cI' \subset \RR^2$ for the \emph{dual imaginary cone} (positively) spanned by the vectors $(-bc\pm\sqrt{bc(bc-4)},2c)$.
+  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
+  Also, write $\cI' \subset \RR^2$ for the \emph{dual imaginary cone} (positively) spanned by the vectors $\big(-bc\pm\sqrt{bc(bc-4)},2c\big)$.
   \begin{lemma}
-    The vectors $(2b, -bc+\sqrt{bc(bc-4)})$ (resp. $(2b, -bc-\sqrt{bc(bc-4)})$) and $(2c, bc+\sqrt{bc(bc-4)})$ (resp. $(2c, bc-\sqrt{bc(bc-4)})$) are perpendicular.
+    The vectors $\big(2b, -bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2b, -bc-\sqrt{bc(bc-4)}\big)$) and $\big(2c, bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2c, bc-\sqrt{bc(bc-4)}\big)$) are perpendicular.
   \end{lemma}
   \begin{proof}
-    This is immediate from the equality $(-bc+\sqrt{bc(bc-4)})(bc+\sqrt{bc(bc-4)})=-4bc$.
+    This is immediate from the equality $\big(-bc+\sqrt{bc(bc-4)}\big)\big(bc+\sqrt{bc(bc-4)}\big)=-4bc$.
   \end{proof}
   \begin{lemma}
     \label{le:imaginary stability}
     For $j\in\ZZ$ and $\lambda\in\cI$, we have $\phi_{t_{2j}}(\lambda)\in\cI$ and $\phi_{t_{2j+1}}(\lambda)\in\cI'$.
   \end{lemma}
   \begin{proof}
-    Note that $\phi_{t_{2j}}=\phi_{t_2}^j$ and $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ so the result follows from the cases $j=1$ and $j=0$ respectively.
-    The claim is immediate for $\phi_{t_2}$ since the vectors $(2b,-bc\pm\sqrt{bc(bc-4)})$ are eigenvectors.
-    Now, we have $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ and so $\phi_{t_1}\big( (2b,-bc\pm\sqrt{bc(bc-4)}) \big)=(-2b,bc\pm\sqrt{bc(bc-4)})$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$ and the result follows for arbitrary $\lambda\in\cI$ by linearity.
+    Note that $\phi_{t_{2j}}=\phi_{t_2}^j$ and $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ so the result follows from the cases $j=1$ and $j=0$, respectively.
+    The claim is immediate for $\phi_{t_2}$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_{t_2}$ is linear in $\cI$.
+    Now, since $b>0$, we have $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ and so $\phi_{t_1}\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$ and the result follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_{t_1}$ in this region.
   \end{proof}
 
   It will be useful to have explicit expressions for $\phi_{t_i}(\lambda)$ for $\lambda\in\cI$.
@@ -162,7 +163,7 @@
     \end{equation}
   \end{lemma}
   \begin{proof}
-    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion respectively.
+    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
     Using the claim for $j>0$ and then the defining recursion twice, we get
     \begin{align*}
       u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
@@ -173,6 +174,7 @@
     These calculations can be reversed to show the result for $\ell<0$.
   \end{proof}
 
+  The following gives the desired expressions for $\phi_{t_i}(\lambda)$ when $\lambda\in\cI$.
   \begin{lemma}
     \label{le:imaginary transformations}
     For $j\in\ZZ$ and $\lambda\in\cI$, we have
@@ -193,11 +195,12 @@
       &\qquad -(u_{2,-}u_{2j+1,+}-u_{1,+}u_{2j,-})\lambda_1-(u_{2,-}u_{2j,+}-u_{1,+}u_{2j-1,-})\lambda_2 \big)\\
       &=(u_{2j+3,+}\lambda_1+u_{2j+2,+}\lambda_2, -u_{2j+2,-}\lambda_1-u_{2j+1,-}\lambda_2),
     \end{align*}
-    where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
+    as desired, where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
 
     Similarly, using $\phi_{t_1}(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ gives the claimed formula for $\phi_{t_{2j+1}}$ from that of $\phi_{t_{2j}}$.
   \end{proof}
 
+  Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP(\lambda)$ for $\lambda\in\cI$.
   \begin{lemma}
     \label{le:transformed inequalities}
     Let $A=(a_{ij})$ be an invertible $2\times 2$ matrix.
@@ -207,7 +210,7 @@
     Assume $r,s,t\ne0$, the cases when one of these vanishes follows by the continuity of the transformation.
     Observe that the points $\big(\frac{t}{r},0\big)$ and $\big(0,\frac{t}{s}\big)$ lie on the boundary line of the region defined by the inequality $rx+sy\le t$.
     These are transformed under the action of $A$ into the points $\big(a_{11}\frac{t}{r},a_{21}\frac{t}{r}\big)$ and $\big(a_{12}\frac{t}{s},a_{22}\frac{t}{s}\big)$, respectively, which one readily checks lie along the purported boundary of the image region.
-    By the linearity of this transformation of $\RR^2$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
+    By the linearity of the transformation of $\RR^2$ given by the matrix $A$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
   \end{proof}
   
   \begin{lemma}
