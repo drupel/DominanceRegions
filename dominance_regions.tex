@@ -33,6 +33,7 @@
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\diag}{\operatorname{diag}}
 \newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\obeta}{{\overline{\beta}}}
 \newcommand{\oi}{{\overline{\imath}}}
@@ -74,10 +75,14 @@
     \label{eq:right mutation matrix}
     f_{ij}=\begin{cases} 1 & \text{if $k\ne i=j$;}\\ -1 & \text{if $k=i=j$;}\\ [-\varepsilon b_{kj}]_+ & \text{if $k=i\ne j$;}\\ 0 & \text{otherwise.} \end{cases}
   \end{equation}
+  Observe that $E^2_{k,\varepsilon}=\Id$ and $F^2_{k,\varepsilon}=\Id$ for any $k$ and any choice of $\varepsilon$.
+
   The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_kB=(b'_{ij})$ given by
   \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
   One easily observes that $\mu_k B$ is again skew-symmetrizable using the same matrix $D$.
-  Note that $\mu_k B=E_{k,\varepsilon} B F_{k,\varepsilon}$ for $\varepsilon=\pm 1$, the case $\varepsilon=1$ being obvious from the definitions and the case $\varepsilon=-1$ following from the identity $b_{ij}=[b_{ij}]_+-[-b_{ij}]_+$.
+  \begin{remark}
+    Note that $\mu_k B=E_{k,\varepsilon} B F_{k,\varepsilon}$ for $\varepsilon=\pm 1$, the case $\varepsilon=1$ being obvious from the definitions and the case $\varepsilon=-1$ following from the identity $b_{ij}=[b_{ij}]_+-[-b_{ij}]_+$.
+  \end{remark}
 
   To record sequences of these matrix mutations, we introduce the labeled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B^t$ for $t\in\TT_n$ satisfying:
   \begin{itemize}
@@ -88,8 +93,19 @@
   (DR: I changed to $\RR$ because it didn't seem like we really cared about integer points at the moment, when we try to link up with minors this will need to be added.)
   For $t\in\TT_n$, define $\phi^t_k:\RR^n\to\RR^n$ as the piecewise-linear map
   \[\phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}\]
-  where the entries of $E^t_{k,\varepsilon}$ is given by \eqref{eq:left mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
+  where the entries of $E^t_{k,\varepsilon}$ are given by \eqref{eq:left mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
   We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labeled $k$.
+  \begin{lemma}
+    Suppose $t,t'\in\TT_n$ are joined by an edge labeled $k$.
+    If $\lambda\in\Im(B^t)$, then $\phi^t_k(\lambda)\in\Im(B^{t'})$.
+  \end{lemma}
+  \begin{proof}
+    Suppose $\lambda=B^t\alpha$ for some $\alpha\in\RR^n$.
+    Then 
+    \[\phi^t_k(\lambda)=E^t_{k,\pm}\lambda=E^t_{k,\pm} B^t\alpha=E^t_{k,\pm} B^t F^t_{k,\pm} F^t_{k,\pm}\alpha=B^{t'} F^t_{k,\pm}\alpha\]
+    so that $\phi^t_k(\lambda)\in\Im(B^{t'})$.
+  \end{proof}
+
   For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\RR^n\to\RR^n$ by
   \begin{itemize}
     \item $\phi_{t_0}=\Id$;
@@ -451,15 +467,15 @@
   \begin{align}
     \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
     \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2 
+    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq \frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2 
     \\
-    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2
+    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
     \\
     -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
     \\
-    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1
+    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1
     \\
-    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1-b\lambda_2
+    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
   \end{align}
 
   \section{The Total Domination Polyhedron}
