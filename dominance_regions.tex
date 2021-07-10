@@ -9,6 +9,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}{Question}
 
 \numberwithin{theorem}{section}
 
@@ -34,13 +35,14 @@
 \newcommand{\ol}[1]{{\overline{#1}}}
 
 \newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Col}{\operatorname{Col}}
 \newcommand{\diag}{\operatorname{diag}}
 \newcommand{\Id}{\operatorname{Id}}
-\renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\obeta}{{\overline{\beta}}}
 \newcommand{\oi}{{\overline{\imath}}}
 \newcommand{\ot}{{\overline{t}}}
+\newcommand{\wt}{{\operatorname{wt}}}
 
 \title{Dominance Regions for Imaginary $\bfg$-vectors}
 
@@ -75,10 +77,15 @@
 
   \section{Lattice Mutations and Linear Inequalities}
   Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
-  Write $\Im(B)$ for the span of the columns of $B$ inside $\RR^n$ and $\Im^+(B)$ for their non-negative span.
-  Define $\Im_\ZZ(B)$ and $\Im^+_\ZZ(B)$ analogously over the integers.
+  Write $\Col(B)$ for the span of the columns of $B$ inside $\RR^n$ and $\Col^+(B)$ for their non-negative span.
+  Define $\Col_\ZZ(B)$ and $\Col^+_\ZZ(B)$ analogously over the integers.
+
   The matrix $B$ is \emph{acyclic} if there is no sequence $i_1,\ldots,i_m,i_{m+1}=i_1$ so that $b_{i_\ell i_{\ell+1}}>0$ for $1\le\ell\le m$.
-  In the case when $B$ is acyclic, there exists a labeling $\{k_1,\ldots,k_n\}=\{1,\ldots,n\}$ so that $\ell<\ell'$ implies $b_{k_\ell k_{\ell'}}\ge 0$, such a sequence is called \emph{sink-adapted}.
+  This condition is naturally interpreted in terms of an associated quiver $Q_B$ with $n$ vertices and an arrow $i\to j$ whenever $b_{ji}>0$ (if we need to use representation theory at any point we'll have to change this to be $\gcd(b_{ij},b_{ji})$ arrows $i\to j$).
+  Indeed, this is precisely the condition that $Q_B$ has no oriented cycles.
+  In the case when $B$ is acyclic, there exists a labeling $\{k_1,\ldots,k_n\}=\{1,\ldots,n\}$ so that $\ell<\ell'$ implies $b_{k_{\ell'} k_\ell}\ge 0$.
+  The sequence $(k_1,\ldots,k_n)$ (resp. $(k_n,\ldots,k_1)$) is said to be \emph{source-adapted} (resp. \emph{sink-adapted}) since the condition implies $k_1$ is a source and $k_n$ is a sink in $Q_B$.
+  %\sayDR{We need to pin down this convention.}
 
   For $b\in\ZZ$, write $[b]_+=max(b,0)$.
   Given a sign $\varepsilon\in\{\pm\}$ and $k\in\{1,\ldots,n\}$, define a matrix $E_{k,\varepsilon}=(e_{ij})$ with
@@ -113,13 +120,13 @@
   We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labeled $k$.
   \begin{lemma}
     Suppose $t,t'\in\TT_n$ are joined by an edge labeled $k$.
-    If $\lambda\in\Im(B^t)$, then $\phi^t_k(\lambda)\in\Im(B^{t'})$.
+    If $\lambda\in\Col(B^t)$, then $\phi^t_k(\lambda)\in\Col(B^{t'})$.
   \end{lemma}
   \begin{proof}
     Suppose $\lambda=B^t\alpha$ for some $\alpha\in\RR^n$.
     Then 
     \[\phi^t_k(\lambda)=E^t_{k,\pm}\lambda=E^t_{k,\pm} B^t\alpha=E^t_{k,\pm} B^t F^t_{k,\pm} F^t_{k,\pm}\alpha=B^{t'} F^t_{k,\pm}\alpha\]
-    so that $\phi^t_k(\lambda)\in\Im(B^{t'})$.
+    so that $\phi^t_k(\lambda)\in\Col(B^{t'})$.
   \end{proof}
 
   For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\RR^n\to\RR^n$ by
@@ -127,45 +134,77 @@
     \item $\phi_{t_0}=\Id$;
     \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
   \end{itemize}
+
+  Suppose $B$ is acyclic.
+  Given a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, define a quiver $Q_{B,\varepsilon}$ from $Q_B$ by removing all arrows starting at vertex $i$ whenever $\varepsilon_i=-1$.
+  For $1\le j\le n$, define $\cP_j(Q_{B,\varepsilon})$ as the set of paths in $Q_{B,\varepsilon}$ starting at vertex $j$.
+  Elements of $\cP_j(Q_{B,\varepsilon})$ are sequences of vertices $(p_1,\ldots,p_r)$ with $p_1=j$ and $b_{p_{t+1}p_t}>0$ for $1\le t\le r-1$.
+  Given a path $p\in\cP_j(Q_{B,\varepsilon})$, a vertex $i\in Q_0$, and a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, set
+  \[\wt_{i,\varepsilon}(p):=-b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}\prod_{t=1}^{r-1} b_{p_{t+1}p_t},\]
+  where the prefactor $b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}$ is omitted if $i=p_r$ or $\varepsilon_{p_r}=-1$.
   \begin{lemma}
-    Suppose $B$ is acyclic with sink-adapted sequence $k_1,\ldots,k_n$.
+    Suppose $B$ is acyclic with source-adapted sequence $k_1,\ldots,k_n$.
     Consider $t_1,\ldots,t_n\in\TT_n$ so that $t_{\ell-1}$ is joined to $t_\ell$ by an edge in $\TT_n$ labeled by $k_\ell$ for $1\le\ell\le n$.
-    For a sequence of signs $\varepsilon_1,\ldots,\varepsilon_n$, the product $E^{t_{n-1}}_{k_n,\varepsilon_n}\cdots E^{t_0}_{k_1,\varepsilon_1}$ is given by $A=(a_{ij})$ where
-    \[a_{k_{\ell'} k_\ell}=\sum_{U=\{\ell=\ell_1<\ldots<\ell_t\}\subseteq[\![\ell,n]}\prod_{s=1}^t \begin{cases} [-\varepsilon_{\ell_t}b_{k_{\ell'} k_{\ell_t}}]_+ & \text{if $s=t$ and $\ell_t>\ell'$}\\ -1 & \text{if $s=t$ and $\ell_t=\ell'$}\\ [\varepsilon_{\ell_s} b_{k_{\ell_{s+1}} k_{\ell_s}}]_+ & \text{if $s<t$ and $\ell_t\ge\ell'$}\\ 0 & \text{if $\ell'>\ell_t$} \end{cases} \]
-    
+    For a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, the product $E^{t_{n-1}}_{k_n,\varepsilon_{k_n}}\cdots E^{t_0}_{k_1,\varepsilon_{k_1}}$ is given by $\tau=(\tau_{ij})$ with
+    \begin{equation}
+      \label{eq:tropical twist}
+      \tau_{ij}=\sum_{p\in\cP_j(Q_{B,\varepsilon})}^* \wt_{i,\varepsilon}(p),
+    \end{equation}
+    where the $*$ indicates that the summation includes the trivial path at $j$ only if $i\le j$ when $\varepsilon_j=1$ and only if $i=j$ when $\varepsilon_j=-1$.
+
     Then $\phi_{t_n}$ is the following piecewise-linear automorphism:
     \begin{equation}
       \label{eq:tropical twist}
-      \text{(This is going to require casework with the possible signs, we'll really only need it for imaginary $\bfg$-vectors.)}
+      \text{(This is going to require casework with the possible signs, we'll really only need it for imaginary $\bfg$-vectors though.)}
     \end{equation}
+    The answer comes from selectively ``turning off'' arrows out of chosen vertices as indicated by choosing $\varepsilon_i=-1$.
   \end{lemma}
   \begin{proof}
-    We prove the following modified formula for the product $E^{t_{m-1}}_{k_m,\varepsilon_n}\cdots E^{t_0}_{k_1,\varepsilon_1}$ with $1\le m\le n$ by induction on $m$.
-    Writing this matrix as $A^{(m)}=(a^{(m)}_{ij})$, we claim that
-    \[a^{(m)}_{k_{\ell'} k_\ell}=\sum_{U=\{\ell=\ell_1<\ldots<\ell_t\}\subseteq[\![\ell,n]}\prod_{s=1}^t \begin{cases} [-\varepsilon_{\ell_t}b_{k_{\ell'} k_{\ell_t}}]_+ & \text{if $s=t$ and $m\ge\ell_t>\ell'$}\\ -1 & \text{if $s=t$ and $m\ge\ell_t=\ell'$}\\ [\varepsilon_{\ell_s} b_{k_{\ell_{s+1}} k_{\ell_s}}]_+ & \text{if $s<t$ and $\ell_t\ge\ell'$}\\ [\varepsilon_\ell b_{k_{\ell'} k_\ell}]_+ & \text{if $\ell'>m\ge\ell_t=\ell$}\\ 1 & \text{if $\ell=\ell_t=\ell'>m$}\\ 0 & \text{if $m\ge\ell'>\ell_t$ or $\ell_t>\ell'>m$} \end{cases} \]
-    Observe that the additional conditions vanish when $m=n$, proving the desired result once this formula is established.
-
-    Since the sequence $k_1,\ldots,k_n$ is sink-adapted, the matrix $E^{t_{\ell-1}}_{k_\ell,\varepsilon_\ell}$, for $1\le\ell\le n$, has entries $e^{(\ell)}_{ij}$ given by
+    We prove the following modified formula for the product $E^{t_{n-1}}_{k_n,\varepsilon_{k_n}}\cdots E^{t_{m-1}}_{k_m,\varepsilon_{k_m}}$ for $1\le m\le n$ by reverse induction on $m$.
+    Writing this matrix as $\tau^{(m)}=(\tau^{(m)}_{ij})$, we claim that
     \begin{equation}
-      \label{eq:sink mutation matrix}
-      e^{(\ell)}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k_\ell$;}\\ -1 & \text{if $i=j=k_\ell$;}\\ [-\varepsilon_\ell b_{ik_\ell}]_+ & \text{if $i=k_{\ell'}$, $j=k_\ell$, $\ell>\ell'$;}\\ [\varepsilon_\ell b_{ik_\ell}]_+ & \text{if $i=k_{\ell'}$, $j=k_\ell$, $\ell'>\ell$;}\\ 0 & \text{otherwise;} \end{cases}
+      \label{eq:tropical twist}
+      \tau^{(m)}_{ij}=\begin{cases} \sum\limits_{p\in\cP_j(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) & \text{if $j=k_\ell$ with $m\le\ell$;}\\ \delta_{ij} & \text{otherwise;} \end{cases}
     \end{equation}
-    the entries for $\ell'<\ell$ picking up this sign from the prior matrix mutations.
-    From this, it is easy to see that $a^{(1)}_{k_{\ell'} k_\ell}=e^{(1)}_{k_{\ell'} k_\ell}$ for $\ell,\ell'\in[1,n]$, this establishes the base of the induction on $m$.
+    where $Q_{B,\varepsilon}^{(m)}$ is the full subquiver of $Q_{B,\varepsilon}$ on vertices $k_m,\ldots,k_n$.
+    Note that the weight function follows the same definition as above.
 
-    Now suppose the matrix $A^{(m)}$ is given as above.
-    We need to check that 
+    Since the sequence $k_1,\ldots,k_n$ is source-adapted, the matrix $E^{t_{m-1}}_{k_m,\varepsilon_m}$, for $1\le m\le n$, has entries $e^{(m)}_{ij}$ given by
+    \begin{equation}
+      \label{eq:source mutation matrix}
+      e^{(m)}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k_m$;}\\ -1 & \text{if $i=j=k_m$;}\\ [-\varepsilon_{k_m} b_{ik_m}]_+ & \text{if $i=k_\ell$, $j=k_m$, $\ell<m$;}\\ [\varepsilon_{k_m} b_{ik_m}]_+ & \text{if $i=k_\ell$, $j=k_m$, $m<\ell$;}\\ 0 & \text{otherwise;} \end{cases}
+    \end{equation}
+    the entries for $\ell<m$ picking up the sign from the prior matrix mutations.
+
+    For $m=n$, it is clear that $\tau^{(n)}_{ij}=e^{(n)}_{ij}$ for $j\ne k_n$.
+    If $\varepsilon_{k_n}=1$, there is only the trivial path $(k_n)$ in $Q_{B,\varepsilon}^{(n)}$ and we have $\tau^{(n)}_{ik_n}=-b_{ik_n}$, which agrees with $e^{(n)}_{ik_n}$ in this case.
+    Otherwise, $\varepsilon_{k_n}=-1$ and the sum is empty for $i\ne k_n$ giving $\tau^{(n)}_{ik_n}=0=e^{(n)}_{ik_n}$ or only takes the trivial path for $i=k_n$ giving $\tau^{(n)}_{k_nk_n}=-1=e^{(n)}_{k_nk_n}$.
+    This gives the base of the induction.
+
+    Now suppose the matrix $\tau^{(m)}$ is given as above.
+    Using equation \eqref{eq:source mutation matrix}, we need to check that 
     \begin{equation}
       \label{eq:twist matrix recursion}
-      a^{(m+1)}_{k_{\ell'} k_\ell}=\sum\limits_{\ell''=1}^n e^{(m+1)}_{k_{\ell'} k_{\ell''}} a^{(m)}_{k_{\ell''} k_\ell}.
+      \tau^{(m-1)}_{ij}=\sum\limits_{p=1}^n \tau^{(m)}_{ip} e^{(m-1)}_{pj}=\begin{cases} \tau^{(m)}_{ij} & \text{if $j\ne k_{m-1}$;}\\ -\tau^{(m)}_{ik_{m-1}} + \sum\limits_{\ell=1}^{m-2} \tau^{(m)}_{i k_\ell} [-\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ + \sum\limits_{\ell=m}^n \tau^{(m)}_{i k_\ell} [\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ & \text{if $j=k_{m-1}$;}\end{cases}
     \end{equation}
-    It will be convenient to distinguish cases:
-    \begin{itemize}
-      \item For $\ell'=m+1$, the right hand side of \eqref{eq:twist matrix recursion} becomes $-a^{(m)}_{k_{m+1} k_\ell}$.
-      \item If $\ell'>m+1$, the right hand side of \eqref{eq:twist matrix recursion} becomes $a^{(m)}_{k_{\ell'} k_\ell}+[\varepsilon_{m+1} b_{k_{\ell'} k_{m+1}}]_+ a^{(m)}_{k_{m+1} k_\ell}$.
-      \item If $m+1>\ell'$, the right hand side of \eqref{eq:twist matrix recursion} becomes $a^{(m)}_{k_{\ell'} k_\ell}+[-\varepsilon_{m+1} b_{k_{\ell'} k_{m+1}}]_+ a^{(m)}_{k_{m+1} k_\ell}$.
-    \end{itemize}
+    is computed by the formula above.
+    First observe that $\tau^{(m-1)}_{ij}=\tau^{(m)}_{ij}=\delta_{ij}$ if $j=k_\ell$ with $\ell<m-1$.  
+    Second observe that $\cP_j(Q_{B,\varepsilon}^{(m-1)})=\cP_j(Q_{B,\varepsilon}^{(m)})$ whenever $j=k_\ell$ with $m\le\ell$, i.e. the purported formulas for $\tau^{(m-1)}_{ij}$ and $\tau^{(m)}_{ij}$ agree in this case.
+    Therefore it remains to show that
+    \[
+      \tau^{(m-1)}_{i k_{m-1}}=-\delta_{ik_{m-1}} + \sum\limits_{\ell=1}^{m-2} \delta_{i k_\ell} [-\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ + \sum\limits_{\ell=m}^n \sum\limits_{p\in\cP_{k_\ell}(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) [\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+
+    \]
+    agrees with the desired expression.
+    Indeed, for $\varepsilon_{k_{m-1}}=-1$ this reduces to $\tau^{(m-1)}_{i k_{m-1}}=-\delta_{i k_{m-1}}$ which matches with the desired expression in this case.
+    Then assuming $\varepsilon_{k_{m-1}}=1$, we are comparing with
+    \[
+      \tau^{(m-1)}_{i k_{m-1}}=-\delta_{ik_{m-1}} - \sum\limits_{\ell=1}^{m-2} \delta_{i k_\ell} b_{k_\ell k_{m-1}} + \sum\limits_{\ell=m}^n \sum\limits_{p\in\cP_{k_\ell}(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) b_{k_\ell k_{m-1}}.
+    \]
+    But observe that the final summation above contributes the nontrivial paths to the summation $\sum\limits_{p\in\cP_{k_{m-1}}(Q_{B,\varepsilon}^{(m-1)})}^* \wt_{i,\varepsilon}(p)$ while the first two terms above give the contribution, depending on $i$, corresponding to the trivial path $(k_{m-1})$.
   \end{proof}
+  \begin{question}
+    Is the trace of $\tau$ an invariant of matrix mutations?  P.A.: It is invariant under sink and source mutations since the trace is a class function and these mutations simply enact a cyclic shift in the factors of $\tau$.
+  \end{question}
 
   For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
   \begin{definition}
@@ -575,4 +614,29 @@
     We want to understand what the curve is that results when we have $\mu$ lie along the unit circle, this should be possible by plugging $(\cos(\theta),\sin(\theta))$ into this formula for $\lambda$ and seeing what ellipse we get.
   \end{remark}
 
+  \section{Ignore}
+  Rank 4 Skew-Symmetric $B$
+
+  $P(\lambda)=\lambda^4 + a\lambda^3 + b\lambda^2 + c\lambda + 1$
+
+  \begin{align*}
+    a
+    &=-b_{41}b_{21}b_{32}b_{43}-b_{31}b_{21}b_{32}-b_{41}b_{21}b_{42}-b_{41}b_{31}b_{43}-b_{42}b_{32}b_{43}-b_{21}b_{21}-b_{31}b_{31}-b_{32}b_{32}-b_{41}b_{41}-b_{42}b_{42}-b_{43}b_{43}+4\\
+    c
+    &=-b_{21}b_{32}b_{43}b_{41}-b_{21}b_{32}b_{31}-b_{21}b_{42}b_{41}-b_{31}b_{43}b_{41}-b_{32}b_{43}b_{42}-b_{21}b_{21}-b_{31}b_{31}-b_{32}b_{32}-b_{41}b_{41}-b_{42}b_{42}-b_{43}b_{43}+4\\
+    b
+    &=b_{41} b_{32} b_{32} b_{41} - b_{31} b_{42} b_{32} b_{41} - b_{31} b_{43} b_{21} b_{42} - b_{41} b_{32} b_{31} b_{42} + b_{31} b_{42} b_{31} b_{42} + b_{21} b_{43} b_{21} b_{43} - b_{21} b_{42} b_{31} b_{43} - b_{21} b_{32} b_{31} - b_{31} b_{21} b_{32} - b_{21} b_{42} b_{41} - b_{31} b_{43} b_{41} - b_{32} b_{43} b_{42} - b_{41} b_{21} b_{42} - b_{41} b_{31} b_{43} - b_{42} b_{32} b_{43} - 2 b_{21} b_{21} - 2 b_{31} b_{31} - 2 b_{32} b_{32} - 2 b_{41} b_{41} - 2 b_{42} b_{42} - 2 b_{43} b_{43} + 6\\
+    &=a+c-2+m\\
+    &=a+c-2+n^2\\
+    m
+    &=b_{41}b_{21}b_{32}b_{43}+b_{21}b_{32}b_{43}b_{41}+b_{41}b_{32}b_{32}b_{41}-b_{31}b_{42}b_{32}b_{41}-b_{31}b_{43}b_{21}b_{42}-b_{41}b_{32}b_{31}b_{42}+b_{31}b_{42}b_{31}b_{42}+b_{21}b_{43}b_{21}b_{43}\\
+    &\quad -b_{21}b_{42}b_{31}b_{43}\\
+    &=(b_{31}b_{42}-b_{32}b_{41}-b_{21}b_{43})^2\\
+    n
+    &=b_{31}b_{42}-b_{32}b_{41}-b_{21}b_{43}\\
+  \end{align*}
+
+  Observe that $P(-1)=n^2$.
+  What happens when $\lambda=\frac{-a+2\pm\sqrt{a(a-4)}}{2}$?  You get $P(\lambda)=(b-2)\lambda^2$.
+    
 \end{document}
