@@ -589,6 +589,43 @@
     (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
   \end{align}
 
+
+
+  \subsection{Deformation Support}
+  The greedy basis of Lee, Li, and Zelevinsky \cite{???} can be defined as the positive pointed basis with minimal support.
+  Here we identify the maximum possible support of its deformations.
+
+  Consider the deformation of the theta basis element with $\bfg$-vector $\lambda$.
+  \begin{theorem}
+    For $\lambda\in\cI\cap\ZZ^2$, the support of any deformation of the corresponding theta basis element is contained in the polytope defined by the following inequalities:
+    \begin{align*}
+       \lambda_1-b\lambda_2 &\le x\\
+       \lambda_2 &\le y\\
+    \end{align*}
+    is the convex hull of the following vertices:
+    \[\lambda, \qquad (\lambda_1-b\lambda_2,\lambda_2), \qquad (\lambda_1-b\lambda_2,\lambda_2-c\lambda_1), \qquad (?,?)\]
+    The $d$-vector is $(\lambda_1-b\lambda_2,\lambda_2)$
+
+    $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$
+
+    Slope:
+    \[\big(\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(c\lambda_1+2\lambda_2)-(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)\big) /\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2)\]
+
+    $y=$
+
+    $(\lambda_1,\lambda_2)$ and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$
+    
+    Slope: $-\frac{bc+\sqrt{bc(bc-4)}}{2b}$\\
+
+    Corner of dominant support?: 
+    \begin{align*}
+      \left(\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2),-\frac{bc+\sqrt{bc(bc-4)}}{2b}\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2)+\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\right)\\
+      \left(\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2),-\frac{bc+\sqrt{bc(bc-4)}}{2b}\frac{bc}{\sqrt{bc(bc-4)}}\lambda_1+-\frac{bc+\sqrt{bc(bc-4)}}{2}\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\lambda_2+\lambda_2\right)\\
+    \end{align*}
+    
+  \end{theorem}
+
+
   \section{The Total Domination Polyhedron}
 
   Define the \emph{total domination polyhedron} $\cD:=\{(\lambda,\mu):\mu\in\cP(\lambda)\}$, i.e. this is the set of all pairs where $\lambda$ dominates $\mu$.
@@ -614,6 +651,7 @@
     We want to understand what the curve is that results when we have $\mu$ lie along the unit circle, this should be possible by plugging $(\cos(\theta),\sin(\theta))$ into this formula for $\lambda$ and seeing what ellipse we get.
   \end{remark}
 
+
   \section{Ignore}
   Rank 4 Skew-Symmetric $B$
 
@@ -625,7 +663,9 @@
     c
     &=-b_{21}b_{32}b_{43}b_{41}-b_{21}b_{32}b_{31}-b_{21}b_{42}b_{41}-b_{31}b_{43}b_{41}-b_{32}b_{43}b_{42}-b_{21}b_{21}-b_{31}b_{31}-b_{32}b_{32}-b_{41}b_{41}-b_{42}b_{42}-b_{43}b_{43}+4\\
     b
-    &=b_{41} b_{32} b_{32} b_{41} - b_{31} b_{42} b_{32} b_{41} - b_{31} b_{43} b_{21} b_{42} - b_{41} b_{32} b_{31} b_{42} + b_{31} b_{42} b_{31} b_{42} + b_{21} b_{43} b_{21} b_{43} - b_{21} b_{42} b_{31} b_{43} - b_{21} b_{32} b_{31} - b_{31} b_{21} b_{32} - b_{21} b_{42} b_{41} - b_{31} b_{43} b_{41} - b_{32} b_{43} b_{42} - b_{41} b_{21} b_{42} - b_{41} b_{31} b_{43} - b_{42} b_{32} b_{43} - 2 b_{21} b_{21} - 2 b_{31} b_{31} - 2 b_{32} b_{32} - 2 b_{41} b_{41} - 2 b_{42} b_{42} - 2 b_{43} b_{43} + 6\\
+    &=b_{41} b_{32} b_{32} b_{41} - b_{31} b_{42} b_{32} b_{41} - b_{31} b_{43} b_{21} b_{42} - b_{41} b_{32} b_{31} b_{42} + b_{31} b_{42} b_{31} b_{42} + b_{21} b_{43} b_{21} b_{43} - b_{21} b_{42} b_{31} b_{43}\\
+    &\quad - b_{21} b_{32} b_{31} - b_{31} b_{21} b_{32} - b_{21} b_{42} b_{41} - b_{31} b_{43} b_{41} - b_{32} b_{43} b_{42} - b_{41} b_{21} b_{42} - b_{41} b_{31} b_{43} - b_{42} b_{32} b_{43}\\
+    &\quad - 2 b_{21} b_{21} - 2 b_{31} b_{31} - 2 b_{32} b_{32} - 2 b_{41} b_{41} - 2 b_{42} b_{42} - 2 b_{43} b_{43} + 6\\
     &=a+c-2+m\\
     &=a+c-2+n^2\\
     m
@@ -637,6 +677,6 @@
   \end{align*}
 
   Observe that $P(-1)=n^2$.
-  What happens when $\lambda=\frac{-a+2\pm\sqrt{a(a-4)}}{2}$?  You get $P(\lambda)=(b-2)\lambda^2$.
+  What happens when $\lambda=\frac{-a\pm\sqrt{a^2-4}}{2}$?  You get $P(\lambda)=(b-2)\lambda^2$.
     
 \end{document}
