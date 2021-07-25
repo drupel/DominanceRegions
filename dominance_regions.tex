@@ -609,6 +609,35 @@
   The greedy basis of Lee, Li, and Zelevinsky \cite{???} can be defined as the positive pointed basis with minimal support.
   Here we identify the maximum possible support of its deformations.
 
+  It will be convenient later to have explicit expressions for the greedy basis elements so we recall here the combinatorial construction of their Laurent expansions.
+  For a $\bfg$-vector $\lambda\in\ZZ^2\setminus\ZZ_{\ge0}^2$, define the \emph{maximal Dyck path} $D_\lambda\subset\ZZ^2$ to be the lattice path with corner vertices $(0,0)$ and $(a_1,a_2):=\big([-\lambda_1+b\lambda_2]_+,[-\lambda_2]_+\big)$ which is maximal in the following sense:
+  \begin{itemize}
+    \item every lattice point of $D_\lambda$ lies below the line connecting the corner vertices;
+    \item any lattice point above $D_\lambda$ lies above the line connecting the corner vertices.
+  \end{itemize}
+  For $\lambda\in\ZZ_{\ge0}^2$, we take $D_\lambda$ to be the empty path at $(0,0)$.
+
+  We consider $D_\lambda$ to be the set of its edges ordered from $(0,0)$.
+  Write $H_\lambda,V_\lambda\subset D_\lambda$ for the subsets of horizontal and vertical edges, respectively.
+  According to the ordering of $D_\lambda$, we denote $H_\lambda=\{h_1,\ldots,h_{a_1}\}$ and $V_\lambda=\{v_1,\ldots,v_{a_2}\}$.
+  For edges $e,e'\in D_\lambda$ with $e\le e'$, write $ee'\subset D_\lambda$ for the shortest subpath of $D_\lambda$ containing $e$ and $e'$.
+  For edges $e,e'\in D_\lambda$ with $e'<e$, write $ee'\subset D_\lambda$ for the subset $ev_{a_2} \sqcup h_1e'$, which can be seen as the subpath traversing from the edge $e$ to the end of $D_\lambda$ and then continuing from the beginning of $D_\lambda$ to the edge $e'$.
+  For any subset $S\subset D_\lambda$, write $|S|_H:=|S\cap H_\lambda|$ and $|S|_V:=|S\cap V_\lambda|$; in particular, for $e,e'\in D_\lambda$, write $|ee'|_H:=|ee'\cap H_\lambda|$ and $|ee'|_V:=|ee'\cap V_\lambda|$.
+  \begin{definition}
+    A subset $S\subset D_\lambda$ is said to be \emph{compatible} if: for every $h\in S\cap H_\lambda$ and $v\in S\cap V_\lambda$, there exists an edge $e\in hv$ so that one of the following conditions is satisfied:
+    \begin{align*}
+      e\ne v \quad \text{and} \quad |he|_V=c|he\cap S|_H;\\
+      e\ne h \quad \text{and} \quad |ev|_H=b|ev\cap S|_V.
+    \end{align*}
+    Write $\cC_\lambda$ for the set of all compatible subsets $S\subset D_\lambda$.
+  \end{definition}
+
+  The \emph{greedy basis element} $x^{gr}_\lambda$ is then given by the following Laurent polynomial
+  \begin{equation}
+    \label{eq:greedy}
+    x^{gr}_\lambda=x_1^{\lambda_1}x_2^{\lambda_2} \sum_{S\in \cC_\lambda} x_1^{b(|V_\lambda|-|S|_V)} x_2^{c|S|_H}.
+  \end{equation}
+
   Consider the deformation of the theta basis element with $\bfg$-vector $\lambda$.
   \begin{theorem}
     For $\lambda\in\cI\cap\ZZ^2$, the support of any deformation of the corresponding theta basis element is contained in the polytope defined by the following inequalities:
