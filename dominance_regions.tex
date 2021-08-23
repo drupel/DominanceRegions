@@ -1,13 +1,18 @@
 \documentclass{amsart}
-\usepackage{amsmath,amssymb,latexsym,color}
+\usepackage{amsmath,amssymb,latexsym,color,ulem}
 \usepackage[margin=1in]{geometry}
 \usepackage{tikz}
 \usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
+
+\usepackage[draft]{say}
+\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf DR:}\;#1}}
+\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf SS:}\;#1}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{question}{Question}
 
@@ -42,7 +47,9 @@
 \newcommand{\obeta}{{\overline{\beta}}}
 \newcommand{\oi}{{\overline{\imath}}}
 \newcommand{\ot}{{\overline{t}}}
+\newcommand{\WA}{{W\!\!A}}
 \newcommand{\wt}{{\operatorname{wt}}}
+\newcommand{\Sh}{{\operatorname{Sh}}}
 
 \title{Dominance Regions for Imaginary $\bfg$-vectors}
 
@@ -74,6 +81,9 @@
   The investigations of this paper are inspired by the dominance order on the tropical labelings for bases of cluster algebras.
   This dominance order is used by Qin to understand how these bases may be deformed in the case when there is a green-to-red sequence of mutations.
   In particular, these calculations can be carried out for any acyclic cluster algebra.
+
+  Our calculations reveal the maximal support possible for a pointed basis which reproduces under mutations.
+  In particular, any candidate basis can be ruled out using these results based upon their support alone.
 
   \section{Lattice Mutations and Linear Inequalities}
   Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
@@ -578,29 +588,29 @@
   \begin{align}
     \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
     \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq \frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2 
+    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
     \\
     -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
     \\
     -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
     \\
-    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1
+    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
     \\
     (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
   \end{align}
   Maybe this one:
   \begin{align}
-    (b c-\sqrt{b c (b c-4)})(x-\lambda_1)+2b(y-\lambda_2) & \geq0
+    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
     \\
-    (b c+\sqrt{b c (b c-4)})(x-\lambda_1)-2b(y-\lambda_2) & \geq (b c+\sqrt{b c (b c-4)})b\lambda_2 
+    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
     \\
-    -(b c-\sqrt{b c (b c-4)})(x-\lambda_1)-2b(y-\lambda_2)& \geq 2bc\lambda_1+(b c+\sqrt{b c (b c-4)})b\lambda_2
+    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
     \\
-    -2c(x-\lambda_1)-(b c-\sqrt{b c (b c-4)})(y-\lambda_2)& \geq0
+    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
     \\
-    2c(x-\lambda_1)-(b c+\sqrt{b c (b c-4)})(y-\lambda_2) & \geq -(b c+\sqrt{b c (b c-4)})c\lambda_1
+    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
     \\
-    2c(x-\lambda_1)+(b c-\sqrt{b c (b c-4)})(y-\lambda_2) & \geq -(b c+\sqrt{b c (b c-4)})c\lambda_1-2cb\lambda_2
+    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
   \end{align}
 
 
@@ -695,31 +705,155 @@
   \end{remark}
 
 
-  \section{Ignore}
-  Rank 4 Skew-Symmetric $B$
+  \section{Bases From Compatible Pairs on Dyck Paths}
+  \sayDR{This is a bit of a repetition of the above introduction to Dyck paths, but with slightly different goals it seemed that a modified exposition was more appropriate.}
+  For $a_1,a_2\in\ZZ_{\ge0}$, choose a Dyck path $D$ in the lattice rectangle $[0,a_1]\times[0,a_2]$.
+  Consider $D$ as the set of its edges taken as a totally ordered set along the natural labeling from $(0,0)$ to $(a_1,a_2)$.
+  It may be convenient to identify $D$ with the ordered set $[1,a_1+a_2]$.
+  Write $D=D_1\sqcup D_2$, where $D_1$ is the set of horizontal edges and $D_2$ is the set of vertical edges.
+  Clearly, $|D_1|=a_1$ and $|D_2|=a_2$.
 
-  $P(\lambda)=\lambda^4 + a\lambda^3 + b\lambda^2 + c\lambda + 1$
+  Write $D^{max}=D^{max}[a_1,a_2]$ for the maximal Dyck path in the lattice rectangle $[0,a_1]\times[0,a_2]$, i.e. $D^{max}$ never crosses above the diagonal line joining $(0,0)$ to $(a_1,a_2)$ and any lattice point above $D_{max}$ also lies above the diagonal.
 
-  \begin{align*}
-    a
-    &=-b_{41}b_{21}b_{32}b_{43}-b_{31}b_{21}b_{32}-b_{41}b_{21}b_{42}-b_{41}b_{31}b_{43}-b_{42}b_{32}b_{43}-b_{21}b_{21}-b_{31}b_{31}-b_{32}b_{32}-b_{41}b_{41}-b_{42}b_{42}-b_{43}b_{43}+4\\
-    c
-    &=-b_{21}b_{32}b_{43}b_{41}-b_{21}b_{32}b_{31}-b_{21}b_{42}b_{41}-b_{31}b_{43}b_{41}-b_{32}b_{43}b_{42}-b_{21}b_{21}-b_{31}b_{31}-b_{32}b_{32}-b_{41}b_{41}-b_{42}b_{42}-b_{43}b_{43}+4\\
-    b
-    &=b_{41} b_{32} b_{32} b_{41} - b_{31} b_{42} b_{32} b_{41} - b_{31} b_{43} b_{21} b_{42} - b_{41} b_{32} b_{31} b_{42} + b_{31} b_{42} b_{31} b_{42} + b_{21} b_{43} b_{21} b_{43} - b_{21} b_{42} b_{31} b_{43}\\
-    &\quad - b_{21} b_{32} b_{31} - b_{31} b_{21} b_{32} - b_{21} b_{42} b_{41} - b_{31} b_{43} b_{41} - b_{32} b_{43} b_{42} - b_{41} b_{21} b_{42} - b_{41} b_{31} b_{43} - b_{42} b_{32} b_{43}\\
-    &\quad - 2 b_{21} b_{21} - 2 b_{31} b_{31} - 2 b_{32} b_{32} - 2 b_{41} b_{41} - 2 b_{42} b_{42} - 2 b_{43} b_{43} + 6\\
-    &=a+c-2+m\\
-    &=a+c-2+n^2\\
-    m
-    &=b_{41}b_{21}b_{32}b_{43}+b_{21}b_{32}b_{43}b_{41}+b_{41}b_{32}b_{32}b_{41}-b_{31}b_{42}b_{32}b_{41}-b_{31}b_{43}b_{21}b_{42}-b_{41}b_{32}b_{31}b_{42}+b_{31}b_{42}b_{31}b_{42}+b_{21}b_{43}b_{21}b_{43}\\
-    &\quad -b_{21}b_{42}b_{31}b_{43}\\
-    &=(b_{31}b_{42}-b_{32}b_{41}-b_{21}b_{43})^2\\
-    n
-    &=b_{31}b_{42}-b_{32}b_{41}-b_{21}b_{43}\\
-  \end{align*}
+  Observe that the data of $D$ is just the data of a bipartition of a finite totally ordered set $D=D_1\sqcup D_2$.
 
-  Observe that $P(-1)=n^2$.
-  What happens when $\lambda=\frac{-a\pm\sqrt{a^2-4}}{2}$?  You get $P(\lambda)=(b-2)\lambda^2$.
+  For $e<e'\in D$, write $ee'$ for the subpath of $D$ beginning with $e$ and ending with $e'$.
+  \begin{definition}
+    A subset $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$ is \emph{compatible} if: for every $h\in H$ and $v\in V$ with $h<v$, there exists an edge $e\in hv$ such that one of the following conditions is satisfied
+    \[e\ne v \quad \text{and} \quad |he\cap D_2|=c|he\cap D_1|\]
+    \[e\ne h \quad \text{and} \quad |ev\cap D_1|=b|ev\cap D_2|\]
+    Write $\cC_D$ for the collection of all compatible subsets of $D$.
+  \end{definition}
+  \begin{remark}
+    In the construction of the greedy basis, it is necessary to consider $D$ as closed cycle by identifying $(0,0)$ with $(a_1,a_2)$ and allowing subpaths $ee'$ with $e'<e$ to ``wrap around'' $D$ in the obvious way.
+    When we wish to emphasize that this condition should be imposed, we denote the Dyck path $D$ instead by $D_\WA$.
+    For $(a_1,a_2)=(u_{m+1,+},u_{m,-})$ or $(u_{m,+},u_{m+1,-})$, the wrap around condition does not restrict compatibility and can thus safely be omitted.
+  \end{remark}
+
+  We associate to $D$ the element $x_D\in\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$ defined as follows
+  \[x_D:=x_1^{-a_1} x_2^{-a_2} \sum_{H\sqcup V\in\cC_D} x_1^{b|V|} x_2^{c|H|}.\]
+
+  \begin{theorem}[\cite{lee-li-zelevinsky}]
+    For $(a_1,a_2)=(u_{m+1,+},u_{m,-})$ or $(u_{m,+},u_{m+1,-})$ for $m\ge0$, the element $x_D[a_1,a_2]$ is a non-initial cluster variable.
+    Otherwise, the element $x_{D_\WA}$ is an element of the greedy basis
+  \end{theorem}
+
+  \begin{lemma}
+    Suppose there are two factorizations
+    \[x_D=x_1^{-a_1} x_2^{-a_2} \sum_{t=0}^{a_2}\sum_{k=0}^{a_1} \nu_{k,t} x_1^{bt}(1+x_2^c)^{a_1-k}=x_1^{-a_1} x_2^{-a_2} \sum_{s=0}^{a_1}\sum_{\ell=0}^{a_2} \theta_{s,\ell} x_2^{cs}(1+x_1^b)^{a_2-\ell},\]
+    where $\nu_{k,t}$ is the number of subsets $V\subseteq_t D_2$ with $|\Sh_D(V)|=k$ and $\theta_{s,\ell}$ is the number of subsets $H\subseteq_s D_1$ with $|\Sh_D(H)|=\ell$.
+    Then 
+    \[\sum_{k=0}^{a_1-s} {a_1-k\choose s} \nu_{k,t}=\sum_{\ell=0}^{a_2-t} {a_2-\ell\choose t} \theta_{s,\ell}\]
+    for all possible $s$ and $t$.
+  \end{lemma}
+  \begin{question}
+    How do such expressions behave under mutations?
+  \end{question}
+
+  \begin{lemma}
+    Choose $a_1,a_2\in\ZZ_{\ge0}$.
+    For $D^{st}:=D_1\sqcup D_2$ with $D_2=[1,a_2]$ and $D_1=[1,a_1]+a_2$, the element $x_D$ coincides with the corresponding standard monomial basis element.
+  \end{lemma}
+
+  Our main interest will be with the following Dyck paths.
+  \begin{definition}
+    \label{def:dominant Dyck path}
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, define the \emph{dominant Dyck path} $D^{dom}=D^{dom}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-a_1)$.
+  \end{definition}
+
+  To understand the structure of the dominant Dyck paths, it will be convenient to consider their initial and final segments separately.
+  \begin{definition}
+    For $s>0$, define the \emph{Dyck path prefix} $\overrightarrow{D}^s$ as the maximal Dyck path with $s$ vertical edges starting from $(0,0)$ and terminating at $(d,s)$ while staying below the line $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$, where $d=\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil$.
+    Call this $d$ the \emph{depth} of $s$.
+
+    For $t>0$, define the \emph{Dyck path suffix} $\overleftarrow{D}^t$ as the maximal Dyck path with $t$ horizontal edges starting from $(0,0)$ and terminating at $(t,h)$ while staying below the line $y-h=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-t)$, where $h=\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$.
+    Call this $h$ the \emph{height} of $t$.
+    %        y = (a2 - a1*(self._r1*self._r2-sqrt(self._r1*self._r2*(self._r1*self._r2-4)))/(2*self._r2))/(1-(self._r1*self._r2-sqrt(self._r1*self._r2*(self._r1*self._r2-4)))/(self._r1*self._r2+sqrt(self._r1*self._r2*(self._r1*self._r2-4))))
+    %    corner = (y*(self._r1*self._r2-sqrt(self._r1*self._r2*(self._r1*self._r2-4)))/(2*self._r1),y)
+  \end{definition}
+  \begin{remark}
+    There often exist multiple choices of $s$ with a given depth $d$ and multiple choices of $t$ with a given height $h$.
+  \end{remark}
+
+  The following result will be useful for showing that the Dyck path prefixes and suffixes behave properly.
+  \begin{lemma}
+    For $s>0$, the Dyck path prefix $\overrightarrow{D}^s$ ends in a vertical edge.
+    Similarly, for $t>0$, the Dyck path suffix $\overleftarrow{D}^t$ begins with a horizontal edge.
+  \end{lemma}
+
+  Apart from being the prefix and suffix for the dominant Dyck path, the Dyck paths $\overrightarrow{D}^s$ and $\overleftarrow{D}^t$ can be observed inside the maximal Dyck paths defining cluster variables as follows.
+  \begin{lemma}\mbox{}
+    \begin{itemize}
+      \item For $s>0$ and any $m \ge 1$ so that $s < u_{m+1,-}$, the Dyck path prefix $\overrightarrow{D}^s$ is an initial segment of the maximal Dyck path $D^{max}[u_{m,+},u_{m+1,-}]$.
+      \item For $t>0$ and any $m \ge 1$ so that $t < u_{m+1,+}$, the Dyck path suffix $\overleftarrow{D}^t$ is a final segment of the maximal Dyck path $D^{max}[u_{m+1,+},u_{m,-}]$.
+    \end{itemize}
+  \end{lemma}
+
+  \begin{lemma}\mbox{}
+    \begin{enumerate}
+      \item Choose a width $t>0$ and $a_1 \ge t$.
+        Then there exists a unique $s$ of depth $a_1-t$ so that $\overrightarrow{D}^s \sqcup \overleftarrow{D}^t$ is the dominant Dyck path $D^{dom}[a_1,a_2]$ with $a_2=s+\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$.
+      \item Choose a height $s>0$ and $a_2 \ge s$.
+        Then there exists a unique $t$ of height $a_2-s$ so that $\overrightarrow{D}^s \sqcup \overleftarrow{D}^t$ is the dominant Dyck path $D^{dom}[a_1,a_2]$ with $a_1=\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil+t$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{remark}
+    The decomposition of $D^{dom}[a_1,a_2]$ as $\overrightarrow{D}^s \sqcup \overleftarrow{D}^t$ is not uniquely determined by $a_1$ and $a_2$.
+    However, there exists at most two choices of $s$ and $t$ for which such a decomposition holds.
+  \end{remark}
+
+  \begin{lemma}
+    \label{le:floors and ceilings}
+    For any real number $x$ and any real number $r>1$, we have
+    \[\lfloor x\rfloor \le \left\lfloor \lceil xr \rceil \frac{1}{r} \right\rfloor \le \lceil x\rceil \qquad \text{and} \qquad \lfloor x\rfloor \le \left\lceil \lfloor xr \rfloor \frac{1}{r} \right\rceil \le \lceil x\rceil.\]
+  \end{lemma}
+  \begin{proof}
+    Observe that
+    \[xr\le \lceil xr \rceil < xr+1 \qquad \text{and} \qquad xr-1 < \lfloor xr \rfloor \le xr\]
+    and so
+    \[x\le \lceil xr \rceil \frac{1}{r} < x+\frac{1}{r} \qquad \text{and} \qquad x-\frac{1}{r} < \lfloor xr \rfloor \frac{1}{r} \le x.\]
+    Since $0<\frac{1}{r}<1$, the result follows.
+  \end{proof}
+
+  \begin{proposition}
+    \label{prop:dominant Dyck path decomposition}
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, the dominant Dyck path $D^{dom}[a_1,a_2]$ is the concatenation of $\overrightarrow{D}^s$ followed by $\overleftarrow{D}^t$ for any choice of $s$ and $t$ satisfying $a_2-s=\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$ and $a_1-t=\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil$.
+    In this case, the pair of $s$ and $t$ will be one of the following:
+    \begin{align}
+      \label{eq:lower bounds}
+      s=\left\lfloor\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2 - 2 c a_1}{2\sqrt{bc(bc-4)}}\right\rfloor\qquad &\text{and}\qquad t=\left\lfloor\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_1 - 2 b a_2}{2\sqrt{bc(bc-4)}}\right\rfloor\\
+      s=\left\lfloor\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2 - 2 c a_1}{2\sqrt{bc(bc-4)}}\right\rfloor\qquad &\text{and}\qquad t=\left\lceil\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_1 - 2 b a_2}{2\sqrt{bc(bc-4)}}\right\rceil\\
+      \label{eq:upper bounds}
+      s=\left\lceil\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2 - 2 c a_1}{2\sqrt{bc(bc-4)}}\right\rceil\qquad &\text{and}\qquad t=\left\lceil\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_1 - 2 b a_2}{2\sqrt{bc(bc-4)}}\right\rceil
+    \end{align}
+    If two such decompositions exist, they will be of the form \eqref{eq:lower bounds} and \eqref{eq:upper bounds}.
+  \end{proposition}
+  \begin{remark}
+    The irrationality of the slopes defining the Dyck path prefixes and suffixes makes it difficult to predict for a given choice of $a_1$ and $a_2$ precisely which of these choice of $s$ and $t$ will produce the desired equalities.
+  \end{remark}
+  \begin{proof}
+    (In progress)
+
+    For $s=\left\lfloor\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2 - 2 c a_1}{2\sqrt{bc(bc-4)}}\right\rfloor$, by Lemma~\ref{le:floors and ceilings} we have
+    \[\left\lfloor \frac{2 b a_2 -\big(bc-\sqrt{bc(bc-4)}\big) a_1}{2\sqrt{bc(bc-4)}} \right\rfloor \le \left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c} \right\rceil \le \left\lceil \frac{2 b a_2 -\big(bc-\sqrt{bc(bc-4)}\big) a_1}{2\sqrt{bc(bc-4)}} \right\rceil\]
+    since $0<\frac{bc-\sqrt{bc(bc-4)}}{2c}<1$.
+    It follows that
+    \[ a_1 - \left\lceil \frac{2 b a_2 -\big(bc-\sqrt{bc(bc-4)}\big) a_1}{2\sqrt{bc(bc-4)}} \right\rceil \le a_1 - \left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c} \right\rceil \le a_1 - \left\lfloor \frac{2 b a_2 -\big(bc-\sqrt{bc(bc-4)}\big) a_1}{2\sqrt{bc(bc-4)}} \right\rfloor\]
+    and so
+    \[ \left\lfloor \frac{ \big(bc+\sqrt{bc(bc-4)}\big) a_1 - 2 b a_2 }{2\sqrt{bc(bc-4)}} \right\rfloor \le a_1 - \left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c} \right\rceil \le \left\lceil \frac{ \big(bc+\sqrt{bc(bc-4)}\big) a_1 - 2 b a_2 }{2\sqrt{bc(bc-4)}} \right\rceil\]
+    with one of these inequalities being an equality.
+
+    If the left hand inequality is an equality, we take $t=\left\lfloor\frac{\big(bc+\sqrt{bc(bc-4)}\big)a_1 - 2 b a_2}{2\sqrt{bc(bc-4)}}\right\rfloor$.
+
+    The desired equalities can be rewritten in the form 
+    \[s=a_2-\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil=\left\lfloor a_2 - t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rfloor\]
+    and
+    \[t=a_1-\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil=\left\lfloor a_1 - s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rfloor.\]
+    Combining these, we seek $s$ and $t$ satisfying
+    \[s=\left\lfloor a_2 - \left\lfloor a_1 - s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rfloor \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rfloor\]
+    and
+    \[t=\left\lfloor a_1 - \left\lfloor a_2 - t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rfloor \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rfloor.\]
+  \end{proof}
+
     
 \end{document}
