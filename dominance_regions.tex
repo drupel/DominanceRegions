@@ -713,7 +713,7 @@
   Write $D=D_1\sqcup D_2$, where $D_1$ is the set of horizontal edges and $D_2$ is the set of vertical edges.
   Clearly, $|D_1|=a_1$ and $|D_2|=a_2$.
 
-  Write $D^{max}=D^{max}[a_1,a_2]$ for the maximal Dyck path in the lattice rectangle $[0,a_1]\times[0,a_2]$, i.e. $D^{max}$ never crosses above the diagonal line joining $(0,0)$ to $(a_1,a_2)$ and any lattice point above $D_{max}$ also lies above the diagonal.
+  Write $D^{max}=D^{max}[a_1,a_2]$ for the maximal Dyck path in the lattice rectangle $[0,a_1]\times[0,a_2]$, i.e. $D^{max}$ never crosses above the diagonal line joining $(0,0)$ to $(a_1,a_2)$ and any lattice point above $D^{max}$ also lies above the diagonal.
 
   Observe that the data of $D$ is just the data of a bipartition of a finite totally ordered set $D=D_1\sqcup D_2$.
 
@@ -760,6 +760,10 @@
     \label{def:dominant Dyck path}
     For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, define the \emph{dominant Dyck path} $D^{dom}=D^{dom}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-a_1)$.
   \end{definition}
+  \begin{remark}
+    \label{rem:intersection}
+    The lines in the definition above meet at the point $\left( \frac{2ba_2-\big(bc-\sqrt{bc(bc-4)}\big)a_1}{2\sqrt{bc(bc-4)}} , \frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2-2ca_1}{2\sqrt{bc(bc-4)}} \right)$.
+  \end{remark}
 
   To understand the structure of the dominant Dyck paths, it will be convenient to consider their initial and final segments separately.
   \begin{definition}
@@ -815,6 +819,8 @@
     Since $0<\frac{1}{r}<1$, the result follows.
   \end{proof}
 
+  The following result describes the possible decomposition of the dominant Dyck path into its prefix and suffix subpaths.
+  The intersection point from Remark~\ref{rem:intersection} is a useful point of reference.
   \begin{proposition}
     \label{prop:dominant Dyck path decomposition}
     For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, the dominant Dyck path $D^{dom}[a_1,a_2]$ is the concatenation of $\overrightarrow{D}^s$ followed by $\overleftarrow{D}^t$ for any choice of $s$ and $t$ satisfying $a_2-s=\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$ and $a_1-t=\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil$.
