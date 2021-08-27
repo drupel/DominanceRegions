@@ -708,14 +708,40 @@
   \section{Bases From Compatible Pairs on Dyck Paths}
   \sayDR{This is a bit of a repetition of the above introduction to Dyck paths, but with slightly different goals it seemed that a modified exposition was more appropriate.}
   For $a_1,a_2\in\ZZ_{\ge0}$, choose a Dyck path $D$ in the lattice rectangle $[0,a_1]\times[0,a_2]$.
+  When we wish to emphasize the upper right bounding corner we will write $D[a_1,a_2]$.
   Consider $D$ as the set of its edges taken as a totally ordered set along the natural labeling from $(0,0)$ to $(a_1,a_2)$.
   It may be convenient to identify $D$ with the ordered set $[1,a_1+a_2]$.
   Write $D=D_1\sqcup D_2$, where $D_1$ is the set of horizontal edges and $D_2$ is the set of vertical edges.
   Clearly, $|D_1|=a_1$ and $|D_2|=a_2$.
 
+  Observe that the data of $D$ is just the data of a bipartition of a finite totally ordered set $D=D_1\sqcup D_2$.
+
   Write $D^{max}=D^{max}[a_1,a_2]$ for the maximal Dyck path in the lattice rectangle $[0,a_1]\times[0,a_2]$, i.e. $D^{max}$ never crosses above the diagonal line joining $(0,0)$ to $(a_1,a_2)$ and any lattice point above $D^{max}$ also lies above the diagonal.
 
-  Observe that the data of $D$ is just the data of a bipartition of a finite totally ordered set $D=D_1\sqcup D_2$.
+  \begin{definition}
+    Call a Dyck path $D$ 
+    \begin{itemize}
+      \item \emph{horizontally-adapted to $b$} if no vertical edge of $D$ is immediately preceded by more than $b$ horizontal edges;
+      \item \emph{vertically-adapted to $c$} if no horizontal edge of $D$ is immediately followed by more than $c$ vertical edges.
+    \end{itemize}
+  \end{definition}
+
+  \begin{definition}
+    \label{def:Dyck path mutations}
+    Given a Dyck path $D=D[a_1,a_2]$ which is horizontally-adapted to $b$, define a Dyck path $\mu_V(D)$ inside the lattice rectangle $[0,a_2]\times[0,ba_2-a_1]$ by replacing each vertical edge, together with the $\ell$ horizontal edges which immediately precede it, by a horizontal edge followed by $b-\ell$ vertical edges.
+
+    Given a Dyck path $D=D[a_1,a_2]$ which is vertically-adapted to $c$, define a Dyck path $\mu_H(D)$ inside the lattice rectangle $[0,ca_1-a_2]\times[0,a_1]$ by replacing each horizontal edge, together with the $\ell$ vertical edges which immediately follow it, by $c-\ell$ horizontal edges followed by a vertical edge.
+  \end{definition}
+
+  \begin{lemma}\mbox{}
+    \begin{enumerate}
+      \item If $a_1 < b a_2$, then $\mu_V\big(D^{max}[a_1,a_2]\big)=D^{max}[a_2,ba_2-a_1]$.
+      \item If $a_2 < c a_1$, then $\mu_H\big(D^{max}[a_1,a_2]\big)=D^{max}[ca_1-a_2,a_1]$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    The proof is identical to the proof of \cite[Lemma 2.4]{rupel} with appropriate notation changes.
+  \end{proof}
 
   For $e<e'\in D$, write $ee'$ for the subpath of $D$ beginning with $e$ and ending with $e'$.
   \begin{definition}
@@ -759,6 +785,8 @@
   \begin{definition}
     \label{def:dominant Dyck path}
     For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, define the \emph{dominant Dyck path} $D^{dom}=D^{dom}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-a_1)$.
+
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1,-a_2+ca_1)\in\cI'$, define the \emph{dual dominant Dyck path} $D^{dom^\vee}=D^{dom^\vee}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2c}(x-a_1)$.
   \end{definition}
   \begin{remark}
     \label{rem:intersection}
@@ -772,12 +800,18 @@
 
     For $t>0$, define the \emph{Dyck path suffix} $\overleftarrow{D}^t$ as the maximal Dyck path with $t$ horizontal edges starting from $(0,0)$ and terminating at $(t,h)$ while staying below the line $y-h=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-t)$, where $h=\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$.
     Call this $h$ the \emph{height} of $t$.
-    %        y = (a2 - a1*(self._r1*self._r2-sqrt(self._r1*self._r2*(self._r1*self._r2-4)))/(2*self._r2))/(1-(self._r1*self._r2-sqrt(self._r1*self._r2*(self._r1*self._r2-4)))/(self._r1*self._r2+sqrt(self._r1*self._r2*(self._r1*self._r2-4))))
-    %    corner = (y*(self._r1*self._r2-sqrt(self._r1*self._r2*(self._r1*self._r2-4)))/(2*self._r1),y)
   \end{definition}
   \begin{remark}
     There often exist multiple choices of $s$ with a given depth $d$ and multiple choices of $t$ with a given height $h$.
   \end{remark}
+
+  \begin{lemma}
+    For any $s,t>0$, the Dyck path prefix $\overrightarrow{D}^s$ and Dyck path suffix $\overleftarrow{D}^t$ are both horizontally-adapted to $b$ and vertically-adapted to $c$.
+  \end{lemma}
+
+  \begin{theorem}
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_H\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[a_2,ba_2-a_1]$ and $\mu_V\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[ca_1-a_2,a_1]$.
+  \end{theorem}
 
   The following result will be useful for showing that the Dyck path prefixes and suffixes behave properly.
   \begin{lemma}
@@ -861,5 +895,9 @@
     \[t=\left\lfloor a_1 - \left\lfloor a_2 - t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rfloor \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rfloor.\]
   \end{proof}
 
+  \begin{thebibliography}{XXX}
+    \bibitem{rupel}
+      D.~Rupel: Noncommutative Laurent Phenomenon
+  \end{thebibliography}
     
 \end{document}
