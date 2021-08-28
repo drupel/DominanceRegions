@@ -728,15 +728,18 @@
 
   \begin{definition}
     \label{def:Dyck path mutations}
-    Given a Dyck path $D=D[a_1,a_2]$ which is horizontally-adapted to $b$, define a Dyck path $\mu_V(D)$ inside the lattice rectangle $[0,a_2]\times[0,ba_2-a_1]$ by replacing each vertical edge, together with the $\ell$ horizontal edges which immediately precede it, by a horizontal edge followed by $b-\ell$ vertical edges.
+    Given a Dyck path $D=D[a_1,a_2]$ which is horizontally-adapted to $b$, define a Dyck path $\mu_{V,b}(D)$ inside the lattice rectangle $[0,a_2]\times[0,ba_2-a_1]$ by replacing each vertical edge, together with the $\ell$ horizontal edges which immediately precede it, by a horizontal edge followed by $b-\ell$ vertical edges.
 
-    Given a Dyck path $D=D[a_1,a_2]$ which is vertically-adapted to $c$, define a Dyck path $\mu_H(D)$ inside the lattice rectangle $[0,ca_1-a_2]\times[0,a_1]$ by replacing each horizontal edge, together with the $\ell$ vertical edges which immediately follow it, by $c-\ell$ horizontal edges followed by a vertical edge.
+    Given a Dyck path $D=D[a_1,a_2]$ which is vertically-adapted to $c$, define a Dyck path $\mu_{H,c}(D)$ inside the lattice rectangle $[0,ca_1-a_2]\times[0,a_1]$ by replacing each horizontal edge, together with the $\ell$ vertical edges which immediately follow it, by $c-\ell$ horizontal edges followed by a vertical edge.
   \end{definition}
+  \begin{remark}
+    Observe that $\mu_{H,a}$ and $\mu_{V,a}$ are inverse for any $a\ge1$.
+  \end{remark}
 
   \begin{lemma}\mbox{}
     \begin{enumerate}
-      \item If $a_1 < b a_2$, then $\mu_V\big(D^{max}[a_1,a_2]\big)=D^{max}[a_2,ba_2-a_1]$.
-      \item If $a_2 < c a_1$, then $\mu_H\big(D^{max}[a_1,a_2]\big)=D^{max}[ca_1-a_2,a_1]$.
+      \item If $a_1 < b a_2$, then $\mu_{V,b}\big(D^{max}[a_1,a_2]\big)=D^{max}[a_2,ba_2-a_1]$.
+      \item If $a_2 < c a_1$, then $\mu_{H,c}\big(D^{max}[a_1,a_2]\big)=D^{max}[ca_1-a_2,a_1]$.
     \end{enumerate}
   \end{lemma}
   \begin{proof}
@@ -778,7 +781,7 @@
 
   \begin{lemma}
     Choose $a_1,a_2\in\ZZ_{\ge0}$.
-    For $D^{st}:=D_1\sqcup D_2$ with $D_2=[1,a_2]$ and $D_1=[1,a_1]+a_2$, the element $x_D$ coincides with the corresponding standard monomial basis element.
+    For $D^{st}:=D_1\sqcup D_2$ with $D_2=[1,a_2]$ and $D_1=[1,a_1]+a_2$, the element $x_{D^{st}}$ coincides with the corresponding standard monomial basis element.
   \end{lemma}
 
   Our main interest will be with the following Dyck paths.
@@ -786,7 +789,7 @@
     \label{def:dominant Dyck path}
     For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, define the \emph{dominant Dyck path} $D^{dom}=D^{dom}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-a_1)$.
 
-    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1,-a_2+ca_1)\in\cI'$, define the \emph{dual dominant Dyck path} $D^{dom^\vee}=D^{dom^\vee}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2c}(x-a_1)$.
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_2,-a_1+ca_2)\in\cI'$, define the \emph{dual dominant Dyck path} $D^{dom^\vee}=D^{dom^\vee}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2c}(x-a_1)$.
   \end{definition}
   \begin{remark}
     \label{rem:intersection}
@@ -810,8 +813,35 @@
   \end{lemma}
 
   \begin{theorem}
-    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_H\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[a_2,ba_2-a_1]$ and $\mu_V\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[ca_1-a_2,a_1]$.
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_{V,b}\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[a_2,ba_2-a_1]$ and $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[ca_1-a_2,a_1]$.
   \end{theorem}
+  \begin{proof}
+    We prove the result for $\mu_{H,c}$ as the result for $\mu_{V,b}$ immediately follows from $\mu_{H,b}$ being its inverse.
+    Write $D'$ for the Dyck path $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)$ and observe that by construction $D'$ has $ca_1-a_2$ horizontal edges and $a_1$ vertical edges.
+    Write $v'_1,\ldots,v'_{a_1}$ for the vertical edges of $D'$ with $v'_r$ immediately preceded by $\ell_r$ horizontal edges.
+    We have to show (i) that every lattice point on $D'$ stays below the lines 
+    \[y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x \qquad \text{and} \qquad y-a_1=\frac{bc-\sqrt{bc(bc-4)}}{2c}\big(x-(ca_1-a_2)\big)\]
+    while (ii) any lattice point above $D'$ is also above one of these lines.
+
+    If there exists $t$ so that $v'_t$ passes above the line $y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x$, then
+    \[ \frac{t}{\sum\limits_{r=1}^t \ell_r} > \frac{bc+\sqrt{bc(bc-4)}}{2c} \]
+    or, rearranging, we have
+    \[ \frac{\sum\limits_{r=1}^t \ell_r}{t} < \frac{2c}{bc+\sqrt{bc(bc-4)}} = \frac{bc-\sqrt{bc(bc-4)}}{2b} \]
+    or
+    \[ \frac{bc+\sqrt{bc(bc-4)}}{2b} < \frac{ct-\sum\limits_{r=1}^t \ell_r}{t} = \frac{\sum\limits_{r=1}^t (c-\ell_r)}{t}. \]
+    But this states that the subpath of $D^{dom}[a_1,a_2]$ consisting of the first $t$ horizontal edges and all their trailing vertical edges passes above the line $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$, contrary to the definition.
+
+    If there exists $t$ so that $v'_t$ passes above the line $y-a_1=\frac{bc-\sqrt{bc(bc-4)}}{2c}\big(x-(ca_1-a_2)\big)$, then
+    \[ \frac{bc-\sqrt{bc(bc-4)}}{2c} > \frac{a_1-t}{ca_1-a_2-\sum\limits_{r=1}^t \ell_r} \]
+    or, rearranging, we have
+    \[ \frac{ca_1-a_2-\sum\limits_{r=1}^t \ell_r}{a_1-t} > \frac{2c}{bc-\sqrt{bc(bc-4)}} = \frac{bc+\sqrt{bc(bc-4)}}{2b} \]
+    or
+    \[ \frac{bc-\sqrt{bc(bc-4)}}{2b} > \frac{ c(a_1-t) - \big(ca_1-a_2-\sum\limits_{r=1}^t \ell_r\big)}{a_1-t} = \frac{a_2-\sum\limits_{r=1}^t (c-\ell_r)}{a_1-t}. \]
+    But this states that the subpath of $D^{dom}[a_1,a_2]$ consisting of the first $t$ horizontal edges and all their trailing vertical edges passes above the line $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-a_1)$, contrary to the definition.
+
+    This proves (i), analogous calculations establish (ii). 
+  \end{proof}
+
 
   The following result will be useful for showing that the Dyck path prefixes and suffixes behave properly.
   \begin{lemma}
