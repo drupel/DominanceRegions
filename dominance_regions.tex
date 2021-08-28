@@ -616,7 +616,7 @@
 
 
   \subsection{Deformation Support}
-  The greedy basis of Lee, Li, and Zelevinsky \cite{???} can be defined as the positive pointed basis with minimal support.
+  The greedy basis of Lee, Li, and Zelevinsky \cite{lee-li-zelevinsky} can be defined as the positive pointed basis with minimal support.
   Here we identify the maximum possible support of its deformations.
 
   It will be convenient later to have explicit expressions for the greedy basis elements so we recall here the combinatorial construction of their Laurent expansions.
@@ -763,8 +763,8 @@
   \[x_D:=x_1^{-a_1} x_2^{-a_2} \sum_{H\sqcup V\in\cC_D} x_1^{b|V|} x_2^{c|H|}.\]
 
   \begin{theorem}[\cite{lee-li-zelevinsky}]
-    For $(a_1,a_2)=(u_{m+1,+},u_{m,-})$ or $(u_{m,+},u_{m+1,-})$ for $m\ge0$, the element $x_D[a_1,a_2]$ is a non-initial cluster variable.
-    Otherwise, the element $x_{D_\WA}$ is an element of the greedy basis
+    For $(a_1,a_2)=(u_{m+1,+},u_{m,-})$ or $(u_{m,+},u_{m+1,-})$ for $m\ge0$, the element $x_{D^{max}[a_1,a_2]}$ is a non-initial cluster variable.
+    Otherwise, the element $x_{D^{max}_\WA[a_1,a_2]}$ is an element of the greedy basis
   \end{theorem}
 
   \begin{lemma}
@@ -793,24 +793,48 @@
   \end{definition}
   \begin{remark}
     \label{rem:intersection}
-    The lines in the definition above meet at the point $\left( \frac{2ba_2-\big(bc-\sqrt{bc(bc-4)}\big)a_1}{2\sqrt{bc(bc-4)}} , \frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2-2ca_1}{2\sqrt{bc(bc-4)}} \right)$.
+    The lines defining $D^{dom}[a_1,a_2]$ meet at the point 
+    \[m_{a_1,a_2}:=\left( \frac{2ba_2-\big(bc-\sqrt{bc(bc-4)}\big)a_1}{2\sqrt{bc(bc-4)}} , \frac{\big(bc+\sqrt{bc(bc-4)}\big)a_2-2ca_1}{2\sqrt{bc(bc-4)}} \right).\]
   \end{remark}
 
   To understand the structure of the dominant Dyck paths, it will be convenient to consider their initial and final segments separately.
   \begin{definition}
-    For $s>0$, define the \emph{Dyck path prefix} $\overrightarrow{D}^s$ as the maximal Dyck path with $s$ vertical edges starting from $(0,0)$ and terminating at $(d,s)$ while staying below the line $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$, where $d=\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil$.
+    For $s>0$, define the \emph{Dyck path prefix} $\overrightarrow{D}^s$ as the maximal Dyck path with $s$ vertical edges starting from $(0,0)$ and terminating at $(d,s)$ while staying below the line $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$, where $d=d_s=\left\lceil s \frac{bc-\sqrt{bc(bc-4)}}{2c}\right\rceil$.
     Call this $d$ the \emph{depth} of $s$.
 
-    For $t>0$, define the \emph{Dyck path suffix} $\overleftarrow{D}^t$ as the maximal Dyck path with $t$ horizontal edges starting from $(0,0)$ and terminating at $(t,h)$ while staying below the line $y-h=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-t)$, where $h=\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$.
+    For $t>0$, define the \emph{Dyck path suffix} $\overleftarrow{D}^t$ as the maximal Dyck path with $t$ horizontal edges starting from $(0,0)$ and terminating at $(t,h)$ while staying below the line $y-h=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-t)$, where $h=h_t=\left\lceil t \frac{bc-\sqrt{bc(bc-4)}}{2b}\right\rceil$.
     Call this $h$ the \emph{height} of $t$.
   \end{definition}
   \begin{remark}
     There often exist multiple choices of $s$ with a given depth $d$ and multiple choices of $t$ with a given height $h$.
   \end{remark}
 
+  The following result will be useful for showing that the Dyck path prefixes and suffixes behave properly.
+  \begin{lemma}
+    For $s>0$, the Dyck path prefix $\overrightarrow{D}^s$ ends in a vertical edge.
+    Similarly, for $t>0$, the Dyck path suffix $\overleftarrow{D}^t$ begins with a horizontal edge.
+  \end{lemma}
+
+  \begin{lemma}
+    For $s,t>0$, $\overrightarrow{D}^s=D^{dom}[d_s,s]$ and $\overleftarrow{D}^t=D^{dom}[t,h_t]$.
+  \end{lemma}
+  \begin{proof}
+    Is this obvious?
+    %Following Remark~\ref{rem:intersection}, the intersection point of the lines defining $D^{dom}[d_s,s]$ is given by
+    %\[m_{d_s,s}=\left( \frac{2bs-\big(bc-\sqrt{bc(bc-4)}\big)d_s}{2\sqrt{bc(bc-4)}} , \frac{\big(bc+\sqrt{bc(bc-4)}\big)s-2cd_s}{2\sqrt{bc(bc-4)}} \right).\]
+    %By definition of $d_s$, we have
+    %\[\frac{\big(bc+\sqrt{bc(bc-4)}\big)s-2cd_s}{2\sqrt{bc(bc-4)}} \le \frac{\big(bc+\sqrt{bc(bc-4)}\big)s-\big(bc-\sqrt{bc(bc-4)}\big)s}{2\sqrt{bc(bc-4)}} = s\]
+  \end{proof}
+
   \begin{lemma}
     For any $s,t>0$, the Dyck path prefix $\overrightarrow{D}^s$ and Dyck path suffix $\overleftarrow{D}^t$ are both horizontally-adapted to $b$ and vertically-adapted to $c$.
   \end{lemma}
+  \begin{proof}
+    Observe that $\frac{c}{2}<\frac{bc+\sqrt{bc(bc-4)}}{2b}<c$.
+    This shows that $\overrightarrow{D}^s$ cannot contain more than $c$ consecutive vertical edges following a horizontal edge and so $\overrightarrow{D}^s$ must be vertically-adapted to $c$.
+    In addition, we see that $\overrightarrow{D}^s$ can only contain consecutive horizontal edges if $c=1$, in which case there are at most two consecutive horizontal edges preceding any vertical edge.
+    But, since we assume $bc\ge4$, that would imply $b\ge4$ and so $\overrightarrow{D}^s$ must be horizontally-adapted to $b$.
+  \end{proof}
 
   \begin{theorem}
     For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_{V,b}\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[a_2,ba_2-a_1]$ and $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[ca_1-a_2,a_1]$.
@@ -841,13 +865,6 @@
 
     This proves (i), analogous calculations establish (ii). 
   \end{proof}
-
-
-  The following result will be useful for showing that the Dyck path prefixes and suffixes behave properly.
-  \begin{lemma}
-    For $s>0$, the Dyck path prefix $\overrightarrow{D}^s$ ends in a vertical edge.
-    Similarly, for $t>0$, the Dyck path suffix $\overleftarrow{D}^t$ begins with a horizontal edge.
-  \end{lemma}
 
   Apart from being the prefix and suffix for the dominant Dyck path, the Dyck paths $\overrightarrow{D}^s$ and $\overleftarrow{D}^t$ can be observed inside the maximal Dyck paths defining cluster variables as follows.
   \begin{lemma}\mbox{}
@@ -926,8 +943,12 @@
   \end{proof}
 
   \begin{thebibliography}{XXX}
+
+    \bibitem{lee-li-zelevinsky}
+      K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014), pp.~57--82.
+
     \bibitem{rupel}
-      D.~Rupel: Noncommutative Laurent Phenomenon
+      D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
   \end{thebibliography}
     
 \end{document}
