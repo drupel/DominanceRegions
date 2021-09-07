@@ -38,6 +38,7 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 
 \newcommand{\ol}[1]{{\overline{#1}}}
+\newcommand{\vv}[1]{{{}^\vee \! #1}}
 
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Col}{\operatorname{Col}}
@@ -715,11 +716,11 @@
   Clearly, $|D_1|=a_1$ and $|D_2|=a_2$.
 
   Observe that the data of $D$ is just the data of a bipartition of a finite totally ordered set $D=D_1\sqcup D_2$.
-  Given a Dyck path $D=D_1\sqcup D_2$ in the lattice rectangle $[0,a_1]\times[0,a_2]$, write $\overline{D}=\overline{D}_1\sqcup \overline{D}_2$ for the Dyck path in the lattice rectangle $[0,a_2]\times[0,a_1]$ with $\overline{D}_1=a_1+a_2+1-D_2$ and $\overline{D}_2=a_1+a_2+1-D_1$.
+  Given a Dyck path $D=D_1\sqcup D_2$ in the lattice rectangle $[0,a_1]\times[0,a_2]$, write $\bar{D}=\bar{D}_1 \sqcup \bar{D}_2$ for the Dyck path in the lattice rectangle $[0,a_2]\times[0,a_1]$ with $\bar{D}_1=a_1+a_2+1-D_2$ and $\bar{D}_2=a_1+a_2+1-D_1$.
   This operation can be visualized as transposing the Dyck path.
 
-  Given any quantity or object $P$ whose definition depends on $b$ and $c$, write $P^\vee$ for the same quantity or object defined with $b$ and $c$ interchanged.
-  In particular, we have $u^\vee_{m,\varepsilon}=u_{m,-\varepsilon}$ for any $m$ and any $\varepsilon=\pm1$.
+  Given any quantity or object $P$ whose definition depends on $b$ and $c$, write $\vv{P}$ for the same quantity or object defined with $b$ and $c$ interchanged.
+  In particular, we have $\vv{u}_{m,\varepsilon}=u_{m,-\varepsilon}$ for any $m$ and any $\varepsilon=\pm1$.
 
   Write $D^{max}=D^{max}[a_1,a_2]$ for the maximal Dyck path in the lattice rectangle $[0,a_1]\times[0,a_2]$, i.e. $D^{max}$ never crosses above the diagonal line joining $(0,0)$ to $(a_1,a_2)$ and any lattice point above $D^{max}$ also lies above the diagonal.
 
@@ -754,28 +755,29 @@
 
   As an immediate consequence, we determine the structure of certain maximal Dyck paths.
   We introduce the following notation for convenience:
-  \[d_m:=\begin{cases} b & \text{if $m$ is even;}\\ c & \text{if $m$ is odd;}\end{cases} \qquad \text{and} \qquad d^\vee_m:=\begin{cases} c & \text{if $m$ is even;}\\ b & \text{if $m$ is odd;}\end{cases}\]
+  \[d_m:=\begin{cases} b & \text{if $m$ is even;}\\ c & \text{if $m$ is odd;}\end{cases} \qquad \text{and} \qquad \vv{d}_m:=\begin{cases} c & \text{if $m$ is even;}\\ b & \text{if $m$ is odd;}\end{cases}\]
   The following was proven in \cite[Corollary 2.6]{rupel} and follows by a simple induction using Lemma~\ref{le:maximal Dyck path recursion}.
   \begin{corollary}
     Assume $b,c\ge2$ (this can be dropped with extra notation and slight modification).
-    Then, for $\varepsilon=\pm1$ and $m\ge1$, the maximal Dyck path $D_{m,\varepsilon}:=D^{max}[u_{m,\varepsilon},u_{m-1,-\varepsilon}]$ can be constructed as follows:
+    Then, for $\varepsilon=\pm1$ and $m\ge1$, the maximal Dyck path $D^{m,\varepsilon}:=D^{max}[u_{m,\varepsilon},u_{m-1,-\varepsilon}]$ can be constructed as follows:
     \begin{itemize}
-      \item $D_{1,\varepsilon}$ consists of a single horizontal edge;
-      \item $D_{2,\varepsilon}$ consists of $d_2$ horizontal edges followed by a vertical edge;
-      \item for $m\ge3$, $D_{m,\varepsilon}$ consists of $d_m-1$ copies of $D_{m-1,\varepsilon}$ followed by a copy of $D_{m-1,\varepsilon}$ with its first $D_{m-2,\varepsilon}$ removed;
+      \item $D^{1,\varepsilon}$ consists of a single horizontal edge;
+      \item $D^{2,\varepsilon}$ consists of $d_2$ horizontal edges followed by a vertical edge;
+      \item for $m\ge3$, $D_{m,\varepsilon}$ consists of $d_m - 1$ copies of $D^{m-1,\varepsilon}$ followed by a copy of $D^{m-1,\varepsilon}$ with its first $D^{m-2,\varepsilon}$ removed;
     \end{itemize}
-    and the maximal Dyck path $\overline{D}^\vee_{m,\varepsilon}:=D^{max}[u_{m-1,\varepsilon},u_{m,-\varepsilon}]$ can be constructed as follows:
+    and the maximal Dyck path $\vv{\bar{D}}^{m,\varepsilon}:=D^{max}[u_{m-1,\varepsilon},u_{m,-\varepsilon}]$ can be constructed as follows:
     \begin{itemize}
-      \item $\overline{D}^\vee_{1,\varepsilon}$ consists of a single vertical edge;
-      \item $\overline{D}^\vee_{2,\varepsilon}$ consists of a horizontal edge followed by $d^\vee_2$ vertical edges;
-      \item for $m\ge3$, $\overline{D}^\vee_{m,\varepsilon}$ consists of a copy of $\overline{D}^\vee_{m-1,\varepsilon}$ with its last $\overline{D}^\vee_{m-2,\varepsilon}$ removed followed by $d^\vee_m-1$ copies of $\overline{D}^\vee_{m-1,\varepsilon}$.
+      \item $\vv{\bar{D}}^{1,\varepsilon}$ consists of a single vertical edge;
+      \item $\vv{\bar{D}}^{2,\varepsilon}$ consists of a horizontal edge followed by $\vv{d}_2$ vertical edges;
+      \item for $m\ge3$, $\vv{\bar{D}}^{m,\varepsilon}$ consists of a copy of $\vv{\bar{D}}^{m-1,\varepsilon}$ with its last $\vv{\bar{D}}^{m-2,\varepsilon}$ removed followed by $\vv{d}_m - 1$ copies of $\vv{\bar{D}}^{m-1,\varepsilon}$.
     \end{itemize}
   \end{corollary}
 
+  \subsection{Compatibility}
   For $e \le e'\in D$, write $ee'$ for the subpath of $D$ beginning with $e$ and ending with $e'$.
   When $e=e'$, we take $ee'$ to be the subpath consisting of only the edge $e$.
   \begin{definition}
-    For $H\sqcup V\subset D$ with $H\subset D_0$ and $V\subset D_2$ together with a subpath $ee'\subset D$, define the \emph{horizontal shadow statistic}:
+    For $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$ together with a subpath $ee'\subset D$, define the \emph{horizontal shadow statistic}:
     \begin{equation}
       \label{eq:horizontal shadow statistic}
       f_H(ee')=-|ee'\cap D_2|+c|ee'\cap H|
@@ -790,15 +792,19 @@
     Observe that the shadow statistics are additive with respect to concatenation of subpaths.
   \end{remark}
   \begin{definition}
-    A subset $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$ is \emph{compatible} if: for every $h\in H$ and $v\in V$ with $h<v$, there exists an edge $e\in hv$ such that one of the following conditions is satisfied
-    \[\tag{HGC} e\ne v \quad \text{and} \quad f_H(he)=0\]
-    \[\tag{VGC} e\ne h \quad \text{and} \quad f_V(ev)=0\]
+    Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
+    For $h\in H$ and $v\in V$ with $h<v$, call the path $hv$ \emph{compatible} if there exists an edge $e\in hv$ such that one of the following conditions is satisfied:
+    \[\tag{HGC} e\ne v \quad \text{and} \quad f_H(he)=0;\]
+    \[\tag{VGC} e\ne h \quad \text{and} \quad f_V(ev)=0.\]
+    Call the subset $H\sqcup V$ \emph{compatible} if every path $hv$ with $h\in H$ and $v\in V$ is compatible.
     Write $\cC_D$ for the collection of all compatible subsets of $D$.
+    Given a subset $H\subset D_1$, write $\cC_D(H)$ for the collection of all $V\subset D_2$ for which $H\sqcup V\in\cC_D$.
+    Define $\cC_D(V)$ for $V\subset D_2$ similarly.
   \end{definition}
   \begin{remark}
-    In the construction of the greedy basis, it is necessary to consider $D$ as closed cycle by identifying $(0,0)$ with $(a_1,a_2)$ and allowing subpaths $ee'$ with $e'<e$ to ``wrap around'' $D$ in the obvious way.
+    In the construction of the greedy basis, it is necessary to consider $D$ as a closed cycle by identifying $(0,0)$ with $(a_1,a_2)$ and allowing subpaths $ee'$ with $e'<e$ to ``wrap around'' $D$ in the obvious way.
     When we wish to emphasize that this condition should be imposed, we denote the Dyck path $D$ instead by $D_\WA$.
-    For $(a_1,a_2)=(u_{m+1,+},u_{m,-})$ or $(u_{m,+},u_{m+1,-})$, the wrap around condition does not restrict compatibility and can thus safely be omitted.
+    Following \cite[Remark 2.21]{rupel}, for $D^{m,\varepsilon}$ and $\vv{\bar{D}}^{m,\varepsilon}$ the wrap around condition does not restrict compatibility and can thus safely be omitted.
   \end{remark}
 
   \begin{definition}
@@ -812,6 +818,7 @@
   \end{definition}
 
   \begin{lemma}
+    \label{le:shadow statistics}
     Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
     \begin{enumerate}
       \item For $h\in H$, take $he$ to be either the path $D(h;H)$ or $D_\WA(h;H)$.
@@ -830,11 +837,28 @@
         \end{enumerate}
     \end{enumerate}
   \end{lemma}
+  \begin{remark}
+    Observe that the subset $V$ has no influence on the claim of (1) and the subset $H$ has no influence on the claim of (2).
+  \end{remark}
   \begin{proof}
     We prove (1), the proof of (2) is similar.
     To see (a), note that as $e'$ traverses the path $he$ from $h$ to $e$, the value of $f_H(he')$ either increases by $c$, stays constant, or decreases by 1.
     Since $h\in H$, we have $f_H(hh)=c>0$ and so the value of $f_H(he')$ stays positive until it first becomes 0 when $e'=e$.
     Part (b) then follows from the additivity of $f_H$ and part (c) is the case when $e'=e$ here.
+  \end{proof}
+
+  \begin{corollary}
+    Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
+    \begin{enumerate}
+      \item For $h\in H$ and a vertical edge $v\in D(h;H)$, the condition (HGC) is not satisfied for the pair $(h,v)$ but for any $V\in\cC_D(H)$ the condition (VGC) is satisfied for the pair $(h,v)$.
+        In particular, $D(v;V)$ is a proper subpath of $hv$ for any $V\in\cC_D(H)$.
+      \item For $v\in V$ and a horizontal edge $h\in D(v;V)$, the condition (VGC) is not satisfied for the pair $(h,v)$ but for any $H\in\cC_D(V)$ the condition (HGC) is satisfied for the pair $(h,v)$.
+        In particular, $D(h;H)$ is a proper subpath of $hv$ for any $H\in\cC_D(V)$.
+    \end{enumerate}
+  \end{corollary}
+  \begin{proof}
+    We prove (1), the proof of (2) is similar.
+    By Lemma~\ref{le:shadow statistics}, $f_H(he)>0$ for every proper subpath of $D(h;H)=hv$ and so the condition (HGC) is not satisfied for the path $hv$, but then, since $V\in\cC_D(H)$, the condition (VGC) must be satisfied.
   \end{proof}
 
   We associate to $D$ the element $x_D\in\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$ defined as follows
@@ -867,7 +891,7 @@
     \label{def:dominant Dyck path}
     For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, define the \emph{dominant Dyck path} $D^{dom}=D^{dom}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2b}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2b}(x-a_1)$.
 
-    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_2,-a_1+ca_2)\in\cI'$, define the \emph{dual dominant Dyck path} $D^{dom^\vee}=D^{dom^\vee}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2c}(x-a_1)$.
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_2,-a_1+ca_2)\in\cI'$, define the \emph{dual dominant Dyck path} $\vv{D}^{dom}=\vv{D}^{dom}[a_1,a_2]$ to be the maximal Dyck path starting from $(0,0)$ and terminating at $(a_1,a_2)$ while staying below the lines $y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x$ and $y-a_2=\frac{bc-\sqrt{bc(bc-4)}}{2c}(x-a_1)$.
   \end{definition}
   \begin{remark}
     \label{rem:intersection}
@@ -917,7 +941,7 @@
 
   \begin{theorem}
     \label{th:dominant Dyck path recursion}
-    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_{V,b}\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[a_2,ba_2-a_1]$ and $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)=D^{dom^\vee}[ca_1-a_2,a_1]$.
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_{V,b}\big(D^{dom}[a_1,a_2]\big)=\vv{D}^{dom}[a_2,ba_2-a_1]$ and $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)=\vv{D}^{dom}[ca_1-a_2,a_1]$.
   \end{theorem}
   \begin{proof}
     We prove the result for $\mu_{H,c}$ as the result for $\mu_{V,b}$ immediately follows from $\mu_{H,b}$ being its inverse.
