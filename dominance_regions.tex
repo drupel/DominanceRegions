@@ -43,14 +43,17 @@
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Col}{\operatorname{Col}}
 \newcommand{\diag}{\operatorname{diag}}
+\newcommand{\dpt}{\operatorname{dp}}
+\newcommand{\hgt}{\operatorname{ht}}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\obeta}{{\overline{\beta}}}
 \newcommand{\oi}{{\overline{\imath}}}
 \newcommand{\ot}{{\overline{t}}}
+\newcommand{\rsh}{{\operatorname{rsh}}}
+\newcommand{\sh}{{\operatorname{sh}}}
 \newcommand{\WA}{{W\!\!A}}
 \newcommand{\wt}{{\operatorname{wt}}}
-\newcommand{\Sh}{{\operatorname{Sh}}}
 
 \title{Dominance Regions for Imaginary $\bfg$-vectors}
 
@@ -111,7 +114,7 @@
   \end{equation}
   Observe that $E^2_{k,\varepsilon}=\Id$ and $F^2_{k,\varepsilon}=\Id$ for any $k$ and any choice of $\varepsilon$.
 
-  The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_kB=(b'_{ij})$ given by
+  The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_k B=(b'_{ij})$ given by
   \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
   One easily observes that $\mu_k B$ is again skew-symmetrizable using the same matrix $D$.
   \begin{remark}
@@ -713,10 +716,11 @@
   Consider $D$ as the set of its edges taken as a totally ordered set along the natural labeling from $(0,0)$ to $(a_1,a_2)$.
   It may be convenient to identify $D$ with the ordered set $[1,a_1+a_2]$.
   Write $D=D_1\sqcup D_2$, where $D_1=\{h_1,\ldots,h_{a_1}\}$ is the set of horizontal edges and $D_2=\{v_1,\ldots,v_{a_2}\}$ is the set of vertical edges.
-  Clearly, $|D_1|=a_1$ and $|D_2|=a_2$.
+  For $h\in D_1$, define the \emph{height} $\hgt(h)$ as the number of $v\in D_2$ with $v<h$.
+  For $v\in D_2$, define the \emph{depth} $\dpt(v)$ as the number of $h\in D_1$ with $h<v$.
 
   Observe that the data of $D$ is just the data of a bipartition of a finite totally ordered set $D=D_1\sqcup D_2$.
-  Given a Dyck path $D=D_1\sqcup D_2$ in the lattice rectangle $[0,a_1]\times[0,a_2]$, write $\bar{D}=\bar{D}_1 \sqcup \bar{D}_2$ for the Dyck path in the lattice rectangle $[0,a_2]\times[0,a_1]$ with $\bar{D}_1=a_1+a_2+1-D_2$ and $\bar{D}_2=a_1+a_2+1-D_1$.
+  Given a Dyck path $D=D_1\sqcup D_2$ in the lattice rectangle $[0,a_1]\times[0,a_2]$, write $\bar{D}=\bar{D}_1 \sqcup \bar{D}_2$ for the Dyck path (under the identification with $[1,a_1+a_2]$) in the lattice rectangle $[0,a_2]\times[0,a_1]$ with $\bar{D}_1=a_1+a_2+1-D_2$ and $\bar{D}_2=a_1+a_2+1-D_1$.
   This operation can be visualized as transposing the Dyck path.
 
   Given any quantity or object $P$ whose definition depends on $b$ and $c$, write $\vv{P}$ for the same quantity or object defined with $b$ and $c$ interchanged.
@@ -734,24 +738,24 @@
 
   \begin{definition}
     \label{def:Dyck path mutations}
-    Given a Dyck path $D=D[a_1,a_2]$ which is horizontally-adapted to $b$, define a Dyck path $\mu_{V,b}(D)$ inside the lattice rectangle $[0,a_2]\times[0,ba_2-a_1]$ by replacing each vertical edge, together with the $\ell$ horizontal edges which immediately precede it, by a horizontal edge followed by $b-\ell$ vertical edges.
+    Given a Dyck path $D=D[a_1,a_2]$ which is vertically-adapted to $c$, define a Dyck path $\mu_{1,c}(D)$ inside the lattice rectangle $[0,ca_1-a_2]\times[0,a_1]$ by replacing each horizontal edge of $D$, together with the $\ell$ vertical edges which immediately follow it, by $c-\ell$ horizontal edges followed by a vertical edge.
+    This provides a canonical identification of the horizontal edges of $D$ with the vertical edges of $\mu_{1,c}(D)$, this identification is again denoted by $\mu_{1,c}$.
 
-    Given a Dyck path $D=D[a_1,a_2]$ which is vertically-adapted to $c$, define a Dyck path $\mu_{H,c}(D)$ inside the lattice rectangle $[0,ca_1-a_2]\times[0,a_1]$ by replacing each horizontal edge, together with the $\ell$ vertical edges which immediately follow it, by $c-\ell$ horizontal edges followed by a vertical edge.
+    Given a Dyck path $D=D[a_1,a_2]$ which is horizontally-adapted to $b$, define a Dyck path $\mu_{2,b}(D)$ inside the lattice rectangle $[0,a_2]\times[0,ba_2-a_1]$ by replacing each vertical edge of $D$, together with the $\ell$ horizontal edges which immediately precede it, by a horizontal edge followed by $b-\ell$ vertical edges.
+    This provides a canonical identification of the vertical edges of $D$ with the horizontal edges of $\mu_{2,b}(D)$, this identification is again denoted by $\mu_{2,b}$.
   \end{definition}
   \begin{remark}
-    Observe that $\mu_{H,a}$ and $\mu_{V,a}$ are inverse for any $a\ge1$.
+    Observe that $\mu_{1,a}$ and $\mu_{2,a}$ are inverse for any $a\ge1$ whenever they are defined.
   \end{remark}
 
+  The following result is proven in \cite[Lemma 2.4]{rupel} with appropriate notation changes, c.f. Theorem~\ref{th:dominant Dyck path recursion} for a slight modification and explicit proof.
   \begin{lemma}\mbox{}
     \label{le:maximal Dyck path recursion}
     \begin{enumerate}
-      \item If $a_1 < b a_2$, then $\mu_{V,b}\big(D^{max}[a_1,a_2]\big)=D^{max}[a_2,ba_2-a_1]$.
-      \item If $a_2 < c a_1$, then $\mu_{H,c}\big(D^{max}[a_1,a_2]\big)=D^{max}[ca_1-a_2,a_1]$.
+      \item If $a_2 < c a_1$, then $\mu_{1,c}\big(D^{max}[a_1,a_2]\big)=D^{max}[ca_1-a_2,a_1]$.
+      \item If $a_1 < b a_2$, then $\mu_{2,b}\big(D^{max}[a_1,a_2]\big)=D^{max}[a_2,ba_2-a_1]$.
     \end{enumerate}
   \end{lemma}
-  \begin{proof}
-    The proof is identical to the proof of \cite[Lemma 2.4]{rupel} with appropriate notation changes, c.f. Theorem~\ref{th:dominant Dyck path recursion} below.
-  \end{proof}
 
   As an immediate consequence, we determine the structure of certain maximal Dyck paths.
   We introduce the following notation for convenience:
@@ -774,28 +778,60 @@
   \end{corollary}
 
   \subsection{Compatibility}
+  The results of this section can mostly be found in \cite{lee-li-zelevinsky,rupel}.
+  However since we work in arbitrary Dyck paths instead of just the maximal ones, we recall and adapt the proofs as needed.
+
   For $e \le e'\in D$, write $ee'$ for the subpath of $D$ beginning with $e$ and ending with $e'$.
+  %Take $\overline{e}e'$ and $e\overline{e}'$ to be the subpaths of $ee'$ with $e$ and $e'$ removed, respectively.
   When $e=e'$, we take $ee'$ to be the subpath consisting of only the edge $e$.
+  For $e \le h\in D$ with $h\in D_1$, write $eh^{\!\uparrow}$ for the subpath $eh$ together with all vertical edges immediately following $h$.
+  For $v \le e\in D$ with $v\in D_2$, write ${}^\leftarrow\!\!\! ve$ for the subpath $ve$ together with all horizontal edges immediately preceding $v$.
   \begin{definition}
     For $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$ together with a subpath $ee'\subset D$, define the \emph{horizontal shadow statistic}:
     \begin{equation}
       \label{eq:horizontal shadow statistic}
-      f_H(ee')=-|ee'\cap D_2|+c|ee'\cap H|
+      f_H(ee')=-|ee' \cap D_2|+c|ee'\cap H|
     \end{equation}
     and the \emph{vertical shadow statistic}:
     \begin{equation}
       \label{eq:vertical shadow statistic}
-      f_V(ee')=-|ee'\cap D_1|+b|ee'\cap V|.
+      f_V(ee')=-|ee' \cap D_1|+b|ee'\cap V|.
     \end{equation}
   \end{definition}
   \begin{remark}
     Observe that the shadow statistics are additive with respect to concatenation of subpaths.
   \end{remark}
+
+  \begin{lemma}
+    Suppose the Dyck path $D$ is vertically-adapted to $c$ and let $D'=\mu_{1,c}(D)$ with $D'_2=\{v'_1,\ldots,v'_{a_1}\}$.
+    For $H\subset D_1$, define $V'\subset D'_2$ by $V'=D'_2\setminus \mu_{1,c}(H)$.
+    Then for any $h_i<h_j \in D_1$, we have $f_H(h_i h_j^{\!\uparrow})=-\vv{f}_{V'}({}^\leftarrow\!\!\! v'_i v'_j)$.
+  \end{lemma}
+  \begin{proof}
+    By definition, we have 
+    \begin{align*}
+      -\vv{f}_{V'}({}^\leftarrow\!\!\! v'_iv'_j)&=|{}^\leftarrow\!\!\! v'_i v'_j \cap D'_1|-c|{}^\leftarrow\!\!\! v'_i v'_j \cap V'|\\
+      &=|{}^\leftarrow\!\!\! v'_i v'_j \cap D'_1|-c\big|{}^\leftarrow\!\!\! v'_i v'_j \cap \big(D'_2\setminus \mu_{1,c}(H)\big)\big|\\
+      &=|{}^\leftarrow\!\!\! v'_i v'_j \cap D'_1|-c|{}^\leftarrow\!\!\! v'_i v'_j \cap D'_2|+c\big|{}^\leftarrow\!\!\! v'_i v'_j \cap \mu_{1,c}(H)\big|.
+    \end{align*}
+    But, by construction of $\mu_{1,c}(D)$ and since $\mu_{2,c}(D')=D$, we have
+    \[\big|{}^\leftarrow\!\!\! v'_i v'_j \cap \mu_{1,c}(H)\big|=|h_i h_j^{\!\uparrow} \cap H| \qquad \text{and} \qquad c|{}^\leftarrow\!\!\! v'_i v'_j \cap D'_2|-|{}^\leftarrow\!\!\! v'_i v'_j \cap D'_1|=|h_i h_j^{\!\uparrow} \cap D_2|\]
+    giving
+    \[-\vv{f}_{V'}({}^\leftarrow\!\!\! v'_iv'_j)=-|h_i h_j^{\!\uparrow} \cap D_2|+c|h_i h_j^{\!\uparrow} \cap H|=f_H(h_i h_j^{\!\uparrow})\]
+    as desired.
+  \end{proof}
+
   \begin{definition}
     Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
     For $h\in H$ and $v\in V$ with $h<v$, call the path $hv$ \emph{compatible} if there exists an edge $e\in hv$ such that one of the following conditions is satisfied:
-    \[\tag{HGC} e\ne v \quad \text{and} \quad f_H(he)=0;\]
-    \[\tag{VGC} e\ne h \quad \text{and} \quad f_V(ev)=0.\]
+    \begin{equation}
+      \label{eq:HGC}
+      \tag{HGC} e\ne v \quad \text{and} \quad f_H(he)=0;
+    \end{equation}
+    \begin{equation}
+      \label{eq:VGC}
+      \tag{VGC} e\ne h \quad \text{and} \quad f_V(ev)=0.
+    \end{equation}
     Call the subset $H\sqcup V$ \emph{compatible} if every path $hv$ with $h\in H$ and $v\in V$ is compatible.
     Write $\cC_D$ for the collection of all compatible subsets of $D$.
     Given a subset $H\subset D_1$, write $\cC_D(H)$ for the collection of all $V\subset D_2$ for which $H\sqcup V\in\cC_D$.
@@ -808,13 +844,16 @@
   \end{remark}
 
   \begin{definition}
+    \label{def:shadows}
     For $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$, define the \emph{shadow paths} as follows:
     \begin{itemize}
-      \item For $h\in D_1$, write $D(h;H)$ for the shortest subpath $he \subset D$ with $f_H(he)=0$ or, if no such subpath exists, set $D(h;H)=hv_{a_2}$.
-      \item For $h\in D_1$, write $D_\WA(h;H)$ for the shortest subpath $he \subset D_\WA$ with $f_H(he)=0$ or, if no such subpath exists, set $D_\WA(h;H)=D$.
-      \item For $v\in D_2$, write $D(v;V)$ for the shortest subpath $ev \subset D$ with $f_V(ev)=0$ or, if no such subpath exists, set $D(v;V)=h_1 v$.
-      \item For $v\in D_2$, write $D_\WA(v;V)$ for the shortest subpath $ev \subset D_\WA$ with $f_V(ev)=0$ or, if no such subpath exists, set $D_\WA(v;V)=D$.
+      \item For $h\in D_1$, write $D(h;H)$ (resp. $D_\WA(h;H)$) for the shortest subpath $he \subset D$ (resp. $he \subset D_\WA$) with $f_H(he)=0$ or, if no such subpath exists, set $D(h;H)=hv_{a_2}$ (resp. set $D_\WA(h;H)=D$).
+      \item For $v\in D_2$, write $D(v;V)$ (resp. $D_\WA(v;V)$) for the shortest subpath $ev \subset D$ (resp. $ev \subset D_\WA$) with $f_V(ev)=0$ or, if no such subpath exists, set $D(v;V)=h_1 v$ (resp. set $D_\WA(v;V)=D$).
     \end{itemize}
+    Write 
+    \[D(H):=\bigcup_{h\in H} D(h;H) \qquad \text{and} \qquad D(V):=\bigcup_{v\in V} D(v;V).\]
+    Define the \emph{shadow} of $H$ (resp. \emph{shadow} of $V$) as the set $\sh_D(H):=D(H)\cap D_2$ (resp. $\sh_D(V):=D(V)\cap D_1$) and the \emph{local shadow} of $h\in H$ (resp. of $v\in V$) as the set $\sh_D(h;H)=D(h;H)\cap D_2$ (resp. $\sh_D(v;V)=D(v;V)\cap D_1$).
+    Define shadows and local shadows for $D_\WA$ similarly.
   \end{definition}
 
   \begin{lemma}
@@ -825,14 +864,14 @@
         The following hold:
         \begin{enumerate}
           \item for any proper subpath $he'\subsetneq he$, we have $f_H(he')>0$;
-          \item for any proper subpath $e'e\subsetneq he$, we have $f_H(e'e)<0$;
+          \item if $f_H(he)=0$, then for any proper subpath $e'e\subsetneq he$, we have $f_H(e'e)<0$;
           \item $e\in V$.
         \end{enumerate}
       \item For $v\in V$, take $ev$ to be either the path $D(v;V)$ or $D_\WA(v;V)$.
         The following hold:
         \begin{enumerate}
           \item for any proper subpath $e'v\subsetneq ev$, we have $f_V(e'v)>0$;
-          \item for any proper subpath $ee'\subsetneq ev$, we have $f_V(ee')<0$;
+          \item if $f_V(ev)=0$, then for any proper subpath $ee'\subsetneq ev$, we have $f_V(ee')<0$;
           \item $e\in H$.
         \end{enumerate}
     \end{enumerate}
@@ -850,16 +889,58 @@
   \begin{corollary}
     Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
     \begin{enumerate}
-      \item For $h\in H$ and a vertical edge $v\in D(h;H)$, the condition (HGC) is not satisfied for the pair $(h,v)$ but for any $V\in\cC_D(H)$ the condition (VGC) is satisfied for the pair $(h,v)$.
+      \item For $h\in H$ and a vertical edge $v\in D(h;H)$, the condition \eqref{eq:HGC} is not satisfied for the path $hv$ but for any $V\in\cC_D(H)$ the condition \eqref{eq:VGC} is satisfied for the path $hv$.
         In particular, $D(v;V)$ is a proper subpath of $hv$ for any $V\in\cC_D(H)$.
-      \item For $v\in V$ and a horizontal edge $h\in D(v;V)$, the condition (VGC) is not satisfied for the pair $(h,v)$ but for any $H\in\cC_D(V)$ the condition (HGC) is satisfied for the pair $(h,v)$.
+      \item For $v\in V$ and a horizontal edge $h\in D(v;V)$, the condition \eqref{eq:VGC} is not satisfied for the pair $hv$ but for any $H\in\cC_D(V)$ the condition \eqref{eq:HGC} is satisfied for the path $hv$.
         In particular, $D(h;H)$ is a proper subpath of $hv$ for any $H\in\cC_D(V)$.
     \end{enumerate}
   \end{corollary}
   \begin{proof}
     We prove (1), the proof of (2) is similar.
-    By Lemma~\ref{le:shadow statistics}, $f_H(he)>0$ for every proper subpath of $D(h;H)=hv$ and so the condition (HGC) is not satisfied for the path $hv$, but then, since $V\in\cC_D(H)$, the condition (VGC) must be satisfied.
+    By Lemma~\ref{le:shadow statistics}, $f_H(he)>0$ for every proper subpath of $D(h;H)=hv$ and so the condition \eqref{eq:HGC} is not satisfied for the path $hv$, but then, since $V\in\cC_D(H)$, the condition \eqref{eq:VGC} must be satisfied for this path.
   \end{proof}
+
+  \begin{lemma}\mbox{}
+    \begin{enumerate}
+      \item For $H\subset D_1$ and $h,h'\in H$, the local shadows $\sh_D(h;H)$ and $\sh_D(h';H)$ are either disjoint or one is contained in the other.
+      \item For $V\subset D_2$ and $v,v'\in V$, the local shadows $\sh_D(v;V)$ and $\sh_D(v';V)$ are either disjoint or one is contained in the other.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    We prove (1), the proof of (2) is similar.
+    For $h=h'$ or $D(h;H)=D$ or $D(h';H)=D$ there is nothing to show, so assume both shadow paths are proper subpaths of $D$.
+    Suppose the intersection of $D(h;H)$ and $D(h';H)$ is nonempty, say with $h'\in D(h;H)=he$.
+    If $e=v_{a_2}$, then $D(h';H)=h'v_{a_2}\subset D(h;H)$.
+    Otherwise, denote by $e'\in D$ the edge immediately preceding $h'$ in $he$.
+    If $e\in D(h';H)$, Lemma~\ref{le:shadow statistics} shows that $f_H(he)=f_H(he')+f_H(h'e)>0$, in contradiction to the definition of $D(h;H)$.
+  \end{proof}
+
+  \begin{definition}
+    Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
+    \begin{enumerate}
+      \item Define $\rsh_D(H)\subset\sh_D(H)$, the \emph{remote shadow} of $H$, by removing for each $d\in[1,a_1]$ the (up to) $c$ vertical edges of depth $d$ immediately following $h_d$.
+      \item Define $\rsh_D(H)\subset\sh_D(H)$, the \emph{remote shadow} of $V$, by removing for each $\ell\in[1,a_2]$ the (up to) $b$ horizontal edges of height $\ell-1$ immediately preceding $v_\ell$.
+    \end{enumerate}
+  \end{definition}
+
+  \begin{lemma}\mbox{}
+    \begin{enumerate}
+      \item For $H\subset D_1$, $V\in\cC_D(H)$ if and only if $V$ is disjoint from $\sh_D(H)\setminus\rsh_D(H)$ and one of the conditions \eqref{eq:HGC} or \eqref{eq:VGC} is satisfied for each path $hv$ with $h\in H$ and $v\in\rsh_D(H)$.
+      \item For $V\subset D_2$, $H\in\cC_D(V)$ if and only if $H$ is disjoint from $\sh_D(V)\setminus\rsh_D(V)$ and one of the conditions \eqref{eq:HGC} or \eqref{eq:VGC} is satisfied for each path $hv$ with $h\in\rsh_D(V)$ and $v\in V$.
+    \end{enumerate}
+  \end{lemma}
+
+  \begin{definition}
+    Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
+    \begin{enumerate}
+      \item For $0 < j,d \le a_1$ with $h_j\in H$, denote by $\rsh_D(H)_{j;d}$ the set of all $v\in\rsh_D(H)$ of depth $d$ such that $v\in\sh(h_j;H)$ and $h_j$ is the first horizontal edge before $v$ with this property.
+        Define the \emph{local remote shadow} of the edge $h_j$ by $\rsh_D(h_j;H):=\bigsqcup_{d\in[1,a_1]} \rsh_D(H)_{j;d}$.
+      \item For $0 < k \le a_2$ with $v_k\in V$ and $0\le \ell < a_2$, denote by $\rsh_D(V)_{k;\ell}$ the set of all $h\in\rsh_D(V)$ of height $\ell$ such that $h\in\sh(v_k;V)$ and $v_k$ is the first vertical edge after $h$ with this property.
+        Define the \emph{local remote shadow} of the edge $v_k$ by $\rsh_D(v_k;V):=\bigsqcup_{\ell\in[0,a_2-1]} \rsh_D(V)_{k;\ell}$.
+    \end{enumerate}
+  \end{definition}
+
+
 
   We associate to $D$ the element $x_D\in\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$ defined as follows
   \[x_D:=x_1^{-a_1} x_2^{-a_2} \sum_{H\sqcup V\in\cC_D} x_1^{b|V|} x_2^{c|H|}.\]
@@ -872,7 +953,7 @@
   \begin{lemma}
     Suppose there are two factorizations
     \[x_D=x_1^{-a_1} x_2^{-a_2} \sum_{t=0}^{a_2}\sum_{k=0}^{a_1} \nu_{k,t} x_1^{bt}(1+x_2^c)^{a_1-k}=x_1^{-a_1} x_2^{-a_2} \sum_{s=0}^{a_1}\sum_{\ell=0}^{a_2} \theta_{s,\ell} x_2^{cs}(1+x_1^b)^{a_2-\ell},\]
-    where $\nu_{k,t}$ is the number of subsets $V\subseteq_t D_2$ with $|\Sh_D(V)|=k$ and $\theta_{s,\ell}$ is the number of subsets $H\subseteq_s D_1$ with $|\Sh_D(H)|=\ell$.
+    where $\nu_{k,t}$ is the number of subsets $V\subseteq_t D_2$ with $|\sh_D(V)|=k$ and $\theta_{s,\ell}$ is the number of subsets $H\subseteq_s D_1$ with $|\sh_D(H)|=\ell$.
     Then 
     \[\sum_{k=0}^{a_1-s} {a_1-k\choose s} \nu_{k,t}=\sum_{\ell=0}^{a_2-t} {a_2-\ell\choose t} \theta_{s,\ell}\]
     for all possible $s$ and $t$.
@@ -941,11 +1022,11 @@
 
   \begin{theorem}
     \label{th:dominant Dyck path recursion}
-    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_{V,b}\big(D^{dom}[a_1,a_2]\big)=\vv{D}^{dom}[a_2,ba_2-a_1]$ and $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)=\vv{D}^{dom}[ca_1-a_2,a_1]$.
+    For $a_1,a_2\in\ZZ_{\ge0}$ with $(-a_1+ba_2,-a_2)\in\cI$, we have $\mu_{1,c}\big(D^{dom}[a_1,a_2]\big)=\vv{D}^{dom}[ca_1-a_2,a_1]$ and $\mu_{2,b}\big(D^{dom}[a_1,a_2]\big)=\vv{D}^{dom}[a_2,ba_2-a_1]$.
   \end{theorem}
   \begin{proof}
-    We prove the result for $\mu_{H,c}$ as the result for $\mu_{V,b}$ immediately follows from $\mu_{H,b}$ being its inverse.
-    Write $D'$ for the Dyck path $\mu_{H,c}\big(D^{dom}[a_1,a_2]\big)$ and observe that by construction $D'$ has $ca_1-a_2$ horizontal edges and $a_1$ vertical edges.
+    We prove the result for $\mu_{1,c}$ as the result for $\mu_{2,b}$ immediately follows from $\mu_{1,b}$ being its inverse.
+    Write $D'$ for the Dyck path $\mu_{1,c}\big(D^{dom}[a_1,a_2]\big)$ and observe that by construction $D'$ has $ca_1-a_2$ horizontal edges and $a_1$ vertical edges.
     Write $v'_1,\ldots,v'_{a_1}$ for the vertical edges of $D'$ with $v'_r$ immediately preceded by $\ell_r$ horizontal edges.
     We have to show (i) that every lattice point on $D'$ stays below the lines 
     \[y=\frac{bc+\sqrt{bc(bc-4)}}{2c}x \qquad \text{and} \qquad y-a_1=\frac{bc-\sqrt{bc(bc-4)}}{2c}\big(x-(ca_1-a_2)\big)\]
