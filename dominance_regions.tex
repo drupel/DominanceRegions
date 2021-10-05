@@ -1125,6 +1125,7 @@
   
   Then the following result immediately follows from Lemma~\ref{le:shadow statistic recursion}.
   \begin{corollary}\mbox{}
+    \label{cor:remote shadows}
     \begin{enumerate}
       \item Suppose the Dyck path $D$ is vertically-adapted to $c$ and let $D'=\mu_{1,c}(D)$ with $D'_2=\{v'_1,\ldots,v'_{a_1}\}$.
         For $H\subset D_1$, define $V'\subset D'_2$ by $V'=D'_2\setminus \mu_{1,c}(H)$.
@@ -1135,8 +1136,36 @@
     \end{enumerate}
   \end{corollary}
 
-  It follows that, for $H\subset D_1$ and $1 \le d < j \le a_1$, we may define an order-reversing bijection $\theta(H)_{j;d} : \rsh_D(H)_{j;d} \to \rsh_{D'}(V')_{d;j}$.
-  Similarly, for $V\subset D_2$ and $1 \le \ell < k \le a_2$, we may define an order-reversing bijection $\theta(V)_{k;\ell} : \rsh_D(V)_{k;\ell} \to \rsh_{D''}(H'')_{\ell;k}$.
+  In the results below, we keep the notation and assumptions from Corollary~\ref{cor:remote shadows}.
+  It follows that, for $H\subset D_1$ and $1 \le d < j \le a_1$, we may define an order-reversing bijection $\theta^H_{j;d} : \rsh_D(H)_{j;d} \to \rsh_{D'}(V')_{d;j}$.
+  Similarly, for $V\subset D_2$ and $1 \le \ell < k \le a_2$, we may define an order-reversing bijection $\theta^V_{k;\ell} : \rsh_D(V)_{k;\ell} \to \rsh_{D''}(H'')_{\ell;k}$.
+  \begin{definition}\mbox{}
+    \begin{enumerate}
+      \item For $H\subset D_1$ and $V \subset \rsh_D(H)$, define $\Omega_H(V) \subset \rsh_{D'}(V')$ by
+        \[\Omega_H(V)=\{\theta^H_{j;d}(v) : v \in \rsh_D(H)_{j;d}, 1 \le d < j \le a_1\}.\]
+      \item For $V\subset D_2$ and $H \subset \rsh_D(V)$, define $\Omega_V(H) \subset \rsh_{D''}(H'')$ by
+        \[\Omega_V(H)=\{\theta^V_{k;\ell}(h) : h \in \rsh_D(V)_{k;\ell}, 1 \le \ell < k \le a_2\}.\]
+    \end{enumerate}
+  \end{definition}
+
+  \begin{lemma}\mbox{}
+    \begin{enumerate}
+      \item Consider $H\subset D_1$ and $V \subset \rsh_D(H)$.
+        Suppose $h'=\theta^H_{j;d}(v)$ for $v\in V$.
+        Then $f_{\Omega_H(V)}(h'v'_d)=f_V(h_j v)$.
+      \item Consider $V\subset D_2$ and $H \subset \rsh_D(V)$.
+        Suppose $v''=\theta^V_{k;\ell}(h)$ for $h\in H$.
+        Then $f_{\Omega_V(H)}(h''_\ell v'')=f_V(h v_k)$.
+    \end{enumerate}
+  \end{lemma}
+
+  The following equivalence of compatibilities is the main result we need.
+  \begin{corollary}\mbox{}
+    \begin{enumerate}
+      \item For $H \subset D_1$ and $V \subset \rsh_D(H)$, we have $V\in\cC_D(H)$ if and only if $\Omega_H(V)\in\cC_{D'}(V')$.
+      \item For $V \subset D_2$ and $H \subset \rsh_D(V)$, we have $H\in\cC_D(V)$ if and only if $\Omega_V(H)\in\cC_{D''}(H'')$.
+    \end{enumerate}
+  \end{corollary}
 
   We associate to $D$ the element $x_D\in\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$ defined as follows
   \[x_D:=x_1^{-a_1} x_2^{-a_2} \sum_{H\sqcup V\in\cC_D} x_1^{b|V|} x_2^{c|H|}.\]
