@@ -78,7 +78,7 @@
     \item To what extent can we explicitly/combinatorially describe the eigenvalues/eigenvectors of the twist automorphism/Auslander-Reiten translation acting on imaginary $\bfg$-vectors given a maximal green sequence? 
     \item What role do coefficients play in the dominance order on pointed bases?
     \item Is any change required in the theory to handle quantum/generalized or both cases together?
-    \item What do our results mean geometrically in terms of the cluster variety?  Is this constructing an affine chart?
+    \item What do our results mean geometrically in terms of the cluster variety?
   \end{enumerate}
 
   \section{Introduction}
@@ -98,11 +98,11 @@
   This condition is naturally interpreted in terms of an associated quiver $Q_B$ with $n$ vertices and an arrow $i\to j$ whenever $b_{ji}>0$ (if we need to use representation theory at any point we'll have to change this to be $\gcd(b_{ij},b_{ji})$ arrows $i\to j$).
   Indeed, this is precisely the condition that $Q_B$ has no oriented cycles.
   In the case when $B$ is acyclic, there exists a labeling $\{k_1,\ldots,k_n\}=\{1,\ldots,n\}$ so that $\ell<\ell'$ implies $b_{k_{\ell'} k_\ell}\ge 0$.
-  The sequence $(k_1,\ldots,k_n)$ (resp. $(k_n,\ldots,k_1)$) is said to be \emph{source-adapted} (resp. \emph{sink-adapted}) since the condition implies $k_1$ is a source and $k_n$ is a sink in $Q_B$.
+  The sequence $(k_1,\ldots,k_n)$ (resp. $(k_n,\ldots,k_1)$) is then said to be \emph{source-adapted} (resp. \emph{sink-adapted}) since the condition implies $k_1$ is a source and $k_n$ is a sink in $Q_B$.
   %\sayDR{We need to pin down this convention.}
 
   For $b\in\ZZ$, write $[b]_+=max(b,0)$.
-  Given a sign $\varepsilon\in\{\pm\}$ and $k\in\{1,\ldots,n\}$, define a matrix $E_{k,\varepsilon}=(e_{ij})$ with
+  Given a sign $\varepsilon\in\{\pm1\}$ and $k\in\{1,\ldots,n\}$, define a matrix $E_{k,\varepsilon}=(e_{ij})$ with
   \begin{equation}
     \label{eq:left mutation matrix}
     e_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ [\varepsilon b_{ik}]_+ & \text{if $i\ne j=k$;}\\ 0 & \text{otherwise;} \end{cases}
@@ -113,6 +113,12 @@
     f_{ij}=\begin{cases} 1 & \text{if $k\ne i=j$;}\\ -1 & \text{if $k=i=j$;}\\ [-\varepsilon b_{kj}]_+ & \text{if $k=i\ne j$;}\\ 0 & \text{otherwise.} \end{cases}
   \end{equation}
   Observe that $E^2_{k,\varepsilon}=\Id$ and $F^2_{k,\varepsilon}=\Id$ for any $k$ and any choice of $\varepsilon$.
+  \begin{lemma}
+    For $\varepsilon\in\{\pm1\}$ and $k\in\{1,\ldots,n\}$, we have $E_{k,-\varepsilon}E_{k,\varepsilon}=I_n+\varepsilon B^{\bullet k}$ and $E_{k,\varepsilon}-E_{k,-\varepsilon}=\varepsilon B^{\bullet k}$.
+  \end{lemma}
+  \begin{proof}
+    This is immediate from the equality $\varepsilon b_{ij}=[\varepsilon b_{ij}]_+-[-\varepsilon b_{ij}]_+$.
+  \end{proof}
 
   The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_k B=(b'_{ij})$ given by
   \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
@@ -134,13 +140,17 @@
   We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labeled $k$.
   \begin{lemma}
     Suppose $t,t'\in\TT_n$ are joined by an edge labeled $k$.
-    If $\lambda\in\Col(B^t)$, then $\phi^t_k(\lambda)\in\Col(B^{t'})$.
+    If $\mu\in\lambda+\Col(B^t)$, then $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(B^{t'})$.
   \end{lemma}
   \begin{proof}
-    Suppose $\lambda=B^t\alpha$ for some $\alpha\in\RR^n$.
+    Suppose $\mu=\lambda+B^t\alpha$ for some $\alpha\in\RR^n$.
+    Let $\varepsilon$ (resp. $\varepsilon'$) be such that $\phi^t_k(\mu)=E^t_{k,\varepsilon}\mu$ (resp. $\phi^t_k(\lambda)=E^t_{k,\varepsilon'}\lambda$).
     Then 
-    \[\phi^t_k(\lambda)=E^t_{k,\pm}\lambda=E^t_{k,\pm} B^t\alpha=E^t_{k,\pm} B^t F^t_{k,\pm} F^t_{k,\pm}\alpha=B^{t'} F^t_{k,\pm}\alpha\]
-    so that $\phi^t_k(\lambda)\in\Col(B^{t'})$.
+    \[\phi^t_k(\mu)=E^t_{k,\varepsilon}\mu=E^t_{k,\varepsilon}(\lambda+B^t\alpha)=E^t_{k,\varepsilon}\lambda + E^t_{k,\varepsilon} B^t F^t_{k,\varepsilon} F^t_{k,\varepsilon}\alpha=E^t_{k,\varepsilon}\lambda + B^{t'} F^t_{k,\varepsilon}\alpha.\]
+    If $\varepsilon'=\varepsilon$, this is equal to $\phi^t_k(\lambda) + B^{t'} F^t_{k,\varepsilon}\alpha$ and so $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(B^{t'})$.
+    Otherwise, 
+    \[E^t_{k,\varepsilon}\lambda=E^t_{k,\varepsilon'}\lambda+\varepsilon(B^t)^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon(B^{t'})^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon B^{t'} \lambda_k \mathbf{e}_k\]
+    and again we see that $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(B^{t'})$.
   \end{proof}
 
   For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\RR^n\to\RR^n$ by
@@ -1056,6 +1066,42 @@
   \begin{remark}
     Observe that the subset $V$ has no influence on the claim of (1) and the subset $H$ has no influence on the claim of (2).
   \end{remark}
+
+  \begin{definition}
+    Given two Dyck paths $D,D'$ in the lattice rectangle $[0,a_1]\times[0,a_2]$, write $D'\succ D$ if no lattice point of $D'$ lies below a lattice point of $D$.
+  \end{definition}
+  \begin{remark}
+    Equivalently, $D'\succ D$ if no lattice point of $D'$ lies to the right of a lattice point of $D$.
+  \end{remark}
+
+  \begin{proposition}
+    Let $D,D'$ be two Dyck paths in the lattice rectangle $[0,a_1]\times[0,a_2]$ with $D'\succ D$.
+    Identify $D_1$ with $D'_1$ and $D_2$ with $D'_2$ along the natural left-to-right ordering.
+    For subsets $H\subset D_1$ and $V\subset D_2$, write $H'\subset D'_1$ and $V'\subset D'_2$ for the corresponding subsets under the identification above.
+    If $(H,V) \in \cC_D$, then $(H',V') \in \cC_{D'}$.
+  \end{proposition}
+  \begin{proof}
+    It suffices, by induction, to show that the result holds if $D'$ is an immediate successor of $D$, i.e. when a single pair of a horizontal followed by a vertical is replaced by a vertical followed by a horizontal.
+    Assume $D'$ is obtained from $D$ in this way, say with horizontal edge $h_i$ and vertical edge $v_j$ satisfying $v_j=h_i+1$ in $D$ replaced by the vertical edge $v'_j$ and the horizontal edge $h'_i$ satisfying $h'_i=v'_j+1$ in $D'$.
+
+    Consider $(H,V) \in \cC_D$.
+    For $h\in H$ and $v\in V$, write $h'\in H'$ and $v'\in V'$ for the corresponding edges.
+    We claim that the condition \eqref{eq:HGC} (resp. \eqref{eq:VGC}) being satisfied for the path $hv$ in $D$ implies the same condition is satisfied for the path $h'v'$ in $D'$.
+
+    Suppose \eqref{eq:HGC} is satisfied for the path $hv$ and write $D(h;H)=he$ for $e\in V$ with $e<v$.
+    If $h_i,v_j\notin D(h;H)$, then under the identification with $D'$ we have $D(h';H')=D(h;H)$ and \eqref{eq:HGC} is satisfied for the path $h'v'$.
+    Alternatively, since $e\in V$, we must have both $h_i,v_j\in D(h;H)$.
+    If $h_i\notin H$, then again we have $D(h';H')=D(h;H)$ and \eqref{eq:HGC} is satisfied for the path $h'v'$.
+    Thus, we assume $h_i\in H$.
+
+    We begin by assuming $h_i\ne h$.
+    This gives two possibilities for $D(h';H')$ depending on $D(h'_i;H')$.
+    First, observe that $D(h_i;H)$ is a proper subpath of $h_ie$, for otherwise $f_H(h_ie)=0$ and, by the additivity of $f_H$, $he$ would not be the shortest subpath with $f_H(he)=0$.
+    Thus, if $D(h_i;H)$ is followed by at least two vertical edges inside $D(h;H)$, we again have $D(h';H')=D(h;H)$ and \eqref{eq:HGC} is satisfied for the path $h'v'$.
+    Otherwise, $D(h';H')$ is an initial subpath of $D(h;H)$ under the identification of $D'$ with $D$ and again \eqref{eq:HGC} is satisfied for the path $h'v'$.
+
+    Now if $h_i=h$...
+  \end{proof}
 
   \begin{corollary}
     Consider $H\sqcup V\subset D$ with $H\subset D_1$ and $V\subset D_2$.
