@@ -62,12 +62,11 @@
 
 \begin{document}
   \begin{abstract}
-    We investigate the shapes of the polytopes defining the dominance order for $\bfg$-vectors in acyclic affine cluster algebras and acyclic cluster algebras of rank two.
-    In both cases, we arrive at a complete description: 
+    We investigate the shapes of the polytopes defining the dominance order for $\bfg$-vectors in cluster algebras of rank two.
+    We arrive at a complete description: 
     \begin{itemize}
       \item cluster monomials are never deformable;
-      \item in affine types, the imaginary $\bfg$-vectors have dominance polytopes which are segments of imaginary $\bfg$-vectors except possibly for a single point on the boundary of an imaginary cone;
-      \item a strange difference emerges in rank two wild types: the imaginary dominance polytopes are kites, triangles, or trapezoids which extend far outside the imaginary cone, the triangles appearing along rays corresponding to columns of the associated Cartan matrix.
+      \item the imaginary dominance polytopes are kites, triangles, or trapezoids which extend far outside the imaginary cone, the triangles appearing along rays corresponding to columns of the associated Cartan matrix.
     \end{itemize}
     We conjecture how our observations might generalize to higher dimensions.
   \end{abstract}
@@ -76,17 +75,21 @@
   \section{Questions}
   \begin{enumerate}
     \item To what extent can we explicitly/combinatorially describe the eigenvalues/eigenvectors of the twist automorphism/Auslander-Reiten translation acting on imaginary $\bfg$-vectors given a maximal green sequence? 
-    \item What role do coefficients play in the dominance order on pointed bases?
     \item Is any change required in the theory to handle quantum/generalized or both cases together?
     \item What do our results mean geometrically in terms of the cluster variety?
   \end{enumerate}
 
   \section{Introduction}
-  The investigations of this paper are inspired by the dominance order on the tropical labelings for bases of cluster algebras.
-  This dominance order is used by Qin to understand how these bases may be deformed in the case when there is a green-to-red sequence of mutations.
-  In particular, these calculations can be carried out for any acyclic cluster algebra.
+  Cluster algebras can be understood geometrically by gluing a collection of algebraic tori along birational morphisms known as mutations.
+  While such a description seems simple at first glance, this structure has been found across much of the range of mathematical objects under current consideration in the literature.
+  To give an idea of how fundamental the process of cluster mutation has come to be understood within mathematics, we note the following (far from exhaustive list of) areas to which this notion is connected: representation theory of artin algebras, especially reflection functors and tilting theory \cite{???}; representation theory of algebraic groups, especially Coxeter groups, double Bruhat cells, and (dual) canonical bases \cite{???}; hyperbolic geometry of surfaces \cite{???}; mathematical physics, especially quiver gauge theories \cite{???}; knot theory, especially the Alexander polynomial \cite{some papers of Schiffler}; algebraic geometry, especially log Calabi-Yau varieties \cite{GHK, GHKK}.
+  To say the least, any advance in the fundamental understanding of cluster algebras is likely to find broad application throughout mathematics.
 
-  Our calculations reveal the maximal support possible for a pointed basis which reproduces under mutations.
+  The investigations of this paper are inspired by a study of Qin on the deformability of bases which are well-behaved under mutations.
+  More precisely, we study the notion of dominance order on the tropical labellings for bases of cluster algebras pioneered by Qin.
+  As no explicit calculation is carried out in his works, we aim here to initiate a thorough study of the dominance regions for cluster algebras.
+
+  Our calculations reveal the maximal support possible for a pointed basis which remain pointed under all possible mutations.
   In particular, any candidate basis can be ruled out using these results based upon their support alone.
 
   \section{Lattice Mutations and Linear Inequalities}
