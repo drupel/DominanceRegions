@@ -1,6 +1,6 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,latexsym,color,ulem}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{tikz}
 \usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
 
@@ -136,6 +136,31 @@
   It would be useful to explicitly (or combinatorially) compute the transitions between these bases.
   However, explicit calculations reveal that the $\bfg$-vectors actually appearing in these transitions are far smaller than the entire dominance polygon.
 
+
+  \begin{theorem}
+    There are six classes of dominance polytopes.
+    \begin{enumerate}
+      \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cC(\lambda)$ is the point $\lambda$. 
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cC(\lambda)$ is the trapezoid with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}((2-bc)\lambda_1-b\lambda_2,c\lambda_1+2\lambda_2)$.
+      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0)$, and $(0,\frac{\sqrt{bc(bc-4)}}{b}\ell)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cC(\lambda)$ is the kite with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$.
+      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cC(\lambda)$ is the triangle with corner vertices $\lambda$, $(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cC(\lambda)$ is the trapezoid with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,-c\lambda_1+(2-bc)\lambda_2)$.
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    Following Lemma~\ref{le:one direction}, we see that the intersection $\cP_+(\lambda)\cap\cP_-(\lambda)$ degenerates to a triangle precisely when
+    \[\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2\]
+    or 
+    \[\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2=-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2.\]
+    The first equations reduces to $c\lambda_1+2\lambda_2=0$, while the second reduces to $2\lambda_1+b\lambda_2=0$.
+    In particular, the rays spanned by $(2,-c)$ and $(b,-2)$ determine this change of state in the dominance regions $\cP(\lambda)$.
+  \end{proof}
+
+  \begin{remark}
+    Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
+    This unexpected coincidence is one of our reasons for deciding to write down these results.
+  \end{remark}
 
   \section{Lattice Mutations and Linear Inequalities}
   Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
