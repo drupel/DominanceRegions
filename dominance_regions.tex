@@ -565,72 +565,156 @@
     This unexpected coincidence is one of our reasons for deciding to write down these results.
   \end{remark}
 
-  The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by the following six inequalities:
-  \begin{align}
-    -\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x+\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
+%  The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by the following inequalities:
+%  \begin{align}
+%    -\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x+\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1+\lambda_2-\frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+%    \\
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1 - \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_2 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x-\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
+%    \\
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1-\frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_2-\frac{b c-\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x+\frac{b c-\sqrt{b c (b c-4)}}{2 c}y\geq0
+%  \end{align}
+%  Are any of these better forms?
+%  \begin{align}
+%    (x-\lambda_1)+\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \\
+%    \nonumber \iff \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2)\geq0
+%    \\
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    \\
+%    \nonumber \iff -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \\
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    \\
+%    \nonumber \iff -b\lambda_2 + (x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1+(x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \\
+%    \nonumber \iff c\lambda_1+\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    \\
+%    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2-\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1+b\lambda_2+(x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%  \end{align}
+%  Another proposal (I also changed the order of the equations)
+%  \begin{align}
+%    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
+%    \\
+%    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    \\
+%    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
+%    \\
+%    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
+%    \\
+%    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
+%  \end{align}
+%  Maybe this one:
+%  \begin{align}
+%    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
+%    \\
+%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
+%    \\
+%    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    \\
+%    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
+%    \\
+%    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
+%    \\
+%    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
+%  \end{align}
+%
+%  Yet another version:
+% 
+% {
+%    \everymath={\displaystyle}
+%  \[
+%  \begin{array}{rcccl}
+%    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2 & \geq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq & 0
+%    \\
+%    &  & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq & c\lambda_1
+%    \\
+%    - b \lambda_2 & \geq & - (x-\lambda_1) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2) 
+%    \\
+%    0 & \geq & (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq &-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
+%  \end{array}
+%\]
+%}
+%
+%Or: (Maybe at this point we can remove $c/c$ and $b/b$)
+%
+% {
+%    \everymath={\displaystyle}
+%  \[
+%  \begin{array}{rcccl}
+%    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2 & \geq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq & 0
+%    \\
+%    &  & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq & c\lambda_1
+%    \\
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2  & \leq & (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & 0
+%    \\
+%    & & - (x-\lambda_1) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2)  & \leq & - b \lambda_2
+%  \end{array}
+%\]
+%}
+%
+%
+%Or Or: (Maybe at this point we can remove $c/c$ and $b/b$)
+%
+%
+% The following, and possibly all the one before, has a typo
+% {
+%    \everymath={\displaystyle}
+%    \def\arraystretch{2.8}
+%  \[
+%  \begin{array}{rcccl}
+%    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    \\
+%    c\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)
+%    \\
+%    0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2
+%    \\
+%    b \lambda_2 & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2)
+%  \end{array}
+%\]
+%}
+% {
+%    \everymath={\displaystyle}
+%    \def\arraystretch{2.8}
+%  \[
+%  \begin{array}{rcccl}
+%    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    \\
+%    -c\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)
+%    \\
+%    0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2
+%    \\
+%    b \lambda_2 & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2)
+%  \end{array}
+%\]
+%}
+  The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by $x\leq \lambda_1, y\geq\lambda_2$, and the following inequalities:
+ {
+    \everymath={\displaystyle}
+    \def\arraystretch{2.8}
+  \[
+  \begin{array}{rcccl}
+    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & \max\left(-c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2,0\right)
     \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1+\lambda_2-\frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+    \min\left(-c\lambda_1,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \leq & 0
     \\
-    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1 - \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_2 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+    0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2,0\right)
     \\
-    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x-\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
-    \\
-    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1-\frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_2-\frac{b c-\sqrt{b c (b c-4)}}{2 b}x-y\geq0
-    \\
-    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x+\frac{b c-\sqrt{b c (b c-4)}}{2 c}y\geq0
-  \end{align}
-  Are any of these better forms?
-  \begin{align}
-    (x-\lambda_1)+\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
-    \\
-    \nonumber \iff \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2)\geq0
-    \\
-    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
-    \\
-    \nonumber \iff -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
-    \\
-    -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
-    \\
-    \nonumber \iff -b\lambda_2 + (x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
-    \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1+(x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
-    \\
-    \nonumber \iff c\lambda_1+\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
-    \\
-    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2-\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
-    \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1+b\lambda_2+(x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
-  \end{align}
-  Another proposal (I also changed the order of the equations)
-  \begin{align}
-    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
-    \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
-    \\
-    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
-    \\
-    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
-    \\
-    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
-    \\
-    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
-  \end{align}
-  Maybe this one:
-  \begin{align}
-    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
-    \\
-    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
-    \\
-    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
-    \\
-    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
-    \\
-    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
-    \\
-    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
-  \end{align}
-
-
+    \min\left(b \lambda_2,0\right) & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2) & \leq & 0
+  \end{array}
+\]
+}
 
   \subsection{Deformation Support}
   The greedy basis of Lee, Li, and Zelevinsky \cite{lee-li-zelevinsky} can be defined as the positive pointed basis with minimal support.
