@@ -1,9 +1,5 @@
 \documentclass{amsart}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{latexsym}
-\usepackage{color}
-%\usepackage{ulem}
+\usepackage{amsmath,amssymb,latexsym,color,ulem}
 \usepackage[margin=1in]{geometry}
 \usepackage{tikz}
 \usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
@@ -18,12 +14,10 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
-\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{question}{Question}
 
 \numberwithin{theorem}{section}
 
-\newcommand{\bfa}{\boldsymbol{a}}
 \newcommand{\bfc}{\boldsymbol{c}}
 \newcommand{\bfg}{\boldsymbol{g}}
 \newcommand{\bfr}{\boldsymbol{r}}
@@ -63,8 +57,6 @@
 \newcommand{\WA}{{W\!\!A}}
 \newcommand{\wt}{{\operatorname{wt}}}
 
-\newcommand{\kk}{\Bbbk}
-
 \title{Dominance Regions for Rank Two Cluster Algebras}
 
 \author{Dylan Rupel}
@@ -78,21 +70,30 @@
       \item cluster monomials are never deformable;
       \item the imaginary dominance polytopes are kites, triangles, or trapezoids which extend far outside the imaginary cone; the triangles appearing along rays corresponding to columns of the associated Cartan matrix.
     \end{itemize}
+    We conjecture how our observations might generalize to higher dimensions.
   \end{abstract}
   \maketitle
 
+  \section{Questions}
+  \begin{enumerate}
+    \item To what extent can we explicitly/combinatorially describe the eigenvalues/eigenvectors of the twist automorphism/Auslander-Reiten translation acting on imaginary $\bfg$-vectors given a maximal green sequence? 
+    \item Is any change required in the theory to handle quantum/generalized or both cases together?
+    \item What do our results mean geometrically in terms of the cluster variety?
+  \end{enumerate}
+
   \section{Introduction}
-  Cluster algebras were introduced by Fomin and Zelevinsky as a tool in the study of Lusztig's (dual) canonical bases.
-  Since their inception they have found application in a variety of different areas in mathematics, nevertheless a fundamental problem in the theory remains constructing bases with ``good'' properties. 
-  
-  Over time several bases have been constructed in a variety of generalities \cite{foo,bar,baz}. 
-  All of them share a propery of being ``pointed''.
-  Being pointed turned out to be a desireable property for a bases to have and a natural question is to find all bases enjoying this property.
-  Recently Qin introduced the notion of \emph{dominance} and showed that it completely encapsulates the deformability of such bases whenever the cluster algebra has full rank \cite{Qin}. 
-  As no explicit calculation is carried out in his work, we aim here at describing explicitly the space of deformability of pointed bases in rank 2, i.e. containing a pair of mutable cluster variables, with no frozen variables. 
+  Cluster algebras can be understood geometrically by gluing a collection of algebraic tori along birational morphisms known as mutations.
+  While such a description seems simple at first glance, this structure has been found across much of the range of mathematical objects under current consideration in the literature.
+  To give an idea of how fundamental the process of cluster mutation has come to be understood within mathematics, we note the following (far from exhaustive list of) areas to which this notion is connected: representation theory of artin algebras, especially reflection functors and tilting theory \cite{???}; representation theory of algebraic groups, especially Coxeter groups, double Bruhat cells, and (dual) canonical bases \cite{???}; hyperbolic geometry of Riemann surfaces \cite{???}; mathematical physics, especially quiver gauge theories \cite{???}; knot theory, especially the Alexander polynomial \cite{some papers of Schiffler}; algebraic geometry, especially log Calabi-Yau varieties \cite{GHK, GHKK}.
+  To say the least, any advance in the fundamental understanding of cluster algebras is likely to find broad application throughout mathematics.
+
+  The investigations of this paper are inspired by a study of Qin on the deformability of bases which are well-behaved under mutations.
+  More precisely, we study the notion of dominance order on the tropical labellings for bases of cluster algebras pioneered by Qin.
+  As no explicit calculation is carried out in his works, we aim here to initiate a thorough study of the dominance regions for cluster algebras.
+  We begin in the setting of cluster algebras of rank 2, i.e. containing a pair of mutable cluster variables, with no frozen variables.
 
   Fix integers $b,c>0$ and assume $bc\ge4$.
-  When $bc\le3$, the cluster algebra will be of finite-type and the only pointed basis consists of the cluster monomials.
+  When $bc\le3$, the cluster algebra will be of finite-type and the resulting basis of cluster monomials is not deformable \cite{???}.
   The cluster algebra $\cA(b,c)$ is the $\ZZ$-subalgebra of $\QQ(x_1,x_2)$ generated by \emph{cluster variables} $x_m$, $m\in\ZZ$, defined recursively by
   \begin{equation}
     x_{m-1}x_{m+1}=\begin{cases} x_m^b+1 & \text{if $m$ is odd;}\\ x_m^c+1 & \text{if $m$ is even.} \end{cases}
@@ -231,6 +232,77 @@
     \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
   \end{itemize}
 
+  Suppose $B$ is acyclic.
+  Given a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, define a quiver $Q_{B,\varepsilon}$ from $Q_B$ by removing all arrows starting at vertex $i$ whenever $\varepsilon_i=-1$.
+  For $1\le j\le n$, define $\cP_j(Q_{B,\varepsilon})$ as the set of paths in $Q_{B,\varepsilon}$ starting at vertex $j$.
+  Elements of $\cP_j(Q_{B,\varepsilon})$ are sequences of vertices $(p_1,\ldots,p_r)$ with $p_1=j$ and $b_{p_{t+1}p_t}>0$ for $1\le t\le r-1$.
+  Given a path $p\in\cP_j(Q_{B,\varepsilon})$, a vertex $i\in Q_0$, and a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, set
+  \[\wt_{i,\varepsilon}(p):=-b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}\prod_{t=1}^{r-1} b_{p_{t+1}p_t},\]
+  where the prefactor $b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}$ is omitted if $i=p_r$ or $\varepsilon_{p_r}=-1$.
+  \begin{lemma}
+    Suppose $B$ is acyclic with source-adapted sequence $k_1,\ldots,k_n$.
+    Consider $t_1,\ldots,t_n\in\TT_n$ so that $t_{\ell-1}$ is joined to $t_\ell$ by an edge in $\TT_n$ labeled by $k_\ell$ for $1\le\ell\le n$.
+    For a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, the product $E^{t_{n-1}}_{k_n,\varepsilon_{k_n}}\cdots E^{t_0}_{k_1,\varepsilon_{k_1}}$ is given by $\tau=(\tau_{ij})$ with
+    \begin{equation}
+      \label{eq:tropical twist}
+      \tau_{ij}=\sum_{p\in\cP_j(Q_{B,\varepsilon})}^* \wt_{i,\varepsilon}(p),
+    \end{equation}
+    where the $*$ indicates that the summation includes the trivial path at $j$ only if $i\le j$ when $\varepsilon_j=1$ and only if $i=j$ when $\varepsilon_j=-1$.
+
+    Then $\phi_{t_n}$ is the following piecewise-linear automorphism:
+    \begin{equation}
+      \label{eq:tropical twist}
+      \text{(This is going to require casework with the possible signs, we'll really only need it for imaginary $\bfg$-vectors though.)}
+    \end{equation}
+    The answer comes from selectively ``turning off'' arrows out of chosen vertices as indicated by choosing $\varepsilon_i=-1$.
+  \end{lemma}
+  \begin{proof}
+    We prove the following modified formula for the product $E^{t_{n-1}}_{k_n,\varepsilon_{k_n}}\cdots E^{t_{m-1}}_{k_m,\varepsilon_{k_m}}$ for $1\le m\le n$ by reverse induction on $m$.
+    Writing this matrix as $\tau^{(m)}=(\tau^{(m)}_{ij})$, we claim that
+    \begin{equation}
+      \label{eq:tropical twist}
+      \tau^{(m)}_{ij}=\begin{cases} \sum\limits_{p\in\cP_j(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) & \text{if $j=k_\ell$ with $m\le\ell$;}\\ \delta_{ij} & \text{otherwise;} \end{cases}
+    \end{equation}
+    where $Q_{B,\varepsilon}^{(m)}$ is the full subquiver of $Q_{B,\varepsilon}$ on vertices $k_m,\ldots,k_n$.
+    Note that the weight function follows the same definition as above.
+
+    Since the sequence $k_1,\ldots,k_n$ is source-adapted, the matrix $E^{t_{m-1}}_{k_m,\varepsilon_m}$, for $1\le m\le n$, has entries $e^{(m)}_{ij}$ given by
+    \begin{equation}
+      \label{eq:source mutation matrix}
+      e^{(m)}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k_m$;}\\ -1 & \text{if $i=j=k_m$;}\\ [-\varepsilon_{k_m} b_{ik_m}]_+ & \text{if $i=k_\ell$, $j=k_m$, $\ell<m$;}\\ [\varepsilon_{k_m} b_{ik_m}]_+ & \text{if $i=k_\ell$, $j=k_m$, $m<\ell$;}\\ 0 & \text{otherwise;} \end{cases}
+    \end{equation}
+    the entries for $\ell<m$ picking up the sign from the prior matrix mutations.
+
+    For $m=n$, it is clear that $\tau^{(n)}_{ij}=e^{(n)}_{ij}$ for $j\ne k_n$.
+    If $\varepsilon_{k_n}=1$, there is only the trivial path $(k_n)$ in $Q_{B,\varepsilon}^{(n)}$ and we have $\tau^{(n)}_{ik_n}=-b_{ik_n}$, which agrees with $e^{(n)}_{ik_n}$ in this case.
+    Otherwise, $\varepsilon_{k_n}=-1$ and the sum is empty for $i\ne k_n$ giving $\tau^{(n)}_{ik_n}=0=e^{(n)}_{ik_n}$ or only takes the trivial path for $i=k_n$ giving $\tau^{(n)}_{k_nk_n}=-1=e^{(n)}_{k_nk_n}$.
+    This gives the base of the induction.
+
+    Now suppose the matrix $\tau^{(m)}$ is given as above.
+    Using equation \eqref{eq:source mutation matrix}, we need to check that 
+    \begin{equation}
+      \label{eq:twist matrix recursion}
+      \tau^{(m-1)}_{ij}=\sum\limits_{p=1}^n \tau^{(m)}_{ip} e^{(m-1)}_{pj}=\begin{cases} \tau^{(m)}_{ij} & \text{if $j\ne k_{m-1}$;}\\ -\tau^{(m)}_{ik_{m-1}} + \sum\limits_{\ell=1}^{m-2} \tau^{(m)}_{i k_\ell} [-\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ + \sum\limits_{\ell=m}^n \tau^{(m)}_{i k_\ell} [\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ & \text{if $j=k_{m-1}$;}\end{cases}
+    \end{equation}
+    is computed by the formula above.
+    First observe that $\tau^{(m-1)}_{ij}=\tau^{(m)}_{ij}=\delta_{ij}$ if $j=k_\ell$ with $\ell<m-1$.  
+    Second observe that $\cP_j(Q_{B,\varepsilon}^{(m-1)})=\cP_j(Q_{B,\varepsilon}^{(m)})$ whenever $j=k_\ell$ with $m\le\ell$, i.e. the purported formulas for $\tau^{(m-1)}_{ij}$ and $\tau^{(m)}_{ij}$ agree in this case.
+    Therefore it remains to show that
+    \[
+      \tau^{(m-1)}_{i k_{m-1}}=-\delta_{ik_{m-1}} + \sum\limits_{\ell=1}^{m-2} \delta_{i k_\ell} [-\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ + \sum\limits_{\ell=m}^n \sum\limits_{p\in\cP_{k_\ell}(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) [\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+
+    \]
+    agrees with the desired expression.
+    Indeed, for $\varepsilon_{k_{m-1}}=-1$ this reduces to $\tau^{(m-1)}_{i k_{m-1}}=-\delta_{i k_{m-1}}$ which matches with the desired expression in this case.
+    Then assuming $\varepsilon_{k_{m-1}}=1$, we are comparing with
+    \[
+      \tau^{(m-1)}_{i k_{m-1}}=-\delta_{ik_{m-1}} - \sum\limits_{\ell=1}^{m-2} \delta_{i k_\ell} b_{k_\ell k_{m-1}} + \sum\limits_{\ell=m}^n \sum\limits_{p\in\cP_{k_\ell}(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) b_{k_\ell k_{m-1}}.
+    \]
+    But observe that the final summation above contributes the nontrivial paths to the summation $\sum\limits_{p\in\cP_{k_{m-1}}(Q_{B,\varepsilon}^{(m-1)})}^* \wt_{i,\varepsilon}(p)$ while the first two terms above give the contribution, depending on $i$, corresponding to the trivial path $(k_{m-1})$.
+  \end{proof}
+  \begin{question}
+    Is the trace of $\tau$ an invariant of matrix mutations?  P.A.: It is invariant under sink and source mutations since the trace is a class function and these mutations simply enact a cyclic shift in the factors of $\tau$.
+  \end{question}
+
   For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
   \begin{definition}
     For $\lambda\in\RR^n$, define the \emph{dominance region} 
@@ -253,6 +325,31 @@
     \[\bfr\bullet(\bfx-\lambda)=\bfr^T(\bfx-\lambda)=\bfr^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfr)^T(A\bfx-A\lambda)=(A^{-T}\bfr)\bullet(\bfy-A\lambda).\]
   \end{proof}
 
+
+  \section{Affine Types}
+  Associated to an acyclic skew-symmetrizable matrix $B=(b_{ij})$ there is a Cartan matrix $A=(a_{ij})$ with $a_{ii}=2$ and $a_{ij}=-|b_{ij}|$.
+  We say that $B$ is of affine type if its associated Cartan matrix gives rise to an affine Dynkin diagram.
+  In this section, we focus on understanding the dominance polytopes for affine matrices $B$.
+
+  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable matrix of affine type with associated Cartan matrix $A=(a_{ij})$.
+  
+  \begin{lemma}
+    One column is always in the positive span of the other columns.
+  \end{lemma}
+
+  \begin{definition}
+    Describe imaginary $\bfg$-vectors and those corresponding to cluster monomials.
+  \end{definition}
+
+  \begin{lemma}
+    Let $\lambda\in\ZZ^n$ correspond to a cluster monomial.
+    Then $\cP(\lambda)=\{\lambda\}$.
+  \end{lemma}
+  \begin{proof}
+    An explicit sequence of sink/source mutations should suffice.
+  \end{proof}
+
+  
 
   \section{Rank Two}
   Fix integers $b,c>0$ and assume $bc\ge 4$.
@@ -1319,165 +1416,5 @@
     \bibitem{rupel}
       D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
   \end{thebibliography}
-
-  \section{Chebyshev}
-  For this, we define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
-  \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
-  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
-
-  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
-  This leads to the following more general recursive structure.
-  \begin{lemma}
-    For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
-    \begin{equation}
-      \label{eq:long Chebyshev recursion}
-      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
-    \end{equation}
-  \end{lemma}
-  \begin{proof}
-    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
-    Using the claim for $j>0$ and then the defining recursion twice, we get
-    \begin{align*}
-      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
-    \end{align*}
-    which is the claimed recursion for $\ell+1$.
-    These calculations can be reversed to show the result for $\ell<0$.
-  \end{proof}
-
-  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
-  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
-  By the equalities 
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
-  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-  \begin{remark}
-    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
-    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
-  \end{remark}
-
-  \begin{lemma}
-    We have
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
-  \end{lemma}
-  \begin{proof}
-    For any $i\ge 1$, we have
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
-    It follows that
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
-    which is equivalent to the desired expression.
-    Similarly, 
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
-    so that
-    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
-    which is again equivalent to the desired expression.
-  \end{proof}
-
-  \section{The affine case}
-  In this section we compare our main result with the construction of \cite{RSW19} in the case $b=c=2$.
-  We show that the continuous family of bases constructed there is precisely the deformation family constructed by \cite{Qin}.
-
-
-We want to show that our continuous family of generalized minors from \cite[Theorem 4.6]{RSW19} coincide with the family of bases constructed in \cite[Theorem 1.2.1]{Qin19}.
-
-This boils down to show, for any $n>1$, that
-\begin{enumerate}
-  \item 
-    the set of $\bfg$-vectors that are dominated by $n\omega^\circ$ with respect to any seed is 
-    \[
-      \left\{(n-2r)\omega^\circ \right\}_{r\in\left[1,\left\lfloor\frac{1}{2}\right\rfloor\right]}
-    \]
-
-  \item
-    we can choose a specific basis and rewrite the last formula in \cite[Proposition 4.4]{RSW19} as in \cite[Theorem 1.2.1]{Qin19} with coefficients being functions of the point $\bfa\in(\kk^\times)^n$. 
-\end{enumerate}
-
-For a partition $\lambda \vdash n$ let $e_\lambda$, $s_\lambda$, and $m_\lambda$ denote the elementary, Shur, and monomial symmetric functions associated to the partition $\lambda$ evaluated at $\bfa$.
-Recall that $m_{1^{(n)}} = s_{1^{(n)}} = e_n$.
-
-\begin{lemma}
-  For every $r\in\left[1,\left\lfloor\frac{1}{2}\right\rfloor\right]$ we have $m_{1^{(n)}} S_{\bfa,r} = m_{2^{(r)},1^{(n-2r)}}$.
-\end{lemma}
-\begin{proof}
-  This is immediate from the definition.
-\end{proof}
-
-Let $F_{n\omega^\circ}^\Delta$, $F_{n\omega^\circ}^{gr}$, $F_{n\omega^\circ}^{tr}$, and $F_{n\omega^\circ}^{ge}$ be the $F$-polynomials of the generalized minor, greedy basis element, triangular basis element, and generic basis element with $\bfg$-vector $n\omega^\circ$.
-We think of $F$-polynomials as polynomials in the variables $u_1$ and $u_2$.
-
-I did not try yet to prove (1) but it should be straightforward.
-It suffices to establish (2) for the $F$-polynomials.
-
-\begin{proposition}
-  \[
-    m_{1^{(n)}} F_{n\omega^\circ}^\Delta
-    =
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    m_{2^{(k)},1^{(n-2r)}}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{ge}
-  \]
-\end{proposition}
-\begin{proof}
-  From \cite[Proposition 4.4]{RSW19} we get the following expression for $F_{n\omega^\circ}^\Delta$:
-  \[
-     F_{n\omega^\circ}^\Delta 
-     =
-     \sum_{0 \le k \le \ell \le n}
-     \sum_{r=0}^\ell
-     {\ell -r \choose k}
-     {n-2r \choose \ell-r}
-     S_{\bfa,r}
-     u_1^\ell u_2^{\ell-k}.
-   \]
-  From the second binomial coefficient we deduce that $n-2r$ is positive so the second sum runs up to $\lfloor \frac{n}{2} \rfloor$.
-  We compute
-  \begin{align*}
-    m_{1^{(n)}}  F_{n\omega^\circ}^\Delta 
-    &
-    =
-    \sum_{0 \le k \le \ell \le n}
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    {\ell -r \choose k}
-    {n-2r \choose \ell-r}
-    m_{2^{(r)},1^{(n-2r)}}
-    u_1^\ell u_2^{\ell-k}
-    \\
-    &=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    m_{2^{(r)},1^{(n-2r)}}
-    u_1^r u_2^r
-    \sum_{0 \le k \le \ell \le n}
-    {\ell -r \choose k}
-    {n-2r \choose \ell-r}
-    u_1^{\ell-r} u_2^{\ell-r-k}
-    \\
-    &=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    m_{2^{(r)},1^{(n-2r)}}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{ge}.
-  \end{align*}
-  The last identity follows immediately by comparing with the formula for generic basis elements in \cite{RSW19}.
-  \saySS{Thank you Dylan for fixing my stupidity.}
-\end{proof}
-
-We do not need the following two formulas but I think they are still neat.
-\begin{conjecture}
-  \begin{align*} 
-    m_{1^{(n)}} F_{n\omega^\circ}^\Delta
-    &=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    s_{2^{(k)},1^{(n-2r)}}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{tr}
-    \\&=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    e_{r,n-r}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{gr}
-  \end{align*}
-\end{conjecture}
-
+    
 \end{document}
