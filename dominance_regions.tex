@@ -6,6 +6,7 @@
 %\usepackage{ulem}
 \usepackage[margin=1in]{geometry}
 \usepackage{tikz}
+\usetikzlibrary{math}
 \usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
 
 \usepackage[draft]{say}
@@ -203,6 +204,51 @@
     $$
   \end{enumerate}
   Moreover, if $z\in\cA(b,c)$ is pointed at $(a_1,a_2)$ with support contained in $R_{a_1,a_2}$, then $z=x[a_1,a_2]$. 
+
+\begin{figure}[h!]
+  \centering
+    \newcommand{\boundingrays}{
+      \tikzmath{\b = 2; \c =2.1; \s = sqrt(\b * \c * (\b * \c -4)); \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
+      \tikzmath{ \xmin = -6; \xmax = 6; \ymin = -6; \ymax = 6;}
+      \draw [color=lightgray, thick] (\xmin,0) -- (\xmax,0);
+      \draw [color=lightgray, thick] (0,\ymin) -- (0,\ymax);
+      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax / \b);
+      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax * \c / (\b * \c -1));
+      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax * \bcms / (2 * \b)); 
+      \draw [color=lightgray, thick] (0,0) -- ( - 2 * \b * \ymin / \bcps, \ymin); 
+    }
+  \begin{tikzpicture}[scale=.3]
+    \begin{scope}[shift={(0.0)}]
+      \boundingrays;
+      \tikzmath{ \l = 1; }
+      \fill (\l,\l) circle (4pt);
+    \end{scope}
+    \begin{scope}[shift={(13,0)}]
+      \boundingrays;
+      \tikzmath{ \l = 1; }
+      \fill (\l *\b + \l, - \l)  circle (4pt);
+      \draw [very thick] (\l * \b + \l, -\l) -- (\l,-\l);
+    \end{scope}
+    \begin{scope}[shift={(26,0)}]
+      \boundingrays;
+      \tikzmath{ \l = 1; }
+      \fill (-\l, \l)  circle (4pt);
+      \draw [very thick] (-\l, \l) -- (-\l,\l + \l*\c);
+    \end{scope}
+    \begin{scope}[shift={(39, 0)}]
+      \boundingrays;
+      \tikzmath{ \l = 1; }
+      \fill (-\l, -\l)  circle (4pt);
+      \draw [very thick] (-\l, -\l) -- (-\l - \l *\b, -\l) -- (-\l - \l*\b, \l*\c + \l*\b * \c -\l) -- (-\l, \l*\c -\l) -- cycle;
+    \end{scope}
+    \begin{scope}[shift={(0,-13)}]
+      \boundingrays;
+      \tikzmath{ \l = 1; }
+      \fill (\b * \l - \l / 2 / \c , -\l)  circle (4pt);
+      \draw [very thick] (\b * \l  - \l / 2 / \c , -\l) -- (- \l / 2 / \c , -\l) -- (- \l / 2 / \c , -\l/2) -- ( , -\l/2) --  cycle);
+    \end{scope}
+  \end{tikzpicture}
+\end{figure}
 \end{theorem}
 \begin{figure}[h!]
   \centering
