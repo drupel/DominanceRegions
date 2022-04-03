@@ -178,78 +178,78 @@
       \item If $\lambda$ lies outside of $\cI$, there are the following possibilities:
         \begin{enumerate}
           \item If $0\le\lambda_1,\lambda_2$, then $\cS_\lambda$ is just the point $\lambda$.
-          \item If $\lambda_1 < 0$ and $0\le\lambda_2$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_1,-c\lambda_1+\lambda_2)$.
           \item If $\lambda_2 < 0$ and $0\le\lambda_1+b\lambda_2$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_1+b\lambda_2,\lambda_2)$.
+          \item If $\lambda_1 < 0$ and $0\le\lambda_2$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_1,-c\lambda_1+\lambda_2)$.
           \item If $\lambda_1,\lambda_2 < 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $(\lambda_1,-c\lambda_1+\lambda_2)$.
-          \item If $\lambda_1 > 0$, $\lambda_1+b\lambda_2 < 0$, and $-c\lambda_1-(bc-1)\lambda_2\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $\big((bc-1)\lambda_1+b^2c\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$.
+          \item If $\lambda_1 > 0$, $\lambda_1+b\lambda_2 < 0$, and $-c\lambda_1-(bc-1)\lambda_2\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $\big((bc+1)\lambda_1-b^2c\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$.
           \item If $\lambda_1 > 0$, $\lambda_1+b\lambda_2 < 0$, and $0 < -c\lambda_1-(bc-1)\lambda_2$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $(0,0)$.
         \end{enumerate}
       \item If $\lambda$ lies inside of $\cI$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_1+b\lambda_2,-c\lambda_1-(bc-2)\lambda_2\big)$.
     \end{enumerate}
   \end{theorem}
-  \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
-  For $(a_1,a_2)\in\ZZ^2$, the smallest (possibly degenerate) lattice quadrilateral $R_{a_1,a_2}$ containing the support of $x[a_1,a_2]$ is determined as follows.
-  \begin{enumerate}
-    \item If $a_1 \leq 0$ and $a_2 \leq 0$, then $R_{a_1,a_2} = \{(-a_1,-a_2)\}$.
-    \item If $a_1 \leq 0 < a_2$, then $R_{a_1,a_2} = \{(p_1,-a_2): -a_1\leq p_1\leq -a_1+ba_2\}$.
-    \item If $a_2 \leq 0 < a_1$, then $R_{a_1,a_2} = \{(-a_1,p_2): -a_2 \leq p_2 \leq -a_2+ca_1\}$.
-    \item If $0<ba_2\leq a_1$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1+ba_2,\; -a_2\le p_2\le -a_2-cp_1\right\}$.
-    \item If $0<ca_1\leq a_2$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1-bp_2,\; -a_2\le p_2\le -a_2+ca_1\right\}$.
-    \item If $0 < a_1 < ba_2$ and $0 < a_2 < ca_1$, then
-    $$\aligned
-    R_{a_1,a_2}=&\bigg\{(p_1,p_2)\bigg|\; -a_1\le p_1<0,\; -a_2\le p_2<\Big(\frac{a_2}{a_1}-c\Big)p_1\bigg\}\\
-    &\bigcup\bigg\{(p_1,p_2): -a_1\le p_1<\Big(\frac{a_1}{a_2}-b\Big)p_2,\; -a_2\le p_2<0\bigg\}\\
-    &\hspace{1.35em}\bigcup\Big\{(-a_1+ba_2,-a_2),(-a_1,-a_2+ca_1)\Big\}.
-    \endaligned
-    $$
-  \end{enumerate}
-  Moreover, if $z\in\cA(b,c)$ is pointed at $(a_1,a_2)$ with support contained in $R_{a_1,a_2}$, then $z=x[a_1,a_2]$. 
 
 \begin{figure}[h!]
   \centering
     \newcommand{\boundingrays}{
-      \tikzmath{\b = 2; \c =2.1; \s = sqrt(\b * \c * (\b * \c -4)); \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
+      \tikzmath{\b = 2; \c = 2.1; \s = sqrt(\b * \c * (\b * \c -4)); \bcmo = \b * \c - 1; \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
       \tikzmath{ \xmin = -6; \xmax = 6; \ymin = -6; \ymax = 6;}
       \draw [color=lightgray, thick] (\xmin,0) -- (\xmax,0);
       \draw [color=lightgray, thick] (0,\ymin) -- (0,\ymax);
       \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax / \b);
-      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax * \c / (\b * \c -1));
-      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax * \bcms / (2 * \b)); 
+      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax * \c / \bcmo );
+      \draw [color=lightgray, thick] (0,0) -- (\xmax, -\xmax * \bcms / 2 / \b); 
       \draw [color=lightgray, thick] (0,0) -- ( - 2 * \b * \ymin / \bcps, \ymin); 
     }
   \begin{tikzpicture}[scale=.3]
-    \begin{scope}[shift={(0.0)}]
+    \begin{scope}[shift={(0,0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (\l,\l) circle (4pt);
+      \fill (\l,\l) circle (6pt);
     \end{scope}
     \begin{scope}[shift={(13,0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (\l *\b + \l, - \l)  circle (4pt);
+      \fill (\l *\b + \l, - \l)  circle (6pt);
       \draw [very thick] (\l * \b + \l, -\l) -- (\l,-\l);
     \end{scope}
     \begin{scope}[shift={(26,0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (-\l, \l)  circle (4pt);
+      \fill (-\l, \l)  circle (6pt);
       \draw [very thick] (-\l, \l) -- (-\l,\l + \l*\c);
     \end{scope}
     \begin{scope}[shift={(39, 0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (-\l, -\l)  circle (4pt);
+      \fill (-\l, -\l)  circle (6pt);
       \draw [very thick] (-\l, -\l) -- (-\l - \l *\b, -\l) -- (-\l - \l*\b, \l*\c + \l*\b * \c -\l) -- (-\l, \l*\c -\l) -- cycle;
     \end{scope}
     \begin{scope}[shift={(0,-13)}]
       \boundingrays;
-      \tikzmath{ \l = 1; }
-      \fill (\b * \l - \l / 2 / \c , -\l)  circle (4pt);
-      \draw [very thick] (\b * \l  - \l / 2 / \c , -\l) -- (- \l / 2 / \c , -\l) -- (- \l / 2 / \c , -\l/2) -- ( , -\l/2) --  cycle);
+      \tikzmath{ \l = 3; \x = \b * \l - \l / 2 / \c; \y = -\l; }
+      \fill (\b * \l - \l / 2 / \c , -\l)  circle (6pt);
+      \draw [very thick] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
+    \end{scope}
+    \begin{scope}[shift={(13,-13)}]
+      \boundingrays;
+      \tikzmath{ \l = 2; \x = \b * \l - \l / 2 / \c; \y = -\l - 3*\l/10;}
+      \fill (\x,\y)  circle (6pt);
+      \draw [very thick] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  cycle;
+    \end{scope}
+    \begin{scope}[shift={(26,-13)}]
+      \boundingrays;
+      \tikzmath{ \l = 2; \x = \l/2/\c; \y = -\l; }
+      \fill (\l / 2 / \c , -\l)  circle (6pt);
+      \draw [very thick] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  cycle;
+    \end{scope}
+    \begin{scope}[shift={(39,-13)}]
+      \boundingrays;
+      \tikzmath{ \l = 3; \x = \c*\l/\b/1.03; \y = -\l; }
+      \fill (\x , \y)  circle (6pt);
+      \draw [very thick] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  cycle;
     \end{scope}
   \end{tikzpicture}
 \end{figure}
-\end{theorem}
 \begin{figure}[h!]
   \centering
   \begin{tikzpicture}[scale=.7]
@@ -913,6 +913,24 @@
 \]
 }
 
+  \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
+  For $(a_1,a_2)\in\ZZ^2$, the smallest (possibly degenerate) lattice quadrilateral $R_{a_1,a_2}$ containing the support of $x[a_1,a_2]$ is determined as follows.
+  \begin{enumerate}
+    \item If $a_1 \leq 0$ and $a_2 \leq 0$, then $R_{a_1,a_2} = \{(-a_1,-a_2)\}$.
+    \item If $a_1 \leq 0 < a_2$, then $R_{a_1,a_2} = \{(p_1,-a_2): -a_1\leq p_1\leq -a_1+ba_2\}$.
+    \item If $a_2 \leq 0 < a_1$, then $R_{a_1,a_2} = \{(-a_1,p_2): -a_2 \leq p_2 \leq -a_2+ca_1\}$.
+    \item If $0<ba_2\leq a_1$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1+ba_2,\; -a_2\le p_2\le -a_2-cp_1\right\}$.
+    \item If $0<ca_1\leq a_2$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1-bp_2,\; -a_2\le p_2\le -a_2+ca_1\right\}$.
+    \item If $0 < a_1 < ba_2$ and $0 < a_2 < ca_1$, then
+    $$\aligned
+    R_{a_1,a_2}=&\bigg\{(p_1,p_2)\bigg|\; -a_1\le p_1<0,\; -a_2\le p_2<\Big(\frac{a_2}{a_1}-c\Big)p_1\bigg\}\\
+    &\bigcup\bigg\{(p_1,p_2): -a_1\le p_1<\Big(\frac{a_1}{a_2}-b\Big)p_2,\; -a_2\le p_2<0\bigg\}\\
+    &\hspace{1.35em}\bigcup\Big\{(-a_1+ba_2,-a_2),(-a_1,-a_2+ca_1)\Big\}.
+    \endaligned
+    $$
+  \end{enumerate}
+  Moreover, if $z\in\cA(b,c)$ is pointed at $(a_1,a_2)$ with support contained in $R_{a_1,a_2}$, then $z=x[a_1,a_2]$. 
+\end{theorem}
   \subsection{Deformation Support}
   The greedy basis of Lee, Li, and Zelevinsky \cite{lee-li-zelevinsky} can be defined as the positive pointed basis with minimal support.
   Here we identify the maximum possible support of its deformations.
