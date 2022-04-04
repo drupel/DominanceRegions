@@ -209,38 +209,40 @@
     \begin{scope}[shift={(13,0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (\l *\b + \l, - \l)  circle (6pt);
+      \fill (\l *\b + \l, - \l) circle (6pt);
       \draw [very thick, join=round] (\l * \b + \l, -\l) -- (\l,-\l);
     \end{scope}
     \begin{scope}[shift={(26,0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (-\l, \l)  circle (6pt);
+      \fill (-\l, \l) circle (6pt);
       \draw [very thick, join=round] (-\l, \l) -- (-\l,\l + \l*\c);
     \end{scope}
     \begin{scope}[shift={(39, 0)}]
       \boundingrays;
       \tikzmath{ \l = 1; }
-      \fill (-\l, -\l)  circle (6pt);
+      \fill (-\l, -\l) circle (6pt);
       \draw [very thick, join=round] (-\l, -\l) -- (-\l - \l *\b, -\l) -- (-\l - \l*\b, \l*\c + \l*\b * \c -\l) -- (-\l, \l*\c -\l) -- cycle;
     \end{scope}
     \begin{scope}[shift={(0,-13)}]
       \boundingrays;
       \tikzmath{ \l = 3; \x = \b * \l - \l / 2 / \c; \y = -\l; }
-      \fill (\b * \l - \l / 2 / \c , -\l)  circle (6pt);
+      \fill (\x,\y) circle (6pt);
       \draw [very thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
     \end{scope}
     \begin{scope}[shift={(13,-13)}]
       \boundingrays;
       \tikzmath{ \l = 2; \x = \b * \l - \l / 2 / \c + 0.15; \y = -\l - 3*\l/10;}
-      \fill (\x,\y)  circle (6pt);
+      \fill (\x,\y) circle (6pt);
+      \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (0,0);
       \draw [very thick, dashed, join=round] (0,0) --  (\x , \y);
     \end{scope}
     \begin{scope}[shift={(26,-13)}]
       \boundingrays;
       \tikzmath{ \l = 2; \x = \l/2/\c; \y = -\l; }
-      \fill (\l / 2 / \c , -\l)  circle (6pt);
+      \fill (\x,\y) circle (6pt);
+      \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (0,0);
       \draw [very thick, dashed, join=round] (0,0) --  (\x , \y);
     \end{scope}
@@ -248,6 +250,7 @@
       \boundingrays;
       \tikzmath{ \l = 3; \x = \c*\l/\b/1.03; \y = -\l; }
       \fill (\x , \y)  circle (6pt);
+      \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s);
       \draw [very thick, dashed, join=round] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
     \end{scope}
