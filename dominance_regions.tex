@@ -232,24 +232,24 @@
     \end{scope}
     \begin{scope}[shift={(13,-13)}]
       \boundingrays;
-      \tikzmath{ \l = 2; \x = \b * \l - \l / 2 / \c; \y = -\l - 3*\l/10;}
+      \tikzmath{ \l = 2; \x = \b * \l - \l / 2 / \c + 0.15; \y = -\l - 3*\l/10;}
       \fill (\x,\y)  circle (6pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
-      \draw [very thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (0,0);
+      \draw [very thick, dashed, join=round] (0,0) --  (\x , \y);
     \end{scope}
     \begin{scope}[shift={(26,-13)}]
       \boundingrays;
       \tikzmath{ \l = 2; \x = \l/2/\c; \y = -\l; }
       \fill (\l / 2 / \c , -\l)  circle (6pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
-      \draw [very thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (0,0);
+      \draw [very thick, dashed, join=round] (0,0) --  (\x , \y);
     \end{scope}
     \begin{scope}[shift={(39,-13)}]
       \boundingrays;
       \tikzmath{ \l = 3; \x = \c*\l/\b/1.03; \y = -\l; }
       \fill (\x , \y)  circle (6pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
-      \draw [very thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
+      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s);
+      \draw [very thick, dashed, join=round] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
     \end{scope}
   \end{tikzpicture}
 \end{figure}
