@@ -250,9 +250,9 @@
       \tikzmath{ \l = 3; \x = \c*\l/\b/1.03; \y = -\l; }
       \fill (\x , \y)  circle (6pt);
       \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dashed] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s);
-      \draw [very thick, dashed, join=round] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
-      \draw [very thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dotted] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s);
+      \draw [very thick, dotted, join=round] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
+      \draw [very thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
     \end{scope}
   \end{tikzpicture}
 \end{figure}
