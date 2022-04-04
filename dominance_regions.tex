@@ -124,6 +124,7 @@
   %In this case, we compute the possible transitions between any two pointed bases.
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
+    \label{th:dominance inequalities}
     The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by $x\leq \lambda_1, y\geq\lambda_2$, and the following inequalities:
     {
       \everymath={\displaystyle}
@@ -155,6 +156,7 @@
 
 
   \begin{theorem}
+    \label{th:dominance vertices}
     There are six classes of dominance polytopes.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP(\lambda)$ is the point $\lambda$. 
@@ -173,6 +175,7 @@
 
   Given a Laurent polynomial in $\ZZ[x_1^{\pm1},x_2^{\pm1}]$, its \emph{support} is the set of its exponent vectors inside $\ZZ^2$.
   \begin{theorem}
+    \label{th:maximum support}
     For a $\bfg$-vector $\lambda=(\lambda_1,\lambda_2)\in\ZZ^2$ the support for a pointed basis vector $x_\lambda$ is contained in the (possibly degenerate) lattice quadrilateral $\cS_\lambda$ given as follows:
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, there are the following possibilities:
@@ -249,139 +252,6 @@
       \draw [very thick] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  cycle;
     \end{scope}
   \end{tikzpicture}
-\end{figure}
-\begin{figure}[h!]
-  \centering
-  \begin{tikzpicture}[scale=.7]
-    %(1)
-    \begin{scope}[shift={(-2.75, 5.5)}]
-      \usetikzlibrary{patterns}
-      \draw[-] (-0.5,0.25) -- (3,0.25);
-      \draw[-] (0,-0.25) -- (0,3);
-      \fill[white] (0,0.25) circle (2pt);
-      \draw (0,0.25) circle (2pt);
-      \draw (0,0.25) node[anchor=south west] {\tiny $O$};
-      \fill (1.5,1.75) circle (2pt);
-      \draw (1.5,1.75) node[anchor=east] {\tiny $B$};
-      \draw (1.07,-.6) node[anchor=north] {\footnotesize (1) $a_1,a_2\le0$};
-    \end{scope}
-    %(2)
-    \begin{scope}[shift={(2.75, 5.5)}]
-      \usetikzlibrary{patterns}
-      \draw[-] (-0.5,1.5) -- (3,1.5);
-      \draw[-] (0,-0.25) -- (0,3);
-      \fill[white] (0,1.5) circle (2pt);
-      \draw (0,1.5) circle (2pt);
-      \draw (0,1.5) node[anchor=south west] {\tiny $O$};
-      \fill (2.25,0.5) circle (2pt);
-      \draw (2.25,0.5) node[anchor=west] {\tiny$A$};
-      \fill (0.75,0.5) circle (2pt);
-      \draw (0.75,0.5) node[anchor=east] {\tiny$B$};
-      \draw [thick] (0.75,0.5) -- (2.25,0.5);
-      \draw (1.27,-.6) node[anchor=north] {\footnotesize (2) $a_1\le 0<a_2$};
-    \end{scope}
-    %(3)
-    \begin{scope}[shift={(8.25,5.5)}]
-      \usetikzlibrary{patterns}
-      \draw [thick] (0.25,1) -- (0.25,2.5);
-      \draw[-] (-0.5,0.25) -- (3,0.25);
-      \draw[-] (1,-0.25) -- (1,3);
-      \fill[white] (1,0.25) circle (2pt);
-      \draw (1,0.25) circle (2pt);
-      \draw (1,0.25) node[anchor=south west] {\tiny $O$};
-      \fill (0.25,1) circle (2pt);
-      \draw (0.25,1) node[anchor=east] {\tiny$B$};
-      \fill (0.25,2.5) circle (2pt);
-      \draw (0.25,2.5) node[anchor=east] {\tiny$C$};
-      \draw (1.27,-.6) node[anchor=north] {\footnotesize (3) $a_2\le0<a_1$};
-    \end{scope}
-    %(4)
-    \begin{scope}[shift={(0,0)}]
-      \usetikzlibrary{patterns}
-      \fill[black!10] (0,3)--(1.5,1.5)--(1.5,0)--(0,0)--(0,3);
-      \draw[thick] (0,3)--(1.5,1.5)--(1.5,0)--(0,0)--(0,3);
-      \draw[dashed,thick](0,3)--(2.15,1.25) (2.15,1.15)--(1.5,0);
-      \draw[-] (-0.5,1.2) -- (3.5,1.2);
-      \draw[-] (2.2,-0.25) -- (2.2,3.5);
-      \fill[white] (2.2,1.2) circle (2pt);
-      \draw (2.2,1.2) circle (2pt);
-      \draw (2.2,1.2) node[anchor=north west] {\tiny$O$};
-      \fill (1.5,0) circle (2pt);
-      \draw (1.5,0) node[anchor=west] {\tiny$A$};
-      \fill (0,0) circle (2pt);
-      \draw (0,0) node[anchor=east] {\tiny$B$};
-      \fill (0,3) circle (2pt);
-      \draw (0,3) node[anchor=east] {\tiny$C$};
-      \fill (1.5,1.5) circle (2pt);
-      \draw (1.5,1.5) node[anchor=east] {\tiny$D_1$};
-      \draw (1.37,-0.5) node[anchor=north] {\footnotesize (4) $0<ba_2\leq a_1$};
-    \end{scope}
-    %(5)
-    \begin{scope}[shift={(5.5,0)}]
-      \usetikzlibrary{patterns}
-      \fill[black!10] (3,0)--(1.3,1)--(0,1)--(0,0)--(3,0);
-      \draw[thick] (3,0)--(1.3,1)--(0,1)--(0,0)--(3,0);
-      \draw[dashed,thick](3,0)--(0.75,1.75)--(0,1);
-      \draw[-] (-0.5,1.75) -- (3.5,1.75);
-      \draw[-] (0.75,-0.25) -- (0.75,3.5);
-      \fill[white] (0.75,1.75) circle (2pt);
-      \draw (0.75,1.75) circle (2pt);
-      \draw (0.75,1.75) node[anchor=south west] {\tiny$O$};
-      \fill (3,0) circle (2pt);
-      \draw (3,0) node[anchor=west] {\tiny$A$};
-      \fill (0,0) circle (2pt);
-      \draw (0,0) node[anchor=east] {\tiny$B$};
-      \fill (0,1) circle (2pt);
-      \draw (0,1) node[anchor=east] {\tiny$C$};
-      \fill (1.3,1) circle (2pt);
-      \draw (1.3,1) node[anchor=north] {\tiny$D_2$};
-      \draw (1.37,-.5) node[anchor=north] {\footnotesize (5) $0<ca_1\leq a_2$};
-    \end{scope}
-    %(6)
-    \begin{scope}[shift={(0,-5.5)}]
-      \usetikzlibrary{patterns}
-      \fill[black!10]  (0,3)--(1.5,2.3)--(2,0)--(0,0)--(0,3);
-      \draw[thick] (0,3)--(0,0)--(2,0); 
-      \draw[dashed,thick] (0,3)--(1.5,2.3)--(2,0);
-      \draw[-] (-0.5,2.3) -- (3.5,2.3);
-      \draw[-] (1.5,-0.25) -- (1.5,3.5);
-      \fill[white] (1.5,2.3) circle (2pt);
-      \draw (1.5,2.3) circle (2pt);
-      \draw (1.5,2.3) node[anchor=south west] {\tiny$O$};
-      \fill (2,0) circle (2pt);
-      \draw (2,0) node[anchor=west] {\tiny$A$};
-      \fill (0,0) circle (2pt);
-      \draw (0,0) node[anchor=east] {\tiny$B$};
-      \fill (0,3) circle (2pt);
-      \draw (0,3) node[anchor=east] {\tiny$C$};
-      \draw (1.42,-.5) node[anchor=north] {\footnotesize (6) $0<a_1<ba_2$,};
-      \draw (1.46,-1) node[anchor=north] {\footnotesize \hspace{10pt} $0<a_2<ca_1$,};
-      \draw (1.17,-1.5) node[anchor=north] {\footnotesize \hspace{10pt} \tiny{$(a_1,a_2):$ non-imaginary root}};
-    \end{scope}
-    %(6')
-    \begin{scope}[shift={(5.5,-5.5)}]
-      \usetikzlibrary{patterns}
-      \fill[black!10]  (0,3)--(1,0.5)--(2.25,0)--(0,0)--(0,3);
-      \draw[thick] (0,3)--(0,0)--(2.25,0);
-      \draw[dashed,thick] (0,3)--(1,0.5)--(2.25,0);
-      \draw[-] (-0.5,0.5) -- (3.5,0.5);
-      \draw[-] (1,-0.25) -- (1,3.5);
-      \fill[white] (1,0.5) circle (2pt);
-      \draw (1,0.5) circle (2pt);
-      \draw (1,0.5) node[anchor=south west] {\tiny$O$};
-      \fill (2.25,0) circle (2pt);
-      \draw (2.25,0) node[anchor=west] {\tiny$A$};
-      \fill (0,0) circle (2pt);
-      \draw (0,0) node[anchor=east] {\tiny$B$};
-      \fill (0,3) circle (2pt);
-      \draw (0,3) node[anchor=east] {\tiny$C$};
-      \draw (1.47,-.5) node[anchor=north] {\footnotesize (6) $0<a_1<ba_2$,};
-      \draw (1.51,-1) node[anchor=north] {\footnotesize \hspace{10pt} $0<a_2<ca_1$,};
-      \draw (1.27,-1.5) node[anchor=north] {\footnotesize \hspace{10pt} \tiny{$(a_1,a_2):$ imaginary root}};
-    \end{scope}
-  \end{tikzpicture}
-  \caption{Consider the points $O=(0,0)$, $A=(-a_1+ba_2,-a_2)$, $B=(-a_1,-a_2)$, $C=(-a_1,-a_2+ca_1)$, $D_1=(-a_1+ba_{2},ca_{1}-(bc+1)a_{2})$, and $D_2=(ba_{2}-(bc+1)a_{1},-a_2+ca_{1})$.  Then the support region of $x[a_1,a_2]$ can be visualized as above.} 
-  \label{fig:greedy polytopes}
 \end{figure}
 
 
@@ -584,112 +454,6 @@
     Similarly, using $\phi_{t_1}(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ gives the claimed formula for $\phi_{t_{2j+1}}$ from that of $\phi_{t_{2j}}$.
   \end{proof}
 
-  Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP(\lambda)$ for $\lambda\in\cI$.
-  \begin{lemma}
-    \label{le:transformed inequalities}
-    Let $A=(a_{ij})$ be an invertible $2\times 2$ matrix.
-    Under the action of $A$, the region inside $\RR^2$ defined by the inequality $rx+sy\le t$ is transformed to the region defined by the inequality \[\frac{ra_{22}-sa_{21}}{a_{11}a_{22}-a_{12}a_{21}}x + \frac{-ra_{12}+sa_{11}}{a_{11}a_{22}-a_{12}a_{21}}y\le t.\]
-  \end{lemma}
-  \begin{proof}
-    Assume $r,s,t\ne0$, the cases when one of these vanishes follows by the continuity of the transformation.
-    Observe that the points $\big(\frac{t}{r},0\big)$ and $\big(0,\frac{t}{s}\big)$ lie on the boundary line of the region defined by the inequality $rx+sy\le t$.
-    These are transformed under the action of $A$ into the points $\big(a_{11}\frac{t}{r},a_{21}\frac{t}{r}\big)$ and $\big(a_{12}\frac{t}{s},a_{22}\frac{t}{s}\big)$, respectively, which one readily checks lie along the purported boundary of the image region.
-    By the linearity of the transformation of $\RR^2$ given by the matrix $A$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
-  \end{proof}
-  
-  \begin{lemma}
-    For $i\ge1$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
-    \begin{align}
-      \label{ineq:1} u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
-      \label{ineq:2} u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
-      \label{ineq:3} -u_{i-1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
-      \label{ineq:4} -u_{i-1,-}x-u_{i-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
-    \end{align}
-    
-    given as in the figure below:
-    \[
-      \begin{tikzpicture}
-        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
-        \draw[-] (-8,0) -- (5,0);
-        \draw[-] (0,-5) -- (0,5);
-        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
-        \draw[-] (0,0) -- (5,-2.113);
-        \draw[-] (0,0) -- (3.17,-5);
-        \node at (1,-0.9) {$\cI$};
-        \draw[fill=black] (3.5,-3) circle (2pt);
-        \node[below right] at (3.5,-3) {$\lambda$};
-        \draw[->,thick] (3.5,-3) -- (47/10,-5);
-        \draw[-,thick] (3.5,-3) -- (0,26/10);
-        \draw[-,thick] (0,26/10) -- (-26/4,0);
-        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
-        \node at (4.5,-4) {\eqref{ineq:1}};
-        \node at (2.5,-0.5) {\eqref{ineq:2}};
-        \node at (-3,1.75) {\eqref{ineq:3}};
-        \node at (-5.5,-3) {\eqref{ineq:4}};
-      \end{tikzpicture}
-    \]
-  \end{lemma}
-  \begin{proof}
-    Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
-
-    For $i=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
-    We inductively compute the region $\phi_{t_{2j}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{t_{2j}}^{-1}=\phi_{t_2}^{-j}$.
-
-    \subsubsection*{Claim:} For $k>0$, $\phi_{t_{2k}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ is the region determined by the inequalities 
-    \begin{align*}
-      \tag{a} u_{2k,-}x+u_{2k-1,+}y &\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2;\\
-      \tag{b} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{c} -u_{2k-1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{d} -u_{2k-1,-}x-u_{2k-2,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2.
-    \end{align*}
-
-    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$ which corresponds to (a) with $k=1$.
-    Similarly, the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\dagger$) intersects three domains of linearity in which $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $k=1$.
-    This establishes the base of an induction on $k$.
-
-    Assuming the inequalities (a)-(d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
-    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
-    Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
-    \[u_{2k+2,-}x+u_{2k+1,+}y=(u_{3,+}u_{2k,-}-u_{2,-}u_{2k-1,+})x+(u_{2,+}u_{2k,-}-u_{1,-}u_{2k-1,+})y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2,\]
-    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
-    \[-u_{2k+1,-}x-u_{2k,+}y=(-u_{3,+}u_{2k-1,-}+u_{2,-}u_{2k-2,+})x+(-u_{2,+}u_{2k-1,-}+u_{1,-}u_{2k-2,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
-    \[u_{2k+3,-}x+u_{2k+2,+}y=(u_{3,+}u_{2k+1,-}-u_{2,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (b) for $k+1$.
-    Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
-    Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
-    \[-u_{2k+1,-}x-u_{2k,+}y=(u_{1,+}u_{2k-1,-}-u_{2,-}u_{2k,+})x+(-u_{0,+}u_{2k-1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (d) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
-    Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
-    Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
-    \[-u_{2k+1,-}x+u_{2k+2,+}y=(-u_{1,+}u_{2k+1,-}+u_{0,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (c) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
-    \[-u_{2k+1,-}x-u_{2k,+}y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
-    This completes the induction on $k$, proving the Claim and the result for $i$ even.
-
-    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2.\]
-    Using that $\phi_{t_{2j+1}}^{-1}=\phi_{t_2}^{-j}\phi_{t_1}^{-1}$, we compute the image inductively as above.
-    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_{t_1}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
-    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_{t_1}^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2$.
-    The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_{t_1}^{-1}$ and thus produces the inequalities
-    \[ cx+y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2.\]
-
-
-    \subsubsection*{Claim:} For $k\ge 0$, $\phi_{t_{2k+1}}^{-1}\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ is the region determined by the inequalities 
-    \begin{align*}
-      \tag{a$'$} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{b$'$} u_{2k+2,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
-      \tag{c$'$} -u_{2k,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
-      \tag{d$'$} -u_{2k,-}x-u_{2k-1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2.
-    \end{align*}
-    By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_{t_2}^{-1}$ and this completes the proof.
-  \end{proof}
-
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
   \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
   By the equalities 
@@ -739,13 +503,14 @@
   \end{proof}
 
   \begin{theorem}
-    For $\lambda\in\cI\cap\ZZ^2$, there are five classes of dominance polytopes.
+    There are six classes of dominance polytopes.
     \begin{enumerate}
-      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and ???.
-      \item if $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0)$, and $(0,\frac{\sqrt{bc(bc-4)}}{b}\ell)$.
-      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$.
-      \item if $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell)$.
-      \item if $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and ???.
+      \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP(\lambda)$ is the point $\lambda$. 
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_1-b\lambda_2,c\lambda_1+2\lambda_2\big)$.
+      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $\big(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\big)$.
+      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_1+b\lambda_2,-c\lambda_1-(bc-2)\lambda_2\big)$.
     \end{enumerate}
   \end{theorem}
   \begin{proof}
@@ -913,88 +678,6 @@
 \]
 }
 
-  \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
-  For $(a_1,a_2)\in\ZZ^2$, the smallest (possibly degenerate) lattice quadrilateral $R_{a_1,a_2}$ containing the support of $x[a_1,a_2]$ is determined as follows.
-  \begin{enumerate}
-    \item If $a_1 \leq 0$ and $a_2 \leq 0$, then $R_{a_1,a_2} = \{(-a_1,-a_2)\}$.
-    \item If $a_1 \leq 0 < a_2$, then $R_{a_1,a_2} = \{(p_1,-a_2): -a_1\leq p_1\leq -a_1+ba_2\}$.
-    \item If $a_2 \leq 0 < a_1$, then $R_{a_1,a_2} = \{(-a_1,p_2): -a_2 \leq p_2 \leq -a_2+ca_1\}$.
-    \item If $0<ba_2\leq a_1$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1+ba_2,\; -a_2\le p_2\le -a_2-cp_1\right\}$.
-    \item If $0<ca_1\leq a_2$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1-bp_2,\; -a_2\le p_2\le -a_2+ca_1\right\}$.
-    \item If $0 < a_1 < ba_2$ and $0 < a_2 < ca_1$, then
-    $$\aligned
-    R_{a_1,a_2}=&\bigg\{(p_1,p_2)\bigg|\; -a_1\le p_1<0,\; -a_2\le p_2<\Big(\frac{a_2}{a_1}-c\Big)p_1\bigg\}\\
-    &\bigcup\bigg\{(p_1,p_2): -a_1\le p_1<\Big(\frac{a_1}{a_2}-b\Big)p_2,\; -a_2\le p_2<0\bigg\}\\
-    &\hspace{1.35em}\bigcup\Big\{(-a_1+ba_2,-a_2),(-a_1,-a_2+ca_1)\Big\}.
-    \endaligned
-    $$
-  \end{enumerate}
-  Moreover, if $z\in\cA(b,c)$ is pointed at $(a_1,a_2)$ with support contained in $R_{a_1,a_2}$, then $z=x[a_1,a_2]$. 
-\end{theorem}
-  \subsection{Deformation Support}
-  The greedy basis of Lee, Li, and Zelevinsky \cite{lee-li-zelevinsky} can be defined as the positive pointed basis with minimal support.
-  Here we identify the maximum possible support of its deformations.
-
-  It will be convenient later to have explicit expressions for the greedy basis elements so we recall here the combinatorial construction of their Laurent expansions.
-  For a $\bfg$-vector $\lambda\in\ZZ^2\setminus\ZZ_{\ge0}^2$, define the \emph{maximal Dyck path} $D_\lambda\subset\ZZ^2$ to be the lattice path with corner vertices $(0,0)$ and $(a_1,a_2):=\big([-\lambda_1+b\lambda_2]_+,[-\lambda_2]_+\big)$ which is maximal in the following sense:
-  \begin{itemize}
-    \item every lattice point of $D_\lambda$ lies below the line connecting the corner vertices;
-    \item any lattice point above $D_\lambda$ lies above the line connecting the corner vertices.
-  \end{itemize}
-  For $\lambda\in\ZZ_{\ge0}^2$, we take $D_\lambda$ to be the empty path at $(0,0)$.
-
-  We consider $D_\lambda$ to be the set of its edges ordered from $(0,0)$.
-  Write $H_\lambda,V_\lambda\subset D_\lambda$ for the subsets of horizontal and vertical edges, respectively.
-  According to the ordering of $D_\lambda$, we denote $H_\lambda=\{h_1,\ldots,h_{a_1}\}$ and $V_\lambda=\{v_1,\ldots,v_{a_2}\}$.
-  For edges $e,e'\in D_\lambda$ with $e\le e'$, write $ee'\subset D_\lambda$ for the shortest subpath of $D_\lambda$ containing $e$ and $e'$.
-  For edges $e,e'\in D_\lambda$ with $e'<e$, write $ee'\subset D_\lambda$ for the subset $ev_{a_2} \sqcup h_1e'$, which can be seen as the subpath traversing from the edge $e$ to the end of $D_\lambda$ and then continuing from the beginning of $D_\lambda$ to the edge $e'$.
-  For any subset $S\subset D_\lambda$, write $|S|_H:=|S\cap H_\lambda|$ and $|S|_V:=|S\cap V_\lambda|$; in particular, for $e,e'\in D_\lambda$, write $|ee'|_H:=|ee'\cap H_\lambda|$ and $|ee'|_V:=|ee'\cap V_\lambda|$.
-  \begin{definition}
-    A subset $S\subset D_\lambda$ is said to be \emph{compatible} if: for every $h\in S\cap H_\lambda$ and $v\in S\cap V_\lambda$, there exists an edge $e\in hv$ so that one of the following conditions is satisfied:
-    \begin{align*}
-      e\ne v \quad \text{and} \quad |he|_V=c|he\cap S|_H;\\
-      e\ne h \quad \text{and} \quad |ev|_H=b|ev\cap S|_V.
-    \end{align*}
-    Write $\cC_\lambda$ for the set of all compatible subsets $S\subset D_\lambda$.
-  \end{definition}
-
-  The \emph{greedy basis element} $x^{gr}_\lambda$ is then given by the following Laurent polynomial
-  \begin{equation}
-    \label{eq:greedy}
-    x^{gr}_\lambda=x_1^{\lambda_1}x_2^{\lambda_2} \sum_{S\in \cC_\lambda} x_1^{b(|V_\lambda|-|S|_V)} x_2^{c|S|_H}.
-  \end{equation}
-
-  Consider the deformation of the theta basis element with $\bfg$-vector $\lambda$.
-  \begin{theorem}
-    For $\lambda\in\cI\cap\ZZ^2$, the support of any deformation of the corresponding theta basis element is contained in the polytope defined by the following inequalities:
-    \begin{align*}
-       \lambda_1-b\lambda_2 &\le x\\
-       \lambda_2 &\le y\\
-    \end{align*}
-    is the convex hull of the following vertices:
-    \[\lambda, \qquad (\lambda_1-b\lambda_2,\lambda_2), \qquad (\lambda_1-b\lambda_2,\lambda_2-c\lambda_1), \qquad (?,?)\]
-    The $d$-vector is $(\lambda_1-b\lambda_2,\lambda_2)$
-
-    $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$
-
-    Slope:
-    \[\big(\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(c\lambda_1+2\lambda_2)-(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)\big) /\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2)\]
-
-    $y=$
-
-    $(\lambda_1,\lambda_2)$ and $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$
-    
-    Slope: $-\frac{bc+\sqrt{bc(bc-4)}}{2b}$\\
-
-    Corner of dominant support?: 
-    \begin{align*}
-      \left(\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2),-\frac{bc+\sqrt{bc(bc-4)}}{2b}\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2)+\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\right)\\
-      \left(\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2),-\frac{bc+\sqrt{bc(bc-4)}}{2b}\frac{bc}{\sqrt{bc(bc-4)}}\lambda_1+-\frac{bc+\sqrt{bc(bc-4)}}{2}\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\lambda_2+\lambda_2\right)\\
-    \end{align*}
-    
-  \end{theorem}
-
-
   \section{The Total Domination Polyhedron}
 
   Define the \emph{total domination polyhedron} $\cD:=\{(\lambda,\mu):\mu\in\cP(\lambda)\}$, i.e. this is the set of all pairs where $\lambda$ dominates $\mu$.
@@ -1020,6 +703,444 @@
     We want to understand what the curve is that results when we have $\mu$ lie along the unit circle, this should be possible by plugging $(\cos(\theta),\sin(\theta))$ into this formula for $\lambda$ and seeing what ellipse we get.
   \end{remark}
 
+
+  \begin{thebibliography}{XXX}
+
+    \bibitem{lee-li-zelevinsky}
+      K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014), pp.~57--82.
+
+    \bibitem{rupel}
+      D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
+  \end{thebibliography}
+
+  \section{Chebyshev}
+  For this, we define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
+  \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
+  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
+
+  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
+  This leads to the following more general recursive structure.
+  \begin{lemma}
+    For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
+    \begin{equation}
+      \label{eq:long Chebyshev recursion}
+      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
+    \end{equation}
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
+    Using the claim for $j>0$ and then the defining recursion twice, we get
+    \begin{align*}
+      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
+      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
+      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
+    \end{align*}
+    which is the claimed recursion for $\ell+1$.
+    These calculations can be reversed to show the result for $\ell<0$.
+  \end{proof}
+
+  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
+  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
+  By the equalities 
+  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
+  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
+  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
+  \begin{remark}
+    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
+    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
+  \end{remark}
+
+  \begin{lemma}
+    We have
+    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
+  \end{lemma}
+  \begin{proof}
+    For any $i\ge 1$, we have
+    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
+    It follows that
+    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
+    which is equivalent to the desired expression.
+    Similarly, 
+    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
+    so that
+    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
+    which is again equivalent to the desired expression.
+  \end{proof}
+
+  \section{Proof of Theorem~\ref{th:dominance inequalities}}
+
+  Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP(\lambda)$ for $\lambda\in\cI$.
+  \begin{lemma}
+    \label{le:transformed inequalities}
+    Let $A=(a_{ij})$ be an invertible $2\times 2$ matrix.
+    Under the action of $A$, the region inside $\RR^2$ defined by the inequality $rx+sy\le t$ is transformed to the region defined by the inequality \[\frac{ra_{22}-sa_{21}}{a_{11}a_{22}-a_{12}a_{21}}x + \frac{-ra_{12}+sa_{11}}{a_{11}a_{22}-a_{12}a_{21}}y\le t.\]
+  \end{lemma}
+  \begin{proof}
+    Assume $r,s,t\ne0$, the cases when one of these vanishes follows by the continuity of the transformation.
+    Observe that the points $\big(\frac{t}{r},0\big)$ and $\big(0,\frac{t}{s}\big)$ lie on the boundary line of the region defined by the inequality $rx+sy\le t$.
+    These are transformed under the action of $A$ into the points $\big(a_{11}\frac{t}{r},a_{21}\frac{t}{r}\big)$ and $\big(a_{12}\frac{t}{s},a_{22}\frac{t}{s}\big)$, respectively, which one readily checks lie along the purported boundary of the image region.
+    By the linearity of the transformation of $\RR^2$ given by the matrix $A$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
+  \end{proof}
+  
+  \begin{lemma}
+    For $i\ge1$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
+    \begin{align}
+      \label{ineq:1} u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
+      \label{ineq:2} u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \label{ineq:3} -u_{i-1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \label{ineq:4} -u_{i-1,-}x-u_{i-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
+    \end{align}
+    
+    given as in the figure below:
+    \[
+      \begin{tikzpicture}
+        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
+        \draw[-] (-8,0) -- (5,0);
+        \draw[-] (0,-5) -- (0,5);
+        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
+        \draw[-] (0,0) -- (5,-2.113);
+        \draw[-] (0,0) -- (3.17,-5);
+        \node at (1,-0.9) {$\cI$};
+        \draw[fill=black] (3.5,-3) circle (2pt);
+        \node[below right] at (3.5,-3) {$\lambda$};
+        \draw[->,thick] (3.5,-3) -- (47/10,-5);
+        \draw[-,thick] (3.5,-3) -- (0,26/10);
+        \draw[-,thick] (0,26/10) -- (-26/4,0);
+        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
+        \node at (4.5,-4) {\eqref{ineq:1}};
+        \node at (2.5,-0.5) {\eqref{ineq:2}};
+        \node at (-3,1.75) {\eqref{ineq:3}};
+        \node at (-5.5,-3) {\eqref{ineq:4}};
+      \end{tikzpicture}
+    \]
+  \end{lemma}
+  \begin{proof}
+    Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
+
+    For $i=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    We inductively compute the region $\phi_{t_{2j}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{t_{2j}}^{-1}=\phi_{t_2}^{-j}$.
+
+    \subsubsection*{Claim:} For $k>0$, $\phi_{t_{2k}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ is the region determined by the inequalities 
+    \begin{align*}
+      \tag{a} u_{2k,-}x+u_{2k-1,+}y &\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2;\\
+      \tag{b} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
+      \tag{c} -u_{2k-1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
+      \tag{d} -u_{2k-1,-}x-u_{2k-2,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2.
+    \end{align*}
+
+    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$ which corresponds to (a) with $k=1$.
+    Similarly, the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\dagger$) intersects three domains of linearity in which $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $k=1$.
+    This establishes the base of an induction on $k$.
+
+    Assuming the inequalities (a)-(d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
+    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
+    Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
+    \[u_{2k+2,-}x+u_{2k+1,+}y=(u_{3,+}u_{2k,-}-u_{2,-}u_{2k-1,+})x+(u_{2,+}u_{2k,-}-u_{1,-}u_{2k-1,+})y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2,\]
+    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y=(-u_{3,+}u_{2k-1,-}+u_{2,-}u_{2k-2,+})x+(-u_{2,+}u_{2k-1,-}+u_{1,-}u_{2k-2,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
+    \[u_{2k+3,-}x+u_{2k+2,+}y=(u_{3,+}u_{2k+1,-}-u_{2,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (b) for $k+1$.
+    Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
+    Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y=(u_{1,+}u_{2k-1,-}-u_{2,-}u_{2k,+})x+(-u_{0,+}u_{2k-1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (d) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
+    Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
+    Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
+    \[-u_{2k+1,-}x+u_{2k+2,+}y=(-u_{1,+}u_{2k+1,-}+u_{0,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (c) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
+    This completes the induction on $k$, proving the Claim and the result for $i$ even.
+
+    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2.\]
+    Using that $\phi_{t_{2j+1}}^{-1}=\phi_{t_2}^{-j}\phi_{t_1}^{-1}$, we compute the image inductively as above.
+    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_{t_1}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
+    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_{t_1}^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2$.
+    The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_{t_1}^{-1}$ and thus produces the inequalities
+    \[ cx+y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2.\]
+
+
+    \subsubsection*{Claim:} For $k\ge 0$, $\phi_{t_{2k+1}}^{-1}\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ is the region determined by the inequalities 
+    \begin{align*}
+      \tag{a$'$} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
+      \tag{b$'$} u_{2k+2,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
+      \tag{c$'$} -u_{2k,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
+      \tag{d$'$} -u_{2k,-}x-u_{2k-1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2.
+    \end{align*}
+    By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_{t_2}^{-1}$ and this completes the proof.
+  \end{proof}
+
+
+
+  \section{Proof of Theorem~\ref{th:dominance vertices}}
+
+
+  \section{Proof of Theorem~\ref{th:maximum support}}
+
+  \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
+    For $(a_1,a_2)\in\ZZ^2$, the smallest (possibly degenerate) lattice quadrilateral $R_{a_1,a_2}$ containing the support of $x[a_1,a_2]$ is determined as follows.
+    \begin{enumerate}
+      \item If $a_1 \leq 0$ and $a_2 \leq 0$, then $R_{a_1,a_2} = \{(-a_1,-a_2)\}$.
+      \item If $a_1 \leq 0 < a_2$, then $R_{a_1,a_2} = \{(p_1,-a_2): -a_1\leq p_1\leq -a_1+ba_2\}$.
+      \item If $a_2 \leq 0 < a_1$, then $R_{a_1,a_2} = \{(-a_1,p_2): -a_2 \leq p_2 \leq -a_2+ca_1\}$.
+      \item If $0<ba_2\leq a_1$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1+ba_2,\; -a_2\le p_2\le -a_2-cp_1\right\}$.
+      \item If $0<ca_1\leq a_2$, then $R_{a_1,a_2}=\left\{(p_1,p_2): -a_1\le p_1\le -a_1-bp_2,\; -a_2\le p_2\le -a_2+ca_1\right\}$.
+      \item If $0 < a_1 < ba_2$ and $0 < a_2 < ca_1$, then
+      $$\aligned
+      R_{a_1,a_2}=&\bigg\{(p_1,p_2)\bigg|\; -a_1\le p_1<0,\; -a_2\le p_2<\Big(\frac{a_2}{a_1}-c\Big)p_1\bigg\}\\
+      &\bigcup\bigg\{(p_1,p_2): -a_1\le p_1<\Big(\frac{a_1}{a_2}-b\Big)p_2,\; -a_2\le p_2<0\bigg\}\\
+      &\hspace{1.35em}\bigcup\Big\{(-a_1+ba_2,-a_2),(-a_1,-a_2+ca_1)\Big\}.
+      \endaligned
+      $$
+    \end{enumerate}
+    Moreover, if $z\in\cA(b,c)$ is pointed at $(a_1,a_2)$ with support contained in $R_{a_1,a_2}$, then $z=x[a_1,a_2]$. 
+  \end{theorem}
+  \begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=.7]
+      %(1)
+      \begin{scope}[shift={(-2.75, 5.5)}]
+        \usetikzlibrary{patterns}
+        \draw[-] (-0.5,0.25) -- (3,0.25);
+        \draw[-] (0,-0.25) -- (0,3);
+        \fill[white] (0,0.25) circle (2pt);
+        \draw (0,0.25) circle (2pt);
+        \draw (0,0.25) node[anchor=south west] {\tiny $O$};
+        \fill (1.5,1.75) circle (2pt);
+        \draw (1.5,1.75) node[anchor=east] {\tiny $B$};
+        \draw (1.07,-.6) node[anchor=north] {\footnotesize (1) $a_1,a_2\le0$};
+      \end{scope}
+      %(2)
+      \begin{scope}[shift={(2.75, 5.5)}]
+        \usetikzlibrary{patterns}
+        \draw[-] (-0.5,1.5) -- (3,1.5);
+        \draw[-] (0,-0.25) -- (0,3);
+        \fill[white] (0,1.5) circle (2pt);
+        \draw (0,1.5) circle (2pt);
+        \draw (0,1.5) node[anchor=south west] {\tiny $O$};
+        \fill (2.25,0.5) circle (2pt);
+        \draw (2.25,0.5) node[anchor=west] {\tiny$A$};
+        \fill (0.75,0.5) circle (2pt);
+        \draw (0.75,0.5) node[anchor=east] {\tiny$B$};
+        \draw [thick] (0.75,0.5) -- (2.25,0.5);
+        \draw (1.27,-.6) node[anchor=north] {\footnotesize (2) $a_1\le 0<a_2$};
+      \end{scope}
+      %(3)
+      \begin{scope}[shift={(8.25,5.5)}]
+        \usetikzlibrary{patterns}
+        \draw [thick] (0.25,1) -- (0.25,2.5);
+        \draw[-] (-0.5,0.25) -- (3,0.25);
+        \draw[-] (1,-0.25) -- (1,3);
+        \fill[white] (1,0.25) circle (2pt);
+        \draw (1,0.25) circle (2pt);
+        \draw (1,0.25) node[anchor=south west] {\tiny $O$};
+        \fill (0.25,1) circle (2pt);
+        \draw (0.25,1) node[anchor=east] {\tiny$B$};
+        \fill (0.25,2.5) circle (2pt);
+        \draw (0.25,2.5) node[anchor=east] {\tiny$C$};
+        \draw (1.27,-.6) node[anchor=north] {\footnotesize (3) $a_2\le0<a_1$};
+      \end{scope}
+      %(4)
+      \begin{scope}[shift={(0,0)}]
+        \usetikzlibrary{patterns}
+        \fill[black!10] (0,3)--(1.5,1.5)--(1.5,0)--(0,0)--(0,3);
+        \draw[thick] (0,3)--(1.5,1.5)--(1.5,0)--(0,0)--(0,3);
+        \draw[dashed,thick](0,3)--(2.15,1.25) (2.15,1.15)--(1.5,0);
+        \draw[-] (-0.5,1.2) -- (3.5,1.2);
+        \draw[-] (2.2,-0.25) -- (2.2,3.5);
+        \fill[white] (2.2,1.2) circle (2pt);
+        \draw (2.2,1.2) circle (2pt);
+        \draw (2.2,1.2) node[anchor=north west] {\tiny$O$};
+        \fill (1.5,0) circle (2pt);
+        \draw (1.5,0) node[anchor=west] {\tiny$A$};
+        \fill (0,0) circle (2pt);
+        \draw (0,0) node[anchor=east] {\tiny$B$};
+        \fill (0,3) circle (2pt);
+        \draw (0,3) node[anchor=east] {\tiny$C$};
+        \fill (1.5,1.5) circle (2pt);
+        \draw (1.5,1.5) node[anchor=east] {\tiny$D_1$};
+        \draw (1.37,-0.5) node[anchor=north] {\footnotesize (4) $0<ba_2\leq a_1$};
+      \end{scope}
+      %(5)
+      \begin{scope}[shift={(5.5,0)}]
+        \usetikzlibrary{patterns}
+        \fill[black!10] (3,0)--(1.3,1)--(0,1)--(0,0)--(3,0);
+        \draw[thick] (3,0)--(1.3,1)--(0,1)--(0,0)--(3,0);
+        \draw[dashed,thick](3,0)--(0.75,1.75)--(0,1);
+        \draw[-] (-0.5,1.75) -- (3.5,1.75);
+        \draw[-] (0.75,-0.25) -- (0.75,3.5);
+        \fill[white] (0.75,1.75) circle (2pt);
+        \draw (0.75,1.75) circle (2pt);
+        \draw (0.75,1.75) node[anchor=south west] {\tiny$O$};
+        \fill (3,0) circle (2pt);
+        \draw (3,0) node[anchor=west] {\tiny$A$};
+        \fill (0,0) circle (2pt);
+        \draw (0,0) node[anchor=east] {\tiny$B$};
+        \fill (0,1) circle (2pt);
+        \draw (0,1) node[anchor=east] {\tiny$C$};
+        \fill (1.3,1) circle (2pt);
+        \draw (1.3,1) node[anchor=north] {\tiny$D_2$};
+        \draw (1.37,-.5) node[anchor=north] {\footnotesize (5) $0<ca_1\leq a_2$};
+      \end{scope}
+      %(6)
+      \begin{scope}[shift={(0,-5.5)}]
+        \usetikzlibrary{patterns}
+        \fill[black!10]  (0,3)--(1.5,2.3)--(2,0)--(0,0)--(0,3);
+        \draw[thick] (0,3)--(0,0)--(2,0); 
+        \draw[dashed,thick] (0,3)--(1.5,2.3)--(2,0);
+        \draw[-] (-0.5,2.3) -- (3.5,2.3);
+        \draw[-] (1.5,-0.25) -- (1.5,3.5);
+        \fill[white] (1.5,2.3) circle (2pt);
+        \draw (1.5,2.3) circle (2pt);
+        \draw (1.5,2.3) node[anchor=south west] {\tiny$O$};
+        \fill (2,0) circle (2pt);
+        \draw (2,0) node[anchor=west] {\tiny$A$};
+        \fill (0,0) circle (2pt);
+        \draw (0,0) node[anchor=east] {\tiny$B$};
+        \fill (0,3) circle (2pt);
+        \draw (0,3) node[anchor=east] {\tiny$C$};
+        \draw (1.42,-.5) node[anchor=north] {\footnotesize (6) $0<a_1<ba_2$,};
+        \draw (1.46,-1) node[anchor=north] {\footnotesize \hspace{10pt} $0<a_2<ca_1$,};
+        \draw (1.17,-1.5) node[anchor=north] {\footnotesize \hspace{10pt} \tiny{$(a_1,a_2):$ non-imaginary root}};
+      \end{scope}
+      %(6')
+      \begin{scope}[shift={(5.5,-5.5)}]
+        \usetikzlibrary{patterns}
+        \fill[black!10]  (0,3)--(1,0.5)--(2.25,0)--(0,0)--(0,3);
+        \draw[thick] (0,3)--(0,0)--(2.25,0);
+        \draw[dashed,thick] (0,3)--(1,0.5)--(2.25,0);
+        \draw[-] (-0.5,0.5) -- (3.5,0.5);
+        \draw[-] (1,-0.25) -- (1,3.5);
+        \fill[white] (1,0.5) circle (2pt);
+        \draw (1,0.5) circle (2pt);
+        \draw (1,0.5) node[anchor=south west] {\tiny$O$};
+        \fill (2.25,0) circle (2pt);
+        \draw (2.25,0) node[anchor=west] {\tiny$A$};
+        \fill (0,0) circle (2pt);
+        \draw (0,0) node[anchor=east] {\tiny$B$};
+        \fill (0,3) circle (2pt);
+        \draw (0,3) node[anchor=east] {\tiny$C$};
+        \draw (1.47,-.5) node[anchor=north] {\footnotesize (6) $0<a_1<ba_2$,};
+        \draw (1.51,-1) node[anchor=north] {\footnotesize \hspace{10pt} $0<a_2<ca_1$,};
+        \draw (1.27,-1.5) node[anchor=north] {\footnotesize \hspace{10pt} \tiny{$(a_1,a_2):$ imaginary root}};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{Consider the points $O=(0,0)$, $A=(-a_1+ba_2,-a_2)$, $B=(-a_1,-a_2)$, $C=(-a_1,-a_2+ca_1)$, $D_1=(-a_1+ba_{2},ca_{1}-(bc+1)a_{2})$, and $D_2=(ba_{2}-(bc+1)a_{1},-a_2+ca_{1})$.  Then the support region of $x[a_1,a_2]$ can be visualized as above.} 
+    \label{fig:greedy polytopes}
+  \end{figure}
+
+\section{The affine case}
+  In this section we compare our main result with the construction of \cite{RSW19} in the case $b=c=2$.
+  We show that the continuous family of bases constructed there is precisely the deformation family constructed by \cite{Qin}.
+
+
+  We want to show that our continuous family of generalized minors from \cite[Theorem 4.6]{RSW19} coincide with the family of bases constructed in \cite[Theorem 1.2.1]{Qin19}.
+  
+  This boils down to show, for any $n>1$, that
+  \begin{enumerate}
+    \item 
+      the set of $\bfg$-vectors that are dominated by $n\omega^\circ$ with respect to any seed is 
+      \[
+        \left\{(n-2r)\omega^\circ \right\}_{r\in\left[1,\left\lfloor\frac{1}{2}\right\rfloor\right]}
+      \]
+  
+    \item
+      we can choose a specific basis and rewrite the last formula in \cite[Proposition 4.4]{RSW19} as in \cite[Theorem 1.2.1]{Qin19} with coefficients being functions of the point $\bfa\in(\kk^\times)^n$. 
+  \end{enumerate}
+  
+  For a partition $\lambda \vdash n$ let $e_\lambda$, $s_\lambda$, and $m_\lambda$ denote the elementary, Shur, and monomial symmetric functions associated to the partition $\lambda$ evaluated at $\bfa$.
+  Recall that $m_{1^{(n)}} = s_{1^{(n)}} = e_n$.
+  
+  \begin{lemma}
+    For every $r\in\left[1,\left\lfloor\frac{1}{2}\right\rfloor\right]$ we have $m_{1^{(n)}} S_{\bfa,r} = m_{2^{(r)},1^{(n-2r)}}$.
+  \end{lemma}
+  \begin{proof}
+    This is immediate from the definition.
+  \end{proof}
+  
+  Let $F_{n\omega^\circ}^\Delta$, $F_{n\omega^\circ}^{gr}$, $F_{n\omega^\circ}^{tr}$, and $F_{n\omega^\circ}^{ge}$ be the $F$-polynomials of the generalized minor, greedy basis element, triangular basis element, and generic basis element with $\bfg$-vector $n\omega^\circ$.
+  We think of $F$-polynomials as polynomials in the variables $u_1$ and $u_2$.
+  
+  I did not try yet to prove (1) but it should be straightforward.
+  It suffices to establish (2) for the $F$-polynomials.
+  
+  \begin{proposition}
+    \[
+      m_{1^{(n)}} F_{n\omega^\circ}^\Delta
+      =
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      m_{2^{(k)},1^{(n-2r)}}
+      u_1^r u_2^r
+      F_{(n-2r)\omega^\circ}^{ge}
+    \]
+  \end{proposition}
+  \begin{proof}
+    From \cite[Proposition 4.4]{RSW19} we get the following expression for $F_{n\omega^\circ}^\Delta$:
+    \[
+       F_{n\omega^\circ}^\Delta 
+       =
+       \sum_{0 \le k \le \ell \le n}
+       \sum_{r=0}^\ell
+       {\ell -r \choose k}
+       {n-2r \choose \ell-r}
+       S_{\bfa,r}
+       u_1^\ell u_2^{\ell-k}.
+    \]
+    From the second binomial coefficient we deduce that $n-2r$ is positive so the second sum runs up to $\lfloor \frac{n}{2} \rfloor$.
+    We compute
+    \begin{align*}
+      m_{1^{(n)}}  F_{n\omega^\circ}^\Delta 
+      &
+      =
+      \sum_{0 \le k \le \ell \le n}
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      {\ell -r \choose k}
+      {n-2r \choose \ell-r}
+      m_{2^{(r)},1^{(n-2r)}}
+      u_1^\ell u_2^{\ell-k}
+      \\
+      &=
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      m_{2^{(r)},1^{(n-2r)}}
+      u_1^r u_2^r
+      \sum_{0 \le k \le \ell \le n}
+      {\ell -r \choose k}
+      {n-2r \choose \ell-r}
+      u_1^{\ell-r} u_2^{\ell-r-k}
+      \\
+      &=
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      m_{2^{(r)},1^{(n-2r)}}
+      u_1^r u_2^r
+      F_{(n-2r)\omega^\circ}^{ge}.
+    \end{align*}
+    The last identity follows immediately by comparing with the formula for generic basis elements in \cite{RSW19}.
+    \saySS{Thank you Dylan for fixing my stupidity.}
+  \end{proof}
+  
+  We do not need the following two formulas but I think they are still neat.
+  \begin{conjecture}
+    \begin{align*} 
+      m_{1^{(n)}} F_{n\omega^\circ}^\Delta
+      &=
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      s_{2^{(k)},1^{(n-2r)}}
+      u_1^r u_2^r
+      F_{(n-2r)\omega^\circ}^{tr}
+      \\&=
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      e_{r,n-r}
+      u_1^r u_2^r
+      F_{(n-2r)\omega^\circ}^{gr}
+    \end{align*}
+  \end{conjecture}
+  
+\end{document}
 
   \section{Bases From Compatible Pairs on Dyck Paths}
   \sayDR{This is a bit of a repetition of the above introduction to Dyck paths, but with slightly different goals it seemed that a modified exposition was more appropriate.}
@@ -1552,174 +1673,5 @@
       \item If the first horizontal edge of $\overleftarrow{D}^t$ is contained in $H$, then $H \sqcup V$ is compatible.
     \end{itemize}
   \end{theorem}
-
-  \begin{thebibliography}{XXX}
-
-    \bibitem{lee-li-zelevinsky}
-      K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014), pp.~57--82.
-
-    \bibitem{rupel}
-      D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
-  \end{thebibliography}
-
-  \section{Chebyshev}
-  For this, we define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
-  \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
-  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
-
-  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
-  This leads to the following more general recursive structure.
-  \begin{lemma}
-    For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
-    \begin{equation}
-      \label{eq:long Chebyshev recursion}
-      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
-    \end{equation}
-  \end{lemma}
-  \begin{proof}
-    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
-    Using the claim for $j>0$ and then the defining recursion twice, we get
-    \begin{align*}
-      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
-    \end{align*}
-    which is the claimed recursion for $\ell+1$.
-    These calculations can be reversed to show the result for $\ell<0$.
-  \end{proof}
-
-  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
-  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
-  By the equalities 
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
-  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-  \begin{remark}
-    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
-    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
-  \end{remark}
-
-  \begin{lemma}
-    We have
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
-  \end{lemma}
-  \begin{proof}
-    For any $i\ge 1$, we have
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
-    It follows that
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
-    which is equivalent to the desired expression.
-    Similarly, 
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
-    so that
-    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
-    which is again equivalent to the desired expression.
-  \end{proof}
-
-  \section{The affine case}
-  In this section we compare our main result with the construction of \cite{RSW19} in the case $b=c=2$.
-  We show that the continuous family of bases constructed there is precisely the deformation family constructed by \cite{Qin}.
-
-
-We want to show that our continuous family of generalized minors from \cite[Theorem 4.6]{RSW19} coincide with the family of bases constructed in \cite[Theorem 1.2.1]{Qin19}.
-
-This boils down to show, for any $n>1$, that
-\begin{enumerate}
-  \item 
-    the set of $\bfg$-vectors that are dominated by $n\omega^\circ$ with respect to any seed is 
-    \[
-      \left\{(n-2r)\omega^\circ \right\}_{r\in\left[1,\left\lfloor\frac{1}{2}\right\rfloor\right]}
-    \]
-
-  \item
-    we can choose a specific basis and rewrite the last formula in \cite[Proposition 4.4]{RSW19} as in \cite[Theorem 1.2.1]{Qin19} with coefficients being functions of the point $\bfa\in(\kk^\times)^n$. 
-\end{enumerate}
-
-For a partition $\lambda \vdash n$ let $e_\lambda$, $s_\lambda$, and $m_\lambda$ denote the elementary, Shur, and monomial symmetric functions associated to the partition $\lambda$ evaluated at $\bfa$.
-Recall that $m_{1^{(n)}} = s_{1^{(n)}} = e_n$.
-
-\begin{lemma}
-  For every $r\in\left[1,\left\lfloor\frac{1}{2}\right\rfloor\right]$ we have $m_{1^{(n)}} S_{\bfa,r} = m_{2^{(r)},1^{(n-2r)}}$.
-\end{lemma}
-\begin{proof}
-  This is immediate from the definition.
-\end{proof}
-
-Let $F_{n\omega^\circ}^\Delta$, $F_{n\omega^\circ}^{gr}$, $F_{n\omega^\circ}^{tr}$, and $F_{n\omega^\circ}^{ge}$ be the $F$-polynomials of the generalized minor, greedy basis element, triangular basis element, and generic basis element with $\bfg$-vector $n\omega^\circ$.
-We think of $F$-polynomials as polynomials in the variables $u_1$ and $u_2$.
-
-I did not try yet to prove (1) but it should be straightforward.
-It suffices to establish (2) for the $F$-polynomials.
-
-\begin{proposition}
-  \[
-    m_{1^{(n)}} F_{n\omega^\circ}^\Delta
-    =
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    m_{2^{(k)},1^{(n-2r)}}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{ge}
-  \]
-\end{proposition}
-\begin{proof}
-  From \cite[Proposition 4.4]{RSW19} we get the following expression for $F_{n\omega^\circ}^\Delta$:
-  \[
-     F_{n\omega^\circ}^\Delta 
-     =
-     \sum_{0 \le k \le \ell \le n}
-     \sum_{r=0}^\ell
-     {\ell -r \choose k}
-     {n-2r \choose \ell-r}
-     S_{\bfa,r}
-     u_1^\ell u_2^{\ell-k}.
-   \]
-  From the second binomial coefficient we deduce that $n-2r$ is positive so the second sum runs up to $\lfloor \frac{n}{2} \rfloor$.
-  We compute
-  \begin{align*}
-    m_{1^{(n)}}  F_{n\omega^\circ}^\Delta 
-    &
-    =
-    \sum_{0 \le k \le \ell \le n}
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    {\ell -r \choose k}
-    {n-2r \choose \ell-r}
-    m_{2^{(r)},1^{(n-2r)}}
-    u_1^\ell u_2^{\ell-k}
-    \\
-    &=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    m_{2^{(r)},1^{(n-2r)}}
-    u_1^r u_2^r
-    \sum_{0 \le k \le \ell \le n}
-    {\ell -r \choose k}
-    {n-2r \choose \ell-r}
-    u_1^{\ell-r} u_2^{\ell-r-k}
-    \\
-    &=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    m_{2^{(r)},1^{(n-2r)}}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{ge}.
-  \end{align*}
-  The last identity follows immediately by comparing with the formula for generic basis elements in \cite{RSW19}.
-  \saySS{Thank you Dylan for fixing my stupidity.}
-\end{proof}
-
-We do not need the following two formulas but I think they are still neat.
-\begin{conjecture}
-  \begin{align*} 
-    m_{1^{(n)}} F_{n\omega^\circ}^\Delta
-    &=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    s_{2^{(k)},1^{(n-2r)}}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{tr}
-    \\&=
-    \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-    e_{r,n-r}
-    u_1^r u_2^r
-    F_{(n-2r)\omega^\circ}^{gr}
-  \end{align*}
-\end{conjecture}
 
 \end{document}
