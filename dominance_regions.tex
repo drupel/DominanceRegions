@@ -322,10 +322,9 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \end{proof}
 
 
-\section{Rank Two Lattice Mutations}
-  We begin by studying transformations of $\RR^2$ which determine the transformation of $\bfg$-vectors under mutations.
-
-  Write $\phi_0:\RR^2\to\RR^2$ for the identity map and define piecewise-linear maps $\phi_{\pm 1},\phi_{\pm 2}:\RR^2\to\RR^2$ as follows:
+\section{$\bfg$-vector Mutations}
+  We begin by studying transformations of $\RR^2$ which determine the change of $\bfg$-vectors under mutations.
+  Write $\phi_0:\RR^2\to\RR^2$ for the identity map and define piecewise-linear maps $\phi_{\pm 1}:\RR^2\to\RR^2$ as follows:
   \begin{equation}
     \phi_1(\lambda)
     =
@@ -338,9 +337,26 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     =
     \begin{cases} 
       (\lambda_1,-\lambda_2) & \text{if $\lambda_2 \ge 0$;}\\
-      (\lambda_1+b\lambda_2,-\lambda_2) & \text{if $\lambda_2 < 0$;}
+      (\lambda_1+b\lambda_2,-\lambda_2) & \text{if $\lambda_2 < 0$.}
     \end{cases}
   \end{equation}
+  For $k\in\ZZ$ with $|k|>1$, define piecewise-linear maps
+  \[\phi_k
+    :=
+    \begin{cases}
+      (\phi_{-1}^{-1}\phi_1)^j & \text{if $k=2j$;}\\
+      \phi_1(\phi_{-1}^{-1}\phi_1)^j & \text{if $k=2j+1$.}\\
+    \end{cases}
+  \]
+  These determine the dominance region as follows.
+  \begin{definition}
+    For $\lambda\in\ZZ^2$, define cones 
+    \[\cC(\lambda):=\{(\lambda_1-r,\lambda_2+s):r,s\in\RR_{\ge0}\}\quad\text{ and }\quad \cC'(\lambda):=\{(\lambda_1+r,\lambda_2-s):r,s\in\RR_{\ge0}\}.\]
+    The \emph{dominance region} $\cP(\lambda)$ is the intersection of $\bigcap_{j\in\ZZ}\phi_{2j}^{-1}\cC(\phi_{2j}\lambda)$ and $\bigcap_{j\in\ZZ} \phi_{2j+1}^{-1}\cC'(\phi_{2j+1}\lambda)$.
+  \end{definition}
+
+  We record here a few useful calculations relating to the tropical transformations $\phi_k$.
+  First observe the following explicit expression for $\phi_2$:
   \begin{equation}
     \label{eq:forward two step mutation}
     \phi_2(\lambda)
@@ -352,34 +368,17 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
       (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}
     \end{cases}
   \end{equation}
-  \begin{equation}
-    \label{eq:backward two step mutation}
-    \phi_{-2}(\lambda)
-    =
-    \begin{cases}
-      \big(-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2\big) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\
-      (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\
-      (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\
-      (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$.}
-    \end{cases}
-  \end{equation}
-
-  For $|k|>2$, define piecewise-linear maps
-  \[\phi_k
-    :=
-    \begin{cases}
-      \phi_1\phi_2^j & \text{if $k>0$ and $k=2j+1$;}\\
-      \phi_{-1}\phi_{-2}^j & \text{if $k<0$ and $k=-2j-1$;}\\
-      \phi_2^j & \text{if $k>0$ and $k=2j$;}\\
-      \phi_{-2}^j & \text{if $k<0$ and $k=-2j$;}\\
-    \end{cases}
-  \]
-  and observe that $\phi_{2j}^{-1}=\phi_{-2j}$ for $j\in\ZZ$.
-
-  \begin{definition}
-    For $\lambda\in\ZZ^2$, define cones $\cC(\lambda):=\lambda-b\RR_{\ge0}+c\RR_{\ge0}$ and $\cC'(\lambda):=\lambda+b\RR_{\ge0}-c\RR_{\ge0}$.
-    The \emph{dominance region} $\cP(\lambda)$ is the intersection of $\bigcap_{j\in\ZZ}\phi_{2j}^{-1}\cC(\phi_{2j}\lambda)$ and $\bigcap_{j\in\ZZ} \phi_{2j+1}^{-1}\cC'(\phi_{2j+1}\lambda)$
-  \end{definition}
+  %\begin{equation}
+  %  \label{eq:backward two step mutation}
+  %  \phi_{-2}(\lambda)
+  %  =
+  %  \begin{cases}
+  %    \big(-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2\big) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\
+  %    (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\
+  %    (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\
+  %    (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$.}
+  %  \end{cases}
+  %\end{equation}
 
   By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $k>0$, there exists a scalar $\nu_k$ so that $\phi^k(\lambda)=\nu_k\lambda$.
   \begin{lemma}
@@ -410,7 +409,9 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{proof}
     Since $\phi_{2j}=\phi_2^j$ and $\phi_{2j+1}=\phi_1\phi_{t_2}^j$, the result follows from the cases $j=1$ and $j=0$, respectively.
     The claim is immediate for $\phi_2$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_2$ is linear in $\cI$.
-    Now, since $b>0$, we have $\phi_1(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ and so $\phi_1\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$ and the result follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_1$ in this region.
+    Now, since $b>0$, we have $\phi_1(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$.
+    It follows that $\phi_1\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$.
+    The result then follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_1$ in this region.
   \end{proof}
 
   It will be useful to have explicit expressions for $\phi_k(\lambda)$ for $\lambda\in\cI$.
@@ -425,8 +426,8 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{proof}
     We work by induction on $j$, the case $j=0$ being clear from the definitions.
     For $\lambda\in\cI$, the action of $\phi_2$ from \eqref{eq:forward two step mutation} can be rewritten as
-    \[\phi_2(\lambda)=(u_{3,-}\lambda_1+u_{2,+}\lambda_2,-u_{2,-}\lambda_1-u_{1,+}\lambda_2),\]
-    and so
+    \[\phi_2(\lambda)=(u_{3,-}\lambda_1+u_{2,+}\lambda_2,-u_{2,-}\lambda_1-u_{1,+}\lambda_2).\]
+    Therefore
     \begin{align*}
       \phi_{2j+2}(\lambda)&=\phi_2\phi_{2j}(\lambda)\\
       &=\big( (u_{3,-}u_{2j+1,+}-u_{2,+}u_{2j,-})\lambda_1+(u_{3,-}u_{2j,+}-u_{2,+}u_{2j-1,-})\lambda_2,\\
@@ -435,7 +436,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \end{align*}
     as desired, where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
 
-    Similarly, using $\phi_1(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_1\phi_2^j$ gives the claimed formula for $\phi_{2j+1}$ from that of $\phi_{2j}$.
+    Similarly, using $\phi_1(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$ together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_1\phi_2^j$ gives the claimed formula for $\phi_{2j+1}$ from that of $\phi_{2j}$.
   \end{proof}
 
 
