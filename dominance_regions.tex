@@ -248,7 +248,7 @@
     \end{scope}
     \begin{scope}[shift={(39,-13)}]
       \boundingrays;
-      \tikzmath{ \r=1; \s=1; \x={2*(\r+\s)*\b }; \y = {-\r*\bcps -\s*\bcms};  }
+      \tikzmath{ \r=0.5; \s=0.7; \x={2*(\r+\s)*\b }; \y = {-\r*\bcps -\s*\bcms};  }
       \fill (\x , \y)  circle (6pt);
       \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dotted] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s);
@@ -262,6 +262,312 @@
   This result reveals the maximal support possible for a pointed basis which remains pointed under all possible mutations.
   In particular, any candidate basis could be ruled out using these results based upon their support alone.
 \end{remark}
+
+The paper is organized as follows.
+In Section~\ref{sec:chebyshev}, we collect useful results related to two-parameter Chebyshev polynomials which support our main calculations.
+
+\section{Chebyshev Polynomials}
+  \label{sec:chebyshev}
+  Define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
+  \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
+  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
+
+  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
+  This leads to the following more general recursive structure.
+  \begin{lemma}
+    For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
+    \begin{equation}
+      \label{eq:long Chebyshev recursion}
+      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
+    \end{equation}
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
+    Using the claim for $j>0$ and then the defining recursion twice, we get
+    \begin{align*}
+      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
+      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
+      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
+    \end{align*}
+    which is the claimed recursion for $\ell+1$.
+    These calculations can be reversed to show the result for $\ell<0$.
+  \end{proof}
+
+  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
+  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
+  By the equalities 
+  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
+  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
+  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
+  \begin{remark}
+    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
+    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
+  \end{remark}
+
+  \begin{lemma}
+    We have
+    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
+  \end{lemma}
+  \begin{proof}
+    For any $i\ge 1$, we have
+    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
+    It follows that
+    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
+    which is equivalent to the desired expression.
+    Similarly, 
+    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
+    so that
+    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
+    which is again equivalent to the desired expression.
+  \end{proof}
+
+
+\section{Rank Two Lattice Mutations}
+  We begin by studying transformations of $\RR^2$ which determine the transformation of $\bfg$-vectors under mutations.
+
+  Write $\phi_0:\RR^2\to\RR^2$ for the identity map and define piecewise-linear maps $\phi_{\pm 1},\phi_{\pm 2}:\RR^2\to\RR^2$ as follows:
+  \begin{equation}
+    \phi_1(\lambda)
+    =
+    \begin{cases} 
+      (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1 \ge 0$;}\\
+      (-\lambda_1,\lambda_2) & \text{if $\lambda_1 < 0$;}
+    \end{cases}
+    \qquad
+    \phi_{-1}(\lambda)
+    =
+    \begin{cases} 
+      (\lambda_1,-\lambda_2) & \text{if $\lambda_2 \ge 0$;}\\
+      (\lambda_1+b\lambda_2,-\lambda_2) & \text{if $\lambda_2 < 0$;}
+    \end{cases}
+  \end{equation}
+  \begin{equation}
+    \label{eq:forward two step mutation}
+    \phi_2(\lambda)
+    =
+    \begin{cases}
+      \big((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2\big) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\
+      (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\
+      (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\
+      (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}
+    \end{cases}
+  \end{equation}
+  \begin{equation}
+    \label{eq:backward two step mutation}
+    \phi_{-2}(\lambda)
+    =
+    \begin{cases}
+      \big(-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2\big) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\
+      (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\
+      (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\
+      (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$.}
+    \end{cases}
+  \end{equation}
+
+  For $|k|>2$, define piecewise-linear maps
+  \[\phi_k
+    :=
+    \begin{cases}
+      \phi_1\phi_2^j & \text{if $k>0$ and $k=2j+1$;}\\
+      \phi_{-1}\phi_{-2}^j & \text{if $k<0$ and $k=-2j-1$;}\\
+      \phi_2^j & \text{if $k>0$ and $k=2j$;}\\
+      \phi_{-2}^j & \text{if $k<0$ and $k=-2j$;}\\
+    \end{cases}
+  \]
+  and observe that $\phi_{2j}^{-1}=\phi_{-2j}$ for $j\in\ZZ$.
+
+  \begin{definition}
+    For $\lambda\in\ZZ^2$, define cones $\cC(\lambda):=\lambda-b\RR_{\ge0}+c\RR_{\ge0}$ and $\cC'(\lambda):=\lambda+b\RR_{\ge0}-c\RR_{\ge0}$.
+    The \emph{dominance region} $\cP(\lambda)$ is the intersection of $\bigcap_{j\in\ZZ}\phi_{2j}^{-1}\cC(\phi_{2j}\lambda)$ and $\bigcap_{j\in\ZZ} \phi_{2j+1}^{-1}\cC'(\phi_{2j+1}\lambda)$
+  \end{definition}
+
+  By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $k>0$, there exists a scalar $\nu_k$ so that $\phi^k(\lambda)=\nu_k\lambda$.
+  \begin{lemma}
+    Any nonzero eigenvector of $\phi_2$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
+  \end{lemma}
+  \begin{proof}
+    First observe that the equation $\phi_2^k(\lambda)=\nu_k\lambda$ cannot be satisfied for all $k>0$ unless $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$.
+    In this region, $\phi_2$ is linear with eigenvalue $\nu$ satisfying $\nu^2-(bc-2)\nu+1=0$, i.e. $\nu=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
+    We thus require 
+    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1=(bc-1)\lambda_1+b\lambda_2 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_2= -c\lambda_1-\lambda_2,\]
+    or equivalently
+    \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_1=\lambda_2 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1.\]
+    As these represent the same relationship, the result immediately follows by inspection.
+  \end{proof}
+
+  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
+  Also, write $\cI' \subset \RR^2$ for the \emph{dual imaginary cone} (positively) spanned by the vectors $\big(-bc\pm\sqrt{bc(bc-4)},2c\big)$.
+  %\begin{lemma}
+  %  The vectors $\big(2b, -bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2b, -bc-\sqrt{bc(bc-4)}\big)$) and $\big(2c, bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2c, bc-\sqrt{bc(bc-4)}\big)$) are perpendicular.
+  %\end{lemma}
+  %\begin{proof}
+  %  This is immediate from the equality $\big(-bc+\sqrt{bc(bc-4)}\big)\big(bc+\sqrt{bc(bc-4)}\big)=-4bc$.
+  %\end{proof}
+  \begin{lemma}
+    \label{le:imaginary stability}
+    For $j\in\ZZ$ and $\lambda\in\cI$, we have $\phi_{2j}(\lambda)\in\cI$ and $\phi_{2j+1}(\lambda)\in\cI'$.
+  \end{lemma}
+  \begin{proof}
+    Since $\phi_{2j}=\phi_2^j$ and $\phi_{2j+1}=\phi_1\phi_{t_2}^j$, the result follows from the cases $j=1$ and $j=0$, respectively.
+    The claim is immediate for $\phi_2$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_2$ is linear in $\cI$.
+    Now, since $b>0$, we have $\phi_1(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ and so $\phi_1\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$ and the result follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_1$ in this region.
+  \end{proof}
+
+  It will be useful to have explicit expressions for $\phi_k(\lambda)$ for $\lambda\in\cI$.
+  \begin{lemma}
+    \label{le:imaginary transformations}
+    For $j\in\ZZ$ and $\lambda\in\cI$, we have
+    \begin{align*}
+      \phi_{2j}(\lambda)&=(u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,-}\lambda_2);\\
+      \phi_{2j+1}(\lambda)&=(-u_{2j+1,+}\lambda_1-u_{2j,+}\lambda_2,u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2).
+    \end{align*}
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $j$, the case $j=0$ being clear from the definitions.
+    For $\lambda\in\cI$, the action of $\phi_2$ from \eqref{eq:forward two step mutation} can be rewritten as
+    \[\phi_2(\lambda)=(u_{3,-}\lambda_1+u_{2,+}\lambda_2,-u_{2,-}\lambda_1-u_{1,+}\lambda_2),\]
+    and so
+    \begin{align*}
+      \phi_{2j+2}(\lambda)&=\phi_2\phi_{2j}(\lambda)\\
+      &=\big( (u_{3,-}u_{2j+1,+}-u_{2,+}u_{2j,-})\lambda_1+(u_{3,-}u_{2j,+}-u_{2,+}u_{2j-1,-})\lambda_2,\\
+      &\qquad -(u_{2,-}u_{2j+1,+}-u_{1,+}u_{2j,-})\lambda_1-(u_{2,-}u_{2j,+}-u_{1,+}u_{2j-1,-})\lambda_2 \big)\\
+      &=(u_{2j+3,+}\lambda_1+u_{2j+2,+}\lambda_2, -u_{2j+2,-}\lambda_1-u_{2j+1,-}\lambda_2),
+    \end{align*}
+    as desired, where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
+
+    Similarly, using $\phi_1(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_1\phi_2^j$ gives the claimed formula for $\phi_{2j+1}$ from that of $\phi_{2j}$.
+  \end{proof}
+
+
+\section{Proof of Theorem~\ref{th:dominance inequalities}}
+
+
+
+  \begin{lemma}
+    If $\lambda\in\ZZ^2\setminus\cI$, then $\cP(\lambda)=\{\lambda\}$.
+  \end{lemma}
+  \begin{proof}
+    It is enough to consider $\phi_{t_{-2}}^{-1}\cC_{t_{-2}}(\phi_{t_{-2}}\lambda) \cap \cC_{t_0}(\lambda) \cap \phi_{t_2}^{-1}\cC_{t_2}(\phi_{t_2}\lambda)$, we leave the details to the reader.
+  \end{proof}
+
+  \begin{lemma}
+    \label{le:one direction}
+    For $\lambda\in\cI\cap\ZZ^2$, 
+    \begin{enumerate}
+      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-b\lambda_2,\lambda_2)$.
+      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $(\lambda_1,-c\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    We prove (1) as (2) is obtained by interchanging $b$ with $c$ and swapping all ordered pairs.  
+    We first show that $\cC_{t_0}(\lambda) \cap \phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\supsetneq \cC_{t_0}(\lambda) \cap \phi_{t_j}^{-1}\cC_{t_j}(\phi_{t_j}\lambda)$ for $0\le i<j$.
+  \end{proof}
+
+  Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP(\lambda)$ for $\lambda\in\cI$.
+  \begin{lemma}
+    \label{le:transformed inequalities}
+    Let $A=(a_{ij})$ be an invertible $2\times 2$ matrix.
+    Under the action of $A$, the region inside $\RR^2$ defined by the inequality $rx+sy\le t$ is transformed to the region defined by the inequality \[\frac{ra_{22}-sa_{21}}{a_{11}a_{22}-a_{12}a_{21}}x + \frac{-ra_{12}+sa_{11}}{a_{11}a_{22}-a_{12}a_{21}}y\le t.\]
+  \end{lemma}
+  \begin{proof}
+    Assume $r,s,t\ne0$, the cases when one of these vanishes follows by the continuity of the transformation.
+    Observe that the points $\big(\frac{t}{r},0\big)$ and $\big(0,\frac{t}{s}\big)$ lie on the boundary line of the region defined by the inequality $rx+sy\le t$.
+    These are transformed under the action of $A$ into the points $\big(a_{11}\frac{t}{r},a_{21}\frac{t}{r}\big)$ and $\big(a_{12}\frac{t}{s},a_{22}\frac{t}{s}\big)$, respectively, which one readily checks lie along the purported boundary of the image region.
+    By the linearity of the transformation of $\RR^2$ given by the matrix $A$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
+  \end{proof}
+  
+  \begin{lemma}
+    For $i\ge1$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
+    \begin{align}
+      \label{ineq:1} u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
+      \label{ineq:2} u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \label{ineq:3} -u_{i-1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
+      \label{ineq:4} -u_{i-1,-}x-u_{i-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
+    \end{align}
+    
+    given as in the figure below:
+    \[
+      \begin{tikzpicture}
+        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
+        \draw[-] (-8,0) -- (5,0);
+        \draw[-] (0,-5) -- (0,5);
+        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
+        \draw[dashed] (0,0) -- (5,-2.113);
+        \draw[dashed] (0,0) -- (3.17,-5);
+        \node at (1,-0.9) {$\cI$};
+        \draw[fill=black] (3.5,-3) circle (2pt);
+        \node[right] at (3.5,-3) {$\lambda$};
+        \draw[->,thick] (3.5,-3) -- (47/10,-5);
+        \draw[-,thick] (3.5,-3) -- (0,26/10);
+        \draw[-,thick] (0,26/10) -- (-26/4,0);
+        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
+        \node at (4.5,-4) {\eqref{ineq:1}};
+        \node at (2.34,-0.5) {\eqref{ineq:2}};
+        \node at (-3,1.75) {\eqref{ineq:3}};
+        \node at (-5.36,-3) {\eqref{ineq:4}};
+      \end{tikzpicture}
+    \]
+  \end{lemma}
+  \begin{proof}
+    Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
+
+    For $i=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    We inductively compute the region $\phi_{t_{2j}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{t_{2j}}^{-1}=\phi_{t_2}^{-j}$.
+
+    \subsubsection*{Claim:} For $k>0$, $\phi_{t_{2k}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ is the region determined by the inequalities 
+    \begin{align*}
+      \tag{a} u_{2k,-}x+u_{2k-1,+}y &\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2;\\
+      \tag{b} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
+      \tag{c} -u_{2k-1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
+      \tag{d} -u_{2k-1,-}x-u_{2k-2,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2.
+    \end{align*}
+
+    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$ which corresponds to (a) with $k=1$.
+    Similarly, the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\dagger$) intersects three domains of linearity in which $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $k=1$.
+    This establishes the base of an induction on $k$.
+
+    Assuming the inequalities (a)-(d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
+    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
+    Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
+    \[u_{2k+2,-}x+u_{2k+1,+}y=(u_{3,+}u_{2k,-}-u_{2,-}u_{2k-1,+})x+(u_{2,+}u_{2k,-}-u_{1,-}u_{2k-1,+})y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2,\]
+    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y=(-u_{3,+}u_{2k-1,-}+u_{2,-}u_{2k-2,+})x+(-u_{2,+}u_{2k-1,-}+u_{1,-}u_{2k-2,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
+    \[u_{2k+3,-}x+u_{2k+2,+}y=(u_{3,+}u_{2k+1,-}-u_{2,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (b) for $k+1$.
+    Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
+    Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y=(u_{1,+}u_{2k-1,-}-u_{2,-}u_{2k,+})x+(-u_{0,+}u_{2k-1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (d) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
+    Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
+    Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
+    \[-u_{2k+1,-}x+u_{2k+2,+}y=(-u_{1,+}u_{2k+1,-}+u_{0,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which is the inequality (c) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
+    \[-u_{2k+1,-}x-u_{2k,+}y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
+    This completes the induction on $k$, proving the Claim and the result for $i$ even.
+
+    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2.\]
+    Using that $\phi_{t_{2j+1}}^{-1}=\phi_{t_2}^{-j}\phi_{t_1}^{-1}$, we compute the image inductively as above.
+    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_{t_1}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
+    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_{t_1}^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2$.
+    The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_{t_1}^{-1}$ and thus produces the inequalities
+    \[ cx+y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2.\]
+
+
+    \subsubsection*{Claim:} For $k\ge 0$, $\phi_{t_{2k+1}}^{-1}\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ is the region determined by the inequalities 
+    \begin{align*}
+      \tag{a$'$} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
+      \tag{b$'$} u_{2k+2,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
+      \tag{c$'$} -u_{2k,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
+      \tag{d$'$} -u_{2k,-}x-u_{2k-1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2.
+    \end{align*}
+    By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_{t_2}^{-1}$ and this completes the proof.
+  \end{proof}
 
 \section{Lattice Mutations and Linear Inequalities}
   Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
@@ -357,158 +663,6 @@
 
 
   \section{Rank Two}
-  Fix integers $b,c>0$ and assume $bc\ge 4$.
-  Let $B=\left[ \begin{array}{cc} 0 & -b \\ c & 0 \end{array} \right]$.
-  Here we may take the 2-regular tree $\TT_2$ to have vertices labeled $t_i$ for $i\in\ZZ$, with $t_{2j}$ joined to $t_{2j+1}$ by an edge labeled $1$ and $t_{2j-1}$ joined to $t_{2j}$ by an edge labeled $2$.
-  We aim to understand the dominance regions $\cP(\lambda) = \bigcap_{i\in\ZZ} \phi_{t_i}^{-1} \cC_{t_i}(\phi_{t_i} \lambda)$ for $\lambda\in\ZZ^2$.
-
-  Observe that $\phi_{t_1}:=\phi_1^{t_0}$ is the piecewise-linear map given by
-  \begin{equation}
-    \label{eq:forward mutation 1}
-    \phi_{t_1}(\lambda)=\begin{cases} (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1\ge0$;}\\ (-\lambda_1,\lambda_2) & \text{if $\lambda_1<0$;} \end{cases}
-  \end{equation}
-  and $\phi_{t_2}:=\phi_2^{t_1}\phi_1^{t_0}$ is the piecewise-linear map given by
-  \begin{equation}
-    \label{eq:forward two step mutation}
-    \phi_{t_2}(\lambda)=\begin{cases} \big((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2\big) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\ (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\ (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}\end{cases}
-  \end{equation}
-  while $\phi_{t_2}^{-1}=\phi_{t_{-2}}$ is the piecewise-linear map given by
-  \begin{equation}
-    \label{eq:backward two step mutation}
-    \phi_{t_2}^{-1}(\lambda)=\begin{cases} \big(-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2\big) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\ (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\ (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\ (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$;}\end{cases}
-  \end{equation}
-
-  By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $k\ge0$, there exists a scalar $\nu_k$ so that $\phi^k(\lambda)=\nu_k\lambda$.
-  \begin{lemma}
-    Any nonzero eigenvector of $\phi_{t_2}$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
-  \end{lemma}
-  \begin{proof}
-    First observe that the equation $\phi_{t_2}^k(\lambda)=\nu_k\lambda$ cannot be satisfied for all $k\ge0$ unless $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$.
-    In this region, $\phi_{t_2}$ is linear with eigenvalue $\nu$ satisfying $\nu^2-(bc-2)\nu+1=0$, i.e. $\nu=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
-    We thus require that 
-    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1=(bc-1)\lambda_1+b\lambda_2 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_2= -c\lambda_1-\lambda_2,\]
-    or, equivalently, that
-    \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_1=\lambda_2 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1.\]
-    As these represent the same relation, the result immediately follows by inspection.
-  \end{proof}
-
-  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
-  Also, write $\cI' \subset \RR^2$ for the \emph{dual imaginary cone} (positively) spanned by the vectors $\big(-bc\pm\sqrt{bc(bc-4)},2c\big)$.
-  \begin{lemma}
-    The vectors $\big(2b, -bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2b, -bc-\sqrt{bc(bc-4)}\big)$) and $\big(2c, bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2c, bc-\sqrt{bc(bc-4)}\big)$) are perpendicular.
-  \end{lemma}
-  \begin{proof}
-    This is immediate from the equality $\big(-bc+\sqrt{bc(bc-4)}\big)\big(bc+\sqrt{bc(bc-4)}\big)=-4bc$.
-  \end{proof}
-  \begin{lemma}
-    \label{le:imaginary stability}
-    For $j\in\ZZ$ and $\lambda\in\cI$, we have $\phi_{t_{2j}}(\lambda)\in\cI$ and $\phi_{t_{2j+1}}(\lambda)\in\cI'$.
-  \end{lemma}
-  \begin{proof}
-    Note that $\phi_{t_{2j}}=\phi_{t_2}^j$ and $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ so the result follows from the cases $j=1$ and $j=0$, respectively.
-    The claim is immediate for $\phi_{t_2}$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_{t_2}$ is linear in $\cI$.
-    Now, since $b>0$, we have $\phi_{t_1}(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$ and so $\phi_{t_1}\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$ and the result follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_{t_1}$ in this region.
-  \end{proof}
-
-  It will be useful to have explicit expressions for $\phi_{t_i}(\lambda)$ for $\lambda\in\cI$.
-  For this, we define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
-  \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
-  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
-
-  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
-  This leads to the following more general recursive structure.
-  \begin{lemma}
-    For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
-    \begin{equation}
-      \label{eq:long Chebyshev recursion}
-      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
-    \end{equation}
-  \end{lemma}
-  \begin{proof}
-    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
-    Using the claim for $j>0$ and then the defining recursion twice, we get
-    \begin{align*}
-      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
-    \end{align*}
-    which is the claimed recursion for $\ell+1$.
-    These calculations can be reversed to show the result for $\ell<0$.
-  \end{proof}
-
-  The following gives the desired expressions for $\phi_{t_i}(\lambda)$ when $\lambda\in\cI$.
-  \begin{lemma}
-    \label{le:imaginary transformations}
-    For $j\in\ZZ$ and $\lambda\in\cI$, we have
-    \begin{align*}
-      \phi_{t_{2j}}(\lambda)&=(u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,-}\lambda_2);\\
-      \phi_{t_{2j+1}}(\lambda)&=(-u_{2j+1,+}\lambda_1-u_{2j,+}\lambda_2,u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2).
-    \end{align*}
-  \end{lemma}
-  \begin{proof}
-    We work by induction on $j$, the case $j=0$ being clear from the definitions.
-    As observed above, we have $\phi_{t_{2j}}=\phi_{t_2}^j$.
-    For $\lambda\in\cI$, the action of $\phi_{t_2}$ from \eqref{eq:forward two step mutation} can be rewritten as
-    \[\phi_{t_2}(\lambda)=(u_{3,-}\lambda_1+u_{2,+}\lambda_2,-u_{2,-}\lambda_1-u_{1,+}\lambda_2),\]
-    and so
-    \begin{align*}
-      \phi_{t_{2j+2}(\lambda)}&=\phi_{t_2}\phi_{t_{2j}}(\lambda)\\
-      &=\big( (u_{3,-}u_{2j+1,+}-u_{2,+}u_{2j,-})\lambda_1+(u_{3,-}u_{2j,+}-u_{2,+}u_{2j-1,-})\lambda_2,\\
-      &\qquad -(u_{2,-}u_{2j+1,+}-u_{1,+}u_{2j,-})\lambda_1-(u_{2,-}u_{2j,+}-u_{1,+}u_{2j-1,-})\lambda_2 \big)\\
-      &=(u_{2j+3,+}\lambda_1+u_{2j+2,+}\lambda_2, -u_{2j+2,-}\lambda_1-u_{2j+1,-}\lambda_2),
-    \end{align*}
-    as desired, where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
-
-    Similarly, using $\phi_{t_1}(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$, together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_{t_1}\phi_{t_2}^j$ gives the claimed formula for $\phi_{t_{2j+1}}$ from that of $\phi_{t_{2j}}$.
-  \end{proof}
-
-  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
-  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
-  By the equalities 
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
-  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-  \begin{remark}
-    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
-    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
-  \end{remark}
-
-  \begin{lemma}
-    We have
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
-  \end{lemma}
-  \begin{proof}
-    For any $i\ge 1$, we have
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
-    It follows that
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
-    which is equivalent to the desired expression.
-    Similarly, 
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
-    so that
-    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
-    which is again equivalent to the desired expression.
-  \end{proof}
-
-  \begin{lemma}
-    If $\lambda\in\ZZ^2\setminus\cI$, then $\cP(\lambda)=\{\lambda\}$.
-  \end{lemma}
-  \begin{proof}
-    It is enough to consider $\phi_{t_{-2}}^{-1}\cC_{t_{-2}}(\phi_{t_{-2}}\lambda) \cap \cC_{t_0}(\lambda) \cap \phi_{t_2}^{-1}\cC_{t_2}(\phi_{t_2}\lambda)$, we leave the details to the reader.
-  \end{proof}
-
-  \begin{lemma}
-    \label{le:one direction}
-    For $\lambda\in\cI\cap\ZZ^2$, 
-    \begin{enumerate}
-      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-b\lambda_2,\lambda_2)$.
-      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $(\lambda_1,-c\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$.
-    \end{enumerate}
-  \end{lemma}
-  \begin{proof}
-    We prove (1) as (2) is obtained by interchanging $b$ with $c$ and swapping all ordered pairs.  
-    We first show that $\cC_{t_0}(\lambda) \cap \phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\supsetneq \cC_{t_0}(\lambda) \cap \phi_{t_j}^{-1}\cC_{t_j}(\phi_{t_j}\lambda)$ for $0\le i<j$.
-  \end{proof}
 
   \begin{theorem}
     There are six classes of dominance polytopes.
@@ -529,11 +683,6 @@
     The first equations reduces to $c\lambda_1+2\lambda_2=0$, while the second reduces to $2\lambda_1+b\lambda_2=0$.
     In particular, the rays spanned by $(2,-c)$ and $(b,-2)$ determine this change of state in the dominance regions $\cP(\lambda)$.
   \end{proof}
-
-  \begin{remark}
-    Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
-    This unexpected coincidence is one of our reasons for deciding to write down these results.
-  \end{remark}
 
 %  The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by the following inequalities:
 %  \begin{align}
@@ -720,168 +869,6 @@
     \bibitem{rupel}
       D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
   \end{thebibliography}
-
-  \section{Chebyshev}
-  For this, we define \emph{two-parameter Chebyshev polynomials} $u_{i,\varepsilon}$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
-  \[u_{0,\varepsilon}=0,\quad u_{1,\varepsilon}=1,\quad u_{i+1,\varepsilon}=\begin{cases} bu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=+$;}\\ cu_{i,-\varepsilon}-u_{i-1,\varepsilon} & \text{if $\varepsilon=-$.} \end{cases}\]
-  Observe that, by an easy induction, $u_{-i,\varepsilon}=-u_{i,\varepsilon}$.
-
-  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
-  This leads to the following more general recursive structure.
-  \begin{lemma}
-    For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
-    \begin{equation}
-      \label{eq:long Chebyshev recursion}
-      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
-    \end{equation}
-  \end{lemma}
-  \begin{proof}
-    We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
-    Using the claim for $j>0$ and then the defining recursion twice, we get
-    \begin{align*}
-      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
-    \end{align*}
-    which is the claimed recursion for $\ell+1$.
-    These calculations can be reversed to show the result for $\ell<0$.
-  \end{proof}
-
-  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_{i+1}=ru_i-u_{i-1}$, $u_1=1$, $u_0=0$, which can be computed explicitly as
-  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
-  By the equalities 
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
-  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-  \begin{remark}
-    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
-    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
-  \end{remark}
-
-  \begin{lemma}
-    We have
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
-  \end{lemma}
-  \begin{proof}
-    For any $i\ge 1$, we have
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
-    It follows that
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
-    which is equivalent to the desired expression.
-    Similarly, 
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
-    so that
-    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
-    which is again equivalent to the desired expression.
-  \end{proof}
-
-  \section{Proof of Theorem~\ref{th:dominance inequalities}}
-
-  Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP(\lambda)$ for $\lambda\in\cI$.
-  \begin{lemma}
-    \label{le:transformed inequalities}
-    Let $A=(a_{ij})$ be an invertible $2\times 2$ matrix.
-    Under the action of $A$, the region inside $\RR^2$ defined by the inequality $rx+sy\le t$ is transformed to the region defined by the inequality \[\frac{ra_{22}-sa_{21}}{a_{11}a_{22}-a_{12}a_{21}}x + \frac{-ra_{12}+sa_{11}}{a_{11}a_{22}-a_{12}a_{21}}y\le t.\]
-  \end{lemma}
-  \begin{proof}
-    Assume $r,s,t\ne0$, the cases when one of these vanishes follows by the continuity of the transformation.
-    Observe that the points $\big(\frac{t}{r},0\big)$ and $\big(0,\frac{t}{s}\big)$ lie on the boundary line of the region defined by the inequality $rx+sy\le t$.
-    These are transformed under the action of $A$ into the points $\big(a_{11}\frac{t}{r},a_{21}\frac{t}{r}\big)$ and $\big(a_{12}\frac{t}{s},a_{22}\frac{t}{s}\big)$, respectively, which one readily checks lie along the purported boundary of the image region.
-    By the linearity of the transformation of $\RR^2$ given by the matrix $A$, we see that either both the domain region and image region contain the origin or both do not, in particular this implies that the inequalities go in the same direction.
-  \end{proof}
-  
-  \begin{lemma}
-    For $i\ge1$ and $\lambda\in\cI$, the region $\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
-    \begin{align}
-      \label{ineq:1} u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
-      \label{ineq:2} u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
-      \label{ineq:3} -u_{i-1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
-      \label{ineq:4} -u_{i-1,-}x-u_{i-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
-    \end{align}
-    
-    given as in the figure below:
-    \[
-      \begin{tikzpicture}
-        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
-        \draw[-] (-8,0) -- (5,0);
-        \draw[-] (0,-5) -- (0,5);
-        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
-        \draw[-] (0,0) -- (5,-2.113);
-        \draw[-] (0,0) -- (3.17,-5);
-        \node at (1,-0.9) {$\cI$};
-        \draw[fill=black] (3.5,-3) circle (2pt);
-        \node[below right] at (3.5,-3) {$\lambda$};
-        \draw[->,thick] (3.5,-3) -- (47/10,-5);
-        \draw[-,thick] (3.5,-3) -- (0,26/10);
-        \draw[-,thick] (0,26/10) -- (-26/4,0);
-        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
-        \node at (4.5,-4) {\eqref{ineq:1}};
-        \node at (2.5,-0.5) {\eqref{ineq:2}};
-        \node at (-3,1.75) {\eqref{ineq:3}};
-        \node at (-5.5,-3) {\eqref{ineq:4}};
-      \end{tikzpicture}
-    \]
-  \end{lemma}
-  \begin{proof}
-    Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
-
-    For $i=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_{t_i}(\phi_{t_i}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
-    We inductively compute the region $\phi_{t_{2j}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{t_{2j}}^{-1}=\phi_{t_2}^{-j}$.
-
-    \subsubsection*{Claim:} For $k>0$, $\phi_{t_{2k}}^{-1}\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ is the region determined by the inequalities 
-    \begin{align*}
-      \tag{a} u_{2k,-}x+u_{2k-1,+}y &\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2;\\
-      \tag{b} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{c} -u_{2k-1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{d} -u_{2k-1,-}x-u_{2k-2,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2.
-    \end{align*}
-
-    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2$ which corresponds to (a) with $k=1$.
-    Similarly, the boundary ray for $\cC_{t_{2j}}(\phi_{t_{2j}}\lambda)$ corresponding to ($\dagger$) intersects three domains of linearity in which $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $k=1$.
-    This establishes the base of an induction on $k$.
-
-    Assuming the inequalities (a)-(d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_{t_2}^{-1}$.
-    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
-    Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
-    \[u_{2k+2,-}x+u_{2k+1,+}y=(u_{3,+}u_{2k,-}-u_{2,-}u_{2k-1,+})x+(u_{2,+}u_{2k,-}-u_{1,-}u_{2k-1,+})y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2,\]
-    which is the inequality (a) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
-    \[-u_{2k+1,-}x-u_{2k,+}y=(-u_{3,+}u_{2k-1,-}+u_{2,-}u_{2k-2,+})x+(-u_{2,+}u_{2k-1,-}+u_{1,-}u_{2k-2,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
-    \[u_{2k+3,-}x+u_{2k+2,+}y=(u_{3,+}u_{2k+1,-}-u_{2,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (b) for $k+1$.
-    Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_{t_2}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
-    Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
-    \[-u_{2k+1,-}x-u_{2k,+}y=(u_{1,+}u_{2k-1,-}-u_{2,-}u_{2k,+})x+(-u_{0,+}u_{2k-1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (d) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
-    Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_{t_2}^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
-    Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
-    \[-u_{2k+1,-}x+u_{2k+2,+}y=(-u_{1,+}u_{2k+1,-}+u_{0,-}u_{2k,+})x+(u_{2,+}u_{2k+1,-}-u_{1,-}u_{2k,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (c) for $k+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
-    \[-u_{2k+1,-}x-u_{2k,+}y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
-    This completes the induction on $k$, proving the Claim and the result for $i$ even.
-
-    For $i=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2.\]
-    Using that $\phi_{t_{2j+1}}^{-1}=\phi_{t_2}^{-j}\phi_{t_1}^{-1}$, we compute the image inductively as above.
-    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_{t_1}^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
-    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_{t_1}^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2$.
-    The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_{t_1}^{-1}$ and thus produces the inequalities
-    \[ cx+y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2.\]
-
-
-    \subsubsection*{Claim:} For $k\ge 0$, $\phi_{t_{2k+1}}^{-1}\cC_{t_{2j+1}}(\phi_{t_{2j+1}}\lambda)$ is the region determined by the inequalities 
-    \begin{align*}
-      \tag{a$'$} u_{2k+1,-}x+u_{2k,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{b$'$} u_{2k+2,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
-      \tag{c$'$} -u_{2k,-}x+u_{2k+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
-      \tag{d$'$} -u_{2k,-}x-u_{2k-1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2.
-    \end{align*}
-    By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_{t_2}^{-1}$ and this completes the proof.
-  \end{proof}
 
 
 
