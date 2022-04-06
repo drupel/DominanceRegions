@@ -487,19 +487,13 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     Then $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda) \cap \phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ is precisely $\{\lambda\}$. 
     \sayDR{Check this, I am definitely convinced it works when $k$ is odd.}
   \end{proof}
-
-  \begin{lemma}
-    \label{le:one direction}
-    For $\lambda\in\cI\cap\ZZ^2$, 
-    \begin{enumerate}
-      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-b\lambda_2,\lambda_2)$.
-      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $(\lambda_1,-c\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$.
-    \end{enumerate}
-  \end{lemma}
-  \begin{proof}
-    We prove (1) as (2) is obtained by interchanging $b$ with $c$ and swapping all ordered pairs.  
-    We first show that $\cC_{t_0}(\lambda) \cap \phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\supsetneq \cC_{t_0}(\lambda) \cap \phi_{t_j}^{-1}\cC_{t_j}(\phi_{t_j}\lambda)$ for $0\le i<j$.
-  \end{proof}
+  To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
+  \begin{itemize}
+    \item if $\lambda_1 \le 0$ and $\lambda_2 \ge 0$, the second and fourth inequalities become equations for lines which intersect at $\lambda$;
+    \item if $\lambda_1 > 0$ and $\lambda_2 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_1$, the first and second inequalities become equations for lines which intersect at $\lambda$;
+    \item if $\lambda_2 < 0$ and $\lambda_1 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_2$, the third and fourth inequalities become equations for lines which intersect at $\lambda$.
+  \end{itemize}
+  This proves Theorem~\ref{th:dominance inequalities} when $\lambda\notin\cI$.
 
   Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP(\lambda)$ for $\lambda\in\cI$.
 
@@ -611,6 +605,21 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \end{align*}
     By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_2^{-1}$ and this completes the proof.
   \end{proof}
+
+  \begin{lemma}
+    \label{le:one direction}
+    For $\lambda\in\cI\cap\ZZ^2$, 
+    \begin{enumerate}
+      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-b\lambda_2,\lambda_2)$.
+      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $(\lambda_1,-c\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    We prove (1) as (2) is obtained by interchanging $b$ with $c$ and swapping all ordered pairs.  
+    We first show that $\cC_{t_0}(\lambda) \cap \phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\supsetneq \cC_{t_0}(\lambda) \cap \phi_{t_j}^{-1}\cC_{t_j}(\phi_{t_j}\lambda)$ for $0\le i<j$.
+  \end{proof}
+
+
 
 \section{Lattice Mutations and Linear Inequalities}
 
