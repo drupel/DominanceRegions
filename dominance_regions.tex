@@ -210,71 +210,78 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (2*\xmax,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \s=1; \xx = \r; \yy=\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (6pt);
+      \fill (\x,\y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(13,0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (4*\xmax,-2*\xmax / \b) --  (2*\xmax,-2*\xmax / \b) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=2; \s=1; \xx = \r + \b*\s; \yy=-\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x, \y) circle (6pt);
-      \draw [very thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
+      \fill (\x, \y) circle (5pt);
+      \draw [thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
+      \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(26,0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \s=1; \xx=-\r; \yy=\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x, \y) circle (6pt);
-      \draw [very thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
+      \fill (\x, \y) circle (5pt);
+      \draw [thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
+      \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(39, 0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymin) --  (0,2*\ymin) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=1; \r=1; \s=1; \xx=-\r; \yy=-\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x, \y) circle (6pt);
-%      \draw [very thick, join=round] (-\l, -\l) -- (-\l - \l *\b, -\l) -- (-\l - \l*\b, \l*\c + \l*\b * \c -\l) -- (-\l, \l*\c -\l) -- cycle;
-      \draw [very thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
+      \fill (\x, \y) circle (5pt);
+      \draw [thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
+      \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
     \end{scope}
     \begin{scope}[shift={(0,-13)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -2*\xmax / \b) -- (4*\xmax, -2*\xmax / \b-2*\xmax * \c / \bcmo ) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=5; \r=1; \s=1; \xx={\r*\b+\s*(\b*\c-1) }; \yy = {-\r -\c*\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (6pt);
-      \draw [very thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
+      \tikzmath{ \t=5; \r=1; \s=2; \xx={\r*\b+\s*(\b*\c-1) }; \yy = {-\r -\c*\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \fill (\x,\y) circle (5pt);
+      \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
+      \draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
+      \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(13,-13)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- (4*\xmax, -2*\xmax * \c / \bcmo -\xmax * \bcms / \b) -- (2*\xmax, -\xmax * \bcms / \b) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \s=2; \xx={2*\r*\b+\s*(\b*\c-1) }; \yy = {-\r*\bcms -\c*\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (6pt);
-      \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dash dot] (0,0);
-      \draw [very thick, dash dot, join=round] (0,0) --  (\x , \y);
+      \fill (\x,\y) circle (5pt);
+      %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
+      \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
+      \draw [thick, dash dot, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(26,-13)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (0, 2*\ymin) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin +2*\ymin) --  ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=2; \r=0.3; \s=1; \xx={2*\r*\b }; \yy = {-\r*\bcps -\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (6pt);
-      \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dash dot] (0,0);
-      \draw [very thick, dash dot, join=round] (0,0) --  (\x , \y);
+      \fill (\x,\y) circle (5pt);
+      %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
+      \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
+      \draw [thick, dash dot, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(39,-13)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps + 2*\xmax, 2*\ymin  -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \s=2; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
-      \fill (\x , \y)  circle (6pt);
-      \fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
-      \draw [very thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) edge[dotted] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s);
-      \draw [very thick, dotted, join=round] (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
-      \draw [very thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \fill (\x , \y)  circle (5pt);
+      %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
+      \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
+      \draw [thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
+      \draw [thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
   \end{tikzpicture}
 \end{figure}
