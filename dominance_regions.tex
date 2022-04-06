@@ -484,8 +484,14 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \end{lemma}
   \begin{proof}
     Any such $\lambda$ is the $\bfg$-vector of a cluster monomial, say $x_k^{a_1}x_{k+1}^{a_2}$.
-    Then $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda) \cap \phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ is precisely $\{\lambda\}$. 
-    \sayDR{Check this, I am definitely convinced it works when $k$ is odd.}
+    In this case the intersection
+    \[\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda) \cap \phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)\]
+    is precisely $\{\lambda\}$. 
+    Indeed, when $k$ is odd (resp. even) the cone $\cC_{k-1}(\phi_{k-1}\lambda)$ (resp. $\cC_{k+1}(\phi_{k+1}\lambda)$) lies entirely within a domain of linearity for $\phi_{k-1}^{-1}$ (resp. $\phi_{k+1}^{-1}$).
+    In particular, $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda)$ (resp. $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$) is a cone containing $\lambda$ directed away from the origin (with walls parallel to the boundary of the domain of linearity containing $\lambda$).
+    On the contrary, when $k$ is odd (resp. even) the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ (resp. $\cC_{k-1}(\phi_{k-1}\lambda)$) intersects the domain of linearity for $\phi_{k+1}^{-1}$ (resp. $\phi_{k-1}^{-1}$) containing $\phi_{k+1}\lambda$ (resp. $\phi_{k-1}\lambda$) in a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\phi_{k+1}\lambda$ (resp. $\phi_{k-1}\lambda$).
+    In particular, $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ (resp. $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda)$) is a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\lambda$.
+    The result follows.
   \end{proof}
   To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
   \begin{itemize}
