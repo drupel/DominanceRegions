@@ -518,11 +518,11 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{lemma}
     \label{le:transformed inequalities}
     Let $A$ be an invertible $2\times 2$ matrix.
-    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^2$, the region inside $\RR^2$ defined by the inequality $\bfr\bullet(\bfx-\lambda)\le t$ with $\lambda,\bfr\in\RR^2$ and $t\in\RR$ is transformed into the region defined by the inequality \[(A^{-T}\bfr)\bullet(\bfy-A\lambda)\le t.\]
+    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^2$, the region inside $\RR^2$ defined by the inequality $\bfr\bullet\bfx \le t$ with $\bfr\in\RR^2$ and $t\in\RR$ is transformed into the region defined by the inequality \[(A^{-T}\bfr)\bullet\bfy\le t.\]
   \end{lemma}
   \begin{proof}
     This is immediate from the equalities
-    \[\bfr\bullet(\bfx-\lambda)=\bfr^T(\bfx-\lambda)=\bfr^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfr)^T(A\bfx-A\lambda)=(A^{-T}\bfr)\bullet(\bfy-A\lambda).\]
+    \[\bfr\bullet\bfx=\bfr^T\bfx=\bfr^TA^{-1}A\bfx=(A^{-T}\bfr)^TA\bfx=(A^{-T}\bfr)\bullet\bfy.\]
   \end{proof}
   
   \begin{lemma}
