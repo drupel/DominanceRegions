@@ -126,19 +126,19 @@
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
     \label{th:dominance inequalities}
-    The dominance polygon $\cP(\lambda)$ pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_1 \leq \lambda_1, \mu_2 \geq\lambda_2$, and the following inequalities:
+    The dominance polygon $\cP(\lambda)$ pointed at $\lambda=(\lambda_0,\lambda_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.8}
       \[
         \begin{array}{rcccl}
-          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_1-\lambda_1)+(\mu_2-\lambda_2) & \leq & \max\left(-c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2,0\right)
+          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \leq & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
           \\
-          \min\left(-c\lambda_1,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_1-\lambda_1)-(\mu_2-\lambda_2) & \leq & 0
+          \min\left(-c\lambda_0,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & 0
           \\
-          0 & \leq &  -(\mu_1-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_2-\lambda_2) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2,0\right)
+          0 & \leq &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
           \\
-          \min\left(b \lambda_2,0\right) & \leq & (\mu_1-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_2-\lambda_2) & \leq & 0
+          \min\left(b \lambda_1,0\right) & \leq & (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \leq & 0
         \end{array}
       \]
     }
@@ -158,11 +158,11 @@
     There are six classes of dominance polytopes.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP(\lambda)$ is the point $\lambda$. 
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_1-b\lambda_2,c\lambda_1+2\lambda_2\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
       \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $\big(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$.
       \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_1+b\lambda_2,-c\lambda_1-(bc-2)\lambda_2\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
     \end{enumerate}
   \end{theorem}
 
@@ -174,18 +174,18 @@
   Given a Laurent polynomial in $\ZZ[x_0^{\pm1},x_1^{\pm1}]$, its \emph{support} is the set of its exponent vectors inside $\ZZ^2$.
   \begin{theorem}
     \label{th:maximum support}
-    For a $\bfg$-vector $\lambda=(\lambda_1,\lambda_2)\in\ZZ^2$ the support for a pointed basis vector $x_\lambda$ is contained in the (possibly degenerate) lattice quadrilateral $\cS_\lambda$ given as follows:
+    For a $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)\in\ZZ^2$ the support for a pointed basis vector $x_\lambda$ is contained in the (possibly degenerate) lattice quadrilateral $\cS_\lambda$ given as follows:
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, there are the following possibilities:
         \begin{enumerate}
-          \item If $0\le\lambda_1,\lambda_2$, then $\cS_\lambda$ is just the point $\lambda$.
-          \item If $\lambda_2 < 0$ and $0\le\lambda_1+b\lambda_2$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_1+b\lambda_2,\lambda_2)$.
-          \item If $\lambda_1 < 0$ and $0\le\lambda_2$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_1,-c\lambda_1+\lambda_2)$.
-          \item If $\lambda_1,\lambda_2 < 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $(\lambda_1,-c\lambda_1+\lambda_2)$.
-          \item If $\lambda_1 > 0$, $\lambda_1+b\lambda_2 < 0$, and $-c\lambda_1-(bc-1)\lambda_2\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $\big((bc+1)\lambda_1-b^2c\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$.
-          \item If $\lambda_1 > 0$, $\lambda_1+b\lambda_2 < 0$, and $0 < -c\lambda_1-(bc-1)\lambda_2$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $(0,0)$.
+          \item If $0\le\lambda_0,\lambda_1$, then $\cS_\lambda$ is just the point $\lambda$.
+          \item If $\lambda_1 < 0$ and $0\le\lambda_0+b\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0+b\lambda_1,\lambda_1)$.
+          \item If $\lambda_0 < 0$ and $0\le\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0,-c\lambda_0+\lambda_1)$.
+          \item If $\lambda_0,\lambda_1 < 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(\lambda_0,-c\lambda_0+\lambda_1)$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.
         \end{enumerate}
-      \item If $\lambda$ lies inside of $\cI$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_1+b\lambda_2,\lambda_2)$, $\big(\lambda_1+b\lambda_2,-c\lambda_1-(bc-1)\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_1+b\lambda_2,-c\lambda_1-(bc-2)\lambda_2\big)$.
+      \item If $\lambda$ lies inside of $\cI$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
     \end{enumerate}
   \end{theorem}
 
@@ -378,15 +378,15 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \phi_1(\lambda)
     =
     \begin{cases} 
-      (-\lambda_1,c\lambda_1+\lambda_2) & \text{if $\lambda_1 \ge 0$;}\\
-      (-\lambda_1,\lambda_2) & \text{if $\lambda_1 < 0$;}
+      (-\lambda_0,c\lambda_0+\lambda_1) & \text{if $\lambda_0 \ge 0$;}\\
+      (-\lambda_0,\lambda_1) & \text{if $\lambda_0 < 0$;}
     \end{cases}
     \qquad
     \phi_{-1}(\lambda)
     =
     \begin{cases} 
-      (\lambda_1,-\lambda_2) & \text{if $\lambda_2 \ge 0$;}\\
-      (\lambda_1+b\lambda_2,-\lambda_2) & \text{if $\lambda_2 < 0$.}
+      (\lambda_0,-\lambda_1) & \text{if $\lambda_1 \ge 0$;}\\
+      (\lambda_0+b\lambda_1,-\lambda_1) & \text{if $\lambda_1 < 0$.}
     \end{cases}
   \end{equation}
   For $k\in\ZZ$ with $|k|>1$, define piecewise-linear maps
@@ -403,8 +403,8 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \[\cC_k(\lambda)
       :=
       \begin{cases}
-        \{(\lambda_1-r,\lambda_2+s):r,s\in\RR_{\ge0}\} & \text{if $k=2j$;}\\
-        \{(\lambda_1+r,\lambda_2-s):r,s\in\RR_{\ge0}\} & \text{if $k=2j+1$.}
+        \{(\lambda_0-r,\lambda_1+s):r,s\in\RR_{\ge0}\} & \text{if $k=2j$;}\\
+        \{(\lambda_0+r,\lambda_1-s):r,s\in\RR_{\ge0}\} & \text{if $k=2j+1$.}
       \end{cases}
     \]
     The \emph{dominance region} $\cP(\lambda)$ is the intersection  $\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$.
@@ -418,10 +418,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \phi_2(\lambda)
     =
     \begin{cases}
-      \big((bc-1)\lambda_1+b\lambda_2, -c\lambda_1-\lambda_2\big) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$;}\\
-      (-\lambda_1, -c\lambda_1-\lambda_2) & \text{if $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2<0$;}\\
-      (-\lambda_1+b\lambda_2, -\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2\ge 0$;}\\
-      (-\lambda_1,-\lambda_2) & \text{if $\lambda_1<0$ and $\lambda_2<0$;}
+      \big((bc-1)\lambda_0+b\lambda_1, -c\lambda_0-\lambda_1\big) & \text{if $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1\ge 0$;}\\
+      (-\lambda_0, -c\lambda_0-\lambda_1) & \text{if $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1<0$;}\\
+      (-\lambda_0+b\lambda_1, -\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1\ge 0$;}\\
+      (-\lambda_0,-\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1<0$;}
     \end{cases}
   \end{equation}
   %\begin{equation}
@@ -429,10 +429,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   %  \phi_{-2}(\lambda)
   %  =
   %  \begin{cases}
-  %    \big(-\lambda_1-b\lambda_2, c\lambda_1+(bc-1)\lambda_2\big) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2\le 0$;}\\
-  %    (-\lambda_1-b\lambda_2, -\lambda_2) & \text{if $\lambda_2\le 0$ and $\lambda_1+b\lambda_2>0$;}\\
-  %    (-\lambda_1, c\lambda_1-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1\le 0$;}\\
-  %    (-\lambda_1,-\lambda_2) & \text{if $\lambda_2>0$ and $\lambda_1>0$.}
+  %    \big(-\lambda_0-b\lambda_1, c\lambda_0+(bc-1)\lambda_1\big) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1\le 0$;}\\
+  %    (-\lambda_0-b\lambda_1, -\lambda_1) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1>0$;}\\
+  %    (-\lambda_0, c\lambda_0-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0\le 0$;}\\
+  %    (-\lambda_0,-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0>0$.}
   %  \end{cases}
   %\end{equation}
 
@@ -441,12 +441,12 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     Any nonzero eigenvector of $\phi_2$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
   \end{lemma}
   \begin{proof}
-    First observe that the equation $\phi_2^n(\lambda)=\nu_n\lambda$ cannot be satisfied for all $n>0$ unless $\lambda_1\ge 0$ and $c\lambda_1+\lambda_2\ge 0$.
+    First observe that the equation $\phi_2^n(\lambda)=\nu_n\lambda$ cannot be satisfied for all $n>0$ unless $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1\ge 0$.
     In this region, $\phi_2$ is linear with eigenvalue $\nu$ satisfying $\nu^2-(bc-2)\nu+1=0$, i.e. $\nu=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
     We thus require 
-    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1=(bc-1)\lambda_1+b\lambda_2 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_2= -c\lambda_1-\lambda_2,\]
+    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_0=(bc-1)\lambda_0+b\lambda_1 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1= -c\lambda_0-\lambda_1,\]
     or equivalently
-    \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_1=\lambda_2 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1.\]
+    \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_0=\lambda_1 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_1=\lambda_0.\]
     As these represent the same relationship, the result immediately follows by inspection.
   \end{proof}
 
@@ -465,7 +465,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{proof}
     Since $\phi_{2j}=\phi_2^j$ and $\phi_{2j+1}=\phi_1\phi_{t_2}^j$, the result follows from the cases $j=1$ and $j=0$, respectively.
     The claim is immediate for $\phi_2$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_2$ is linear in $\cI$.
-    Now, since $b>0$, we have $\phi_1(\lambda)=(-\lambda_1,c\lambda_1+\lambda_2)$.
+    Now, since $b>0$, we have $\phi_1(\lambda)=(-\lambda_0,c\lambda_0+\lambda_1)$.
     It follows that $\phi_1\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$.
     The result then follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_1$ in this region.
   \end{proof}
@@ -475,24 +475,24 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \label{le:imaginary transformations}
     For $j\in\ZZ$ and $\lambda\in\cI$, we have
     \begin{align*}
-      \phi_{2j}(\lambda)&=(u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2,-u_{2j,-}\lambda_1-u_{2j-1,-}\lambda_2);\\
-      \phi_{2j+1}(\lambda)&=(-u_{2j+1,+}\lambda_1-u_{2j,+}\lambda_2,u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2).
+      \phi_{2j}(\lambda)&=(u_{2j+1,+}\lambda_0+u_{2j,+}\lambda_1,-u_{2j,-}\lambda_0-u_{2j-1,-}\lambda_1);\\
+      \phi_{2j+1}(\lambda)&=(-u_{2j+1,+}\lambda_0-u_{2j,+}\lambda_1,u_{2j+2,-}\lambda_0+u_{2j+1,-}\lambda_1).
     \end{align*}
   \end{lemma}
   \begin{proof}
     We work by induction on $j$, the case $j=0$ being clear from the definitions.
     For $\lambda\in\cI$, the action of $\phi_2$ from \eqref{eq:forward two step mutation} can be rewritten as
-    \[\phi_2(\lambda)=(u_{3,-}\lambda_1+u_{2,+}\lambda_2,-u_{2,-}\lambda_1-u_{1,+}\lambda_2).\]
+    \[\phi_2(\lambda)=(u_{3,-}\lambda_0+u_{2,+}\lambda_1,-u_{2,-}\lambda_0-u_{1,+}\lambda_1).\]
     Therefore
     \begin{align*}
       \phi_{2j+2}(\lambda)&=\phi_2\phi_{2j}(\lambda)\\
-      &=\big( (u_{3,-}u_{2j+1,+}-u_{2,+}u_{2j,-})\lambda_1+(u_{3,-}u_{2j,+}-u_{2,+}u_{2j-1,-})\lambda_2,\\
-      &\qquad -(u_{2,-}u_{2j+1,+}-u_{1,+}u_{2j,-})\lambda_1-(u_{2,-}u_{2j,+}-u_{1,+}u_{2j-1,-})\lambda_2 \big)\\
-      &=(u_{2j+3,+}\lambda_1+u_{2j+2,+}\lambda_2, -u_{2j+2,-}\lambda_1-u_{2j+1,-}\lambda_2),
+      &=\big( (u_{3,-}u_{2j+1,+}-u_{2,+}u_{2j,-})\lambda_0+(u_{3,-}u_{2j,+}-u_{2,+}u_{2j-1,-})\lambda_1,\\
+      &\qquad -(u_{2,-}u_{2j+1,+}-u_{1,+}u_{2j,-})\lambda_0-(u_{2,-}u_{2j,+}-u_{1,+}u_{2j-1,-})\lambda_1 \big)\\
+      &=(u_{2j+3,+}\lambda_0+u_{2j+2,+}\lambda_1, -u_{2j+2,-}\lambda_0-u_{2j+1,-}\lambda_1),
     \end{align*}
     as desired, where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
 
-    Similarly, using $\phi_1(\lambda)=(-\lambda_1,u_{2,-}\lambda_1+u_{1,+}\lambda_2)$ for $\lambda\in\cI$ together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_1\phi_2^j$ gives the claimed formula for $\phi_{2j+1}$ from that of $\phi_{2j}$.
+    Similarly, using $\phi_1(\lambda)=(-\lambda_0,u_{2,-}\lambda_0+u_{1,+}\lambda_1)$ for $\lambda\in\cI$ together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_1\phi_2^j$ gives the claimed formula for $\phi_{2j+1}$ from that of $\phi_{2j}$.
   \end{proof}
 
 
@@ -516,9 +516,9 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \end{proof}
   To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
   \begin{itemize}
-    \item if $\lambda_1 \le 0$ and $\lambda_2 \ge 0$, the second and fourth inequalities become equations for lines which intersect at $\lambda$;
-    \item if $\lambda_1 > 0$ and $\lambda_2 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_1$, the first and second inequalities become equations for lines which intersect at $\lambda$;
-    \item if $\lambda_2 < 0$ and $\lambda_1 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_2$, the third and fourth inequalities become equations for lines which intersect at $\lambda$.
+    \item if $\lambda_0 \le 0$ and $\lambda_1 \ge 0$, the second and fourth inequalities become equations for lines which intersect at $\lambda$;
+    \item if $\lambda_0 > 0$ and $\lambda_1 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_0$, the first and second inequalities become equations for lines which intersect at $\lambda$;
+    \item if $\lambda_1 < 0$ and $\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_1$, the third and fourth inequalities become equations for lines which intersect at $\lambda$.
   \end{itemize}
   This proves Theorem~\ref{th:dominance inequalities} when $\lambda\notin\cI$.
 
@@ -537,10 +537,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{lemma}
     For $k\ge1$ and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
     \begin{align}
-      \label{ineq:1} u_{k,-}x+u_{k-1,+}y &\le u_{k,-}\lambda_1+u_{k-1,+}\lambda_2;\\
-      \label{ineq:2} u_{k+1,-}x+u_{k,+}y &\le u_{k+1,-}\lambda_1+u_{k,+}\lambda_2;\\
-      \label{ineq:3} -u_{k-1,-}x+u_{k,+}y &\le u_{k+1,-}\lambda_1+u_{k,+}\lambda_2;\\
-      \label{ineq:4} -u_{k-1,-}x-u_{k-2,+}y &\le u_{k+1,-}\lambda_1+u_{k,+}\lambda_2.
+      \label{ineq:1} u_{k,-}x+u_{k-1,+}y &\le u_{k,-}\lambda_0+u_{k-1,+}\lambda_1;\\
+      \label{ineq:2} u_{k+1,-}x+u_{k,+}y &\le u_{k+1,-}\lambda_0+u_{k,+}\lambda_1;\\
+      \label{ineq:3} -u_{k-1,-}x+u_{k,+}y &\le u_{k+1,-}\lambda_0+u_{k,+}\lambda_1;\\
+      \label{ineq:4} -u_{k-1,-}x-u_{k-2,+}y &\le u_{k+1,-}\lambda_0+u_{k,+}\lambda_1.
     \end{align}
     
     given as in the figure below:
@@ -570,19 +570,19 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
 
     For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_0+u_{2j,+}\lambda_1 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_0+u_{2j-1,-}\lambda_1. \]
     We inductively compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\phi_2^{-j}$.
 
     \subsubsection*{Claim:} For $i>0$, $\phi_{2i}^{-1}\cC_{2j}(\phi_{2j}\lambda)$ is the region determined by the inequalities 
     \begin{align*}
-      \tag{a} u_{2i,-}x+u_{2i-1,+}y &\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2;\\
-      \tag{b} u_{2i+1,-}x+u_{2i,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{c} -u_{2i-1,-}x+u_{2i,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{d} -u_{2i-1,-}x-u_{2i-2,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2.
+      \tag{a} u_{2i,-}x+u_{2i-1,+}y &\le u_{2j,-}\lambda_0+u_{2j-1,+}\lambda_1;\\
+      \tag{b} u_{2i+1,-}x+u_{2i,+}y &\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1;\\
+      \tag{c} -u_{2i-1,-}x+u_{2i,+}y &\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1;\\
+      \tag{d} -u_{2i-1,-}x-u_{2i-2,+}y &\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1.
     \end{align*}
 
     We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{2j}(\phi_{2j}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2$ which corresponds to (a) with $i=1$.
+    By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $cx+y\le u_{2j,-}\lambda_0+u_{2j-1,+}\lambda_1$ which corresponds to (a) with $i=1$.
     Similarly, the boundary ray for $\cC_{2j}(\phi_{2j}\lambda)$ corresponding to ($\dagger$) intersects the three domains of linearity in which $\phi_2^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
     By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $i=1$.
     This establishes the base of an induction on $i$.
@@ -590,49 +590,49 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     Assuming the inequalities (a)-(d) hold for $i$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_2^{-1}$.
     Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
     Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
-    \[u_{2i+2,-}x+u_{2i+1,+}y=(u_{3,+}u_{2i,-}-u_{2,-}u_{2i-1,+})x+(u_{2,+}u_{2i,-}-u_{1,-}u_{2i-1,+})y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2,\]
+    \[u_{2i+2,-}x+u_{2i+1,+}y=(u_{3,+}u_{2i,-}-u_{2,-}u_{2i-1,+})x+(u_{2,+}u_{2i,-}-u_{1,-}u_{2i-1,+})y\le u_{2j,-}\lambda_0+u_{2j-1,+}\lambda_1,\]
     which is the inequality (a) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
-    \[-u_{2i+1,-}x-u_{2i,+}y=(-u_{3,+}u_{2i-1,-}+u_{2,-}u_{2i-2,+})x+(-u_{2,+}u_{2i-1,-}+u_{1,-}u_{2i-2,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    \[-u_{2i+1,-}x-u_{2i,+}y=(-u_{3,+}u_{2i-1,-}+u_{2,-}u_{2i-2,+})x+(-u_{2,+}u_{2i-1,-}+u_{1,-}u_{2i-2,+})y\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1,\]
     which is the inequality (d) for $i+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
-    \[u_{2i+3,-}x+u_{2i+2,+}y=(u_{3,+}u_{2i+1,-}-u_{2,-}u_{2i,+})x+(u_{2,+}u_{2i+1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    \[u_{2i+3,-}x+u_{2i+2,+}y=(u_{3,+}u_{2i+1,-}-u_{2,-}u_{2i,+})x+(u_{2,+}u_{2i+1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1,\]
     which is the inequality (b) for $i+1$.
     Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
     Thus applying Lemma~\ref{le:transformed inequalities} to (c) gives the inequality 
-    \[-u_{2i+1,-}x-u_{2i,+}y=(u_{1,+}u_{2i-1,-}-u_{2,-}u_{2i,+})x+(-u_{0,+}u_{2i-1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    \[-u_{2i+1,-}x-u_{2i,+}y=(u_{1,+}u_{2i-1,-}-u_{2,-}u_{2i,+})x+(-u_{0,+}u_{2i-1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1,\]
     which is the inequality (d) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
     Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_2^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
     Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
-    \[-u_{2i+1,-}x+u_{2i+2,+}y=(-u_{1,+}u_{2i+1,-}+u_{0,-}u_{2i,+})x+(u_{2,+}u_{2i+1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    \[-u_{2i+1,-}x+u_{2i+2,+}y=(-u_{1,+}u_{2i+1,-}+u_{0,-}u_{2i,+})x+(u_{2,+}u_{2i+1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1,\]
     which is the inequality (c) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
-    \[-u_{2i+1,-}x-u_{2i,+}y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
+    \[-u_{2i+1,-}x-u_{2i,+}y\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1,\]
     which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
     This completes the induction on $i$, proving the Claim and the result for $k$ even.
 
     For $k=2j+1$, $j>0$, and $\lambda\in\cI$, we get $\cC_{2j+1}(\phi_{2j+1}\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_1+u_{2j+1,-}\lambda_2.\]
+    \[ (\dagger')\ -x\le u_{2j+1,+}\lambda_0+u_{2j,+}\lambda_1 \qquad\text{and}\qquad (\ddagger')\ y\le u_{2j+2,-}\lambda_0+u_{2j+1,-}\lambda_1.\]
     Using that $\phi_{2j+1}^{-1}=\phi_2^{-j}\phi_1^{-1}$, we compute the image inductively as above.
     From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{2j+1}(\phi_{2j+1}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_1^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
-    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_1^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2$.
+    Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_1^{-1}$ into the inequality $x\le u_{2j+1,+}\lambda_0+u_{2j,+}\lambda_1$.
     The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_1^{-1}$ and thus produces the inequalities
-    \[ cx+y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_1+u_{2j+1,+}\lambda_2.\]
+    \[ cx+y\le u_{2j+2,+}\lambda_0+u_{2j+1,+}\lambda_1 \qquad\text{and}\qquad  y\le u_{2j+2,+}\lambda_0+u_{2j+1,+}\lambda_1.\]
 
 
     \subsubsection*{Claim:} For $i\ge 0$, $\phi_{2i+1}^{-1}\cC_{2j+1}(\phi_{2j+1}\lambda)$ is the region determined by the inequalities 
     \begin{align*}
-      \tag{a$'$} u_{2i+1,-}x+u_{2i,+}y &\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2;\\
-      \tag{b$'$} u_{2i+2,-}x+u_{2i+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
-      \tag{c$'$} -u_{2i,-}x+u_{2i+1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2;\\
-      \tag{d$'$} -u_{2i,-}x-u_{2i-1,+}y &\le u_{2j+2,-}\lambda_1+u_{2j+1,+}\lambda_2.
+      \tag{a$'$} u_{2i+1,-}x+u_{2i,+}y &\le u_{2j+1,-}\lambda_0+u_{2j,+}\lambda_1;\\
+      \tag{b$'$} u_{2i+2,-}x+u_{2i+1,+}y &\le u_{2j+2,-}\lambda_0+u_{2j+1,+}\lambda_1;\\
+      \tag{c$'$} -u_{2i,-}x+u_{2i+1,+}y &\le u_{2j+2,-}\lambda_0+u_{2j+1,+}\lambda_1;\\
+      \tag{d$'$} -u_{2i,-}x-u_{2i-1,+}y &\le u_{2j+2,-}\lambda_0+u_{2j+1,+}\lambda_1.
     \end{align*}
     By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_2^{-1}$ and this completes the proof.
   \end{proof}
   The following consequence is easily seen from the Chebyshev recursion.
   \begin{corollary}
     \begin{align*}
-      u_{k,-}(x-\lambda_1)+u_{k-1,+}(y-\lambda_2) &\le 0;\\
-      u_{k+1,-}(x-\lambda_1)+u_{k,+}(y-\lambda_2) &\le 0;\\
-      -u_{k-1,-}(x-\lambda_1)+u_{k,+}(y-\lambda_2) &\le cu_{k,+}\lambda_1;\\
-      -u_{k-1,-}(x-\lambda_1)-u_{k-2,+}(y-\lambda_2) &\le cu_{k,+}\lambda_1+bu_{k-1,-}\lambda_2.
+      u_{k,-}(x-\lambda_0)+u_{k-1,+}(y-\lambda_1) &\le 0;\\
+      u_{k+1,-}(x-\lambda_0)+u_{k,+}(y-\lambda_1) &\le 0;\\
+      -u_{k-1,-}(x-\lambda_0)+u_{k,+}(y-\lambda_1) &\le cu_{k,+}\lambda_0;\\
+      -u_{k-1,-}(x-\lambda_0)-u_{k-2,+}(y-\lambda_1) &\le cu_{k,+}\lambda_0+bu_{k-1,-}\lambda_1.
     \end{align*}
   \end{corollary}
 
@@ -640,8 +640,8 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \label{le:one direction}
     For $\lambda\in\cI\cap\ZZ^2$, 
     \begin{enumerate}
-      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-b\lambda_2,\lambda_2)$.
-      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$, and $(\lambda_1,-c\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2)$.
+      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_0-b\lambda_1,\lambda_1)$.
+      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1)$, and $(\lambda_0,-c\lambda_0+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1)$.
     \end{enumerate}
   \end{lemma}
   \begin{proof}
@@ -716,85 +716,85 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     There are six classes of dominance polytopes.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP(\lambda)$ is the point $\lambda$. 
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_1-b\lambda_2,c\lambda_1+2\lambda_2\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
       \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $\big(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_1+b\lambda_2,c\lambda_1+2\lambda_2)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$.
       \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_1+b\lambda_2,-c\lambda_1-(bc-2)\lambda_2\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
     \end{enumerate}
   \end{theorem}
   \begin{proof}
     Following Lemma~\ref{le:one direction}, we see that the intersection $\cP_+(\lambda)\cap\cP_-(\lambda)$ degenerates to a triangle precisely when
-    \[\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2=\lambda_1+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_2\]
+    \[\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1=\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\]
     or 
-    \[\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\lambda_2=-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_1+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_2.\]
-    The first equations reduces to $c\lambda_1+2\lambda_2=0$, while the second reduces to $2\lambda_1+b\lambda_2=0$.
+    \[\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1=-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1.\]
+    The first equations reduces to $c\lambda_0+2\lambda_1=0$, while the second reduces to $2\lambda_0+b\lambda_1=0$.
     In particular, the rays spanned by $(2,-c)$ and $(b,-2)$ determine this change of state in the dominance regions $\cP(\lambda)$.
   \end{proof}
 
-%  The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by the following inequalities:
+%  The dominance polygon pointed at $\lambda=(\lambda_0,\lambda_1)$ is the region defined by the following inequalities:
 %  \begin{align}
-%    -\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x+\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
+%    -\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_1+x+\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1+\lambda_2-\frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_0+\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
 %    \\
-%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1 - \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_2 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}x-y\geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x-\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
+%    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_0+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_1+x-\frac{b c+\sqrt{b c (b c-4)}}{2 c}y\geq0
 %    \\
-%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_1-\frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_2-\frac{b c-\sqrt{b c (b c-4)}}{2 b}x-y\geq0
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}\lambda_0-\frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1-\frac{b c-\sqrt{b c (b c-4)}}{2 b}x-y\geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_2+x+\frac{b c-\sqrt{b c (b c-4)}}{2 c}y\geq0
+%    \frac{b c+\sqrt{b c (b c-4)}-2}{2}\lambda_0+\frac{b c+\sqrt{b c (b c-4)}}{2 c}\lambda_1+x+\frac{b c-\sqrt{b c (b c-4)}}{2 c}y\geq0
 %  \end{align}
 %  Are any of these better forms?
 %  \begin{align}
-%    (x-\lambda_1)+\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    (x-\lambda_0)+\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)\geq0
 %    \\
-%    \nonumber \iff \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2)\geq0
+%    \nonumber \iff \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1)\geq0
 %    \\
-%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)\geq0
 %    \\
-%    \nonumber \iff -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \nonumber \iff -(x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)\geq0
 %    \\
-%    -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1 + \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)\geq0
 %    \\
-%    \nonumber \iff -b\lambda_2 + (x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \nonumber \iff -b\lambda_1 + (x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)\geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1+(x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_0+(x-\lambda_0)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)\geq0
 %    \\
-%    \nonumber \iff c\lambda_1+\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    \nonumber \iff c\lambda_0+\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)\geq0
 %    \\
-%    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_2-\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)\geq0
+%    -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1-\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)\geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_1+b\lambda_2+(x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)\geq0
+%    \frac{b c+\sqrt{b c (b c-4)}}{2}\lambda_0+b\lambda_1+(x-\lambda_0)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)\geq0
 %  \end{align}
 %  Another proposal (I also changed the order of the equations)
 %  \begin{align}
-%    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
+%    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
+%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0-b\lambda_1)-(y-\lambda_1) & \geq 0
 %    \\
-%    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)& \geq c\lambda_0+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1
 %    \\
-%    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
+%    -(x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)& \geq0
 %    \\
-%    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
+%    (x-\lambda_0)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1-c\lambda_0) & \geq 0
 %    \\
-%    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
+%    (x-\lambda_0)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0-b\lambda_1
 %  \end{align}
 %  Maybe this one:
 %  \begin{align}
-%    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq0
+%    \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \geq0
 %    \\
-%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1-b\lambda_2)-(y-\lambda_2) & \geq 0
+%    \frac{b c+\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0-b\lambda_1)-(y-\lambda_1) & \geq 0
 %    \\
-%    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)& \geq c\lambda_1+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)& \geq c\lambda_0+\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1
 %    \\
-%    -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2)& \geq0
+%    -(x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1)& \geq0
 %    \\
-%    (x-\lambda_1)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2-c\lambda_1) & \geq 0
+%    (x-\lambda_0)-\frac{b c+\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1-c\lambda_0) & \geq 0
 %    \\
-%    (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
+%    (x-\lambda_0)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \geq -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0-b\lambda_1
 %  \end{align}
 %
 %  Yet another version:
@@ -803,13 +803,13 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 %    \everymath={\displaystyle}
 %  \[
 %  \begin{array}{rcccl}
-%    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2 & \geq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq & 0
+%    -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1 & \geq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \geq & 0
 %    \\
-%    &  & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq & c\lambda_1
+%    &  & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1) & \geq & c\lambda_0
 %    \\
-%    - b \lambda_2 & \geq & - (x-\lambda_1) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2) 
+%    - b \lambda_1 & \geq & - (x-\lambda_0) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_1) 
 %    \\
-%    0 & \geq & (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \geq &-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2
+%    0 & \geq & (x-\lambda_0)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \geq &-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0-b\lambda_1
 %  \end{array}
 %\]
 %}
@@ -820,13 +820,13 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 %    \everymath={\displaystyle}
 %  \[
 %  \begin{array}{rcccl}
-%    -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2 & \geq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \geq & 0
+%    -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1 & \geq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \geq & 0
 %    \\
-%    &  & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \geq & c\lambda_1
+%    &  & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1) & \geq & c\lambda_0
 %    \\
-%    -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1-b\lambda_2  & \leq & (x-\lambda_1)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & 0
+%    -\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0-b\lambda_1  & \leq & (x-\lambda_0)+\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \leq & 0
 %    \\
-%    & & - (x-\lambda_1) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2)  & \leq & - b \lambda_2
+%    & & - (x-\lambda_0) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_1)  & \leq & - b \lambda_1
 %  \end{array}
 %\]
 %}
@@ -841,13 +841,13 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 %    \def\arraystretch{2.8}
 %  \[
 %  \begin{array}{rcccl}
-%    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \leq & -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1
 %    \\
-%    c\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)
+%    c\lambda_0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)
 %    \\
-%    0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2
+%    0 & \leq &  -(x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1
 %    \\
-%    b \lambda_2 & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2)
+%    b \lambda_1 & \leq & (x-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_1)
 %  \end{array}
 %\]
 %}
@@ -856,29 +856,29 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 %    \def\arraystretch{2.8}
 %  \[
 %  \begin{array}{rcccl}
-%    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & -c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2
+%    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \leq & -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1
 %    \\
-%    -c\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2)
+%    -c\lambda_0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1)
 %    \\
-%    0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2
+%    0 & \leq &  -(x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1
 %    \\
-%    b \lambda_2 & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2)
+%    b \lambda_1 & \leq & (x-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_1)
 %  \end{array}
 %\]
 %}
-  The dominance polygon pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by $x\leq \lambda_1, y\geq\lambda_2$, and the following inequalities:
+  The dominance polygon pointed at $\lambda=(\lambda_0,\lambda_1)$ is the region defined by $x\leq \lambda_0, y\geq\lambda_1$, and the following inequalities:
  {
     \everymath={\displaystyle}
     \def\arraystretch{2.8}
   \[
   \begin{array}{rcccl}
-    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & \max\left(-c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2,0\right)
+    0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)+(y-\lambda_1) & \leq & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
     \\
-    \min\left(-c\lambda_1,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \leq & 0
+    \min\left(-c\lambda_0,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_0)-(y-\lambda_1) & \leq & 0
     \\
-    0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2,0\right)
+    0 & \leq &  -(x-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_1) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
     \\
-    \min\left(b \lambda_2,0\right) & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2) & \leq & 0
+    \min\left(b \lambda_1,0\right) & \leq & (x-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_1) & \leq & 0
   \end{array}
 \]
 }
@@ -900,8 +900,8 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     For $\mu\in\RR^2$, $\pi_2^{-1}(\mu)$ is a translate of the imaginary cone $\cI$ or the union of such with a single point.
   \end{lemma}
   \begin{proof}
-    For $\mu$ in the second quadrant, the vertex of this cone should be given by $\lambda=(\lambda_1,\lambda_2)$ where
-    \[\lambda_1=\frac{2b\mu_2-4\mu_1}{bc-4+\sqrt{bc(bc-4)}} \qquad \text{and} \qquad \lambda_2=\frac{2c\mu_1-4\mu_2}{bc-4+\sqrt{bc(bc-4)}}.\]
+    For $\mu$ in the second quadrant, the vertex of this cone should be given by $\lambda=(\lambda_0,\lambda_1)$ where
+    \[\lambda_0=\frac{2b\mu_1-4\mu_0}{bc-4+\sqrt{bc(bc-4)}} \qquad \text{and} \qquad \lambda_1=\frac{2c\mu_0-4\mu_1}{bc-4+\sqrt{bc(bc-4)}}.\]
     (This comes from setting $\mu$ to be the vertex opposite $\lambda$ inside the dominance region $\cP(\lambda)$ and then solving for $\lambda$.)
   \end{proof}
   \begin{remark}
