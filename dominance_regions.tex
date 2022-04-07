@@ -126,19 +126,19 @@
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
     \label{th:dominance inequalities}
-    The dominance polygon $\cP(\lambda)$ pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region defined by $x\leq \lambda_1, y\geq\lambda_2$, and the following inequalities:
+    The dominance polygon $\cP(\lambda)$ pointed at $\lambda=(\lambda_1,\lambda_2)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_1 \leq \lambda_1, \mu_2 \geq\lambda_2$, and the following inequalities:
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.8}
       \[
         \begin{array}{rcccl}
-          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)+(y-\lambda_2) & \leq & \max\left(-c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2,0\right)
+          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_1-\lambda_1)+(\mu_2-\lambda_2) & \leq & \max\left(-c\lambda_1-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_2,0\right)
           \\
-          \min\left(-c\lambda_1,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(x-\lambda_1)-(y-\lambda_2) & \leq & 0
+          \min\left(-c\lambda_1,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_1-\lambda_1)-(\mu_2-\lambda_2) & \leq & 0
           \\
-          0 & \leq &  -(x-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(y-\lambda_2) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2,0\right)
+          0 & \leq &  -(\mu_1-\lambda_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_2-\lambda_2) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_1+b\lambda_2,0\right)
           \\
-          \min\left(b \lambda_2,0\right) & \leq & (x-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (y-\lambda_2) & \leq & 0
+          \min\left(b \lambda_2,0\right) & \leq & (\mu_1-\lambda_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_2-\lambda_2) & \leq & 0
         \end{array}
       \]
     }
