@@ -561,12 +561,6 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
 
     For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
-    \[ x - u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \le 0 \qquad\text{and}\qquad 0 \le y + u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
-    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
-    We inductively compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\phi_2^{-j}$.
-
-
-    For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
     \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
     We inductively compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\phi_2^{-j}$.
 
@@ -584,13 +578,13 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $i=1$.
     This establishes the base of an induction on $i$.
 
-    Assuming the inequalities (a)-(d) hold for $k$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_2^{-1}$.
+    Assuming the inequalities (a)-(d) hold for $i$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_2^{-1}$.
     Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
     Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
     \[u_{2i+2,-}x+u_{2i+1,+}y=(u_{3,+}u_{2i,-}-u_{2,-}u_{2i-1,+})x+(u_{2,+}u_{2i,-}-u_{1,-}u_{2i-1,+})y\le u_{2j,-}\lambda_1+u_{2j-1,+}\lambda_2,\]
     which is the inequality (a) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
     \[-u_{2i+1,-}x-u_{2i,+}y=(-u_{3,+}u_{2i-1,-}+u_{2,-}u_{2i-2,+})x+(-u_{2,+}u_{2i-1,-}+u_{1,-}u_{2i-2,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
-    which is the inequality (d) for $k+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
+    which is the inequality (d) for $i+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
     \[u_{2i+3,-}x+u_{2i+2,+}y=(u_{3,+}u_{2i+1,-}-u_{2,-}u_{2i,+})x+(u_{2,+}u_{2i+1,-}-u_{1,-}u_{2i,+})y\le u_{2j+1,-}\lambda_1+u_{2j,+}\lambda_2,\]
     which is the inequality (b) for $i+1$.
     Similarly, the boundary segment corresponding to (c) lies entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & -1 \end{array}\right]$.
