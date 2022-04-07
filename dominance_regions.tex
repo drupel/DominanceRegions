@@ -300,14 +300,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \[u_0^\varepsilon=0,\quad u_1^\varepsilon=1,\quad u_{i+1}^\varepsilon=\begin{cases} bu_i^- -u_{i-1}^+ & \text{if $\varepsilon=+$;}\\ cu_i^+-u_{i-1}^- & \text{if $\varepsilon=-$.} \end{cases}\]
     Observe that, by an easy induction, $u_{-i}^\varepsilon=-u_i^\varepsilon$.
 
-  The recursion can be written more succinctly as $u_{i+1,\varepsilon}=u_{2,\varepsilon}u_{i,-\varepsilon}-u_{i-1,\varepsilon}$ with the additional initial condition $u_{2,\varepsilon}=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
+  The recursion can be written more succinctly as $u_{i+1}^\varepsilon=u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon$ with the additional initial condition $u_2^\varepsilon=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
   This leads to the following more general recursive structure.
   \begin{lemma}
     For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
-    \begin{equation}
-      \label{eq:long Chebyshev recursion}
-      u_{i+\ell,\varepsilon}=\begin{cases} u_{\ell+1,\varepsilon}u_{i,-\varepsilon}-u_{\ell,-\varepsilon}u_{i-1,\varepsilon} & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i,\varepsilon}-u_{\ell,\varepsilon}u_{i-1,-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
-    \end{equation}
     \begin{equation}
       \label{eq:long Chebyshev recursion}
       u_{i+\ell}^\varepsilon=\begin{cases} u_{\ell+1}^\varepsilon u_i^{-\varepsilon}-u_\ell^{-\varepsilon} u_{i-1}^\varepsilon & \text{\upshape if $\ell$ is odd;}\\ u_{\ell+1}^{-\varepsilon} u_i^\varepsilon-u_\ell^\varepsilon u_{i-1}^{-\varepsilon} & \text{\upshape if $\ell$ is even.} \end{cases}
@@ -317,9 +313,22 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
     Using the claim for $\ell>0$ and then the defining recursion twice, we get
     \begin{align*}
-      u_{i+\ell+1,\varepsilon}&=\begin{cases} u_{\ell+1,\varepsilon}u_{i+1,-\varepsilon}-u_{\ell,-\varepsilon}u_{i,\varepsilon} & \text{if $\ell$ is odd;}\\ u_{\ell+1,-\varepsilon}u_{i+1,\varepsilon}-u_{\ell,\varepsilon}u_{i,-\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} (u_{2,-\varepsilon}u_{\ell+1,\varepsilon}-u_{\ell,-\varepsilon})u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell$ is odd;}\\ (u_{2,\varepsilon}u_{\ell+1,-\varepsilon}-u_{\ell,\varepsilon})u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell$ is even;} \end{cases}\\
-      &=\begin{cases} u_{\ell+2,-\varepsilon}u_{i,\varepsilon}-u_{\ell+1,\varepsilon}u_{i-1,-\varepsilon} & \text{if $\ell+1$ is even;}\\ u_{\ell+2,\varepsilon}u_{i,-\varepsilon}-u_{\ell+1,-\varepsilon}u_{i-1,\varepsilon} & \text{if $\ell+1$ is odd;} \end{cases}
+      u_{i+\ell+1}^\varepsilon
+      &=
+      \begin{cases} 
+        u_{\ell+1}^\varepsilon u_{i+1}^{-\varepsilon}-u_\ell^{-\varepsilon} u_i^\varepsilon & \text{if $\ell$ is odd;}\\
+        u_{\ell+1}^{-\varepsilon} u_{i+1}^\varepsilon-u_\ell^\varepsilon u_i^{-\varepsilon} & \text{if $\ell$ is even;} 
+      \end{cases}\\
+      &=
+      \begin{cases} 
+        (u_2^{-\varepsilon} u_{\ell+1}^\varepsilon-u_\ell^{-\varepsilon}) u_i^\varepsilon-u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon} & \text{if $\ell$ is odd;}\\ 
+        (u_2^\varepsilon u_{\ell+1}^{-\varepsilon}-u_\ell^\varepsilon) u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon & \text{if $\ell$ is even;}
+      \end{cases}\\
+      &=
+      \begin{cases}
+        u_{\ell+2}^{-\varepsilon} u_i^\varepsilon - u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon} & \text{if $\ell+1$ is even;}\\ 
+        u_{\ell+2}^\varepsilon u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon & \text{if $\ell+1$ is odd;}
+      \end{cases}
     \end{align*}
     which is the claimed recursion for $\ell+1$.
     These calculations can be reversed to show the result for $\ell<0$.
