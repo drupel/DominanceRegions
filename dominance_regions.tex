@@ -111,7 +111,7 @@
   Being \emph{pointed} means an analogous structure reproduces after expanding in terms of any pair $\{x_k,x_{k+1}\}$.
   %The collection of all $\bfg$-vectors $\lambda\in\ZZ^2$ parametrize the elements of any pointed basis.
 
-  Important examples of pointed elements are the \emph{cluster monomials} of $\cA(b,c)$, i.e. the elements that can be written in the form $x_k^{a_1}x_{k+1}^{a_2}$ for some $k\in\ZZ$ and $a_1,a_2$ non-negative integers.
+  Important examples of pointed elements are the \emph{cluster monomials} of $\cA(b,c)$, i.e. the elements that can be written in the form $x_k^{a_k}x_{k+1}^{a_{k+1}}$ for some $k\in\ZZ$ and $a_k,a_{k+1}$ non-negative integers.
   Indeed, by [someresult of Qin] cluster monomials are part of any pointed basis in any cluster algebra.
   \say{Check if this needs full rank}
 
@@ -121,7 +121,7 @@
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
   We will therefore assume that $bc\ge4$.
   In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
-  Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b a_1 ,c a_2)$, $a_1,a_2\in\ZZ$, inside its \emph{dominance polygon} $\cP(\lambda)$.
+  Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b a_0 ,c a_1)$, $a_0,a_1\in\ZZ$, inside its \emph{dominance polygon} $\cP(\lambda)$.
   %In this case, we compute the possible transitions between any two pointed bases.
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
@@ -483,7 +483,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     If $\lambda\in\ZZ^2\setminus\cI$, then $\cP(\lambda)=\{\lambda\}$.
   \end{lemma}
   \begin{proof}
-    Any such $\lambda$ is the $\bfg$-vector of a cluster monomial, say $x_k^{a_1}x_{k+1}^{a_2}$.
+    Any such $\lambda$ is the $\bfg$-vector of a cluster monomial, say $x_k^{a_k}x_{k+1}^{a_{k+1}}$.
     In this case the intersection
     \[\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda) \cap \phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)\]
     is precisely $\{\lambda\}$. 
@@ -516,16 +516,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{lemma}
     For $k\ge1$ and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
     \begin{align}
-      \label{ineq:1} u_{i,-}x+u_{i-1,+}y &\le u_{i,-}\lambda_1+u_{i-1,+}\lambda_2;\\
-      \label{ineq:2} u_{i+1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
-      \label{ineq:3} -u_{i-1,-}x+u_{i,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2;\\
-      \label{ineq:4} -u_{i-1,-}x-u_{i-2,+}y &\le u_{i+1,-}\lambda_1+u_{i,+}\lambda_2.
-    \end{align}
-    \begin{align}
-      \label{ineq:1} u_{k,-}(x-\lambda_1)+u_{k-1,+}(y-\lambda_2) &\le 0;\\
-      \label{ineq:2} u_{k+1,-}(x-\lambda_1)+u_{k,+}(y-\lambda_2) &\le 0;\\
-      \label{ineq:3} -u_{k-1,-}(x-\lambda_1)+u_{k,+}(y-\lambda_2) &\le cu_{k,+}\lambda_1;\\
-      \label{ineq:4} -u_{k-1,-}(x-\lambda_1)-u_{k-2,+}(y-\lambda_2) &\le cu_{k,+}\lambda_1+bu_{k-1,-}\lambda_2.
+      \label{ineq:1} u_{k,-}x+u_{k-1,+}y &\le u_{k,-}\lambda_1+u_{k-1,+}\lambda_2;\\
+      \label{ineq:2} u_{k+1,-}x+u_{k,+}y &\le u_{k+1,-}\lambda_1+u_{k,+}\lambda_2;\\
+      \label{ineq:3} -u_{k-1,-}x+u_{k,+}y &\le u_{k+1,-}\lambda_1+u_{k,+}\lambda_2;\\
+      \label{ineq:4} -u_{k-1,-}x-u_{k-2,+}y &\le u_{k+1,-}\lambda_1+u_{k,+}\lambda_2.
     \end{align}
     
     given as in the figure below:
@@ -553,6 +547,12 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \end{lemma}
   \begin{proof}
     Following Lemma~\ref{le:imaginary transformations}, we consider even and odd sequences of mutations separately.
+
+    For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
+    \[ x - u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \le 0 \qquad\text{and}\qquad 0 \le y + u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
+    We inductively compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\phi_2^{-j}$.
+
 
     For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
     \[ (\dagger)\ x\le u_{2j+1,+}\lambda_1+u_{2j,+}\lambda_2 \qquad\text{and}\qquad (\ddagger)\ -y\le u_{2j,-}\lambda_1+u_{2j-1,-}\lambda_2. \]
@@ -611,6 +611,15 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \end{align*}
     By essentially the same calculations as above, these inequalities reproduce under the action of $\phi_2^{-1}$ and this completes the proof.
   \end{proof}
+  The following consequence is easily seen from the Chebyshev recursion.
+  \begin{corollary}
+    \begin{align*}
+      u_{k,-}(x-\lambda_1)+u_{k-1,+}(y-\lambda_2) &\le 0;\\
+      u_{k+1,-}(x-\lambda_1)+u_{k,+}(y-\lambda_2) &\le 0;\\
+      -u_{k-1,-}(x-\lambda_1)+u_{k,+}(y-\lambda_2) &\le cu_{k,+}\lambda_1;\\
+      -u_{k-1,-}(x-\lambda_1)-u_{k-2,+}(y-\lambda_2) &\le cu_{k,+}\lambda_1+bu_{k-1,-}\lambda_2.
+    \end{align*}
+  \end{corollary}
 
   \begin{lemma}
     \label{le:one direction}
