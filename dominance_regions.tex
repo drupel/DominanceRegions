@@ -333,40 +333,40 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_0=0$, $u_1=1$, $u_{i+1}=ru_i-u_{i-1}$, which can be computed explicitly as
   \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
   By the equalities 
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
-  it follows that $u_{i,\varepsilon}$ can be computed explicitly as
-  \[u_{i,\varepsilon}=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
+  \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
+  it follows that $u_i^\varepsilon$ can be computed explicitly as
+  \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
   \begin{remark}
-    Note that $u_{2j+1,+}=u_{2j+1,-}$ for all $j\in\ZZ$.
-    Moreover, since $u_{-i,\varepsilon}=-u_{i,\varepsilon}$, these formulas can also easily be seen to hold for $i<0$.
+    Note that $u_{2j+1}^+=u_{2j+1}^-$ for all $j\in\ZZ$.
+    Moreover, since $u_{-i}^\varepsilon=-u_i^\varepsilon$, these formulas can also easily be seen to hold for $i<0$.
   \end{remark}
 
   \begin{lemma}
     We have
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
+    \[\lim_{i\to\infty} \frac{-u_i^-}{u_{i-1}^+}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1}^-}{u_i^+}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
     Moreover, each of these sequences is monotonic.
   \end{lemma}
   \begin{proof}
     For any $i\ge 1$, we have
     \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
     It follows that
-    \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
+    \[\lim_{i\to\infty} \frac{-u_i^-}{u_{i-1}^+} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
     which is equivalent to the desired expression.
     Similarly, 
     \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
     so that
-    \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
+    \[\lim_{i\to\infty} \frac{-u_{i-1}^-}{u_i^+} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
     which is again equivalent to the desired expression.
 
-    For the final claim, observe that $\frac{-u_{i,-\varepsilon}}{u_{i-1,\varepsilon}}<\frac{-u_{i+1,-\varepsilon}}{u_{i,\varepsilon}}$ and $\frac{-u_{i,-\varepsilon}}{u_{i+1,\varepsilon}}<\frac{-u_{i-1,-\varepsilon}}{u_{i,\varepsilon}}$ are both equivalent to $u_{i+1,-\varepsilon}u_{i-1,\varepsilon}<u_{i,-\varepsilon}u_{i,\varepsilon}$.
+    For the final claim, observe that $\frac{-u_i^{-\varepsilon}}{u_{i-1}^\varepsilon}<\frac{-u_{i+1}^{-\varepsilon}}{u_i^\varepsilon}$ and $\frac{-u_i^{-\varepsilon}}{u_{i+1}^\varepsilon}<\frac{-u_{i-1}^{-\varepsilon}}{u_i^\varepsilon}$ are both equivalent to $u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon<u_i^{-\varepsilon}u_i^\varepsilon$.
     This is immediate from the following induction:
     \begin{align*}
-      u_{i+1,-\varepsilon}u_{i-1,\varepsilon}
-      &=(cu_{i,\varepsilon}-u_{i-1,-\varepsilon})u_{i-1,\varepsilon}
-      =cu_{i,\varepsilon}u_{i-1,\varepsilon}-u_{i-1,-\varepsilon}u_{i-1,\varepsilon}\\
-      &<cu_{i,\varepsilon}u_{i-1,\varepsilon}-u_{i,\varepsilon}u_{i-2,-\varepsilon}
-      =u_{i,\varepsilon}(cu_{i-1,\varepsilon}-u_{i-2,-\varepsilon})\\
-      &=u_{i,\varepsilon}u_{i,-\varepsilon}.
+      u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon
+      &=(cu_i^\varepsilon-u_{i-1}^{-\varepsilon})u_{i-1}^\varepsilon
+      =cu_i^\varepsilon u_{i-1}^\varepsilon-u_{i-1}^{-\varepsilon} u_{i-1}^\varepsilon\\
+      &<cu_i^\varepsilon u_{i-1}^\varepsilon-u_i^\varepsilon u_{i-2}^{-\varepsilon}
+      =u_i^\varepsilon(cu_{i-1}^\varepsilon-u_{i-2}^{-\varepsilon})\\
+      &=u_i^\varepsilon u_i^{-\varepsilon}.
     \end{align*}
   \end{proof}
 
