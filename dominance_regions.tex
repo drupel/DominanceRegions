@@ -315,22 +315,18 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     \begin{align*}
       u_{i+\ell+1}^\varepsilon
       &=
-      \begin{cases} 
-        u_{\ell+1}^\varepsilon u_{i+1}^{-\varepsilon}-u_\ell^{-\varepsilon} u_i^\varepsilon & \text{if $\ell$ is odd;}\\
-        u_{\ell+1}^{-\varepsilon} u_{i+1}^\varepsilon-u_\ell^\varepsilon u_i^{-\varepsilon} & \text{if $\ell$ is even;} 
-      \end{cases}\\
+      u_{\ell+1}^\varepsilon u_{i+1}^{-\varepsilon}-u_\ell^{-\varepsilon} u_i^\varepsilon
+      =(u_2^{-\varepsilon} u_{\ell+1}^\varepsilon-u_\ell^{-\varepsilon}) u_i^\varepsilon-u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
+      =u_{\ell+2}^{-\varepsilon} u_i^\varepsilon - u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
+      \qquad \text{if $\ell$ is odd;}\\ 
+      u_{i+\ell+1}^\varepsilon
       &=
-      \begin{cases} 
-        (u_2^{-\varepsilon} u_{\ell+1}^\varepsilon-u_\ell^{-\varepsilon}) u_i^\varepsilon-u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon} & \text{if $\ell$ is odd;}\\ 
-        (u_2^\varepsilon u_{\ell+1}^{-\varepsilon}-u_\ell^\varepsilon) u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon & \text{if $\ell$ is even;}
-      \end{cases}\\
-      &=
-      \begin{cases}
-        u_{\ell+2}^{-\varepsilon} u_i^\varepsilon - u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon} & \text{if $\ell+1$ is even;}\\ 
-        u_{\ell+2}^\varepsilon u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon & \text{if $\ell+1$ is odd;}
-      \end{cases}
+      u_{\ell+1}^{-\varepsilon} u_{i+1}^\varepsilon-u_\ell^\varepsilon u_i^{-\varepsilon}
+      =(u_2^\varepsilon u_{\ell+1}^{-\varepsilon}-u_\ell^\varepsilon) u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon
+      =u_{\ell+2}^\varepsilon u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon
+      \qquad \text{if $\ell$ is even;} 
     \end{align*}
-    which is the claimed recursion for $\ell+1$.
+    which gives the claimed recursion for $\ell+1$.
     These calculations can be reversed to show the result for $\ell<0$.
   \end{proof}
 
