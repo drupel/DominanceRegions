@@ -335,6 +335,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \begin{lemma}
     We have
     \[\lim_{i\to\infty} \frac{-u_{i,-}}{u_{i-1,+}}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
+    Moreover, each of these sequences is monotonic.
   \end{lemma}
   \begin{proof}
     For any $i\ge 1$, we have
@@ -347,6 +348,17 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     so that
     \[\lim_{i\to\infty} \frac{-u_{i-1,-}}{u_{i,+}} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
     which is again equivalent to the desired expression.
+
+    For the final claim, observe that $\frac{-u_{i,-\varepsilon}}{u_{i-1,\varepsilon}}<\frac{-u_{i+1,-\varepsilon}}{u_{i,\varepsilon}}$ and $\frac{-u_{i,-\varepsilon}}{u_{i+1,\varepsilon}}<\frac{-u_{i-1,-\varepsilon}}{u_{i,\varepsilon}}$ are both equivalent to $u_{i+1,-\varepsilon}u_{i-1,\varepsilon}<u_{i,-\varepsilon}u_{i,\varepsilon}$.
+    This is immediate from the following induction:
+    \begin{align*}
+      u_{i+1,-\varepsilon}u_{i-1,\varepsilon}
+      &=(cu_{i,\varepsilon}-u_{i-1,-\varepsilon})u_{i-1,\varepsilon}
+      =cu_{i,\varepsilon}u_{i-1,\varepsilon}-u_{i-1,-\varepsilon}u_{i-1,\varepsilon}\\
+      &<cu_{i,\varepsilon}u_{i-1,\varepsilon}-u_{i,\varepsilon}u_{i-2,-\varepsilon}
+      =u_{i,\varepsilon}(cu_{i-1,\varepsilon}-u_{i-2,-\varepsilon})\\
+      &=u_{i,\varepsilon}u_{i,-\varepsilon}.
+    \end{align*}
   \end{proof}
 
 
