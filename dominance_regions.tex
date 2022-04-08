@@ -343,20 +343,22 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 
   \begin{lemma}
     We have
-    \[\lim_{i\to\infty} \frac{-u_i^-}{u_{i-1}^+}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1}^-}{u_i^+}=\frac{-bc+\sqrt{bc(bc-4)}}{2b}.\]
+    \[\lim_{i\to\infty} \frac{-u_i^-}{u_{i-1}^+}=\frac{-bc-\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{-u_{i-1}^-}{u_i^+}=\frac{-bc+\sqrt{bc(bc-4)}}{2b};\]
+    \[\lim_{i\to-\infty} \frac{-u_i^-}{u_{i-1}^+}=\frac{-bc+\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to-\infty} \frac{-u_{i-1}^-}{u_i^+}=\frac{-bc-\sqrt{bc(bc-4)}}{2b}.\]
     Moreover, each of these sequences is monotonic.
   \end{lemma}
   \begin{proof}
-    For any $i\ge 1$, we have
+    For any $i\ne1$, we have
     \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
     It follows that
     \[\lim_{i\to\infty} \frac{-u_i^-}{u_{i-1}^+} = \lim_{i\to\infty} \left( \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\frac{\sqrt{bc}+\sqrt{bc-4}}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
     which is equivalent to the desired expression.
-    Similarly, 
+    Similarly, for $i\ne0$ we have
     \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
     so that
     \[\lim_{i\to\infty} \frac{-u_{i-1}^-}{u_i^+} = \lim_{i\to\infty} \left( \frac{-2\sqrt{c}}{\sqrt{b}}\cdot\frac{\sqrt{bc}-\sqrt{bc-4}}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)} \right) = \frac{-\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
     which is again equivalent to the desired expression.
+    This proves the claim for $i\to\infty$, the cases $i\to-\infty$ follow from these using $u_{-i}^\varepsilon=-u_i^\varepsilon$.
 
     For the final claim, observe that $\frac{-u_i^{-\varepsilon}}{u_{i-1}^\varepsilon}<\frac{-u_{i+1}^{-\varepsilon}}{u_i^\varepsilon}$ and $\frac{-u_i^{-\varepsilon}}{u_{i+1}^\varepsilon}<\frac{-u_{i-1}^{-\varepsilon}}{u_i^\varepsilon}$ are both equivalent to $u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon<u_i^{-\varepsilon}u_i^\varepsilon$.
     This is immediate from the following induction:
@@ -702,10 +704,11 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   determining a boundary of $\cP(\lambda)$.
 
   Similar arguments with the inequalities \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP(\lambda)$:
-  \[ 0 \le (\mu_0-\lambda_0)+\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
-  \[ b\lambda_1 \le (\mu_0-\lambda_0)-\frac{bc+\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
-  \[ c\lambda_0+b\frac{bc-\sqrt{bc(bc-4)}}{2b}\lambda_1 \le -\frac{bc+\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).\]
+  \[ 0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1);\]
+  \[ b\lambda_1 \le (\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le 0;\]
+  \[ \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) \le -c\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2b}b\lambda_1.\]
 
+  This completes the proof of Theorem~\ref{th:dominance inequalities}.
   %\begin{lemma}
   %  For $k \le -1$ and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
   %  \begin{align}
