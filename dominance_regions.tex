@@ -668,19 +668,44 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     -u_{k+1}^-(\mu_0-\lambda_0)-u_k^+(\mu_1-\lambda_1) &\le cu_k^+\lambda_0+bu_{k-1}^-\lambda_1;
   \end{align*}
   for $k<0$.
-  Then using that $u_k^\varepsilon>0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$ we divide by these to rewrite the inequalities again as
-  \begin{align*}
-    \frac{u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) &\le 0;\\
-    \frac{-u_{k-1}^-}{u_k^+}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) &\le c\lambda_0;\\
-    -(\mu_0-\lambda_0)-\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1) &\le c\frac{u_{k+1}^+}{u_k^-}\lambda_0+b\lambda_1;
-  \end{align*}
+  Then using that $-u_k^\varepsilon<0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$ we divide by these to rewrite the inequalities again as
+  \begin{align}
+    \label{ieq1} 0 & \le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
+    \label{ieq2} -c\lambda_0 & \le \frac{u_{k-1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
+    \label{ieq3} -(\mu_0-\lambda_0)-\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1) &\le c\frac{u_{k+1}^+}{u_k^-}\lambda_0+b\lambda_1;
+  \end{align}
   and
-  \begin{align*}
-    0 &\le (\mu_0-\lambda_0)+\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1);\\
-    b\lambda_1 &\le (\mu_0-\lambda_0)-\frac{u_{k+1}^+}{u_k^-}(\mu_1-\lambda_1);\\
-    c\lambda_0+b\frac{u_{k-1}^-}{u_k^+}\lambda_1 &\le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).
-  \end{align*}
-  
+  \begin{align}
+    \label{ieq4} 0 &\le (\mu_0-\lambda_0)+\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1);\\
+    \label{ieq5} b\lambda_1 &\le (\mu_0-\lambda_0)-\frac{u_{k+1}^+}{u_k^-}(\mu_1-\lambda_1);\\
+    \label{ieq6} c\lambda_0+b\frac{u_{k-1}^-}{u_k^+}\lambda_1 &\le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).
+  \end{align}
+  We now study each sequence of inequalities in turn.
+
+  For $\mu_1-\lambda_1\ge 0$, the inequalities \eqref{ieq1} become more restrictive as $k$ gets larger since the sequence $\frac{-u_{k+1}^-}{u_k^+}$ of slopes is monotonically decreasing.
+  Thus in the limit as $k\to\infty$, we obtain the inequality 
+  \[ 0 \le \frac{-bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
+  or equivalently
+  \[ 0 \le -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \]
+  determining a boundary of $\cP(\lambda)$.
+
+  Similarly, the inequalities \eqref{ieq2} become more restrictive for $\mu_0\le0$ and $\mu_1\ge0$ as $k$ gets larger since the sequence of slopes $\frac{u_{k-1}^-}{u_k^+}$ is monotonically increasing and the intersection with \eqref{ieq1} moves lower on the $\mu_1$-axis as $k$ increases.
+  Thus in the limit as $k\to\infty$, we obtain the inequality
+  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
+  determining a boundary of $\cP(\lambda)$.
+  Observe further that $\mu_0-\lambda0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
+  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
+
+  Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence of slopes $\frac{-u_{k-1}^+}{u_k^-}$ is monotonically increasing and the intersection with \eqref{ieq2} moves to the right on the $\mu_0$-axis as $k$ increases.
+  Thus in the limit as $k\to\infty$, we obtain the inequality
+  \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1 \]
+  determining a boundary of $\cP(\lambda)$.
+
+  Similar arguments with the inequalities \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP(\lambda)$:
+  \[ 0 \le (\mu_0-\lambda_0)+\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
+  \[ b\lambda_1 \le (\mu_0-\lambda_0)-\frac{bc+\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
+  \[ c\lambda_0+b\frac{bc-\sqrt{bc(bc-4)}}{2b}\lambda_1 \le -\frac{bc+\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).\]
+
   %\begin{lemma}
   %  For $k \le -1$ and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
   %  \begin{align}
