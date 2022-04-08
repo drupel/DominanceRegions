@@ -537,7 +537,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   
   \begin{lemma}
     \label{le:dominance inequalities}
-    For $k\in\ZZ$, $k\ne0$, and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is the polytope determined by the following inequalities:
+    For $k\in\ZZ$, $k\ne0$, and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is determined by the following inequalities:
     \begin{align}
       \label{ineq:1} u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
       \label{ineq:2} u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
@@ -549,7 +549,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
       u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
       u_k^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
-      -u_{k+2}^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1.
+      -u_{k+2}^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;
     \end{align*}
     when $k<0$.
     
@@ -638,9 +638,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \end{proof}
 
   We are now ready to prove Theorem~\ref{th:dominance inequalities}.
-  The dominance region $\cP(\lambda)=\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$ for $\lambda\in\cI$ is obtained by imposing all of inequalities from Lemma~\ref{le:dominance inequalities} together with $\mu_0 -\lambda_0 \le 0$ and $0 \le \mu_1 - \lambda_1$ coming from $k=0$.
+  The dominance region $\cP(\lambda)=\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$ for $\lambda\in\cI$ is obtained by imposing all of the inequalities from Lemma~\ref{le:dominance inequalities} together with $\mu_0 -\lambda_0 \le 0$ and $0 \le \mu_1 - \lambda_1$ coming from $k=0$.
 
-  To begin we rewrite the inequalities from Lemma~\ref{le:dominance inequalities} using the Chebyshev recursion.
+  To begin, observe that the boundary lines for \eqref{ineq:2} and \eqref{ineq:3} (and hence \eqref{ieq1} and \eqref{ieq2} below) intersect where $\mu_0=0$ and the boundary lines for \eqref{ineq:3} and \eqref{ineq:4} (and hence \eqref{ieq2} and \eqref{ieq3} below) intersect where $\mu_1=0$.
+  We then rewrite the inequalities from Lemma~\ref{le:dominance inequalities} using the Chebyshev recursion.
   For $k>0$, we get
   \begin{align*}
     u_k^-(\mu_0-\lambda_0)+u_{k-1}^+(\mu_1-\lambda_1) &\le 0;\\
@@ -693,10 +694,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 
   Similarly, the inequalities \eqref{ieq2} become more restrictive for $\mu_0\le0$ and $\mu_1\ge0$ as $k$ gets larger since the sequence of slopes $\frac{u_{k-1}^-}{u_k^+}$ is monotonically increasing and the intersection with \eqref{ieq1} moves lower on the $\mu_1$-axis as $k$ increases.
   Thus in the limit as $k\to\infty$, we obtain the inequality
-  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
+  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
   determining a boundary of $\cP(\lambda)$.
-  Observe further that $\mu_0-\lambda0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
-  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
+  Observe further that $\mu_0-\lambda_0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
+  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
 
   Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence of slopes $\frac{-u_{k-1}^+}{u_k^-}$ is monotonically increasing and the intersection with \eqref{ieq2} moves to the right on the $\mu_0$-axis as $k$ increases.
   Thus in the limit as $k\to\infty$, we obtain the inequality
