@@ -123,7 +123,6 @@
   We will therefore assume that $bc\ge4$.
   In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
   Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance polygon} $\cP_\lambda$.
-  \sayDR{Should we write $\cD_\lambda$ instead for "dominance"?}
   %In this case, we compute the possible transitions between any two pointed bases.
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
@@ -769,10 +768,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
   For our purposes, it is enough to observe the following closure property for the greedy support.
   \begin{definition}
-    A subset $\cS\subset\RR^2$ is called \emph{DL-convex} if $\lambda,\mu\in\cS$ implies $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)\in\cS$.
+    A subset $\cS\subset\RR^2$ is called \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
   \end{definition}
   In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector $\lambda$ indicated by a black dot and the opposite $\bfg$-vector $\lambda'$ indicated by a white dot in Theorem~\ref{th:maximum support}.
-  Write $\overline{\cG}_\lambda$ for the cone of the DL-closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
+  Write $\overline{\cG}_\lambda$ for the cone of the min-convex-closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
   Clearly, $\cG_\lambda\subset\overline{\cG}_\lambda$.
 
   Recall the regions $\cS_\lambda$ from Theorem~\ref{th:maximum support}.
