@@ -731,7 +731,16 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 \section{Proof of Theorem~\ref{th:maximum support}}
 \label{sec:maximum support}
 
-  
+  Every pointed basis element for $\cA(b,c)$ admits an opposite $\bfg$-vector arising by interchanging the roles of $b$, $c$ and $x_0$, $x_1$ in \eqref{eq:pointed}. 
+  \begin{lemma}
+    Given a $\bfg$-vector $\lambda$, the opposite $\bfg$-vector $\lambda'$ is obtained as follows:
+    \begin{itemize}
+      \item if $\lambda_0,\lambda_1\ge0$, then $\lambda'=\lambda$;
+      \item if $\lambda_1\ge0$ and $\lambda_0<0$, then $\lambda'=(\lambda_0,-c\lambda_0+\lambda_1)$;
+      \item if $\lambda_0>0$ and $\lambda_0+b\lambda_1>0$, then $\lambda'=(\lambda_0+b\lambda_1,\lambda_1)$;
+      \item otherwise, $\lambda'=(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1)$.
+    \end{itemize}
+  \end{lemma}
 
   \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
     For $(a_1,a_2)\in\ZZ^2$, the smallest (possibly degenerate) lattice quadrilateral $R_{a_1,a_2}$ containing the support of $x[a_1,a_2]$ is determined as follows.
