@@ -152,9 +152,9 @@
   It would be useful to explicitly (or combinatorially) compute the transitions between these bases.
   However, explicit calculations reveal that the $\bfg$-vectors actually appearing in these transitions are far smaller than the entire dominance polygon.
 
-
-  \begin{theorem}
-    \label{th:dominance vertices}
+  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
+  \begin{corollary}
+    \label{cor:dominance vertices}
     There are six classes of dominance polytopes.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP(\lambda)$ is the point $\lambda$. 
@@ -164,7 +164,7 @@
       \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
       \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
     \end{enumerate}
-  \end{theorem}
+  \end{corollary}
 
   \begin{remark}
     Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
@@ -246,7 +246,7 @@
       \tikzmath{ \t=5; \r=1; \s=2; \xx={\r*\b+\s*(\b*\c-1) }; \yy = {-\r -\c*\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
-      \draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
+      %\draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(13,-13)}]
@@ -293,6 +293,12 @@
 
 The paper is organized as follows.
 In Section~\ref{sec:chebyshev}, we collect useful results related to two-parameter Chebyshev polynomials which support our main calculations.
+Section~\ref{sec:tropical} contains calculations related to the transformation of $\bfg$-vectors under mutations.
+Section~\ref{sec:dominance inequalities} proves Theorem~\ref{th:dominance inequalities}.
+Section~\ref{sec:dominance vertices} proves Corollary~\ref{cor:dominance vertices}.
+Section~\ref{sec:maximum support} proves Theorem~\ref{th:maximum support}.
+The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon in terms of generalized minors in the cases where $bc=4$.
+
 
 \section{Chebyshev Polynomials}
   \label{sec:chebyshev}
@@ -374,6 +380,8 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 
 
 \section{$\bfg$-vector Mutations}
+\label{sec:tropical}
+
   We begin by studying transformations of $\RR^2$ which determine the change of $\bfg$-vectors when expanding a pointed expression of the form~\eqref{eq:pointed} in terms of a cluster $\{x_k,x_{k+1}\}$.
   Write $\phi_0:\RR^2\to\RR^2$ for the identity map and define piecewise-linear maps $\phi_{\pm 1}:\RR^2\to\RR^2$ as follows:
   \begin{equation}
@@ -453,8 +461,6 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     As these represent the same relationship, the result immediately follows by inspection.
   \end{proof}
 
-  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
-  Also, write $\cI' \subset \RR^2$ for the \emph{dual imaginary cone} (positively) spanned by the vectors $\big(-bc\pm\sqrt{bc(bc-4)},2c\big)$.
   %\begin{lemma}
   %  The vectors $\big(2b, -bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2b, -bc-\sqrt{bc(bc-4)}\big)$) and $\big(2c, bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2c, bc-\sqrt{bc(bc-4)}\big)$) are perpendicular.
   %\end{lemma}
@@ -463,14 +469,11 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   %\end{proof}
   \begin{lemma}
     \label{le:imaginary stability}
-    For $j\in\ZZ$ and $\lambda\in\cI$, we have $\phi_{2j}(\lambda)\in\cI$ and $\phi_{2j+1}(\lambda)\in\cI'$.
+    For $j\in\ZZ$ and $\lambda\in\cI$, we have $\phi_{2j}(\lambda)\in\cI$.
   \end{lemma}
   \begin{proof}
-    Since $\phi_{2j}=\phi_2^j$ and $\phi_{2j+1}=\phi_1\phi_{t_2}^j$, the result follows from the cases $j=1$ and $j=0$, respectively.
-    The claim is immediate for $\phi_2$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_2$ is linear in $\cI$.
-    Now, since $b>0$, we have $\phi_1(\lambda)=(-\lambda_0,c\lambda_0+\lambda_1)$.
-    It follows that $\phi_1\Big( \big(2b,-bc\pm\sqrt{bc(bc-4)}\big) \Big)=\big(-2b,bc\pm\sqrt{bc(bc-4)}\big)$, which is the $\frac{bc\pm\sqrt{bc(bc-4)}}{2c}$-multiple of the boundary vector for $\cI'$.
-    The result then follows for arbitrary $\lambda\in\cI$ by linearity of $\phi_1$ in this region.
+    Since $\phi_{2j}=\phi_2^j$, the result follows from the cases $j=1$.
+    But this is immediate for $\phi_2$ since the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$ are eigenvectors and $\phi_2$ is linear in $\cI$.
   \end{proof}
 
   It will be useful to have explicit expressions for $\phi_k(\lambda)$ for $\lambda\in\cI$.
@@ -499,6 +502,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 
 
 \section{Proof of Theorem~\ref{th:dominance inequalities}}
+\label{sec:dominance inequalities}
 
   Here we explicitly compute the dominance regions $\cP(\lambda)$.
   When $\lambda$ is not imaginary, the dominance region is particularly simple.
@@ -714,70 +718,18 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   This completes the proof of Theorem~\ref{th:dominance inequalities}.
 
 
-\section{Rank Two}
+\section{Proof of Corollary~\ref{cor:dominance vertices}}
+\label{sec:dominance vertices}
 
-  \begin{theorem}
-    There are six classes of dominance polytopes.
-    \begin{enumerate}
-      \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP(\lambda)$ is the point $\lambda$. 
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
-      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP(\lambda)$ is the kite with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$.
-      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP(\lambda)$ is the triangle with corner vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP(\lambda)$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
-    \end{enumerate}
-  \end{theorem}
-  \begin{proof}
-    Following Lemma~\ref{le:one direction}, we see that the intersection $\cP_+(\lambda)\cap\cP_-(\lambda)$ degenerates to a triangle precisely when
-    \[\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1=\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\]
-    or 
-    \[\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1=-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1.\]
-    The first equations reduces to $c\lambda_0+2\lambda_1=0$, while the second reduces to $2\lambda_0+b\lambda_1=0$.
-    In particular, the rays spanned by $(2,-c)$ and $(b,-2)$ determine this change of state in the dominance regions $\cP(\lambda)$.
-  \end{proof}
-
-  \begin{lemma}
-    \label{le:one direction}
-    For $\lambda\in\cI\cap\ZZ^2$, 
-    \begin{enumerate}
-      \item $\cP_+(\lambda):=\bigcap_{i \ge 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0)$, $(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1)$, and $(\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_0-b\lambda_1,\lambda_1)$.
-      \item $\cP_-(\lambda):=\bigcap_{i \le 0}\phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)$ is the quadrilateral with corner vertices $\lambda$, $(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0)$, $(0,-\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1)$, and $(\lambda_0,-c\lambda_0+\frac{2-bc-\sqrt{bc(bc-4)}}{2}\lambda_1)$.
-    \end{enumerate}
-  \end{lemma}
-  \begin{proof}
-    We prove (1) as (2) is obtained by interchanging $b$ with $c$ and swapping all ordered pairs.  
-    We first show that $\cC_{t_0}(\lambda) \cap \phi_{t_i}^{-1}\cC_{t_i}(\phi_{t_i}\lambda)\supsetneq \cC_{t_0}(\lambda) \cap \phi_{t_j}^{-1}\cC_{t_j}(\phi_{t_j}\lambda)$ for $0\le i<j$.
-  \end{proof}
-\section{The Total Domination Polyhedron}
-
-  Define the \emph{total domination polyhedron} $\cD:=\{(\lambda,\mu):\mu\in\cP(\lambda)\}$, i.e. this is the set of all pairs where $\lambda$ dominates $\mu$.
-  Write $\pi_1:\cD\to\RR^n$ for the projection to $\lambda$ and $\pi_2:\cD\to\RR^n$ for the projection to $\mu$.
-  \begin{itemize}
-    \item Is it a polyhedron?
-    \item The lemma below might suggest so.  
-      Indeed, if it is, by the Decomposition Theorem, we can write $\cD$ as the Minkowski sum of a polyhedral cone (almost certainly $\cI$) and a convex polytope (what is it?).
-      I am ignoring that it should really be the union of this polyhedron with a plane if the previous sentence holds any water.
-    \item Actually, we might need to take the union of several polyhedra to account for the variations in the fibers $\pi_1^{-1}(\lambda)$.
-  \end{itemize}
-
-  Is the following result true beyond rank 2?
-  \begin{lemma}
-    For $\mu\in\RR^2$, $\pi_2^{-1}(\mu)$ is a translate of the imaginary cone $\cI$ or the union of such with a single point.
-  \end{lemma}
-  \begin{proof}
-    For $\mu$ in the second quadrant, the vertex of this cone should be given by $\lambda=(\lambda_0,\lambda_1)$ where
-    \[\lambda_0=\frac{2b\mu_1-4\mu_0}{bc-4+\sqrt{bc(bc-4)}} \qquad \text{and} \qquad \lambda_1=\frac{2c\mu_0-4\mu_1}{bc-4+\sqrt{bc(bc-4)}}.\]
-    (This comes from setting $\mu$ to be the vertex opposite $\lambda$ inside the dominance region $\cP(\lambda)$ and then solving for $\lambda$.)
-  \end{proof}
-  \begin{remark}
-    We want to understand what the curve is that results when we have $\mu$ lie along the unit circle, this should be possible by plugging $(\cos(\theta),\sin(\theta))$ into this formula for $\lambda$ and seeing what ellipse we get.
-  \end{remark}
-
-
-\section{Proof of Theorem~\ref{th:dominance vertices}}
+  This follows from basic manipulations finding the intersection points of the boundary segments determined by the inequalities from Theorem~\ref{th:dominance inequalities}.
+  Note that in each of the cases (2), (4), and (6) there are only four inequalities to consider while in cases (3) and (5) there are only three inequalities to consider.
+  We leave the details as an exercise for the reader.
 
 
 \section{Proof of Theorem~\ref{th:maximum support}}
+\label{sec:maximum support}
+
+  
 
   \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
     For $(a_1,a_2)\in\ZZ^2$, the smallest (possibly degenerate) lattice quadrilateral $R_{a_1,a_2}$ containing the support of $x[a_1,a_2]$ is determined as follows.
@@ -798,8 +750,10 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
     Moreover, if $z\in\cA(b,c)$ is pointed at $(a_1,a_2)$ with support contained in $R_{a_1,a_2}$, then $z=x[a_1,a_2]$. 
   \end{theorem}
 
+
 \section{The affine case}
-  \label{sec:affine}
+\label{sec:affine}
+
   In this section we compare our main result with the construction of \cite{RSW19} in the case $b=c=2$.
   We show that the continuous family of bases constructed there is precisely the deformation family constructed by \cite{Qin}.
 
@@ -818,7 +772,7 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
       we can choose a specific basis and rewrite the last formula in \cite[Proposition 4.4]{RSW19} as in \cite[Theorem 1.2.1]{Qin19} with coefficients being functions of the point $\bfa\in(\kk^\times)^n$. 
   \end{enumerate}
   
-  For a partition $\lambda \vdash n$ let $e_\lambda$, $s_\lambda$, and $m_\lambda$ denote the elementary, Shur, and monomial symmetric functions associated to the partition $\lambda$ evaluated at $\bfa$.
+  For a partition $\lambda \vdash n$ let $e_\lambda$, $s_\lambda$, and $m_\lambda$ denote the elementary, Schur, and monomial symmetric functions associated to the partition $\lambda$ evaluated at $\bfa$.
   Recall that $m_{1^{(n)}} = s_{1^{(n)}} = e_n$.
   
   \begin{lemma}
@@ -906,6 +860,11 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
   \end{conjecture}
 
   \begin{thebibliography}{XXX}
+    \bibitem{cgmmrsw}
+      our other paper
+
+    \bibitem{ghkk}
+      Gross et al
 
     \bibitem{lee-li-zelevinsky}
       K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014), pp.~57--82.
@@ -915,6 +874,9 @@ In Section~\ref{sec:chebyshev}, we collect useful results related to two-paramet
 
     \bibitem{rupel}
       D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
+
+    \bibitem{RSW19}
+      Our paper
   \end{thebibliography}
 
 
