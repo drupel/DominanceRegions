@@ -746,19 +746,18 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \begin{lemma}
     For $\lambda\in\cI$, the opposite dominance region $\cP'_\lambda$ is determined by the following inequalities:
     The opposite dominance polygon $\cP'_\lambda$ pointed at $\lambda'=(\lambda'_0,\lambda'_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \geq \lambda'_0, \mu_1 \leq\lambda'_1$, and the following inequalities:
-    \sayDR{These still need to be changed}
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.8}
       \[
         \begin{array}{rcccl}
-          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \leq & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
+          0 & \leq & (\mu_0-\lambda_0)+\frac{b c+\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & -\frac{b c-\sqrt{b c (b c-4)}}{2c}c\lambda_0-b\lambda_1
           \\
-          \min\left(-c\lambda_0,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & 0
+          -c\lambda'_0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0)-(\mu_1-\lambda'_1) & \leq & 0
           \\
-          0 & \leq &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
+          0 & \leq &  -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & c\lambda_0+\frac{b c-\sqrt{b c (b c-4)}}{2b}b\lambda_1
           \\
-          \min\left(b \lambda_1,0\right) & \leq & (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \leq & 0
+          b \lambda'_1 & \leq & (\mu_0-\lambda'_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda'_1) & \leq & 0
         \end{array}
       \]
     }
@@ -771,7 +770,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     A subset $\cS\subset\RR^2$ is called \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
   \end{definition}
   In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector $\lambda$ indicated by a black dot and the opposite $\bfg$-vector $\lambda'$ indicated by a white dot in Theorem~\ref{th:maximum support}.
-  Write $\overline{\cG}_\lambda$ for the cone of the min-convex-closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
+  Write $\overline{\cG}_\lambda$ for the cone of the min-convex closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
   Clearly, $\cG_\lambda\subset\overline{\cG}_\lambda$.
 
   Recall the regions $\cS_\lambda$ from Theorem~\ref{th:maximum support}.
