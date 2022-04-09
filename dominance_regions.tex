@@ -743,16 +743,39 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \item otherwise, $\lambda'=(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1)$.
     \end{itemize}
   \end{lemma}
+  In particular, we obtain an opposite dominance region $\cP'_\lambda$ for each $\bfg$-vector $\lambda$.
+  \begin{lemma}
+    For $\lambda\in\cI$, the opposite dominance region $\cP'_\lambda$ is determined by the following inequalities:
+    The opposite dominance polygon $\cP'_\lambda$ pointed at $\lambda'=(\lambda'_0,\lambda'_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \geq \lambda'_0, \mu_1 \leq\lambda'_1$, and the following inequalities:
+    \sayDR{These still need to be changed}
+    {
+      \everymath={\displaystyle}
+      \def\arraystretch{2.8}
+      \[
+        \begin{array}{rcccl}
+          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \leq & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
+          \\
+          \min\left(-c\lambda_0,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & 0
+          \\
+          0 & \leq &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
+          \\
+          \min\left(b \lambda_1,0\right) & \leq & (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \leq & 0
+        \end{array}
+      \]
+    }
+  \end{lemma}
 
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
   This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
   For our purposes, it is enough to observe the following closure property for the greedy support.
   \begin{definition}
-    A subset $\cS\subset\RR^2$ is called \emph{DL-convex} if $\lambda,\mu\in\cS$ implies $\big(\min(\mu_0,\lambda_0),\min(\mu_1,\lambda_1)\big)\in\cS$.
+    A subset $\cS\subset\RR^2$ is called \emph{DL-convex} if $\lambda,\mu\in\cS$ implies $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)\in\cS$.
   \end{definition}
-  In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector indicated by a black dot and the opposite $\bfg$-vector indicated by a white dot in Theorem~\ref{th:maximum support}.
+  In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector $\lambda$ indicated by a black dot and the opposite $\bfg$-vector $\lambda'$ indicated by a white dot in Theorem~\ref{th:maximum support}.
   Write $\overline{\cG}_\lambda$ for the cone of the DL-closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
   Clearly, $\cG_\lambda\subset\overline{\cG}_\lambda$.
+
+  Recall the regions $\cS_\lambda$ from Theorem~\ref{th:maximum support}.
 
 
   \begin{theorem}\label{th:Newton polygons}\cite[Proposition~4.1]{LLZ}, \cite[Corollary~3.5]{LLZ2}
