@@ -762,6 +762,45 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \]
     }
   \end{lemma}
+  \begin{proof}
+    As stated above, we obtain the opposite $\bfg$-vector by interchanging $b$, $c$ and $\lambda_0,\lambda_1$.
+    It follows that the opposite dominance region is given by the following inequalities (c.f. Theorem~\ref{th:dominance inequalities}):
+    {
+      \everymath={\displaystyle}
+      \def\arraystretch{2.8}
+      \[
+        \begin{array}{rcccl}
+          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) & \leq & -b\lambda'_1-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda'_0
+          \\
+          -b\lambda'_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)-(\mu_0-\lambda'_0)
+          \\
+          0 & \leq &  -(\mu_1-\lambda'_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda'_1+c\lambda'_0
+          \\
+          c \lambda'_0 & \leq & (\mu_1-\lambda'_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 b} (\mu_0-\lambda'_0)
+        \end{array}
+      \]
+    }
+    {
+      \everymath={\displaystyle}
+      \def\arraystretch{2.8}
+      \[
+        \begin{array}{rcccl}
+          0 & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & c\lambda_0 + \frac{b c-\sqrt{b c (b c-4)}}{2 b}b\lambda_1
+          \\
+           & & (\mu_0-\lambda_0) -\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2}(\lambda_0+b\lambda_1)+2b\lambda_1
+          \\
+          \frac{b c - 2 +\sqrt{b c (b c-4)}}{2}(c\lambda_0+(bc-2)\lambda_1) -c\lambda_0 -2\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
+          \\
+          -c\lambda_0+\frac{b c-2+\sqrt{b c (b c-4)}}{2}(c\lambda_0 + \sqrt{b c (b c-4)}\lambda_1) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
+          \\
+          b\lambda_1 & \leq & - (\mu_0-\lambda_0) + \frac{b c+\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) 
+        \end{array}
+      \]
+    }
+    where we note that the max/min and the right hand "$\le0$" can be dropped inside the imaginary cone.
+    The claimed inequalities can be obtained from these using $\lambda'_0=\lambda_0+b\lambda_1$ and $\lambda'_1=-c\lambda_0-(bc-1)\lambda_1$.
+    We leave the details to the reader.
+  \end{proof}
 
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
   This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
