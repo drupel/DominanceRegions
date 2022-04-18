@@ -1,4 +1,4 @@
-\documentclass{amsart}
+\documentclass[a3paper]{amsart}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{latexsym}
@@ -731,6 +731,24 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
 \section{Proof of Theorem~\ref{th:maximum support}}
 \label{sec:maximum support}
+
+  For $\lambda\in\cI$, the maximal support $\cS_\lambda$ is determined by the following inequalities:
+  {
+    \everymath={\displaystyle}
+    \def\arraystretch{2.8}
+    \[
+      \begin{array}{rcccl}
+        0 & \leq & \mu_1-\lambda_1
+        \\
+        0 & \leq & -(\mu_0-\lambda_0)
+        \\
+        0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0)
+        \\
+        0 & \leq &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1)
+      \end{array}
+    \]
+  }
+
 
   Every pointed basis element for $\cA(b,c)$ admits an opposite $\bfg$-vector arising by interchanging the roles of $b$, $c$ and $x_0$, $x_1$ in \eqref{eq:pointed}. 
   \begin{lemma}
