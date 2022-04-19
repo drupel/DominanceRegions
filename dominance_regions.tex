@@ -801,11 +801,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \[0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1)\]
   defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda_1\leq\mu_1$ bounding $\cS_\lambda$.
 
-  For $\lambda\in\cI$, it follows from Corollary~\ref{cor:dominance vertices} that the minimum value for $\mu_0$ inside $\cP_\lambda$ occurs when $\mu_1=0$, i.e. either at the point $\big( \lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1 , 0 \big)$ when $0 \leq c\lambda_0+2\lambda_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2c} \big( \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1 , 0 \big)$ when $c\lambda_0+2\lambda_1 \leq 0$.
+  It follows from Corollary~\ref{cor:dominance vertices} that the minimum value for $\mu_0$ inside $\cP_\lambda$ occurs when $\mu_1=0$, i.e. either at the point $\big( \lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1 , 0 \big)$ when $0 \leq c\lambda_0+2\lambda_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2c} \big( \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1 , 0 \big)$ when $c\lambda_0+2\lambda_1<0$.
   The second point can be rewritten as
   \[\big(\lambda_0 -\frac{bc+\sqrt{bc(bc-4)}}{2c} c\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c} \lambda_1 , 0 \big)\]
-  but, since $c\lambda_0\le -2\lambda_1$, the first coordinate is greater than $\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1$.
-  Then, using $\frac{bc+\sqrt{bc(bc-4)}}{2c}<b$, we see that the minimum value of $\mu_0$ inside $\cP_\lambda$ satisfies the inequality $\lambda_0+b\lambda_1 \leq \mu_0$.
+  but, since $c\lambda_0 < -2\lambda_1$, the first coordinate is greater than $\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1$.
+  Then, using $\frac{bc+\sqrt{bc(bc-4)}}{2c}<b$ and $\lambda_1<0$, we see that the minimum value of $\mu_0$ inside $\cP_\lambda$ satisfies the inequality $\lambda'_0=\lambda_0+b\lambda_1 \leq \mu_0$.
   In particular, combining with the observation above, we see that $\cP_\lambda\subset\cS_\lambda$.
 
   Similarly, the second to last inequality can be rewritten as
@@ -814,9 +814,15 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   Note then that, under the assumption $\mu_1\leq\lambda'_1$, the inequality
   \[ 0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) \]
   defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda'_0\leq\mu_0$ bounding $\cS_\lambda$.
-  As above, the minimum value of $\mu_1$ inside $\cP'_\lambda$ occurs when $\mu_0=0$, i.e. either at the point ... when ... or at the point ... when ...
-  Then arguing as above, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1\leq\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
-  \sayDR{We just need to write down the intersection points of $\cP'_\lambda$ and the $y$-axis.}
+  As above, the minimum value of $\mu_1$ inside $\cP'_\lambda$ occurs when $\mu_0=0$, i.e. either at the point $\big(0, \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1 \big)$
+  %\[\big(0, \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1 \big) = \big(0, -\frac{bc-\sqrt{bc(bc-4)}}{2b}(\lambda_0+b\lambda_1)+\lambda_1 \big)\]
+  when $0 \leq 2\lambda'_0+b\lambda'_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, \lambda'_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda'_1 \big)$
+  %\[-\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, \lambda'_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda'_1 \big) = -\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, -\frac{bc-2+\sqrt{bc(bc-4)}}{2}(\lambda_0+b\lambda_1)+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1 \big)\]
+  when $2\lambda'_0+b\lambda'_1<0$.
+  The second point can be rewritten as
+  \[\big(0, -\frac{bc+\sqrt{bc(bc-4)}}{2b} \lambda'_0-\frac{bc+\sqrt{bc(bc-4)}}{2b} b\lambda'_1+\lambda'_1 \big)\]
+  but, since $b\lambda'_1\le -2\lambda'_0$, the first coordinate is greater than $\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1$.
+  Then, using $\frac{bc+\sqrt{bc(bc-4}}{2b}<c$ and $\lambda'_0<0$, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1=c\lambda'_0+\lambda'_1\le\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
 
 
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
