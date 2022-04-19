@@ -730,24 +730,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
 
 \section{Proof of Theorem~\ref{th:maximum support}}
-\label{sec:maximum support}
-
-  For $\lambda\in\cI$, the maximal support $\cS_\lambda$ is determined by the following inequalities:
-  {
-    \everymath={\displaystyle}
-    \def\arraystretch{2.8}
-    \[
-      \begin{array}{rcccl}
-        0 & \leq & \mu_1-\lambda_1
-        \\
-        0 & \leq & -(\mu_0-\lambda_0)
-        \\
-        0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0)
-        \\
-        0 & \leq &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1)
-      \end{array}
-    \]
-  }
+\label{sec:maximum support} 
 
 
   Every pointed basis element for $\cA(b,c)$ admits an opposite $\bfg$-vector arising by interchanging the roles of $b$, $c$ and $x_0$, $x_1$ in \eqref{eq:pointed}. 
@@ -760,29 +743,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \item otherwise, $\lambda'=(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1)$.
     \end{itemize}
   \end{lemma}
+
   In particular, we obtain an opposite dominance region $\cP'_\lambda$ for each $\bfg$-vector $\lambda$.
   \begin{lemma}
-    For $\lambda\in\cI$, the opposite dominance region $\cP'_\lambda$ is determined by the following inequalities:
-    The opposite dominance polygon $\cP'_\lambda$ pointed at $\lambda'=(\lambda'_0,\lambda'_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \geq \lambda'_0, \mu_1 \leq\lambda'_1$, and the following inequalities:
-    {
-      \everymath={\displaystyle}
-      \def\arraystretch{2.8}
-      \[
-        \begin{array}{rcccl}
-          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \leq & -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1
-          \\
-          -c\lambda'_0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0)-(\mu_1-\lambda'_1) & \leq & 0
-          \\
-          0 & \leq &  -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & c\lambda_0+\frac{b c-\sqrt{b c (b c-4)}}{2b}b\lambda_1
-          \\
-          b \lambda'_1 & \leq & (\mu_0-\lambda'_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda'_1) & \leq & 0
-        \end{array}
-      \]
-    }
-  \end{lemma}
-  \begin{proof}
-    As stated above, we obtain the opposite $\bfg$-vector by interchanging $b$, $c$ and $\lambda_0,\lambda_1$.
-    It follows that the opposite dominance region is given by the following inequalities (c.f. Theorem~\ref{th:dominance inequalities}):
+    For $\lambda\in\cI$, the opposite dominance polygon $\cP'_\lambda$ pointed at its opposite $\bfg$-vector $\lambda'=(\lambda'_0,\lambda'_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \geq \lambda'_0, \mu_1 \leq\lambda'_1$, and the following inequalities:
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.8}
@@ -798,27 +762,62 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
         \end{array}
       \]
     }
-    {
-      \everymath={\displaystyle}
-      \def\arraystretch{2.8}
-      \[
-        \begin{array}{rcccl}
-          0 & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & c\lambda_0 + \frac{b c-\sqrt{b c (b c-4)}}{2 b}b\lambda_1
-          \\
-           & & (\mu_0-\lambda_0) -\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2}(\lambda_0+b\lambda_1)+2b\lambda_1
-          \\
-          \frac{b c - 2 +\sqrt{b c (b c-4)}}{2}(c\lambda_0+(bc-2)\lambda_1) -c\lambda_0 -2\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
-          \\
-          -c\lambda_0+\frac{b c-2+\sqrt{b c (b c-4)}}{2}(c\lambda_0 + \sqrt{b c (b c-4)}\lambda_1) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
-          \\
-          b\lambda_1 & \leq & - (\mu_0-\lambda_0) + \frac{b c+\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) 
-        \end{array}
-      \]
-    }
-    where we note that the max/min and the right hand "$\le0$" can be dropped inside the imaginary cone.
-    The claimed inequalities can be obtained from these using $\lambda'_0=\lambda_0+b\lambda_1$ and $\lambda'_1=-c\lambda_0-(bc-1)\lambda_1$.
-    We leave the details to the reader.
+  \end{lemma}
+  \begin{proof}
+    As stated above, we obtain the opposite $\bfg$-vector by interchanging $b$, $c$ and swapping the roles of $\lambda_0,\lambda_1$.
+    Translating from Theorem~\ref{th:dominance inequalities}, it immediately follows that the opposite dominance region is given by the claimed inequalities.
+    %{
+    %  \everymath={\displaystyle}
+    %  \def\arraystretch{2.8}
+    %  \[
+    %    \begin{array}{rcccl}
+    %      0 & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & c\lambda_0 + \frac{b c-\sqrt{b c (b c-4)}}{2 b}b\lambda_1
+    %      \\
+    %       & & (\mu_0-\lambda_0) -\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2}(\lambda_0+b\lambda_1)+2b\lambda_1
+    %      \\
+    %      \frac{b c - 2 +\sqrt{b c (b c-4)}}{2}(c\lambda_0+(bc-2)\lambda_1) -c\lambda_0 -2\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
+    %      \\
+    %      -c\lambda_0+\frac{b c-2+\sqrt{b c (b c-4)}}{2}(c\lambda_0 + \sqrt{b c (b c-4)}\lambda_1) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
+    %      \\
+    %      b\lambda_1 & \leq & - (\mu_0-\lambda_0) + \frac{b c+\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) 
+    %    \end{array}
+    %  \]
+    %}
   \end{proof}
+
+  For $\lambda\in\cI$, the maximal support $\cS_\lambda$ is determined by the following inequalities:
+  \begin{align*}
+    \lambda_1 &\leq \mu_1\\
+    \lambda'_0 &\leq \mu_0\\
+    0 &\leq -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1)\\
+    0 &\leq -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0) -(\mu_1-\lambda'_1)
+  \end{align*}
+  We claim that $\cP_\lambda,\cP'_\lambda\subset\cS_\lambda$.
+
+  Observe that the last equality can be rewritten as
+  \[ \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) \leq -c\lambda_0 - \frac{b c + \sqrt{b c (b c-4)}}{2 } \lambda_1,\]
+  which together with the second to last inequality gives two boundaries for the dominance region $\cP_\lambda$.
+  Note then that, under the assumption $\mu_0\leq\lambda_0$, the inequality 
+  \[0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1)\]
+  defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda_1\leq\mu_1$ bounding $\cS_\lambda$.
+
+  For $\lambda\in\cI$, it follows from Corollary~\ref{cor:dominance vertices} that the minimum value for $\mu_0$ inside $\cP_\lambda$ occurs when $\mu_1=0$, i.e. either at the point $\big( \lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1 , 0 \big)$ when $0 \leq c\lambda_0+2\lambda_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2c} \big( \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1 , 0 \big)$ when $c\lambda_0+2\lambda_1 \leq 0$.
+  The second point can be rewritten as
+  \[\big(\lambda_0 -\frac{bc+\sqrt{bc(bc-4)}}{2c} c\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c} \lambda_1 , 0 \big)\]
+  but, since $c\lambda_0\le -2\lambda_1$, the first coordinate is greater than $\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1$.
+  Then, using $\frac{bc+\sqrt{bc(bc-4)}}{2c}<b$, we see that the minimum value of $\mu_0$ inside $\cP_\lambda$ satisfies the inequality $\lambda_0+b\lambda_1 \leq \mu_0$.
+  In particular, combining with the observation above, we see that $\cP_\lambda\subset\cS_\lambda$.
+
+  Similarly, the second to last inequality can be rewritten as
+  \[ \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) \leq -b\lambda'_1-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda'_0,\]
+  which together with the last inequality gives two boundaries for the opposite dominance region $\cP'_\lambda$.
+  Note then that, under the assumption $\mu_1\leq\lambda'_1$, the inequality
+  \[ 0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) \]
+  defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda'_0\leq\mu_0$ bounding $\cS_\lambda$.
+  As above, the minimum value of $\mu_1$ inside $\cP'_\lambda$ occurs when $\mu_0=0$, i.e. either at the point ... when ... or at the point ... when ...
+  Then arguing as above, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1\leq\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
+  \sayDR{We just need to write down the intersection points of $\cP'_\lambda$ and the $y$-axis.}
+
 
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
   This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
