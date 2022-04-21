@@ -824,7 +824,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   but, since $b\lambda'_1\le -2\lambda'_0$, the first coordinate is greater than $\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1$.
   Then, using $\frac{bc+\sqrt{bc(bc-4}}{2b}<c$ and $\lambda'_0<0$, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1=c\lambda'_0+\lambda'_1\le\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
 
-
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
   This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
   For our purposes, it is enough to observe the following closure property for the greedy support.
@@ -835,8 +834,9 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   Write $\overline{\cG}_\lambda$ for the cone of the min-convex closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
   Clearly, $\cG_\lambda\subset\overline{\cG}_\lambda$.
 
-  Recall the regions $\cS_\lambda$ from Theorem~\ref{th:maximum support}.
-
+  As we saw above, for any $\bfg$-vector $\mu\in\cP_\lambda$ its opposite $\bfg$-vector $\mu'$ is also contained in $\cS_\lambda$.
+  But $\cS_\lambda$ is min-convex and closed under downward scaling, i.e. for any $\mu\in\cS_\lambda$ we have $t\mu\in\cS_\lambda$ for $0\le t\le 1$.
+  It follows that $\overline{\cG}_\mu\subset\cS_\lambda$ for any $\mu\in\cP_\lambda$.
 
 
 \section{The affine case}
