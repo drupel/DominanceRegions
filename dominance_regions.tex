@@ -123,12 +123,12 @@
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
   We will therefore assume that $bc\ge4$.
   In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
-  Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance polygon} $\cP_\lambda$.
+  Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance region} $\cP_\lambda$.
   %In this case, we compute the possible transitions between any two pointed bases.
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
     \label{th:dominance inequalities}
-    The dominance polygon $\cP_\lambda$ pointed at $\lambda=(\lambda_0,\lambda_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
+    The dominance region $\cP_\lambda$ pointed at $\lambda=(\lambda_0,\lambda_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.8}
@@ -157,7 +157,7 @@
   Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
   \begin{corollary}
     \label{cor:dominance vertices}
-    There are six classes of dominance polytopes.
+    There are six classes of dominance regions, these are (possibly degenerate) polygons given as follows.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP_\lambda$ is the point $\lambda$. 
       \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP_\lambda$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
@@ -178,7 +178,7 @@
     \label{th:maximum support}
     For a $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)\in\ZZ^2$ the support for a pointed basis vector $x_\lambda$ is contained in the (possibly degenerate) lattice quadrilateral $\cS_\lambda$ given as follows:
     \begin{enumerate}
-      \item If $\lambda$ lies outside of $\cI$, there are the following possibilities:
+      \item If $\lambda$ lies outside of $\cI$, then the support of $x_\lambda$ is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cS_\lambda$ given as follows:
         \begin{enumerate}
           \item If $0\le\lambda_0,\lambda_1$, then $\cS_\lambda$ is just the point $\lambda$.
           \item If $\lambda_1 < 0$ and $0\le\lambda_0+b\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0+b\lambda_1,\lambda_1)$.
@@ -735,6 +735,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
 
   Every pointed basis element for $\cA(b,c)$ admits an opposite $\bfg$-vector arising by interchanging the roles of $b$, $c$ and $x_0$, $x_1$ in \eqref{eq:pointed}. 
+  One can easily compute the following correspondence.
   \begin{lemma}
     Given a $\bfg$-vector $\lambda$, the opposite $\bfg$-vector $\lambda'$ is obtained as follows:
     \begin{itemize}
@@ -832,7 +833,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     A subset $\cS\subset\RR^2$ is called \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
   \end{definition}
   In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector $\lambda$ indicated by a black dot and the opposite $\bfg$-vector $\lambda'$ indicated by a white dot in Theorem~\ref{th:maximum support}.
-  Write $\overline{\cG}_\lambda$ for the cone of the min-convex closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
+  Write $\overline{\cG}_\lambda$ for the downward scaling of the min-convex closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
   Clearly, $\cG_\lambda\subset\overline{\cG}_\lambda$.
 
   As we saw above, for any $\bfg$-vector $\mu\in\cP_\lambda$ its opposite $\bfg$-vector $\mu'$ is also contained in $\cS_\lambda$.
