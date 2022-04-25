@@ -128,7 +128,7 @@
   %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
     \label{th:dominance inequalities}
-    The dominance region $\cP_\lambda$ pointed at $\lambda=(\lambda_0,\lambda_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
+    The dominance region $\cP_\lambda$ pointed at $\lambda=(\lambda_0,\lambda_1)$ is the polygon consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.8}
@@ -157,7 +157,7 @@
   Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
   \begin{corollary}
     \label{cor:dominance vertices}
-    There are six classes of dominance regions, these are (possibly degenerate) polygons given as follows.
+    There are six classes of dominance polygons.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP_\lambda$ is the point $\lambda$. 
       \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP_\lambda$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
@@ -188,7 +188,8 @@
           \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
           \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.
         \end{enumerate}
-      \item If $\lambda$ lies inside of $\cI$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
+      \item If $\lambda$ lies inside of $\cI$, then the support of $x_\lambda$ is contained in $\cS_\lambda$ with corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
+        Moreover, there is an element $x_\lambda\in\cA(b,c)$ whose support is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cS_\lambda$.
     \end{enumerate}
   \end{theorem}
 
