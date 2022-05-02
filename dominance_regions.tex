@@ -342,7 +342,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     These calculations can be reversed to show the result for $\ell<0$.
   \end{proof}
 
-  The standard Chebyshev polynomials (of the second kind) are defined by the recursion $u_0=0$, $u_1=1$, $u_{i+1}=ru_i-u_{i-1}$, which can be computed explicitly as
+  The standard Chebyshev polynomials (normalized, of the second kind) are defined by the recursion $u_0=0$, $u_1=1$, $u_{i+1}=ru_i-u_{i-1}$, which can be computed explicitly as
   \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
   By the equalities 
   \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
@@ -355,8 +355,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
   \begin{lemma}
     We have
-    \[\lim_{i\to\infty} \frac{u_i^-}{u_{i-1}^+}=\frac{bc+\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to\infty} \frac{u_{i-1}^-}{u_i^+}=\frac{bc-\sqrt{bc(bc-4)}}{2b};\]
-    \[\lim_{i\to-\infty} \frac{u_{i-1}^-}{u_i^+}=\frac{bc+\sqrt{bc(bc-4)}}{2b} \qquad \lim_{i\to-\infty} \frac{u_i^-}{u_{i-1}^+}=\frac{bc-\sqrt{bc(bc-4)}}{2b}.\]
+    \[\lim_{i\to\infty} \frac{u_i^-}{u_{i-1}^+}=\frac{bc+\sqrt{bc(bc-4)}}{2b}=\lim_{i\to-\infty} \frac{u_{i-1}^-}{u_i^+};\]
+    \[\lim_{i\to\infty} \frac{u_{i-1}^-}{u_i^+}=\frac{bc-\sqrt{bc(bc-4)}}{2b}=\lim_{i\to-\infty} \frac{u_i^-}{u_{i-1}^+}.\]
     Moreover, each of these sequences is monotonic.
   \end{lemma}
   \begin{remark}
@@ -375,7 +375,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     which is again equivalent to the desired expression.
     This proves the claim for $i\to\infty$, the cases $i\to-\infty$ follow from these using $u_{-i}^\varepsilon=-u_i^\varepsilon$.
 
-    For the final claim, observe that $\frac{u_{i+1}^{-\varepsilon}}{u_i^\varepsilon}<\frac{u_i^{-\varepsilon}}{u_{i-1}^\varepsilon}<$ and $\frac{u_{i-1}^{-\varepsilon}}{u_i^\varepsilon}<\frac{u_i^{-\varepsilon}}{u_{i+1}^\varepsilon}$ are both equivalent to $u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon<u_i^{-\varepsilon}u_i^\varepsilon$.
+    For the final claim, observe that $\frac{u_{i+1}^{-\varepsilon}}{u_i^\varepsilon}<\frac{u_i^{-\varepsilon}}{u_{i-1}^\varepsilon}$ and $\frac{u_{i-1}^{-\varepsilon}}{u_i^\varepsilon}<\frac{u_i^{-\varepsilon}}{u_{i+1}^\varepsilon}$ are both equivalent to $u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon<u_i^{-\varepsilon}u_i^\varepsilon$.
     This is immediate from the following induction:
     \begin{align*}
       u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon
@@ -444,17 +444,17 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       (-\lambda_0,-\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1<0$;}
     \end{cases}
   \end{equation}
-  \begin{equation}
-    \label{eq:backward two step mutation}
-    \phi_{-2}(\lambda)
-    =
-    \begin{cases}
-      \big(-\lambda_0-b\lambda_1, c\lambda_0+(bc-1)\lambda_1\big) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1\le 0$;}\\
-      (-\lambda_0-b\lambda_1, -\lambda_1) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1>0$;}\\
-      (-\lambda_0, c\lambda_0-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0\le 0$;}\\
-      (-\lambda_0,-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0>0$.}
-    \end{cases}
-  \end{equation}
+  %\begin{equation}
+  %  \label{eq:backward two step mutation}
+  %  \phi_{-2}(\lambda)
+  %  =
+  %  \begin{cases}
+  %    \big(-\lambda_0-b\lambda_1, c\lambda_0+(bc-1)\lambda_1\big) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1\le 0$;}\\
+  %    (-\lambda_0-b\lambda_1, -\lambda_1) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1>0$;}\\
+  %    (-\lambda_0, c\lambda_0-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0\le 0$;}\\
+  %    (-\lambda_0,-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0>0$.}
+  %  \end{cases}
+  %\end{equation}
 
   By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $n>0$, there exists a scalar $\nu_n$ so that $\phi^n(\lambda)=\nu_n\lambda$.
   \begin{lemma}
@@ -521,14 +521,14 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \end{lemma}
   \begin{proof}
     Any such $\lambda$ is the $\bfg$-vector of a cluster monomial, say $x_k^{\alpha_k}x_{k+1}^{\alpha_{k+1}}$.
-    In this case the intersection
+    In this case, the intersection
     \[\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda) \cap \phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)\]
     is precisely $\{\lambda\}$. 
-    Indeed, when $k$ is odd the cone $\cC_{k-1}(\phi_{k-1}\lambda)$ lies entirely within a domain of linearity for $\phi_{k-1}^{-1}$.
+    Indeed, for $k$ odd, the cone $\cC_{k-1}(\phi_{k-1}\lambda)$ lies entirely within a domain of linearity for $\phi_{k-1}^{-1}$.
     In particular, $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda)$ is a cone containing $\lambda$ directed away from the origin (with walls parallel to the boundary of the domain of linearity containing $\lambda$).
-    On the contrary, when $k$ is odd the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ intersects the domain of linearity for $\phi_{k+1}^{-1}$ containing $\phi_{k+1}\lambda$ (resp. $\phi_{k-1}\lambda$) in a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\phi_{k+1}\lambda$ (resp. $\phi_{k-1}\lambda$).
-    In particular, $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ (resp. $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda)$) is a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\lambda$.
-    The result follows.
+    On the contrary, for $k$ odd, the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ intersects the domain of linearity for $\phi_{k+1}^{-1}$ containing $\phi_{k+1}\lambda$ in a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\phi_{k+1}\lambda$.
+    In particular, the intersection of $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ with the cone containing $\lambda$ is a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\lambda$.
+    The result follows for $k$ odd, the case of even $k$ is similar.
   \end{proof}
   To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
   \begin{itemize}
