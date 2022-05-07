@@ -144,6 +144,16 @@
         \end{array}
       \]
     }
+    %\begin{align}
+    %  0 & \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) && \leq \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
+    %  \\
+    %  \min\left(-c\lambda_0,0\right) & \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) && \leq 0
+    %  \\
+    %  0 & \leq -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) && \leq \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
+    %  \\
+    %  \min\left(b \lambda_1,0\right) & \leq (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) && \leq 0
+    %\end{align}
+    
   \end{theorem}
 
   Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
@@ -188,7 +198,7 @@
           \item If $\lambda_0 < 0$ and $0\le\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0,-c\lambda_0+\lambda_1)$.
           \item If $\lambda_0,\lambda_1 < 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(\lambda_0,-c\lambda_0+\lambda_1)$.
           \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
-          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.  Here the point $(0,0)$ and its adjacent open segments are excluded from $\cS_\lambda$.
         \end{enumerate}
       \item If $\lambda$ lies inside of $\cI$, then the support of $x_\lambda$ is contained in $\cS_\lambda$ with corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
         Moreover, there is an element pointed at $\lambda$ whose support is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cS_\lambda$.
