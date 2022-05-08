@@ -444,6 +444,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \end{definition}
 
   \begin{theorem}
+    \label{th:dominance}
     \cite{qin}
     \sayDR{Quote Fan's result here.}
   \end{theorem}
@@ -820,7 +821,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
   Observe that the last equality can be rewritten as
   \[ \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) \leq -c\lambda_0 - \frac{b c + \sqrt{b c (b c-4)}}{2 } \lambda_1,\]
-  which together with the second to last inequality gives two boundaries for the dominance region $\cP_\lambda$.
+  which together with the second to last inequality already gives two of the boundaries for the dominance region $\cP_\lambda$.
   Note then that, under the assumption $\mu_0\leq\lambda_0$, the inequality 
   \[0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1)\]
   defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda_1\leq\mu_1$ bounding $\cS_\lambda$.
@@ -834,7 +835,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
   Similarly, the second to last inequality can be rewritten as
   \[ \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) \leq -b\lambda'_1-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda'_0,\]
-  which together with the last inequality gives two boundaries for the opposite dominance region $\cP'_\lambda$.
+  which together with the last inequality already gives two of the boundaries for the opposite dominance region $\cP'_\lambda$.
   Note then that, under the assumption $\mu_1\leq\lambda'_1$, the inequality
   \[ 0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) \]
   defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda'_0\leq\mu_0$ bounding $\cS_\lambda$.
@@ -848,6 +849,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   but, since $b\lambda'_1\le -2\lambda'_0$, the first coordinate is greater than $\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1$.
   Then, using $\frac{bc+\sqrt{bc(bc-4}}{2b}<c$ and $\lambda'_0<0$, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1=c\lambda'_0+\lambda'_1\le\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
 
+  To continue, we compare the support for an arbitrary basis element pointed at $\lambda\in\cI$ with the corresponding greedy basis elements with $\bfg$-vectors inside the dominance polygon $\cP_\lambda$.
+
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
   This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
   For our purposes, it is enough to observe the following closure property for the greedy support.
@@ -860,7 +863,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
   As we saw above, for any $\bfg$-vector $\mu\in\cP_\lambda$ its opposite $\bfg$-vector $\mu'$ is also contained in $\cS_\lambda$.
   But $\cS_\lambda$ is min-convex and closed under downward scaling, i.e. for any $\mu\in\cS_\lambda$ we have $t\mu\in\cS_\lambda$ for $0\le t\le 1$.
-  It follows that $\overline{\cG}_\mu\subset\cS_\lambda$ for any $\mu\in\cP_\lambda$ and so the support of any basis element pointed at $\lambda$ is contained in $\cS_\lambda$.
+  It follows that $\overline{\cG}_\mu\subset\cS_\lambda$ for any $\mu\in\cP_\lambda$ and hence, following Theorem~\ref{th:dominance}, the support of any basis element pointed at $\lambda$ is contained in $\cS_\lambda$.
 
   In particular, $\cG_\lambda\subset\cS_\lambda$.
   Note also that the dominance region $\cP_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR_1$ defined by the inequalities $\mu_0\ge0$ and $\lambda_1\mu_0-\lambda_0\mu_1\ge0$.
