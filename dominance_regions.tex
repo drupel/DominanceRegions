@@ -115,10 +115,18 @@
 
   Important examples of pointed elements are the \emph{cluster monomials} of $\cA(b,c)$, i.e. the elements that can be written in the form $x_k^{\alpha_k}x_{k+1}^{\alpha_{k+1}}$ for some $k\in\ZZ$ and $\alpha_k,\alpha_{k+1}$ non-negative integers.
   Indeed, by \cite[Lemma 3.4.12]{qin} cluster monomials are part of any pointed basis in any cluster algebra.
-  We achieve the same conclusion in our setting by elementary calculations (c.f. Lemma~\ref{le:cluster monomials}).
+  We achieve the same conclusion in our setting by elementary calculations (cf. Lemma~\ref{le:cluster monomials}).
 
   Elements of any pointed basis are parametrized by their $\bfg$-vectors.
-  Qin introduced a partial order on $\bfg$-vectors called the \emph{dominance order} and showed that given two pointed bases $x=\{x_\lambda\}$, $y=\{y_\lambda\}$, $y_\mu$ can appear in the expansion of $x_\lambda$ in terms of $y$ only if $\lambda$ dominates $\mu$ (cf. \cite[Theorem 1.2.1]{qin}).
+  Qin introduced a partial order $\preceq$ on $\bfg$-vectors called the \emph{dominance order} and showed the following result characterizing pointed bases which motivates this paper.
+
+  \begin{theorem}
+    \label{th:dominance}
+    \cite[Theorem 1.2.1]{qin}
+    Let $x=\{x_\lambda\}$ and $y=\{y_\lambda\}$ be pointed bases of $\cA(b,c)$.
+    Then for each $\lambda\in\ZZ^2$, there exist scalars $a_{\lambda,\mu}\in\ZZ$ for $\mu\prec\lambda$ such that
+    \[y_\lambda=x_\lambda+\sum_{\mu\prec\lambda} a_{\lambda,\mu} x_\mu.\]
+  \end{theorem}
 
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
   We will therefore assume that $bc\ge4$.
@@ -313,7 +321,7 @@ Section~\ref{sec:tropical} contains calculations related to the transformation o
 Section~\ref{sec:dominance inequalities} proves Theorem~\ref{th:dominance inequalities}.
 Section~\ref{sec:dominance vertices} proves Corollary~\ref{cor:dominance vertices}.
 Section~\ref{sec:maximum support} proves Theorem~\ref{th:maximum support}.
-The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon in terms of generalized minors in the cases where $bc=4$.
+The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon in terms of generalized minors in the cases where $b=c=2$.
 
 
 \section{Chebyshev Polynomials}
@@ -442,12 +450,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     The \emph{dominance region} $\cP_\lambda$ is the intersection  $\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$.
     When $\mu\in\cP_\lambda$, we say \emph{$\lambda$ dominates $\mu$}.
   \end{definition}
-
-  \begin{theorem}
-    \label{th:dominance}
-    \cite{qin}
-    \sayDR{Quote Fan's result here.}
-  \end{theorem}
 
   We record here a few useful calculations relating to the tropical transformations $\phi_k$.
   First observe the following explicit expression for $\phi_2$:
@@ -719,7 +721,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   for $k<0$.
   We now study each sequence of inequalities in turn.
 
-  For $\mu_1-\lambda_1\ge 0$, the inequalities \eqref{ieq1} become more restrictive as $k$ gets larger since the sequence $\frac{-u_{k+1}^-}{u_k^+}$ of negative slopes is monotonically increasing (c.f. Lemma~\ref{le:limits}).
+  For $\mu_1-\lambda_1\ge 0$, the inequalities \eqref{ieq1} become more restrictive as $k$ gets larger since the sequence $\frac{-u_{k+1}^-}{u_k^+}$ of negative slopes is monotonically increasing (cf. Lemma~\ref{le:limits}).
   Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality 
   \[ 0 \le \frac{-bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
   or, equivalently,
@@ -733,7 +735,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   Observe further that the inequalities $\mu_0-\lambda_0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
   \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
 
-  Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence $\frac{-u_k^-}{u_{k-1}^+}$ of negative slopes is monotonically increasing (c.f. Lemma~\ref{le:limits}) and the intersection with \eqref{ieq2} (for $k+1$) moves to the right on the $\mu_0$-axis as $k$ increases.
+  Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence $\frac{-u_k^-}{u_{k-1}^+}$ of negative slopes is monotonically increasing (cf. Lemma~\ref{le:limits}) and the intersection with \eqref{ieq2} (for $k+1$) moves to the right on the $\mu_0$-axis as $k$ increases.
   Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality
   \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1 \]
   determining a boundary of $\cP_\lambda$.
@@ -1049,7 +1051,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     Observe that $\mu_{1,a}$ and $\mu_{2,a}$ are inverse for any $a\ge1$ whenever they are defined.
   \end{remark}
 
-  The following result is proven in \cite[Lemma 2.4]{rupel} with appropriate notation changes, c.f. Theorem~\ref{th:dominant Dyck path recursion} for a slight modification and explicit proof.
+  The following result is proven in \cite[Lemma 2.4]{rupel} with appropriate notation changes, cf. Theorem~\ref{th:dominant Dyck path recursion} for a slight modification and explicit proof.
   \begin{lemma}\mbox{}
     \label{le:maximal Dyck path recursion}
     \begin{enumerate}
