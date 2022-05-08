@@ -364,6 +364,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \end{remark}
 
   \begin{lemma}
+    \label{le:limits}
     We have
     \[\lim_{i\to\infty} \frac{u_i^-}{u_{i-1}^+}=\frac{bc+\sqrt{bc(bc-4)}}{2b}=\lim_{i\to-\infty} \frac{u_{i-1}^-}{u_i^+};\]
     \[\lim_{i\to\infty} \frac{u_{i-1}^-}{u_i^+}=\frac{bc-\sqrt{bc(bc-4)}}{2b}=\lim_{i\to-\infty} \frac{u_i^-}{u_{i-1}^+}.\]
@@ -404,15 +405,16 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   We begin by studying transformations of $\RR^2$ which determine the change of $\bfg$-vectors when expanding a pointed expression of the form~\eqref{eq:pointed} in terms of a cluster $\{x_k,x_{k+1}\}$.
   Write $\phi_0:\RR^2\to\RR^2$ for the identity map and define piecewise-linear maps $\phi_{\pm 1}:\RR^2\to\RR^2$ as follows:
   \begin{equation}
+    \label{eq:forward mutation 1}
     \phi_1(\lambda)
-    =
+    :=
     \begin{cases} 
       (-\lambda_0,c\lambda_0+\lambda_1) & \text{if $\lambda_0 \ge 0$;}\\
       (-\lambda_0,\lambda_1) & \text{if $\lambda_0 < 0$;}
     \end{cases}
     \qquad
     \phi_{-1}(\lambda)
-    =
+    :=
     \begin{cases} 
       (\lambda_0,-\lambda_1) & \text{if $\lambda_1 \ge 0$;}\\
       (\lambda_0+b\lambda_1,-\lambda_1) & \text{if $\lambda_1 < 0$.}
@@ -441,6 +443,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     When $\mu\in\cP_\lambda$, we say \emph{$\lambda$ dominates $\mu$}.
   \end{definition}
 
+  \begin{theorem}
+    \cite{qin}
+    \sayDR{Quote Fan's result here.}
+  \end{theorem}
+
   We record here a few useful calculations relating to the tropical transformations $\phi_k$.
   First observe the following explicit expression for $\phi_2$:
   \begin{equation}
@@ -454,17 +461,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       (-\lambda_0,-\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1<0$;}
     \end{cases}
   \end{equation}
-  %\begin{equation}
-  %  \label{eq:backward two step mutation}
-  %  \phi_{-2}(\lambda)
-  %  =
-  %  \begin{cases}
-  %    \big(-\lambda_0-b\lambda_1, c\lambda_0+(bc-1)\lambda_1\big) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1\le 0$;}\\
-  %    (-\lambda_0-b\lambda_1, -\lambda_1) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1>0$;}\\
-  %    (-\lambda_0, c\lambda_0-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0\le 0$;}\\
-  %    (-\lambda_0,-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0>0$.}
-  %  \end{cases}
-  %\end{equation}
 
   By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $n>0$, there exists a scalar $\nu_n$ so that $\phi^n(\lambda)=\nu_n\lambda$.
   \begin{lemma}
@@ -536,15 +532,15 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     is precisely $\{\lambda\}$. 
     Indeed, for $k$ odd, the cone $\cC_{k-1}(\phi_{k-1}\lambda)$ lies entirely within a domain of linearity for $\phi_{k-1}^{-1}$.
     In particular, $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda)$ is a cone containing $\lambda$ directed away from the origin (with walls parallel to the boundary of the domain of linearity containing $\lambda$).
-    On the contrary, for $k$ odd, the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ intersects the domain of linearity for $\phi_{k+1}^{-1}$ containing $\phi_{k+1}\lambda$ in a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\phi_{k+1}\lambda$.
+    Next, again for $k$ odd, the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ intersects the domain of linearity for $\phi_{k+1}^{-1}$ containing $\phi_{k+1}\lambda$ in a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\phi_{k+1}\lambda$.
     In particular, the intersection of $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ with the cone containing $\lambda$ is a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\lambda$.
-    The result follows for $k$ odd, the case of even $k$ is similar.
+    Combining these observations proves the result for $k$ odd, the case of even $k$ is similar.
   \end{proof}
   To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
   \begin{itemize}
-    \item if $\lambda_0 \le 0$ and $\lambda_1 \ge 0$, the second and fourth inequalities become equations for lines which intersect at $\lambda$;
-    \item if $\lambda_0 > 0$ and $\lambda_1 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_0$, the first and second inequalities become equations for lines which intersect at $\lambda$;
-    \item if $\lambda_1 < 0$ and $\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_1$, the third and fourth inequalities become equations for lines which intersect at $\lambda$.
+    \item if $\lambda_0 \le 0$ and $\lambda_1 \ge 0$, the second and fourth pairs of inequalities become equations for lines which intersect at $\lambda$;
+    \item if $\lambda_0 > 0$ and $\lambda_1 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_0$, the first and second pairs of inequalities become equations for lines which intersect at $\lambda$;
+    \item if $\lambda_1 < 0$ and $\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_1$, the third and fourth pairs of inequalities become equations for lines which intersect at $\lambda$.
   \end{itemize}
   This proves Theorem~\ref{th:dominance inequalities} when $\lambda\notin\cI$.
 
@@ -562,21 +558,20 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   
   \begin{lemma}
     \label{le:dominance inequalities}
-    For $k\in\ZZ$, $k\ne0$, and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is determined by the following inequalities:
+    For $k\in\ZZ$, $k\ne0$, and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is determined by the following inequalities when $k>0$:
     \begin{align}
       \label{ineq:1} u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
       \label{ineq:2} u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       \label{ineq:3} -u_{k-1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       \label{ineq:4} -u_{k-1}^-\mu_0-u_{k-2}^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;
     \end{align}
-    when $k>0$ and by the following inequalities:
+    and by the following inequalities when $k<0$:
     \begin{align*}
       u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
       u_k^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
-      -u_{k+2}^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;
+      -u_{k+2}^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1.
     \end{align*}
-    when $k<0$.
     
     given as in the figure below:
     \[
@@ -608,6 +603,18 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
     \[ (\dagger)\ \mu_0 \le u_{2j+1}^+\lambda_0+u_{2j}^+\lambda_1 = u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1 \qquad\text{and}\qquad (\ddagger)\ -\mu_1\le u_{2j}^-\lambda_0+u_{2j-1}^-\lambda_1 = u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1. \]
     We inductively compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\phi_2^{-j}$.
+    First observe that $\phi_2^{-1}=\phi_{-2}$ is given as follows:
+    \begin{equation}
+      \label{eq:backward two step mutation}
+      \phi_{-2}(\lambda)
+      =
+      \begin{cases}
+        \big(-\lambda_0-b\lambda_1, c\lambda_0+(bc-1)\lambda_1\big) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1\le 0$;}\\
+        (-\lambda_0-b\lambda_1, -\lambda_1) & \text{if $\lambda_1\le 0$ and $\lambda_0+b\lambda_1>0$;}\\
+        (-\lambda_0, c\lambda_0-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0\le 0$;}\\
+        (-\lambda_0,-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0>0$.}
+      \end{cases}
+    \end{equation}
 
     \subsubsection*{Claim:} For $i>0$, $\phi_{2i}^{-1}\cC_{2j}(\phi_{2j}\lambda)$ is the region determined by the inequalities 
     \begin{align*}
@@ -624,7 +631,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     This establishes the base of an induction on $i$.
 
     Assuming the inequalities (a)-(d) hold for $i$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_2^{-1}$.
-    Both of the boundary rays corresponding to the inequalities (a) and (d) lies entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
+    Both of the boundary rays corresponding to the inequalities (a) and (d) lie entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
     Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
     \[u_{2i+2}^-\mu_0+u_{2i+1}^+\mu_1=(u_3^+u_{2i}^--u_2^-u_{2i-1}^+)\mu_0+(u_2^+u_{2i}^--u_1^-u_{2i-1}^+)\mu_1\le u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1,\]
     which is the inequality (a) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
@@ -665,7 +672,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   We are now ready to prove Theorem~\ref{th:dominance inequalities}.
   The dominance region $\cP_\lambda=\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$ for $\lambda\in\cI$ is obtained by imposing all of the inequalities from Lemma~\ref{le:dominance inequalities} together with $\mu_0 -\lambda_0 \le 0$ and $0 \le \mu_1 - \lambda_1$ coming from $k=0$.
 
-  To begin, observe that the boundary lines for \eqref{ineq:2} and \eqref{ineq:3} (and hence \eqref{ieq1} and \eqref{ieq2} below) intersect where $\mu_0=0$ and the boundary lines for \eqref{ineq:3} and \eqref{ineq:4} (and hence \eqref{ieq2} and \eqref{ieq3} below) intersect where $\mu_1=0$.
+  To begin, observe that the boundary lines for \eqref{ineq:2} and \eqref{ineq:3} (and hence \eqref{ieq1} and \eqref{ieq2} below) intersect where $\mu_0=0$ and the boundary lines for \eqref{ineq:3} and \eqref{ineq:4} (and hence \eqref{ieq2} and \eqref{ieq3} with $k-1$) intersect where $\mu_1=0$.
   We then rewrite the inequalities from Lemma~\ref{le:dominance inequalities} using the Chebyshev recursion.
   For $k>0$, we get
   \begin{align*}
@@ -696,36 +703,37 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     -u_{k+1}^-(\mu_0-\lambda_0)-u_k^+(\mu_1-\lambda_1) &\le cu_k^+\lambda_0+bu_{k-1}^-\lambda_1;
   \end{align*}
   for $k<0$.
-  Then using that $-u_k^\varepsilon<0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$ we divide by these to rewrite the inequalities again as
+  Then, using that $-u_k^\varepsilon<0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$, we divide by these to rewrite the inequalities again as
   \begin{align}
     \label{ieq1} 0 & \le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
     \label{ieq2} -c\lambda_0 & \le \frac{u_{k-1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
     \label{ieq3} -(\mu_0-\lambda_0)-\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1) &\le c\frac{u_{k+1}^+}{u_k^-}\lambda_0+b\lambda_1;
   \end{align}
-  and
+  for $k>0$ and
   \begin{align}
     \label{ieq4} 0 &\le (\mu_0-\lambda_0)+\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1);\\
     \label{ieq5} b\lambda_1 &\le (\mu_0-\lambda_0)-\frac{u_{k+1}^+}{u_k^-}(\mu_1-\lambda_1);\\
-    \label{ieq6} c\lambda_0+b\frac{u_{k-1}^-}{u_k^+}\lambda_1 &\le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).
+    \label{ieq6} c\lambda_0+b\frac{u_{k-1}^-}{u_k^+}\lambda_1 &\le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);
   \end{align}
+  for $k<0$.
   We now study each sequence of inequalities in turn.
 
-  For $\mu_1-\lambda_1\ge 0$, the inequalities \eqref{ieq1} become more restrictive as $k$ gets larger since the sequence $\frac{-u_{k+1}^-}{u_k^+}$ of slopes is monotonically decreasing.
-  Thus in the limit as $k\to\infty$, we obtain the inequality 
+  For $\mu_1-\lambda_1\ge 0$, the inequalities \eqref{ieq1} become more restrictive as $k$ gets larger since the sequence $\frac{-u_{k+1}^-}{u_k^+}$ of negative slopes is monotonically increasing (c.f. Lemma~\ref{le:limits}).
+  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality 
   \[ 0 \le \frac{-bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
-  or equivalently
+  or, equivalently,
   \[ 0 \le -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \]
   determining a boundary of $\cP_\lambda$.
 
-  Similarly, the inequalities \eqref{ieq2} become more restrictive for $\mu_0\le0$ and $\mu_1\ge0$ as $k$ gets larger since the sequence of slopes $\frac{u_{k-1}^-}{u_k^+}$ is monotonically increasing and the intersection with \eqref{ieq1} moves lower on the $\mu_1$-axis as $k$ increases.
-  Thus in the limit as $k\to\infty$, we obtain the inequality
+  Similarly, the inequalities \eqref{ieq2} become more restrictive for $\mu_0\le0$ and $\mu_1\ge0$ as $k$ gets larger since the sequence $\frac{u_{k-1}^-}{u_k^+}$ of positive slopes is monotonically increasing and the intersection with \eqref{ieq1} moves lower on the $\mu_1$-axis as $k$ increases.
+  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality
   \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
   determining a boundary of $\cP_\lambda$.
-  Observe further that $\mu_0-\lambda_0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
+  Observe further that the inequalities $\mu_0-\lambda_0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
   \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
 
-  Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence of slopes $\frac{-u_{k-1}^+}{u_k^-}$ is monotonically increasing and the intersection with \eqref{ieq2} moves to the right on the $\mu_0$-axis as $k$ increases.
-  Thus in the limit as $k\to\infty$, we obtain the inequality
+  Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence $\frac{-u_k^-}{u_{k-1}^+}$ of negative slopes is monotonically increasing (c.f. Lemma~\ref{le:limits}) and the intersection with \eqref{ieq2} (for $k+1$) moves to the right on the $\mu_0$-axis as $k$ increases.
+  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality
   \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1 \]
   determining a boundary of $\cP_\lambda$.
 
