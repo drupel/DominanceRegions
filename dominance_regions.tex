@@ -124,9 +124,9 @@
     \label{th:dominance}
     \cite[Theorem 1.2.1]{qin}
     Let $x=\{x_\lambda\}$ and $y=\{y_\lambda\}$ be pointed bases of $\cA(b,c)$.
-    Then for each $\lambda\in\ZZ^2$, there exist scalars $a_{\lambda,\mu}$ for $\mu\prec\lambda$ such that
-    \[y_\lambda=x_\lambda+\sum_{\mu\prec\lambda} a_{\lambda,\mu} x_\mu.\]
-    Moreover, any choice of scalars $a_{\lambda,\mu}$, for $\mu\prec\lambda$, $\lambda\in\ZZ^2$, as above provides a basis of $\cA(b,c)$.
+    Then for each $\lambda\in\ZZ^2$, there exist scalars $q_{\lambda,\mu}$ for $\mu\prec\lambda$ such that
+    \[y_\lambda=x_\lambda+\sum_{\mu\prec\lambda} q_{\lambda,\mu} x_\mu.\]
+    Moreover, any choice of scalars $q_{\lambda,\mu}$, for $\mu\prec\lambda$, $\lambda\in\ZZ^2$, as above provides a basis of $\cA(b,c)$.
   \end{theorem}
 
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
@@ -878,6 +878,73 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 \label{sec:affine}
 
   In this section we compare our main result with the construction of \cite{RSW19} in the case $b=c=2$.
+  To match conventions, in this section, we work over an algebraically closed field $\kk$ of characteristic 0.
+  Because the exchange matrix is full rank there is no loss of generality in continuing to work in the coefficient-free case.
+  We will identify the family of bases from Theorem \ref{th:dominance} with the continuous family of bases of $\cA(2,2)$ constructed in \cite{RSW19} from generalized minors which we recast here with the current notation. 
+
+  \begin{theorem}[{\cite[Theorem 4.6]{RSW19}}]
+    Choose a point $\bfa\in(\kk^\times)^n$ for each $n\geq1$.
+    Then the elements 
+    \[
+      x_{(n,-n)}^{\bfa}:= x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+    \]
+    with
+    \[
+      S_{\bfa,r}=\sum\limits_{\substack{I,J\subseteq[1,n]\\|I|=r=|J|\\ I\cap J=\varnothing}}\frac{\prod_{i\in I} a_i}{\prod_{j\in J} a_j}
+    \]
+    together with all cluster monomials form a linear basis of $\cA(2,2)$.
+  \end{theorem}
+
+  We begin by noting that when $b=c=2$ the imaginary cone $\cI$ degenerates to the ray spanned by $(1,-1)$.
+  For any $\lambda\in\cI$, the dominance region $\cP_\lambda$ is the segment connecting $\lambda$ to the origin.
+  It follows that $\bfg$-vectors dominated by $\lambda=(n,-n)$ are of the form $(n-2r,-n+2r)$ for $0\leq r \leq n/2$.
+
+  In order to use Theorem \ref{th:dominance} we need to fix a reference pointed basis of $\cA(2,2)$; to simplify our computations, we choose to work with the \emph{generic basis}.
+  This basis consists of the cluster monomials of $\cA(2,2)$ together with the elements
+  \[
+    x_{(n,-n)}^{ge}
+    :=
+		\Big(x_0 x_1^{-1} + x_0^{-1}x_1^{-1} + x_0^{-1}x_1\Big)^n
+		=
+    x_0^{-n} x_1^{-n}
+    \sum_{0 \leq k \leq \ell \leq n}
+    {\ell\choose k} {n\choose \ell}
+    \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+  \]
+
+	\begin{theorem}
+    \[
+      x_{(n,-n)}^{\bfa}
+      =
+      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
+      S_{\bfa,r}
+      x_{(n-2r,-n+2r)}^{ge}
+    \]
+  \end{theorem}
+  \begin{proof}
+    \begin{align*}
+      x_{(n,-n)}^{\bfa}
+      & =
+      x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+    \end{align*}
+    From the second binomial coefficient we deduce that $n-2r$ is positive so the second sum runs up to $\lfloor \frac{n}{2} \rfloor$.
+    \begin{align*}
+      x_{(n,-n)}^{\bfa}
+      & =
+      x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^{\lfloor \frac{n}{2} \rfloor} {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+      \\
+      & =
+      \sum\limits_{r=0}^{\lfloor \frac{n}{2} \rfloor} S_{\bfa,r}\, x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} {\ell-r\choose k} {n-2r\choose \ell-r}  x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+      \\
+      & =
+      \sum\limits_{r=0}^{\lfloor \frac{n}{2} \rfloor} S_{\bfa,r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{0 \leq k \leq \ell \leq n} {\ell-r\choose k} {n-2r\choose \ell-r}  x_0^{2(\ell-k-r)} x_1^{2(n-\ell-r)}
+  \end{align*}
+  \end{proof}
+
+
+	For a chosen point $\bfa\in(\kk^\times)^n$, let $m_{1^{(n)}}$ denote the monomial symmetric function $\prod_{i\in[1,n]} a_i$.
+
+
   We show that the continuous family of bases constructed there is precisely the deformation family constructed by \cite{Qin}.
 
 
