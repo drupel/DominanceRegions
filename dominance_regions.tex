@@ -885,9 +885,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \begin{theorem}[{\cite[Theorem 4.6]{RSW19}}]
     Choose a point $\bfa\in(\kk^\times)^n$ for each $n\geq1$.
     Then, together with all cluster monomials, the elements 
-    \[
+    \begin{equation}
+      \label{eq:generalized minor}
       x_{(n,-n)}^{\bfa}:= x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
-    \]
+    \end{equation}
     with
     \[
       S_{\bfa,r}=\sum\limits_{\substack{I,J\subseteq[1,n]\\|I|=r=|J|\\ I\cap J=\varnothing}}\frac{\prod_{i\in I} a_i}{\prod_{j\in J} a_j}
@@ -912,38 +913,37 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
   \]
 
-	\begin{theorem}
+  \begin{theorem}
+    For $n\ge0$, we have
     \[
       x_{(n,-n)}^{\bfa}
       =
       \sum_{r=0}^{\lfloor n/2 \rfloor}
       S_{\bfa,r}
-      x_{(n-2r,-n+2r)}^{ge}
+      x_{(n-2r,-n+2r)}^{ge}.
     \]
   \end{theorem}
   \begin{proof}
+    To begin, we observe that \eqref{eq:generalized minor} may be rewritten as
+    \[
+      x_{(n,-n)}^{\bfa} = x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{\ell=k}^n \sum_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
+    \]
+    The first binomial coefficient above is zero if $0 \le \ell-r < k$ while the second is zero for $\ell < r \le \lfloor n/2\rfloor$ or if $n-r < \ell$, therefore $x_{(n,-n)}^{\bfa}$ can be expressed as
     \begin{align*}
       x_{(n,-n)}^{\bfa}
-      & =
-      x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+      &=
+      x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{r=0}^{\lfloor n/2\rfloor} \sum_{\ell=k+r}^{n-r} {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
     \end{align*}
-    From the second binomial coefficient we deduce that $n-2r$ is positive so the second sum runs up to $\lfloor n/2 \rfloor$.
+    But then rearranging terms and replacing $\ell$ by $\ell+r$, this becomes
     \begin{align*}
       x_{(n,-n)}^{\bfa}
-      & =
-      x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^{\lfloor n/2 \rfloor} {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
-      \\
-      & =
-      \sum\limits_{r=0}^{\lfloor n/2 \rfloor} S_{\bfa,r}\, x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} {\ell-r\choose k} {n-2r\choose \ell-r}  x_0^{2(\ell-k)} x_1^{2(n-\ell)}
-      \\
-      & =
-      \sum\limits_{r=0}^{\lfloor n/2 \rfloor} S_{\bfa,r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{0 \leq k \leq \ell \leq n} {\ell-r\choose k} {n-2r\choose \ell-r}  x_0^{2(\ell-k-r)} x_1^{2(n-\ell-r)}
-  \end{align*}
+      &=
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa,r} x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
+      &=
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa,r} x_{n-2r,-n+2r}^{ge}
+    \end{align*}
+    as desired.
   \end{proof}
-
-
-	For a chosen point $\bfa\in(\kk^\times)^n$, let $m_{1^{(n)}}$ denote the monomial symmetric function $\prod_{i\in[1,n]} a_i$.
-
 
   We show that the continuous family of bases constructed there is precisely the deformation family constructed by \cite{Qin}.
 
