@@ -947,29 +947,9 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 
   \begin{remark}
     Observe that $S_{\bfa,r}$ can be expressed in terms of monomial symmetric functions evaluated at $\bfa$ as $\frac{m_{2^{(r)},1^{(n-2r)}}}{m_{1^{(n)}}}$.
+    Analogous expansions of $x_{(n,-n)}^{\bfa}$ in terms of triangular or greedy basis elements lead to Schur functions or elementary symmetric functions evaluated at $\bfa$ as $\frac{s_{2^{(r)},1^{(n-2r)}}}{s_{1^{(n)}}}$ and $\frac{e_{r,n-r}}{e_n}$, respectively.
+    We leave the details to the interested reader.
   \end{remark}
-
-  We want to show that our continuous family of generalized minors from \cite[Theorem 4.6]{RSW19} coincide with the family of bases constructed in \cite[Theorem 1.2.1]{Qin19}.
-  
-  Let $F_{n\omega^\circ}^\Delta$, $F_{n\omega^\circ}^{gr}$, $F_{n\omega^\circ}^{tr}$, and $F_{n\omega^\circ}^{ge}$ be the $F$-polynomials of the generalized minor, greedy basis element, triangular basis element, and generic basis element with $\bfg$-vector $n\omega^\circ$.
-  We think of $F$-polynomials as polynomials in the variables $u_1$ and $u_2$.
-
-  We do not need the following two formulas but I think they are still neat.
-  \begin{conjecture}
-    \begin{align*} 
-      m_{1^{(n)}} F_{n\omega^\circ}^\Delta
-      &=
-      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-      s_{2^{(k)},1^{(n-2r)}}
-      u_1^r u_2^r
-      F_{(n-2r)\omega^\circ}^{tr}
-      \\&=
-      \sum_{r=0}^{\lfloor \frac{n}{2} \rfloor}
-      e_{r,n-r}
-      u_1^r u_2^r
-      F_{(n-2r)\omega^\circ}^{gr}
-    \end{align*}
-  \end{conjecture}
 
   \begin{thebibliography}{XXX}
     \bibitem{cgmmrsw}
