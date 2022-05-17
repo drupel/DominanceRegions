@@ -607,27 +607,27 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \end{tikzpicture}
 \end{figure}
 
-    \[
-      \begin{tikzpicture}
-        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
-        \draw[-] (-8,0) -- (5,0);
-        \draw[-] (0,-5) -- (0,5);
-        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
-        \draw[dashed] (0,0) -- (5,-2.113);
-        \draw[dashed] (0,0) -- (3.17,-5);
-        \node at (1,-0.9) {$\cI$};
-        \draw[fill=black] (3.5,-3) circle (2pt);
-        \node[right] at (3.5,-3) {$\lambda$};
-        \draw[->,thick] (3.5,-3) -- (47/10,-5);
-        \draw[-,thick] (3.5,-3) -- (0,26/10);
-        \draw[-,thick] (0,26/10) -- (-26/4,0);
-        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
-        \node at (4.5,-4) {\eqref{ineq:1}};
-        \node at (2.34,-0.5) {\eqref{ineq:2}};
-        \node at (-3,1.75) {\eqref{ineq:3}};
-        \node at (-5.36,-3) {\eqref{ineq:4}};
-      \end{tikzpicture}
-    \]
+%    \[
+%      \begin{tikzpicture}
+%        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
+%        \draw[-] (-8,0) -- (5,0);
+%        \draw[-] (0,-5) -- (0,5);
+%        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
+%        \draw[dashed] (0,0) -- (5,-2.113);
+%        \draw[dashed] (0,0) -- (3.17,-5);
+%        \node at (1,-0.9) {$\cI$};
+%        \draw[fill=black] (3.5,-3) circle (2pt);
+%        \node[right] at (3.5,-3) {$\lambda$};
+%        \draw[->,thick] (3.5,-3) -- (47/10,-5);
+%        \draw[-,thick] (3.5,-3) -- (0,26/10);
+%        \draw[-,thick] (0,26/10) -- (-26/4,0);
+%        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
+%        \node at (4.5,-4) {\eqref{ineq:1}};
+%        \node at (2.34,-0.5) {\eqref{ineq:2}};
+%        \node at (-3,1.75) {\eqref{ineq:3}};
+%        \node at (-5.36,-3) {\eqref{ineq:4}};
+%      \end{tikzpicture}
+%    \]
   \end{lemma}
   \begin{proof}
     We prove the claim for $k>0$, the proof for $k<0$ is similar or can be deduced from the other case by a symmetry argument.
@@ -912,15 +912,16 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   We will identify the family of bases in Theorem \ref{th:dominance} with the continuous family of bases of $\cA(2,2)$ constructed in \cite{RSW19} from generalized minors, which we recast here with the current notation. 
 
   \begin{theorem}[{\cite[Theorem 4.6]{RSW19}}]
-    Choose a point $\bfa\in(\kk^\times)^n$ for each $n\geq1$.
+    \label{thm:rsw}
+    Choose a point $\bfa^{(n)}=(a_1,\dots,a_n)\in(\kk^\times)^n$ for each $n\geq1$.
     Then, together with all cluster monomials, the elements 
     \begin{equation}
       \label{eq:generalized minor}
-      x_{(n,-n)}^{\bfa}:= x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+      x_{(n,-n)}^{\bfa^{(n)}}:= x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa^{(n)},r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
     \end{equation}
     with
     \[
-      S_{\bfa,r}=\sum\limits_{\substack{I,J\subseteq[1,n]\\|I|=r=|J|\\ I\cap J=\varnothing}}\frac{\prod_{i\in I} a_i}{\prod_{j\in J} a_j}
+      S_{\bfa^{(n)},r}=\sum\limits_{\substack{I,J\subseteq[1,n]\\|I|=r=|J|\\ I\cap J=\varnothing}}\frac{\prod_{i\in I} a_i}{\prod_{j\in J} a_j}
     \]
     form a linear basis of $\cA(2,2)$.
   \end{theorem}
@@ -942,43 +943,60 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
   \]
 
-  \begin{theorem}
+  \begin{proposition}
+    \label{prop:rewrite}
     For $n\ge0$, we have
     \[
-      x_{(n,-n)}^{\bfa}
+      x_{(n,-n)}^{\bfa^{(n)}}
       =
       \sum_{r=0}^{\lfloor n/2 \rfloor}
-      S_{\bfa,r}
+      S_{\bfa^{(n)},r}
       x_{(n-2r,-n+2r)}^{ge}.
     \]
-  \end{theorem}
+  \end{proposition}
   \begin{proof}
     To begin, we observe that \eqref{eq:generalized minor} may be rewritten as
     \[
-      x_{(n,-n)}^{\bfa} = x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{\ell=k}^n \sum_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
+      x_{(n,-n)}^{\bfa^{(n)}} = x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{\ell=k}^n \sum_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa^{(n)},r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
     \]
-    The first binomial coefficient above is zero if $0 \le \ell-r < k$ while the second is zero for $\ell < r \le \lfloor n/2\rfloor$ or if $n-r < \ell$, therefore $x_{(n,-n)}^{\bfa}$ can be expressed as
+    The first binomial coefficient above is zero if $0 \le \ell-r < k$ while the second is zero for $\ell < r \le \lfloor n/2\rfloor$ or if $n-r < \ell$, therefore $x_{(n,-n)}^{\bfa^{(n)}}$ can be expressed as
     \begin{align*}
-      x_{(n,-n)}^{\bfa}
+      x_{(n,-n)}^{\bfa^{(n)}}
       &=
-      x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{r=0}^{\lfloor n/2\rfloor} \sum_{\ell=k+r}^{n-r} {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa,r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
+      x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{r=0}^{\lfloor n/2\rfloor} \sum_{\ell=k+r}^{n-r} {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa^{(n)},r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
     \end{align*}
     But then rearranging terms and replacing $\ell$ by $\ell+r$, this becomes
     \begin{align*}
-      x_{(n,-n)}^{\bfa}
+      x_{(n,-n)}^{\bfa^{(n)}}
       &=
-      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa,r} x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r} x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
       &=
-      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa,r} x_{n-2r,-n+2r}^{ge}
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r} x_{n-2r,-n+2r}^{ge}
     \end{align*}
     as desired.
   \end{proof}
 
   \begin{remark}
-    Observe that the expansion coefficients $S_{\bfa,r}$ can be expressed as the ratio of monomial symmetric functions $\frac{m_{2^{(r)},1^{(n-2r)}}}{m_{1^{(n)}}}$ evaluated at $\bfa$.
-    The analogous expansion coefficients when $x_{(n,-n)}^{\bfa}$ is expressed in terms of the triangular basis (resp. greedy basis) lead to the ratios of Schur functions $\frac{s_{2^{(r)},1^{(n-2r)}}}{s_{1^{(n)}}}$ (resp. ratios of elementary symmetric functions $\frac{e_{r,n-r}}{e_n}$) evaluated at $\bfa$.
+    \label{rk:symmetric}
+    Observe that the expansion coefficients $S_{\bfa^{(n)},r}$ can be expressed as the ratio of monomial symmetric functions $\frac{m_{2^{(r)},1^{(n-2r)}}}{m_{1^{(n)}}}$ evaluated at $\bfa^{(n)}$.
+    The analogous expansion coefficients when $x_{(n,-n)}^{\bfa^{(n)}}$ is expressed in terms of the triangular basis (resp. greedy basis) are the ratios of Schur functions $\frac{s_{2^{(r)},1^{(n-2r)}}}{s_{1^{(n)}}}$ (resp. ratios of elementary symmetric functions $\frac{e_{r,n-r}}{e_n}$) evaluated at $\bfa^{(n)}$.
     We leave the details to the interested reader.
   \end{remark}
+
+  \begin{theorem}
+    As the points $\bfa^{(n)}$ vary in $(\kk^\times)^n$, the bases in Theorem \ref{thm:rsw} recover precisely all the pointed bases of $\cA(2,2)$.
+  \end{theorem}
+  \begin{proof}
+    By Theorem \ref{th:dominance}, in view of Proposition \ref{prop:rewrite} and the discussion immediately before it, it suffices to show that as $\bfa^{(n)}$ vary in $(\kk^\times)^n$ the tuple of coefficients $\big(S_{\bfa^{(n)},r}\big)_{1\leq r \leq \lfloor n/2\rfloor}$ assume all the values in $\kk^{\lfloor n/2\rfloor}$.
+    (The fact that $S_{\bfa^{(n)},0}=1$ is immediate from the definition.)
+
+    By Remark \ref{rk:symmetric}, this is equivalent to the fact that the symmetric monomial functions in $n$ variables $m_{2^{(r)},1^{(n-2r)}}$ are algebraically independent.
+    But this follows immediately from the observation that 
+    \[ 
+      m_{2^{(r)},1^{(n-2r)}} = \sum_{i=0}^r c_i\, e_{n-i,i}
+    \]
+    for some coefficients $c_i$ with $c_r=1$, and the fundamental theorem of symmetric polynomials. 
+  \end{proof}
 
   \begin{thebibliography}{XXX}
     \bibitem{cgmmrsw}
