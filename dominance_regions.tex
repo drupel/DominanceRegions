@@ -110,9 +110,9 @@
       \tikzmath{ \x=4; \y=-3;};
       \boundingrays;
       \fill [fill=gray!30, fill opacity=0.4] (\x,\y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- cycle;
-      \fill [fill=red!30, fill opacity=0.5]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcms/(2*\b)*\x+\y}) -- cycle;
+      \fill [fill=red!30, fill opacity=0.5]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) --  (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
       \fill [fill=green!30, fill opacity=0.5] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
-      \draw [red, thick, join=round]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcms/(2*\b)*\x+\y}) -- cycle;
+      \draw [red, thick, join=round]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
       \draw [green, thick, join=round] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
       \draw [thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
