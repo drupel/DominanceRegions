@@ -569,7 +569,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \label{ineq:3} -u_{k-1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       \label{ineq:4} -u_{k-1}^-\mu_0-u_{k-2}^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;
     \end{align}
-    and by the following inequalities when $k<0$:
+    and by the following inequalities when $k<0$: \saySS{the third equation here is wrong!}
     \begin{align*}
       u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
@@ -577,33 +577,42 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       -u_{k+2}^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1.
     \end{align*}
     
-    given as in the figure below:
+    %given as in the figure below:
 \begin{figure}[h!]
   \centering
     \newcommand{\setconstants}{
-      \tikzmath{\b = 3.5; \c = 4.4 / \b; \s = sqrt(\b * \c * (\b * \c -4)); \bcmo = \b * \c - 1; \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
+      \tikzmath{\b = 3; \c = 6 / \b; \s = sqrt(\b * \c * (\b * \c -4)); \bcmo = \b * \c - 1; \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
       \tikzmath{ \xmin = -6; \xmax = 6; \ymin = -6; \ymax = 6;}
       \clip (\xmin,\ymin) rectangle (\xmax,\ymax);
     }
     \newcommand{\boundingrays}{
       \draw [color=lightgray, thick] (2*\xmin,0) -- (2*\xmax,0);
       \draw [color=lightgray, thick] (0,2*\ymin) -- (0, 2*\ymax);
-      \draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax / \b);
-      \draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax * \c / \bcmo );
+      %\draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax / \b);
+      %\draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax * \c / \bcmo );
       \draw [color=lightgray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
       \draw [color=lightgray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
     }
   \begin{tikzpicture}[scale=.3]
     \begin{scope}[shift={(0,0)}]
       \setconstants;
-      %\draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (2*\xmax,2*\ymax) --  (0,2*\ymax) -- cycle; 
+      \tikzmath{ \t=3; \r=1; \s=1.6; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
       \boundingrays;
-      \tikzmath{ \t=5; \r=1; \s=2; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill (\x , \y)  circle (5pt);
-      \fill[fill=gray!20] (\xmax, {min(\ymin,-\c*(\xmax-\x)+\y)}) -- (\xmax, {-\c*(\xmax-\x)+\y}) -- (\x,\y) -- (0, {(\b*\c-1)/\b*\x+\y}) -- ({-(\b*\c-1)*\x-\b*\y},0);
-      \draw [variable=\m, domain=\x:\xmax,thick] plot({\m}, {-\c*(\m-\x)+\y});
-      \draw [variable=\m, domain=0:\x,thick] plot({\m}, {-(\b*\c-1)/\b*(\m-\x)+\y});
+      \draw[thick] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
+			%\draw [align=center, below] (0,\ymin) node{$\phi_k^{-1}\cC_k(\phi_k\lambda)$};
     \end{scope}
+		\draw (0,-7) node{$\phi_{-3}^{-1}\cC_{-3}(\phi_{-3}\lambda)$};
+    \begin{scope}[shift={(15,0)}]
+      \setconstants;
+      \tikzmath{ \t=3; \r=1; \s=1.6; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
+      \boundingrays;
+      \fill (\x , \y)  circle (5pt);
+      \draw[thick] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
+    \end{scope}
+		\draw (15,-7) node{$\phi_{3}^{-1}\cC_{3}(\phi_{3}\lambda)$};
   \end{tikzpicture}
 \end{figure}
 
@@ -951,6 +960,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       =
       \sum_{r=0}^{\lfloor n/2 \rfloor}
       S_{\bfa^{(n)},r}
+      \,
       x_{(n-2r,-n+2r)}^{ge}.
     \]
   \end{proposition}
@@ -969,9 +979,9 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \begin{align*}
       x_{(n,-n)}^{\bfa^{(n)}}
       &=
-      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r} x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
       &=
-      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r} x_{n-2r,-n+2r}^{ge}
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_{n-2r,-n+2r}^{ge}
     \end{align*}
     as desired.
   \end{proof}
