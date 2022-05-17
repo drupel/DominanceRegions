@@ -600,7 +600,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \s=2; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill (\x , \y)  circle (5pt);
-      \fill[fill=gray!20] (\xmax, \ymin) -- (\xmax, {-\c*(\xmax-\x)+\y}) -- (\x,\y) -- (0, {(\b*\c-1)/\b*\x+\y});
+      \fill[fill=gray!20] (\xmax, {min(\ymin,-\c*(\xmax-\x)+\y)}) -- (\xmax, {-\c*(\xmax-\x)+\y}) -- (\x,\y) -- (0, {(\b*\c-1)/\b*\x+\y}) -- ({-(\b*\c-1)*\x-\b*\y},0);
       \draw [variable=\m, domain=\x:\xmax,thick] plot({\m}, {-\c*(\m-\x)+\y});
       \draw [variable=\m, domain=0:\x,thick] plot({\m}, {-(\b*\c-1)/\b*(\m-\x)+\y});
     \end{scope}
