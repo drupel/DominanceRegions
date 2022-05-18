@@ -75,6 +75,8 @@
 \author{Salvatore Stella}
 
 \begin{document}
+
+
   \begin{abstract}
     We investigate the shapes of the polytopes defining the dominance order for $\bfg$-vectors in cluster algebras of rank two.
     We arrive at a complete description: 
@@ -85,11 +87,54 @@
   \end{abstract}
   \maketitle
 
+\begin{figure}[h!]
+  \centering
+    \newcommand{\setconstants}{
+      \tikzmath{\b = 3; \c = 6 / \b; \s = sqrt(\b * \c * (\b * \c -4)); \bcmo = \b * \c - 1; \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
+      \tikzmath{ \xmin = -6; \xmax = 6; \ymin = -4; \ymax = 8;}
+      \clip ({\xmin-0.2},{\ymin-0.2}) rectangle ({\xmax+0.2},{\ymax+0.2});
+    }
+    \newcommand{\boundingrays}{
+      \draw [color=lightgray, thick] (2*\xmin,0) -- (2*\xmax,0);
+      \draw [color=lightgray, thick] (0,2*\ymin) -- (0, 2*\ymax);
+      \draw [color=lightgray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
+      \draw [color=lightgray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
+    }
+  \begin{tikzpicture}[scale=.5]
+      \setconstants;
+      \foreach \x in {\xmin,...,\xmax} {
+        \foreach \y in {\ymin,...,\ymax} {
+          \fill[color=gray] (\x,\y) circle (0.05);
+        }
+      };
+      \tikzmath{ \x=4; \y=-3;};
+      \boundingrays;
+      \fill [fill=gray!30, fill opacity=0.4] (\x,\y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- cycle;
+      \fill [fill=red!30, fill opacity=0.5]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) --  (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
+      \fill [fill=green!30, fill opacity=0.5] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
+      \draw [red, thick, join=round]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
+      \draw [green, thick, join=round] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
+      \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
+      \draw [thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
+      \draw [thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt) node[above left]{$\lambda'$};
+      \fill (\x , \y)  circle (5pt) node[below right]{$\lambda$};
+      \foreach \x/\y in { 1/-3, -2/-3, -5/-3, -2/-1, -5/-1, -5/1, -2/3, -5/3, -2/5, -5/5 } {
+        \draw[color=blue, fill=white] (\x,\y) circle (4pt);
+      };
+      \foreach \x/\y in { 1/-1, 1/1, -2/1 } {
+        \fill[color=blue] (\x,\y) circle (4pt);
+      };
+      \draw (-3.5,-3.5) node{$\cS_\lambda$};
+      \draw [darkgreen](2.5,1) node{$\cP_\lambda$};
+      \draw [red](-2,6.5) node{$\cP'_\lambda$};
+  \end{tikzpicture}
+\end{figure}
   \section{Introduction}
-  Cluster algebras were introduced by Fomin and Zelevinsky as a tool in the study of Lusztig's (dual) canonical bases.
+  Cluster algebras were introduced by Fomin and Zelevinsky as a tool in the study of Lusztig's dual canonical bases.
   Since their inception they have found application in a variety of different areas in mathematics, nevertheless a fundamental problem in the theory remains constructing bases with ``good'' properties. 
   
-  Over time several bases for cluster algebras have been constructed in a variety of generalities \cite{foo,bar,baz}. 
+  Over time several bases for cluster algebras have been constructed in a variety of generalities \cite{CI12,DT13,SZ04,LLZ14, Dup11,Dup12,Pla13, MSW13,T14,BZ14,GHKK18}.
   All of them share a property of being ``pointed''.
   Being pointed turned out to be a desirable feature for a basis to have and a natural question is to find all bases enjoying this property.
   Recently Qin studied the deformability of pointed bases whenever the cluster algebra has full rank \cite{qin}. 
@@ -171,11 +216,11 @@
     There are six classes of dominance polygons.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, i.e. if it is the $\bfg$-vector of a cluster monomial, then $\cP_\lambda$ is the point $\lambda$. 
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP_\lambda$ is the trapezoid with corner vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
-      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP_\lambda$ is the triangle with corner vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP_\lambda$ is the kite with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$.
-      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP_\lambda$ is the triangle with corner vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP_\lambda$ is the trapezoid with corner vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP_\lambda$ is the trapezoid with  vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
+      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP_\lambda$ is the triangle with  vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP_\lambda$ is the kite with  vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$.
+      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP_\lambda$ is the triangle with  vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
+      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP_\lambda$ is the trapezoid with  vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
     \end{enumerate}
   \end{corollary}
 
@@ -205,11 +250,11 @@
           \item If $0\le\lambda_0,\lambda_1$, then $\cS_\lambda$ is just the point $\lambda$.
           \item If $\lambda_1 < 0$ and $0\le\lambda_0+b\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0+b\lambda_1,\lambda_1)$.
           \item If $\lambda_0 < 0$ and $0\le\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0,-c\lambda_0+\lambda_1)$.
-          \item If $\lambda_0,\lambda_1 < 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(\lambda_0,-c\lambda_0+\lambda_1)$.
-          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
-          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.  Here the point $(0,0)$ and its adjacent open segments are excluded from $\cS_\lambda$.
+          \item If $\lambda_0,\lambda_1 < 0$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and ${(\lambda_0,-c\lambda_0+\lambda_1)}$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.  Here the point $(0,0)$ and its adjacent open segments are excluded from $\cS_\lambda$.
         \end{enumerate}
-      \item If $\lambda$ lies inside of $\cI$, then the support of $x_\lambda$ is contained in $\cS_\lambda$ with corner vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
+      \item If $\lambda$ lies inside of $\cI$, then the support of $x_\lambda$ is contained in $\cS_\lambda$ with  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
         Moreover, there is an element pointed at $\lambda$ whose support is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cS_\lambda$.
     \end{enumerate}
   \end{theorem}
@@ -234,14 +279,14 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (2*\xmax,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=3; \r=1; \s=1; \xx = \r; \yy=\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=3; \r=1; \q=1; \xx = \r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(13,0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (4*\xmax,-2*\xmax / \b) --  (2*\xmax,-2*\xmax / \b) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=5; \r=2; \s=1; \xx = \r + \b*\s; \yy=-\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=5; \r=2; \q=1; \xx = \r + \b*\q; \yy=-\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
       \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
@@ -250,7 +295,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=3; \r=1; \s=1; \xx=-\r; \yy=\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=3; \r=1; \q=1; \xx=-\r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
       \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
@@ -259,7 +304,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymin) --  (0,2*\ymin) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=1; \r=1; \s=1; \xx=-\r; \yy=-\s; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=1; \r=1; \q=1; \xx=-\r; \yy=-\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
       \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
@@ -268,7 +313,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -2*\xmax / \b) -- (4*\xmax, -2*\xmax / \b-2*\xmax * \c / \bcmo ) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=5; \r=1; \s=2; \xx={\r*\b+\s*(\b*\c-1) }; \yy = {-\r -\c*\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=5; \r=1; \q=2; \xx={\r*\b+\q*(\b*\c-1) }; \yy = {-\r -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
       %\draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
@@ -278,7 +323,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- (4*\xmax, -2*\xmax * \c / \bcmo -\xmax * \bcms / \b) -- (2*\xmax, -\xmax * \bcms / \b) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=5; \r=1; \s=2; \xx={2*\r*\b+\s*(\b*\c-1) }; \yy = {-\r*\bcms -\c*\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=5; \r=1; \q=2; \xx={2*\r*\b+\q*(\b*\c-1) }; \yy = {-\r*\bcms -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
       %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
@@ -289,7 +334,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (0, 2*\ymin) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin +2*\ymin) --  ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=2; \r=0.3; \s=1; \xx={2*\r*\b }; \yy = {-\r*\bcps -\s};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=2; \r=0.3; \q=1; \xx={2*\r*\b }; \yy = {-\r*\bcps -\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
       %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
@@ -300,7 +345,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps + 2*\xmax, 2*\ymin  -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=5; \r=1; \s=2; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \tikzmath{ \t=5; \r=1; \q=2; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill (\x , \y)  circle (5pt);
       %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
@@ -597,10 +642,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     %negatives k=-3
     \begin{scope}[shift={(0,0)}]
       \setconstants;
-      \tikzmath{ \t=3; \r=1; \s=1.6; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \tikzmath{ \t=3; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
       \boundingrays;
-      \fill (\x , \y)  circle (5pt);
+      \fill (\x , \y)  circle (5pt) node[below]{$\lambda$};
       \draw[thick] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
 			%\draw [align=center, below] (0,\ymin) node{$\phi_k^{-1}\cC_k(\phi_k\lambda)$};
     \end{scope}
@@ -608,10 +653,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     %positives k=3
     \begin{scope}[shift={(15,0)}]
       \setconstants;
-      \tikzmath{ \t=3; \r=1; \s=1.6; \xx={2*(\r+\s)*\b }; \yy = {-\r*\bcps -\s*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \tikzmath{ \t=3; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
       \boundingrays;
-      \fill (\x , \y)  circle (5pt);
+      \fill (\x , \y)  circle (5pt) node[right]{$\lambda$};
       \draw[thick] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
     \end{scope}
     \draw (15,-7) node{$\phi_{3}^{-1}\cC_{3}(\phi_{3}\lambda)$};
@@ -781,7 +826,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1 \]
   determining a boundary of $\cP_\lambda$.
 
-  Similar arguments with the inequalities \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
+  %Similar arguments with the inequalities \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
+  Similar arguments using \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
   \[ 0 \le (\mu_0-\lambda_0)+\frac{bc+\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
   \[ b\lambda_1 \le (\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le 0;\]
   \[ c\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2b}b\lambda_1 \le -\frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).\]
@@ -911,7 +957,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   In particular, $\cG_\lambda\subset\cS_\lambda$.
   Note also that the dominance region $\cP_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR_1$ defined by the inequalities $\mu_0\ge0$ and $\lambda_1\mu_0-\lambda_0\mu_1\ge0$.
   Similarly, the opposite dominance region $\cP'_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR_2$ defined by the inequalities $\mu_1\ge0$ and $-\lambda'_1\mu_0+\lambda'_0\mu_1\ge0$.
-  But $\cS_\lambda=\cG_\lambda\cup(\cS_\lambda\cap\cR_1)\cup(\cS_\lambda\cap\cR_2)$ and so $\cS_\lambda$ is the maximum possible support for an element pointed at $\lambda$.
+  But $\cS_\lambda=\cG_\lambda\cup(\cS_\lambda\cap\cR_1)\cup(\cS_\lambda\cap\cR_2)$ so $\cS_\lambda$ is the maximum possible support for an element pointed at~$\lambda$.
 
 
 \section{The affine case}
@@ -981,8 +1027,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \begin{align*}
       x_{(n,-n)}^{\bfa^{(n)}}
       &=
-      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
-      &=
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}
+      =
       \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_{n-2r,-n+2r}^{ge}
     \end{align*}
     as desired.
@@ -992,7 +1038,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \label{rk:symmetric}
     Observe that the expansion coefficients $S_{\bfa^{(n)},r}$ can be expressed as the ratio of monomial symmetric functions $\frac{m_{2^{(r)},1^{(n-2r)}}}{m_{1^{(n)}}}$ evaluated at $\bfa^{(n)}$.
     The analogous expansion coefficients when $x_{(n,-n)}^{\bfa^{(n)}}$ is expressed in terms of the triangular basis (resp. greedy basis) are the ratios of Schur functions $\frac{s_{2^{(r)},1^{(n-2r)}}}{s_{1^{(n)}}}$ (resp. ratios of elementary symmetric functions $\frac{e_{r,n-r}}{e_n}$) evaluated at $\bfa^{(n)}$.
-    We leave the details to the interested reader.
+    We leave the details to the reader.
   \end{remark}
 
   \begin{theorem}
@@ -1023,8 +1069,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \bibitem{qin}
       Fan's paper
 
-    \bibitem{rupel}
-      D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
+    %\bibitem{rupel}
+      %D.~Rupel: Rank two non-commutative Laurent phenomenon and pseudo-positivity.  Algebraic Combinatorics, \textbf{2} (2019) no. 6, pp.~1239--1273. \href{https://doi.org/10.5802/alco.81}{DOI: 10.5802/alco.81}.
 
     \bibitem{RSW19}
       Our paper
