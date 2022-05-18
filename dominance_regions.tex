@@ -643,7 +643,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     %negatives k=-3
     \begin{scope}[shift={(0,0)}]
       \setconstants;
-      \tikzmath{ \t=3; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
       \boundingrays;
       \fill (\x , \y)  circle (5pt) node[below]{$\lambda$};
@@ -656,7 +656,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     %positives k=3
     \begin{scope}[shift={(15,0)}]
       \setconstants;
-      \tikzmath{ \t=3; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
+      \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
       \boundingrays;
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y});
