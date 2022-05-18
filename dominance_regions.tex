@@ -111,9 +111,9 @@
       \boundingrays;
       \fill [fill=gray!30, fill opacity=0.4] (\x,\y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- cycle;
       \fill [fill=red!30, fill opacity=0.5]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) --  (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
-      \fill [fill=green!30, fill opacity=0.5] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
+      \fill [fill=darkgreen!30, fill opacity=0.5] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \draw [red, thick, join=round]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
-      \draw [green, thick, join=round] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
+      \draw [darkgreen, thick, join=round] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
       \draw [thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
       \draw [thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -615,6 +615,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \label{ineq:4} -u_{k-1}^-\mu_0-u_{k-2}^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;
     \end{align}
     and by the following inequalities when $k<0$: \saySS{the third equation here is wrong!} \sayDR{I am not seeing what is wrong with it, doesn't it match the points you plotted?}
+    \saySS{It looks to me the current equation is the red one in the picture (wrong) and the correct one is the blue one. They differ in signs.}
     \begin{align*}
       u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
@@ -647,6 +648,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \boundingrays;
       \fill (\x , \y)  circle (5pt) node[below]{$\lambda$};
       \draw[thick] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, red] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+(\b*\c-2)*\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, blue] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y});
 			%\draw [align=center, below] (0,\ymin) node{$\phi_k^{-1}\cC_k(\phi_k\lambda)$};
     \end{scope}
     \draw (0,-7) node{$\phi_{-3}^{-1}\cC_{-3}(\phi_{-3}\lambda)$};
