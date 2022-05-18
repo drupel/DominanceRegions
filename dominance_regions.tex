@@ -659,10 +659,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
       \boundingrays;
-      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y});
-      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y});
-      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y});
-      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {-\c*(\b*\c-2)*\x-\c*\p -(\b*\c-1)*\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {-\c*(\b*\c-2)*\x-\c*\p -(\b*\c-1)*\y});
       \fill (\x , \y)  circle (5pt) node[right]{$\lambda$};
       \draw[thick] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
     \end{scope}
@@ -670,27 +670,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \end{tikzpicture}
 \end{figure}
 
-%    \[
-%      \begin{tikzpicture}
-%        \filldraw[color=lightgray!30] (47/10,-5) --(3.5,-3) -- (0,26/10) -- (-26/4,0) -- (-16/4,-5);
-%        \draw[-] (-8,0) -- (5,0);
-%        \draw[-] (0,-5) -- (0,5);
-%        %\filldraw[color=lightgray!30] (0,0) -- (5,-2.113) -- (5,-5) -- (3.17,-5) -- (0,0);
-%        \draw[dashed] (0,0) -- (5,-2.113);
-%        \draw[dashed] (0,0) -- (3.17,-5);
-%        \node at (1,-0.9) {$\cI$};
-%        \draw[fill=black] (3.5,-3) circle (2pt);
-%        \node[right] at (3.5,-3) {$\lambda$};
-%        \draw[->,thick] (3.5,-3) -- (47/10,-5);
-%        \draw[-,thick] (3.5,-3) -- (0,26/10);
-%        \draw[-,thick] (0,26/10) -- (-26/4,0);
-%        \draw[->,thick] (-26/4,0) -- (-16/4,-5);
-%        \node at (4.5,-4) {\eqref{ineq:1}};
-%        \node at (2.34,-0.5) {\eqref{ineq:2}};
-%        \node at (-3,1.75) {\eqref{ineq:3}};
-%        \node at (-5.36,-3) {\eqref{ineq:4}};
-%      \end{tikzpicture}
-%    \]
   \end{lemma}
   \begin{proof}
     We prove the claim for $k>0$, the proof for $k<0$ is similar or can be deduced from the other case by a symmetry argument.
