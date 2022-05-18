@@ -614,8 +614,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \label{ineq:3} -u_{k-1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       \label{ineq:4} -u_{k-1}^-\mu_0-u_{k-2}^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;
     \end{align}
-    and by the following inequalities when $k<0$: \saySS{the third equation here is wrong!} \sayDR{I am not seeing what is wrong with it, doesn't it match the points you plotted?}
-    \saySS{It looks to me the current equation is the red one in the picture (wrong) and the correct one is the blue one. They differ in signs.}
+    and by the following inequalities when $k<0$:
     \begin{align*}
       u_{k+1}^-\mu_0+u_k^+\mu_1 &\le u_{k+1}^-\lambda_0+u_k^+\lambda_1;\\
       u_k^-\mu_0+u_{k-1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1;\\
@@ -646,11 +645,12 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
       \boundingrays;
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\x-\p)/(\b*\c-1)+\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)/(\b*\c-2)/\b*(\x-\p)+\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {-((\b*\c-1)*\x+\b*(\b*\c-2)*\y+\p)/\b});
       \fill (\x , \y)  circle (5pt) node[below]{$\lambda$};
       \draw[thick] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
-      \draw[domain=\xmin:\xmax, smooth, variable=\p, red] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+(\b*\c-2)*\y});
-      \draw[domain=\xmin:\xmax, smooth, variable=\p, blue] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y});
-			%\draw [align=center, below] (0,\ymin) node{$\phi_k^{-1}\cC_k(\phi_k\lambda)$};
     \end{scope}
     \draw (0,-7) node{$\phi_{-3}^{-1}\cC_{-3}(\phi_{-3}\lambda)$};
     %positives k=3
