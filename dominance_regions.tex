@@ -627,7 +627,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
 \begin{figure}[h!]
   \centering
     \newcommand{\setconstants}{
-      \tikzmath{\b = 3; \c = 6 / \b; \s = sqrt(\b * \c * (\b * \c -4)); \bcmo = \b * \c - 1; \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
+      \tikzmath{\b = 2.5; \c =4.5 / \b; \s = sqrt(\b * \c * (\b * \c -4)); \bcmo = \b * \c - 1; \bcms = \b * \c - \s; \bcps = \b * \c + \s;}
       \tikzmath{ \xmin = -6; \xmax = 6; \ymin = -6; \ymax = 6;}
       \clip (\xmin,\ymin) rectangle (\xmax,\ymax);
     }
@@ -659,6 +659,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \tikzmath{ \t=3; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
       \boundingrays;
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y});
+      \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60] plot ({\p}, {-\c*(\b*\c-2)*\x-\c*\p -(\b*\c-1)*\y});
       \fill (\x , \y)  circle (5pt) node[right]{$\lambda$};
       \draw[thick] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
     \end{scope}
