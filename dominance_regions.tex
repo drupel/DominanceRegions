@@ -643,8 +643,12 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \begin{scope}[shift={(0,0)}]
       \setconstants;
       \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
-      \fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
+      %\fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
       \boundingrays;
+	    \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {\c*(\x-\p)/(\b*\c-1)+\y}) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {(\b*\c-1)/(\b*\c-2)/\b*(\x-\p)+\y}) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y}) -- (\xmax,\ymax) -- (\xmax,\ymin) -- cycle;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {-((\b*\c-1)*\x+\b*(\b*\c-2)*\y+\p)/\b}) -- (\xmax,\ymin) -- (\xmin,\ymin) -- cycle;
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\x-\p)/(\b*\c-1)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)/(\b*\c-2)/\b*(\x-\p)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y});
@@ -657,8 +661,12 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
     \begin{scope}[shift={(15,0)}]
       \setconstants;
       \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
-      \fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
+      %\fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
       \boundingrays;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y}) -- (\xmin,\ymin) -- (\xmin,\ymax) -- cycle;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y}) -- (\xmin,\ymin) -- (\xmin,\ymax) -- cycle;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y}) -- (\xmax,\ymin) -- (\xmin,\ymin) -- cycle;
+      \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {-\c*(\b*\c-2)*\x-\c*\p -(\b*\c-1)*\y}) -- (\xmax,\ymin) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y});
