@@ -95,23 +95,23 @@
       \clip ({\xmin-0.2},{\ymin-0.2}) rectangle ({\xmax+0.2},{\ymax+0.2});
     }
     \newcommand{\boundingrays}{
-      \draw [color=lightgray, thick] (2*\xmin,0) -- (2*\xmax,0);
-      \draw [color=lightgray, thick] (0,2*\ymin) -- (0, 2*\ymax);
-      \draw [color=lightgray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
-      \draw [color=lightgray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
+      \draw [color=gray, thick] (2*\xmin,0) -- (2*\xmax,0);
+      \draw [color=gray, thick] (0,2*\ymin) -- (0, 2*\ymax);
+      \draw [color=gray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
+      \draw [color=gray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
     }
   \begin{tikzpicture}[scale=.5]
       \setconstants;
+      \tikzmath{ \x=4; \y=-3;};
+      \fill [fill=black!30, fill opacity=0.4] (\x,\y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- cycle;
+      \fill [fill=red!30, fill opacity=0.5]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) --  (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
+      \fill [fill=darkgreen!30, fill opacity=0.5] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \foreach \x in {\xmin,...,\xmax} {
         \foreach \y in {\ymin,...,\ymax} {
           \fill[color=gray] (\x,\y) circle (0.05);
         }
       };
-      \tikzmath{ \x=4; \y=-3;};
       \boundingrays;
-      \fill [fill=gray!30, fill opacity=0.4] (\x,\y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- cycle;
-      \fill [fill=red!30, fill opacity=0.5]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) --  (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
-      \fill [fill=darkgreen!30, fill opacity=0.5] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \draw [red, thick, join=round]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
       \draw [darkgreen, thick, join=round] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
@@ -267,12 +267,12 @@
       \clip (\xmin,\ymin) rectangle (\xmax,\ymax);
     }
     \newcommand{\boundingrays}{
-      \draw [color=lightgray, thick] (2*\xmin,0) -- (2*\xmax,0);
-      \draw [color=lightgray, thick] (0,2*\ymin) -- (0, 2*\ymax);
-      \draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax / \b);
-      \draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax * \c / \bcmo );
-      \draw [color=lightgray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
-      \draw [color=lightgray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
+      \draw [color=gray, thick] (2*\xmin,0) -- (2*\xmax,0);
+      \draw [color=gray, thick] (0,2*\ymin) -- (0, 2*\ymax);
+      \draw [color=gray, thick] (0,0) -- (2*\xmax, -2*\xmax / \b);
+      \draw [color=gray, thick] (0,0) -- (2*\xmax, -2*\xmax * \c / \bcmo );
+      \draw [color=gray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
+      \draw [color=gray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
     }
   \begin{tikzpicture}[scale=.3]
     \begin{scope}[shift={(0,0)}]
@@ -313,7 +313,7 @@
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -2*\xmax / \b) -- (4*\xmax, -2*\xmax / \b-2*\xmax * \c / \bcmo ) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- cycle; 
       \boundingrays;
-      \tikzmath{ \t=5; \r=1; \q=2; \xx={\r*\b+\q*(\b*\c-1) }; \yy = {-\r -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
+      \tikzmath{ \t=5; \r=1; \q=1; \xx={\r*\b+\q*(\b*\c-1) }; \yy = {-\r -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
       %\draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
@@ -631,12 +631,12 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \clip (\xmin,\ymin) rectangle (\xmax,\ymax);
     }
     \newcommand{\boundingrays}{
-      \draw [color=lightgray, thick] (2*\xmin,0) -- (2*\xmax,0);
-      \draw [color=lightgray, thick] (0,2*\ymin) -- (0, 2*\ymax);
+      \draw [color=gray, thick] (2*\xmin,0) -- (2*\xmax,0);
+      \draw [color=gray, thick] (0,2*\ymin) -- (0, 2*\ymax);
+      \draw [color=gray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
+      \draw [color=gray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
       %\draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax / \b);
       %\draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax * \c / \bcmo );
-      \draw [color=lightgray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
-      \draw [color=lightgray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
     }
   \begin{tikzpicture}[scale=.3]
     %negatives k=-3
@@ -644,11 +644,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \setconstants;
       \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       %\fill[fill=gray!20] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
-      \boundingrays;
 	    \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {\c*(\x-\p)/(\b*\c-1)+\y}) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {(\b*\c-1)/(\b*\c-2)/\b*(\x-\p)+\y}) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y}) -- (\xmax,\ymax) -- (\xmax,\ymin) -- cycle;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p] plot ({\p}, {-((\b*\c-1)*\x+\b*(\b*\c-2)*\y+\p)/\b}) -- (\xmax,\ymin) -- (\xmin,\ymin) -- cycle;
+      \boundingrays;
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\x-\p)/(\b*\c-1)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)/(\b*\c-2)/\b*(\x-\p)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y});
@@ -662,11 +662,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
       \setconstants;
       \tikzmath{ \t=4.5; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       %\fill[fill=gray!20] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
-      \boundingrays;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y}) -- (\xmin,\ymin) -- (\xmin,\ymax) -- cycle;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y}) -- (\xmin,\ymin) -- (\xmin,\ymax) -- cycle;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y}) -- (\xmax,\ymin) -- (\xmin,\ymin) -- cycle;
       \fill[fill=black!25, opacity=0.3, domain=\xmin:\xmax, smooth, variable=\p]plot ({\p}, {-\c*(\b*\c-2)*\x-\c*\p -(\b*\c-1)*\y}) -- (\xmax,\ymin) -- (\xmax,\ymax) -- (\xmin,\ymax) -- cycle;
+      \boundingrays;
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(\x-\p)/\b+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y});
