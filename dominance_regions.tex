@@ -115,8 +115,10 @@
       \draw [red, thick, join=round]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y)  -- (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) -- ({\bcms/(2*\c)*\y+\x},0) -- (0,{\bcps/(2*\b)*(\x+\b*\y)+(-\c*\x - \b*\c*\y + \y)}) -- cycle;
       \draw [darkgreen, thick, join=round] (\x,\y) -- ({\x+\bcps/(2*\c)*\y},0) -- ({\bcps/(2*\s)*(2*\x+\b*\y)},{\bcps/(2*\s)*(\c*\x+2*\y)}) -- (0,{\bcps/(2*\b)*\x+\y}) -- cycle;
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
-      \draw [thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
-      \draw [thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      %\draw [thick, join=round, line cap=round, dash pattern=on 0pt off 4\pgflinewidth] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
+      %\draw [thick, join=round, line cap=round, dash pattern=on 4\pgflinewidth off 8\pgflinewidth ] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, join=round, line cap=round, dash pattern=on 0pt off 4\pgflinewidth] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, join=round, line cap=round, dash pattern=on 4\pgflinewidth off 8\pgflinewidth ] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt) node[above left]{$\lambda'$};
       \fill (\x , \y)  circle (5pt) node[below right]{$\lambda$};
       \foreach \x/\y in { 1/-3, -2/-3, -5/-3, -2/-1, -5/-1, -5/1, -2/3, -5/3, -2/5, -5/5 } {
@@ -327,7 +329,7 @@
       \fill (\x,\y) circle (5pt);
       %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
-      \draw [thick, dash dot, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, join=round, line cap=round, dash pattern=on 0pt off 4\pgflinewidth on 4\pgflinewidth off 4\pgflinewidth] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(26,-13)}]
@@ -338,7 +340,7 @@
       \fill (\x,\y) circle (5pt);
       %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
-      \draw [thick, dash dot, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, join=round, line cap=round, dash pattern=on 0pt off 4\pgflinewidth on 4\pgflinewidth off 4\pgflinewidth] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
     \begin{scope}[shift={(39,-13)}]
@@ -349,8 +351,8 @@
       \fill (\x , \y)  circle (5pt);
       %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
-      \draw [thick, dotted, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
-      \draw [thick, dashed, join=round] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, join=round, line cap=round, dash pattern=on 0pt off 4\pgflinewidth] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
+      \draw [thick, join=round, line cap=round, dash pattern=on 4\pgflinewidth off 8\pgflinewidth ] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
     \end{scope}
   \end{tikzpicture}
@@ -935,7 +937,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   To continue, we compare the support for an arbitrary basis element pointed at $\lambda\in\cI$ with the corresponding greedy basis elements with $\bfg$-vectors inside the dominance polygon $\cP_\lambda$.
 
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{LLZ,cgmmrsw}.
-  This is indicated by the solid and dashed lines in Theorem~\ref{th:maximum support} where dashed lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
+  This is indicated by the solid and dotted lines in Theorem~\ref{th:maximum support} where dotted lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
   For our purposes, it is enough to observe the following closure property for the greedy support.
   \begin{definition}
     A subset $\cS\subset\RR^2$ is called \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
