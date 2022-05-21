@@ -4,7 +4,7 @@
 \usepackage{latexsym}
 \usepackage{color}
 %\usepackage{ulem}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in,showframe]{geometry}
 \usepackage{tikz}
 \usetikzlibrary{math}
 \usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
@@ -78,12 +78,13 @@
 
 
   \begin{abstract}
-    We investigate the shapes of the polytopes defining the dominance order for $\bfg$-vectors in cluster algebras of rank two.
-    We arrive at a complete description: 
-    \begin{itemize}
-      \item cluster monomials are never deformable;
-      \item the imaginary dominance polytopes are kites, triangles, or trapezoids which extend far outside the imaginary cone; the triangles appearing along rays corresponding to columns of the associated Cartan matrix.
-    \end{itemize}
+    We study the polygons defining the dominance order on $\bfg$-vectors in cluster algebras of rank 2.
+%    We investigate the shapes of the polytopes defining the dominance order for $\bfg$-vectors in cluster algebras of rank two.
+%    We arrive at a complete description: 
+%    \begin{itemize}
+%      \item cluster monomials are never deformable;
+%      \item the imaginary dominance polytopes are kites, triangles, or trapezoids which extend far outside the imaginary cone; the triangles appearing along rays corresponding to columns of the associated Cartan matrix.
+%    \end{itemize}
   \end{abstract}
   \maketitle
 
@@ -151,16 +152,16 @@
   By the Laurent Phenomenon \cite{FZ02}, each $x_m$ is actually an element of $\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ for any $k\in\ZZ$.
   Moreover, these Laurent polynomials are known to have positive coefficients \cite{GHKK18,LLZ14,LS15}.
 
-  An element of $\cA(a,b)$ has \emph{$\bfg$-vector} $\lambda=(\lambda_0,\lambda_1)\in\ZZ^2$, with respect to the embedding ${\cA(b,c)\into\ZZ[x_0^{\pm1},x_{1}^{\pm1}]}$, if it can be written in the form
+  An element of $\cA(b,c)$ has \emph{$\bfg$-vector} $\lambda=(\lambda_0,\lambda_1)\in\ZZ^2$, with respect to the embedding ${\cA(b,c)\into\ZZ[x_0^{\pm1},x_{1}^{\pm1}]}$, if it can be written in the form
   \begin{equation}
     \label{eq:pointed}
     x_0^{\lambda_0}x_1^{\lambda_1}\sum\limits_{\alpha_0,\alpha_1 \ge 0} \rho_{\alpha_0,\alpha_1} x_0^{-b\alpha_0} x_1^{c\alpha_1}
   \end{equation}
   with $\rho_{0,0}=1$.
-  An element of $\cA(a,b)$ is \emph{pointed} if an analogous structure reproduces after expanding in terms of any pair $\{x_k,x_{k+1}\}$; a basis is pointed if it consists entirely of pointed elements.
+  An element of $\cA(b,c)$ is \emph{pointed} if an analogous structure reproduces after expanding in terms of any pair $\{x_k,x_{k+1}\}$; a basis is pointed if it consists entirely of pointed elements.
 
-  Important examples of pointed elements are the \emph{cluster monomials} of $\cA(b,c)$, i.e. the elements of the form $x_k^{\alpha_k}x_{k+1}^{\alpha_{k+1}}$ for some $k\in\ZZ$ and $\alpha_k,\alpha_{k+1}$ non-negative integers.
-  Indeed, by \cite[Lemma 3.4.12]{Qin19} cluster monomials are part of any pointed basis in any cluster algebra of full rank.
+  Important examples of pointed elements are the \emph{cluster monomials} of $\cA(b,c)$, i.e.~the elements of the form $x_k^{\alpha_k}x_{k+1}^{\alpha_{k+1}}$ for some $k\in\ZZ$ and $\alpha_k,\alpha_{k+1}$ non-negative integers.
+  Indeed, by \cite[Lemma 3.4.12]{Qin19} cluster monomials are part of any pointed basis in any (upper) cluster algebra of full rank.
   We achieve the same conclusion in our setting by elementary calculations (cf. Lemma~\ref{le:cluster monomials}).
 
   Elements of any pointed basis are parametrized by $\ZZ^2$ thought of as the collection of possible $\bfg$-vectors.
@@ -176,7 +177,7 @@
   \end{theorem}
 
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
-  We will therefore assume that $bc\ge4$.
+  We therefore assume that $bc\ge4$.
   In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
   Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance region} $\cP_\lambda$.
   %In this case, we compute the possible transitions between any two pointed bases.
@@ -186,16 +187,16 @@
     The dominance region $\cP_\lambda$ of the $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)$ is the polygon consisting of those $\mu=(\mu_0,\mu_1)\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
     {
       \everymath={\displaystyle}
-      \def\arraystretch{2.8}
+      \def\arraystretch{2.2}
       \[
         \begin{array}{rcccl}
-          0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \leq & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
+          0 & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)\!\!;
           \\
-          \min\left(-c\lambda_0,0\right) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & 0
+          \min\left(-c\lambda_0,0\right) & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \!\leq\! & 0;
           \\
-          0 & \leq &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
+          0 & \!\leq\! &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \!\leq\! & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)\!\!;
           \\
-          \min\left(b \lambda_1,0\right) & \leq & (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \leq & 0
+          \min\left(b \lambda_1,0\right) & \!\leq\! & (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \!\leq\! & 0.
         \end{array}
       \]
     }
@@ -210,24 +211,24 @@
     %\end{align}
     
   \end{theorem}
-
+  \vspace{-0.713em}
   Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
-  Lattice points outside of $\cI$ are precisely the $\bfg$-vectors of cluster monomials in $\cA(a,b)$.
+  Lattice points outside of $\cI$ are precisely the $\bfg$-vectors of cluster monomials in $\cA(b,c)$.
   \begin{corollary}
     \label{cor:dominance vertices}
     There are six classes of dominance polygons.
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, then $\cP_\lambda$ is the point $\lambda$. 
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP_\lambda$ is the trapezoid with  vertices $\lambda$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)$.
-      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, say $\lambda=(2\ell,-c\ell)$, then $\cP_\lambda$ is the triangle with  vertices $\lambda$, $\big(2\ell-\frac{bc+\sqrt{bc(bc-4)}}{2}\ell,0\big)$, and $\big(0,\frac{\sqrt{bc(bc-4)}}{b}\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP_\lambda$ is the kite with  vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$.
-      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, say $\lambda=(b\ell,-2\ell)$, then $\cP_\lambda$ is the triangle with  vertices $\lambda$, $\big(-\frac{\sqrt{bc(bc-4)}}{c}\ell,0\big)$, and $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2}\ell-2\ell\big)$.
-      \item If $\lambda$ lies in the interior of the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP_\lambda$ is the trapezoid with  vertices $\lambda$, $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
+      \item If $\lambda$ lies in the cone spanned by the vectors $(2b,-bc-\sqrt{bc(bc-4)})$ and $(2,-c)$, then $\cP_\lambda$ is the trapezoid with  vertices $\lambda$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2c}\big(\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1,0\big)$, and ${\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(-(bc-2)\lambda_0-b\lambda_1,c\lambda_0+2\lambda_1\big)}$.
+      \item If $\lambda$ lies on the ray spanned by $(2,-c)$, then $\cP_\lambda$ is the triangle with vertices $\lambda$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$.
+      \item If $\lambda$ lies in the cone spanned by the vectors $(2,-c)$ and $(b,-2)$, then $\cP_\lambda$ is the kite with  vertices $\lambda$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}(2\lambda_0+b\lambda_1,c\lambda_0+2\lambda_1)$, and $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$.
+      \item If $\lambda$ lies on the ray spanned by $(b,-2)$, then $\cP_\lambda$ is the triangle with vertices $\lambda$, $\big(0,\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1\big)$, and $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$.
+      \item If $\lambda$ lies in the cone spanned by the vectors $(b,-2)$ and $(2b,-bc+\sqrt{bc(bc-4)})$, then $\cP_\lambda$ is the trapezoid with vertices $\lambda$, $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$, $-\frac{bc+\sqrt{bc(bc-4)}}{2b}\big(0,\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1\big)$, and $\big(\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1,0\big)$.
     \end{enumerate}
   \end{corollary}
 
   \begin{remark}
-    Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
+    Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix. % $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
     This unexpected coincidence is one of our reasons for deciding to write down these results.
   \end{remark}
 
@@ -1036,7 +1037,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon 
   \begin{remark}
     \label{rk:symmetric}
     Observe that the expansion coefficients $S_{\bfa^{(n)},r}$ can be expressed as the ratio of monomial symmetric functions $\frac{m_{2^{(r)},1^{(n-2r)}}}{m_{1^{(n)}}}$ evaluated at $\bfa^{(n)}$.
-    The analogous expansion coefficients when $x_{(n,-n)}^{\bfa^{(n)}}$ is expressed in terms of the triangular basis (resp. greedy basis) are the ratios of Schur functions $\frac{s_{2^{(r)},1^{(n-2r)}}}{s_{1^{(n)}}}$ (resp. ratios of elementary symmetric functions $\frac{e_{r,n-r}}{e_n}$) evaluated at $\bfa^{(n)}$.
+    The analogous expansion coefficients when $x_{(n,-n)}^{\bfa^{(n)}}$ is expressed in terms of the triangular basis (resp. greedy basis) are the ratios of Schur functions $\frac{s_{2^{(r)},1^{(n-2r)}}}{s_{1^{(n)}}}$ (resp. ratios of elementary symmetric functions $\frac{e_{n-r,r}}{e_n}$) evaluated at $\bfa^{(n)}$.
     We leave the details to the reader.
   \end{remark}
 
