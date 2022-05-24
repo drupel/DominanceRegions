@@ -236,16 +236,17 @@
 
   \begin{remark}
     Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix. % $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
-    This unexpected coincidence is one of our reasons for deciding to write down these results.
+    Moreover the expression for the dominance regions along those rays coincide.
+    These unexpected coincidences are one of our reasons for deciding to write down these results.
   \end{remark}
 
   Given a Laurent polynomial in $\ZZ[x_0^{\pm1},x_1^{\pm1}]$, its \emph{support} is the set of its exponent vectors inside $\ZZ^2$.
-  Given a $\bfg$-vector $\lambda$, in the next result we identify a polygon $\cS_\lambda$ whose lattice points are the maximum possible support of a pointed basis element $x_\lambda$. 
+  Given a $\bfg$-vector $\lambda$, in the next result we identify a polygon $\cS_\lambda$ whose lattice points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$ for~$\alpha_0,\alpha_1\in\ZZ$ give the maximum possible support of a pointed basis element $x_\lambda$. 
   \begin{theorem}
     \label{th:maximum support}
     Let $\lambda=(\lambda_0,\lambda_1)\in\ZZ^2$ be the $\bfg$-vector for a pointed basis element $x_\lambda$.
     \begin{enumerate}
-      \item If $\lambda$ lies outside of $\cI$, then the support of $x_\lambda$ is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cS_\lambda$ given as follows:
+      \item If $\lambda$ lies outside of $\cI$, then the support of $x_\lambda$ is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside the region $\cS_\lambda$ given as follows:
         \begin{enumerate}
           \item If $0\le\lambda_0,\lambda_1$, then $\cS_\lambda$ is just the point $\lambda$.
           \item If $\lambda_1 < 0$ and $0\le\lambda_0+b\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0+b\lambda_1,\lambda_1)$.
@@ -281,6 +282,8 @@
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \q=1; \xx = \r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
+%      \fill[white] (\xmax-2,\ymax-1.5) rectangle (\xmax-1, \ymax-0.5);
+      \draw (\xmax-1.5,\ymax-1) node{(1.a)};
     \end{scope}
     \begin{scope}[shift={(13,0)}]
       \setconstants;
@@ -290,6 +293,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
       \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(1.b)};
     \end{scope}
     \begin{scope}[shift={(26,0)}]
       \setconstants;
@@ -299,6 +303,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
       \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(1.c)};
     \end{scope}
     \begin{scope}[shift={(39, 0)}]
       \setconstants;
@@ -308,6 +313,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
       \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(1.d)};
     \end{scope}
     \begin{scope}[shift={(0,-13)}]
       \setconstants;
@@ -318,6 +324,7 @@
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
       %\draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(1.e)};
     \end{scope}
     \begin{scope}[shift={(13,-13)}]
       \setconstants;
@@ -330,6 +337,7 @@
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(1.f)};
     \end{scope}
     \begin{scope}[shift={(26,-13)}]
       \setconstants;
@@ -342,6 +350,7 @@
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(1.f)};
     \end{scope}
     \begin{scope}[shift={(39,-13)}]
       \setconstants;
@@ -355,6 +364,7 @@
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, join=round, line cap=round, dash pattern=on {\gap*\pgflinewidth} off {2*\gap*\pgflinewidth} ] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
+      \draw (\xmax-1.5,\ymax-1) node{(2)};
     \end{scope}
   \end{tikzpicture}
 \end{figure}
