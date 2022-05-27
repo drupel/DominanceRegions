@@ -401,22 +401,22 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \end{lemma}
   \begin{proof}
     We work by induction on $\ell$, the cases $\ell=0,1$ being tautological and reproducing the defining recursion, respectively.
-    Using the claim for $\ell>0$ and then the defining recursion twice, we get
-    \begin{align*}
-      u_{i+\ell+1}^\varepsilon
-      &=
+    Using the claim for $\ell>0$ and then the defining recursion twice, $u_{i+\ell+1}^\varepsilon$ can be rewritten as
+    \[
       u_{\ell+1}^\varepsilon u_{i+1}^{-\varepsilon}-u_\ell^{-\varepsilon} u_i^\varepsilon
+      =u_{\ell+1}^\varepsilon(u_2^{-\varepsilon}u_i^\varepsilon-u_{i-1}^{-\varepsilon}) -u_\ell^{-\varepsilon} u_i^\varepsilon 
       =(u_2^{-\varepsilon} u_{\ell+1}^\varepsilon-u_\ell^{-\varepsilon}) u_i^\varepsilon-u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
       =u_{\ell+2}^{-\varepsilon} u_i^\varepsilon - u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
-      \qquad \text{if $\ell$ is odd;}\\ 
-      u_{i+\ell+1}^\varepsilon
-      &=
+    \]
+    for $\ell$ odd and as
+    \[
       u_{\ell+1}^{-\varepsilon} u_{i+1}^\varepsilon-u_\ell^\varepsilon u_i^{-\varepsilon}
+      =u_{\ell+1}^{-\varepsilon}(u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon) -u_\ell^\varepsilon u_i^{-\varepsilon}
       =(u_2^\varepsilon u_{\ell+1}^{-\varepsilon}-u_\ell^\varepsilon) u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon
       =u_{\ell+2}^\varepsilon u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon
-      \qquad \text{if $\ell$ is even;} 
-    \end{align*}
-    which gives the claimed recursion for $\ell+1$.
+    \]
+    for $\ell$ even.
+    This gives the claimed recursion for $\ell+1$.
     These calculations can be reversed to show the result for $\ell<0$.
   \end{proof}
 
