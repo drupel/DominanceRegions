@@ -283,7 +283,7 @@
       \tikzmath{ \t=3; \r=1; \q=1; \xx = \r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
 %      \fill[white] (\xmax-2,\ymax-1.5) rectangle (\xmax-1, \ymax-0.5);
-      \draw (\xmax-1.5,\ymax-1) node{(1.a)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.a)};
     \end{scope}
     \begin{scope}[shift={(13,0)}]
       \setconstants;
@@ -293,7 +293,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
       \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(1.b)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.b)};
     \end{scope}
     \begin{scope}[shift={(26,0)}]
       \setconstants;
@@ -303,7 +303,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
       \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(1.c)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.c)};
     \end{scope}
     \begin{scope}[shift={(39, 0)}]
       \setconstants;
@@ -313,7 +313,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
       \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(1.d)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.d)};
     \end{scope}
     \begin{scope}[shift={(0,-13)}]
       \setconstants;
@@ -324,7 +324,7 @@
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
       %\draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(1.e)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.e)};
     \end{scope}
     \begin{scope}[shift={(13,-13)}]
       \setconstants;
@@ -337,7 +337,7 @@
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(1.f)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.f)};
     \end{scope}
     \begin{scope}[shift={(26,-13)}]
       \setconstants;
@@ -350,7 +350,7 @@
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(1.f)};
+      \draw (\xmin+1.5,\ymin+1) node{(1.f)};
     \end{scope}
     \begin{scope}[shift={(39,-13)}]
       \setconstants;
@@ -364,8 +364,16 @@
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, join=round, line cap=round, dash pattern=on {\gap*\pgflinewidth} off {2*\gap*\pgflinewidth} ] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmax-1.5,\ymax-1) node{(2)};
+      \draw (\xmin+1.5,\ymin+1) node{(2)};
     \end{scope}
+    \draw[black,very thick] (-6.57,6.5) -- (45.57,6.5);
+    \draw[black,very thick] (-6.5,-6.5) -- (45.5,-6.5);
+    \draw[black,very thick] (-6.57,-19.5) -- (45.57,-19.5);
+    \draw[black,very thick] (-6.5,6.5) -- (-6.5,-19.5);
+    \draw[black,very thick] (6.5,6.5) -- (6.5,-19.5);
+    \draw[black,very thick] (19.5,6.5) -- (19.5,-19.5);
+    \draw[black,very thick] (32.5,6.5) -- (32.5,-19.5);
+    \draw[black,very thick] (45.5,6.5) -- (45.5,-19.5);
   \end{tikzpicture}
 \end{figure}
 
