@@ -388,7 +388,9 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \label{sec:chebyshev}
   Define \emph{two-parameter Chebyshev polynomials} $u_i^\varepsilon$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by $u_0^\varepsilon=0$, $u_1^\varepsilon=1$, and
   \[u_{i+1}^\varepsilon=\begin{cases} bu_i^- -u_{i-1}^+ & \text{if $\varepsilon=+$;}\\ cu_i^+-u_{i-1}^- & \text{if $\varepsilon=-$.} \end{cases}\]
-    Observe that, by an easy induction, $u_{-i}^\varepsilon=-u_i^\varepsilon$.
+  \begin{remark}
+    Observe that, by easy inductions, we have $u_{-i}^\varepsilon=-u_i^\varepsilon$ for $i\in\ZZ$ and $u_{2j+1}^+=u_{2j+1}^-$ for $j\in\ZZ$.
+  \end{remark}
 
   %The recursion can be written more succinctly as $u_{i+1}^\varepsilon=u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon$ with the additional initial condition $u_2^\varepsilon=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
   %This leads to the following more general recursive structure.
@@ -426,9 +428,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd;} \end{cases}\]
   it follows that $u_i^\varepsilon$ can be computed explicitly as
   \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-  \begin{remark}
-    Note that $u_{2j+1}^+=u_{2j+1}^-$ for all $j\in\ZZ$.
-  \end{remark}
 
   \begin{lemma}
     \label{le:limits}
