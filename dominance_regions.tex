@@ -285,7 +285,7 @@
 %      \fill[white] (\xmax-2,\ymax-1.5) rectangle (\xmax-1, \ymax-0.5);
       \draw (\xmin+1.5,\ymin+1) node{(1.a)};
     \end{scope}
-    \begin{scope}[shift={(13,0)}]
+    \begin{scope}[shift={(14,0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (4*\xmax,-2*\xmax / \b) --  (2*\xmax,-2*\xmax / \b) -- cycle; 
       \boundingrays;
@@ -295,7 +295,7 @@
       \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.b)};
     \end{scope}
-    \begin{scope}[shift={(26,0)}]
+    \begin{scope}[shift={(28,0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
@@ -305,7 +305,7 @@
       \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.c)};
     \end{scope}
-    \begin{scope}[shift={(39, 0)}]
+    \begin{scope}[shift={(42, 0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymin) --  (0,2*\ymin) -- cycle; 
       \boundingrays;
@@ -315,7 +315,7 @@
       \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.d)};
     \end{scope}
-    \begin{scope}[shift={(0,-13)}]
+    \begin{scope}[shift={(0,-14)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -2*\xmax / \b) -- (4*\xmax, -2*\xmax / \b-2*\xmax * \c / \bcmo ) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- cycle; 
       \boundingrays;
@@ -326,7 +326,7 @@
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.e)};
     \end{scope}
-    \begin{scope}[shift={(13,-13)}]
+    \begin{scope}[shift={(14,-14)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- (4*\xmax, -2*\xmax * \c / \bcmo -\xmax * \bcms / \b) -- (2*\xmax, -\xmax * \bcms / \b) -- cycle; 
       \boundingrays;
@@ -339,7 +339,7 @@
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.f)};
     \end{scope}
-    \begin{scope}[shift={(26,-13)}]
+    \begin{scope}[shift={(28,-14)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (0, 2*\ymin) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin +2*\ymin) --  ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
@@ -352,7 +352,7 @@
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.f)};
     \end{scope}
-    \begin{scope}[shift={(39,-13)}]
+    \begin{scope}[shift={(42,-14)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps + 2*\xmax, 2*\ymin  -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
@@ -366,21 +366,14 @@
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(2)};
     \end{scope}
-    \draw[black,very thick] (-6.57,6.5) -- (45.57,6.5);
-    \draw[black,very thick] (-6.5,-6.5) -- (45.5,-6.5);
-    \draw[black,very thick] (-6.57,-19.5) -- (45.57,-19.5);
-    \draw[black,very thick] (-6.5,6.5) -- (-6.5,-19.5);
-    \draw[black,very thick] (6.5,6.5) -- (6.5,-19.5);
-    \draw[black,very thick] (19.5,6.5) -- (19.5,-19.5);
-    \draw[black,very thick] (32.5,6.5) -- (32.5,-19.5);
-    \draw[black,very thick] (45.5,6.5) -- (45.5,-19.5);
+    %\draw[black,very thick] (-6.5,6.5) -- (45.5,6.5) -- (45.5,-19.5) -- (-6.5,-19.5) -- cycle;
+    %\draw[black,very thick] (-6.5,-6.5) -- (45.5,-6.5);
+    %\draw[black,very thick] (6.5,6.5) -- (6.5,-19.5);
+    %\draw[black,very thick] (19.5,6.5) -- (19.5,-19.5);
+    %\draw[black,very thick] (32.5,6.5) -- (32.5,-19.5);
+    \draw (21,-22) node{The maximal supports $\cS_\lambda$ as described in Theorem \ref{th:maximum support}.};
   \end{tikzpicture}
 \end{figure}
-
-\begin{remark}
-  This result reveals the maximal support possible for a pointed basis which remains pointed under all possible mutations.
-  In particular, any candidate basis could be ruled out using these results based upon their support alone.
-\end{remark}
 
 The paper is organized as follows.
 In Section~\ref{sec:chebyshev}, we collect useful results related to two-parameter Chebyshev polynomials which support our main calculations.
@@ -388,17 +381,17 @@ Section~\ref{sec:tropical} contains calculations related to the transformation o
 Section~\ref{sec:dominance inequalities} proves Theorem~\ref{th:dominance inequalities}.
 Section~\ref{sec:dominance vertices} proves Corollary~\ref{cor:dominance vertices}.
 Section~\ref{sec:maximum support} proves Theorem~\ref{th:maximum support}.
-The paper ends with Section~\ref{sec:affine} interpreting the dominance polygon in terms of generalized minors in the cases where $b=c=2$.
+The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons in terms of generalized minors in the cases where $b=c=2$.
 
 
 \section{Chebyshev Polynomials}
   \label{sec:chebyshev}
-  Define \emph{two-parameter Chebyshev polynomials} $u_i^\varepsilon$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by
-  \[u_0^\varepsilon=0,\quad u_1^\varepsilon=1,\quad u_{i+1}^\varepsilon=\begin{cases} bu_i^- -u_{i-1}^+ & \text{if $\varepsilon=+$;}\\ cu_i^+-u_{i-1}^- & \text{if $\varepsilon=-$.} \end{cases}\]
+  Define \emph{two-parameter Chebyshev polynomials} $u_i^\varepsilon$ for $i\in\ZZ$ and $\varepsilon\in\{\pm\}$ recursively by $u_0^\varepsilon=0$, $u_1^\varepsilon=1$, and
+  \[u_{i+1}^\varepsilon=\begin{cases} bu_i^- -u_{i-1}^+ & \text{if $\varepsilon=+$;}\\ cu_i^+-u_{i-1}^- & \text{if $\varepsilon=-$.} \end{cases}\]
     Observe that, by an easy induction, $u_{-i}^\varepsilon=-u_i^\varepsilon$.
 
-  The recursion can be written more succinctly as $u_{i+1}^\varepsilon=u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon$ with the additional initial condition $u_2^\varepsilon=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
-  This leads to the following more general recursive structure.
+  %The recursion can be written more succinctly as $u_{i+1}^\varepsilon=u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon$ with the additional initial condition $u_2^\varepsilon=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
+  %This leads to the following more general recursive structure.
   \begin{lemma}
     For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
     \begin{equation}
