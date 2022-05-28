@@ -421,24 +421,26 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     These calculations can be reversed to show the result for $\ell<0$.
   \end{proof}
 
-  The standard Chebyshev polynomials (normalized, of the second kind) are defined by the recursion $u_0=0$, $u_1=1$, $u_{i+1}=ru_i-u_{i-1}$, which can be computed explicitly as
-  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
-  An induction on $i$ shows  
-  \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd.} \end{cases}\]
-  It follows that $u_i^\varepsilon$ can be computed explicitly as
-  \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
-
   \begin{lemma}
     \label{le:limits}
     We have
     \[\lim_{i\to\infty} \frac{u_i^-}{u_{i-1}^+}=\frac{bc+\sqrt{bc(bc-4)}}{2b}=\lim_{i\to-\infty} \frac{u_{i-1}^-}{u_i^+};\]
     \[\lim_{i\to\infty} \frac{u_{i-1}^-}{u_i^+}=\frac{bc-\sqrt{bc(bc-4)}}{2b}=\lim_{i\to-\infty} \frac{u_i^-}{u_{i-1}^+}.\]
-    Moreover, each of these sequences is monotonic.
+    Moreover, the limits in the first line converge monotonically from above and the limits in the second line converge monotonically from below.
   \end{lemma}
   \begin{remark}
-    The analogous limits with $+$ and $-$ reversed are obtained from these by interchanging the roles of $b$ and $c$.
+    The analogous limits with $\varepsilon=+$ and $\varepsilon=-$ reversed are obtained from these by interchanging the roles of $b$ and $c$.
   \end{remark}
   \begin{proof}
+    We first compute the limits for arbitrary positive real numbers $b$ and $c$ with $bc>4$; the remaining case will then follow by taking the limit as $bc$ approaches $4$.
+
+  The standard Chebyshev polynomials (normalized, of the second kind) are defined by the recursion $u_0=0$, $u_1=1$, $u_{i+1}=ru_i-u_{i-1}$, which can be computed explicitly as
+  \[u_i(r)=\frac{1}{2^i\sqrt{r^2-4}}\left(\big(r+\sqrt{r^2-4}\big)^i-\big(r-\sqrt{r^2-4}\big)^i\right).\]
+  An induction on $i$ shows that 
+  \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{\sqrt{c}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{\sqrt{b}}u_i(\sqrt{bc}) & \text{if $i$ is even and $\varepsilon=-$;}\\ u_i(\sqrt{bc}) & \text{if $i$ is odd.} \end{cases}\]
+  It follows that $u_i^\varepsilon$ can be computed explicitly as
+  \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
+
     For any $i\ne1$, we have
     \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
     It follows that
@@ -452,15 +454,23 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     This proves the claim for $i\to\infty$, the cases $i\to-\infty$ follow from these using $u_{-i}^\varepsilon=-u_i^\varepsilon$.
 
     For the final claim, observe that $\frac{u_{i+1}^{-\varepsilon}}{u_i^\varepsilon}<\frac{u_i^{-\varepsilon}}{u_{i-1}^\varepsilon}$ and $\frac{u_{i-1}^{-\varepsilon}}{u_i^\varepsilon}<\frac{u_i^{-\varepsilon}}{u_{i+1}^\varepsilon}$ are both equivalent to $u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon<u_i^{-\varepsilon}u_i^\varepsilon$.
-    This is immediate from the following induction:
+    This inequality is then immediate, for $i>0$, from the following inductions:
     \begin{align*}
-      u_{i+1}^{-\varepsilon}u_{i-1}^\varepsilon
-      =(cu_i^\varepsilon-u_{i-1}^{-\varepsilon})u_{i-1}^\varepsilon
-      =cu_i^\varepsilon u_{i-1}^\varepsilon-u_{i-1}^{-\varepsilon} u_{i-1}^\varepsilon
-      <cu_i^\varepsilon u_{i-1}^\varepsilon-u_i^\varepsilon u_{i-2}^{-\varepsilon}
-      =u_i^\varepsilon(cu_{i-1}^\varepsilon-u_{i-2}^{-\varepsilon})
-      =u_i^\varepsilon u_i^{-\varepsilon}.
+      u_{i+1}^{-}u_{i-1}^+
+      =(cu_i^+-u_{i-1}^{-})u_{i-1}^+
+      =cu_i^+ u_{i-1}^+-u_{i-1}^{-} u_{i-1}^+
+      <cu_i^+ u_{i-1}^+-u_i^+ u_{i-2}^{-}
+      =u_i^+(cu_{i-1}^+-u_{i-2}^{-})
+      =u_i^+ u_i^{-};
+      \\
+      u_{i+1}^{+}u_{i-1}^-
+      =(bu_i^--u_{i-1}^{+})u_{i-1}^-
+      =bu_i^- u_{i-1}^--u_{i-1}^{+} u_{i-1}^-
+      <bu_i^- u_{i-1}^--u_i^- u_{i-2}^{+}
+      =u_i^-(bu_{i-1}^--u_{i-2}^{+})
+      =u_i^- u_i^{+}.
     \end{align*}
+    Again the case $i<0$ then follows from $u_{-i}^\varepsilon=-u_i^\varepsilon$.
   \end{proof}
 
 
@@ -518,7 +528,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \big((bc-1)\lambda_0+b\lambda_1, -c\lambda_0-\lambda_1\big) & \text{if $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1\ge 0$;}\\
       (-\lambda_0, -c\lambda_0-\lambda_1) & \text{if $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1<0$;}\\
       (-\lambda_0+b\lambda_1, -\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1\ge 0$;}\\
-      (-\lambda_0,-\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1<0$;}
+      (-\lambda_0,-\lambda_1) & \text{if $\lambda_0<0$ and $\lambda_1<0$.}
     \end{cases}
   \end{equation}
 
