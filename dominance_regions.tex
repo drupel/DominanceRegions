@@ -575,7 +575,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \end{lemma}
   \begin{proof}
     We work by induction on $j$, the case $j=0$ being clear from the definitions.
-    For $\lambda\in\cI$, the action of $\phi_2$ from \eqref{eq:forward two step mutation} can be rewritten as
+    For $\lambda\in\cI$, the action of~$\phi_2$ from \eqref{eq:forward two step mutation} can be rewritten as
     \[\phi_2(\lambda)=(u_3^-\lambda_0+u_2^+\lambda_1,-u_2^-\lambda_0-u_1^+\lambda_1).\]
     Therefore, after applying the equivalences for odd Chebyshev polynomials from Remark~\ref{rem:equivalences}, we have
     \begin{align*}
@@ -584,7 +584,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       &=(u_{2j+3}^+\lambda_0+u_{2j+2}^+\lambda_1, -u_{2j+2}^-\lambda_0-u_{2j+1}^-\lambda_1),
     \end{align*}
     where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
-    By Remark~\ref{rem:equivalences}, this is equivalent to the desired expression.
+    Using Remark~\ref{rem:equivalences} again, this is equivalent to the desired expression.
 
     Similarly, using $\phi_1(\lambda)=(-\lambda_0,u_2^-\lambda_0+u_1^+\lambda_1)$ for $\lambda\in\cI$ together with the basic Chebyshev recursion and the equality $\phi_{2j+1}=\phi_1\phi_2^j$ gives the claimed formula for $\phi_{2j+1}$ from that of $\phi_{2j}$.
   \end{proof}
