@@ -600,14 +600,14 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     If $\lambda\in\ZZ^2\setminus\cI$, then $\cP_\lambda=\{\lambda\}$.
   \end{lemma}
   \begin{proof}
-    Any such $\lambda$ is the $\bfg$-vector of a cluster monomial, say $x_k^{\alpha_k}x_{k+1}^{\alpha_{k+1}}$.
+    Any such $\lambda$ is the $\bfg$-vector of a cluster monomial, say $x_{k+1}^{\alpha_{k+1}}x_{k+2}^{\alpha_{k+2}}$.
     In this case, the intersection
     \[\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda) \cap \phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)\]
     is precisely $\{\lambda\}$. 
     Indeed, for $k$ odd, the cone $\cC_{k-1}(\phi_{k-1}\lambda)$ lies entirely within a domain of linearity for $\phi_{k-1}^{-1}$.
     In particular, $\phi_{k-1}^{-1}\cC_{k-1}(\phi_{k-1}\lambda)$ is a cone containing $\lambda$ directed away from the origin (with walls parallel to the boundary of the domain of linearity containing $\lambda$).
-    Next, again for $k$ odd, the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ intersects the domain of linearity for $\phi_{k+1}^{-1}$ containing $\phi_{k+1}\lambda$ in a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\phi_{k+1}\lambda$.
-    In particular, the intersection of $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ with the cone containing $\lambda$ is a (possibly degenerate) convex quadrilateral with corners at $(0,0)$ and $\lambda$.
+    Next, again for $k$ odd, the cone $\cC_{k+1}(\phi_{k+1}\lambda)$ intersects the domain of linearity for $\phi_{k+1}^{-1}$ containing $\phi_{k+1}\lambda$ in a (possibly degenerate) convex quadrilateral with corners at the origin and $\phi_{k+1}\lambda$.
+    In particular, the intersection of $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ with the cone containing $\lambda$ is a (possibly degenerate) convex quadrilateral with corners at the origin and $\lambda$.
     Combining these observations proves the result for $k$ odd, the case of even $k$ is similar.
   \end{proof}
   To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
