@@ -876,8 +876,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
 \section{Proof of Theorem~\ref{th:maximum support}}
 \label{sec:maximum support} 
-
-
+  
+  We begin observing that, by Lemma~\ref{le:cluster monomials}, the dominance region $\cP_\lambda$ of any $\bfg$-vector $\lambda\not\in\cI$ is just the point~$\lambda$.
+  Therefore, by Theorem~\ref{th:dominance} the corresponding pointed element is the cluster monomial whose $\bfg$-vector is $\lambda$. 
+  The support of this element is exactly $\cS_\lambda$ by \cite[Proposition 4.1]{LLZ14}.
+  
   Every pointed basis element for $\cA(b,c)$ admits an opposite $\bfg$-vector arising by interchanging the roles of $b$, $c$ and $x_0$, $x_1$ in \eqref{eq:pointed}. 
   One can easily compute the following correspondence.
   \begin{lemma}
@@ -931,16 +934,16 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     %}
   \end{proof}
 
-  For $\lambda\in\cI$, the maximal support $\cS_\lambda$ is determined by the following inequalities:
+  For $\lambda\in\cI$, the region $\cS_\lambda$ from Theorem~\ref{th:maximum support} is determined by the following inequalities:
   \begin{align*}
-    \lambda_1 &\leq \mu_1\\
-    \lambda'_0 &\leq \mu_0\\
-    0 &\leq -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1)\\
-    0 &\leq -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0) -(\mu_1-\lambda'_1)
+    \lambda_1 &\leq \mu_1;\\
+    \lambda'_0 &\leq \mu_0;\\
+    0 &\leq -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
+    0 &\leq -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0) -(\mu_1-\lambda'_1).
   \end{align*}
-  We claim that $\cP_\lambda,\cP'_\lambda\subset\cS_\lambda$.
+  To begin proving that this is the maximal support we claim that $\cP_\lambda,\cP'_\lambda\subset\cS_\lambda$.
 
-  Observe that the last equality can be rewritten as
+  Observe that the last inequality can be rewritten as
   \[ \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) \leq -c\lambda_0 - \frac{b c + \sqrt{b c (b c-4)}}{2 } \lambda_1,\]
   which together with the second to last inequality already gives two of the boundaries for the dominance region $\cP_\lambda$.
   Note then that, under the assumption $\mu_0\leq\lambda_0$, the inequality 
@@ -973,7 +976,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   To continue, we compare the support for an arbitrary basis element pointed at $\lambda\in\cI$ with the corresponding greedy basis elements with $\bfg$-vectors inside the dominance polygon $\cP_\lambda$.
 
   The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{CGMMRSW17,LLZ14}.
-  This is indicated by the solid and dotted lines in Theorem~\ref{th:maximum support} where dotted lines indicate points that are excluded from the support (note that the white dot does not indicate that this point is excluded).
+  This is indicated by the solid and dotted lines in our figures where dotted lines indicate points that are excluded from the support.
   For our purposes, it is enough to observe the following closure property for the greedy support.
   \begin{definition}
     A subset $\cS\subset\RR^2$ is called \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
