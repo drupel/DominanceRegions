@@ -616,20 +616,35 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     \item if $\lambda_0 > 0$ and $\lambda_1 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_0$, the first and second pairs of inequalities become equations for lines which intersect at $\lambda$;
     \item if $\lambda_1 < 0$ and $\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_1$, the third and fourth pairs of inequalities become equations for lines which intersect at $\lambda$.
   \end{itemize}
-  This proves Theorem~\ref{th:dominance inequalities} when $\lambda\notin\cI$.
+  Since $\lambda$ satisfies all the inequalities, these observations prove Theorem~\ref{th:dominance inequalities} when $\lambda\notin\cI$.
 
-  Next we aim to understand how inequalities transform under the action of a linear map, this will be the key tool for describing the dominance regions $\cP_\lambda$ for $\lambda\in\cI$.
+  Next we aim to understand how inequalities transform under the action of a piecewise-linear map.
+  The following well known fact about linear maps will suffice.
 
   \begin{lemma}
     \label{le:transformed inequalities}
     Let $A$ be an invertible $2\times 2$ matrix.
-    Under the left action of $A$, say $A\mu=\mu'$ for $\mu,\mu'\in\RR^2$, the region inside $\RR^2$ defined by the inequality $\bfr\bullet\mu \le t$ with $\bfr\in\RR^2$ and $t\in\RR$ is transformed into the region defined by the inequality \[(A^{-T}\bfr)\bullet\mu'\le t.\]
+    Under the left action of $A$, say $A\mu=\mu'$ for $\mu,\mu'\in\RR^2$, the region inside $\RR^2$ defined by the inequality $\langle\bfr,\mu\rangle \le t$ with $\bfr\in\RR^2$ and $t\in\RR$ is transformed into the region defined by the inequality 
+    \[
+      \langle A^{-T}\bfr,\mu'\rangle\le t.
+    \]
   \end{lemma}
   \begin{proof}
     This is immediate from the equalities
-    \[\bfr\bullet\mu=\bfr^T\mu=\bfr^TA^{-1}A\mu=(A^{-T}\bfr)^TA\mu=(A^{-T}\bfr)\bullet\mu'.\]
+    \[
+      \langle \bfr,\mu\rangle
+      =
+      \bfr^T\mu
+      =
+      \bfr^TA^{-1}A\mu
+      =
+      (A^{-T}\bfr)^TA\mu
+      =
+      \langle A^{-T}\bfr,\mu'\rangle.
+    \]
   \end{proof}
-  
+ 
+  The following calculation is key to our main result.
   \begin{lemma}
     \label{le:dominance inequalities}
     For $k\in\ZZ$, $k\ne0$, and $\lambda\in\cI$, the region $\phi_k^{-1}\cC_k(\phi_k\lambda)\subset\RR^2$ is determined by the following inequalities when $k>0$:
@@ -683,7 +698,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     \end{scope}
     \draw (0,-7) node{$\phi_{-3}^{-1}\cC_{-3}(\phi_{-3}\lambda)$};
     %positives k=3
-    \begin{scope}[shift={(15,0)}]
+    \begin{scope}[shift={(20,0)}]
       \setconstants;
       \tikzmath{ \t=4.2; \r=1; \q=1.6; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill[fill=black!50] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
@@ -699,7 +714,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \fill (\x , \y)  circle (5pt) node[right]{$\lambda$};
       \draw[thick] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
     \end{scope}
-    \draw (15,-7) node{$\phi_{3}^{-1}\cC_{3}(\phi_{3}\lambda)$};
+    \draw (20,-7) node{$\phi_{3}^{-1}\cC_{3}(\phi_{3}\lambda)$};
   \end{tikzpicture}
 \end{figure}
 
@@ -710,8 +725,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
     For $k=2j$, $j>0$, and $\lambda\in\cI$, we observe that $\cC_k(\phi_k\lambda)\subset\RR^2$ is given by the inequalities 
     \[ (\dagger)\ \mu_0 \le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1 \qquad\text{and}\qquad (\ddagger)\ -\mu_1\le u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1. \]
-    We inductively compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$, using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\phi_2^{-j}$.
-    First observe that $\phi_2^{-1}=\phi_{-2}$ is given as follows:
+    We compute the region $\phi_{2j}^{-1}\cC_{2j}(\phi_{2j}\lambda)$ using Lemma~\ref{le:transformed inequalities} and the equality $\phi_{2j}^{-1}=\left(\phi_2^{-1}\right)^{j}$.
+    First observe that~$\phi_2^{-1}=\phi_{-2}$ is given as follows:
     \begin{equation}
       \label{eq:backward two step mutation}
       \phi_{-2}(\lambda)
@@ -723,7 +738,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
         (-\lambda_0,-\lambda_1) & \text{if $\lambda_1>0$ and $\lambda_0>0$.}
       \end{cases}
     \end{equation}
-
+  
     \subsubsection*{Claim:} For $i>0$, $\phi_{2i}^{-1}\cC_{2j}(\phi_{2j}\lambda)$ is the region determined by the inequalities 
     \begin{align*}
       \tag{a} u_{2i}^-\mu_0+u_{2i-1}^+\mu_1 &\le u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1;\\
@@ -732,14 +747,15 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \tag{d} -u_{2i-1}^-\mu_0-u_{2i-2}^+\mu_1 &\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1.
     \end{align*}
 
-    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{2j}(\phi_{2j}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$ of determinant 1.
+    We prove the claim by induction on $i$.
+    We see from \eqref{eq:backward two step mutation}, that $\lambda\in\cI$ implies the boundary ray for $\cC_{2j}(\phi_{2j}\lambda)$ corresponding to ($\ddagger$) lies entirely in the region in which $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$.
     By Lemma~\ref{le:transformed inequalities}, the inequality ($\ddagger$) transforms into the inequality $c\mu_0+\mu_1\le u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1$ which corresponds to (a) with $i=1$.
-    Similarly, the boundary ray for $\cC_{2j}(\phi_{2j}\lambda)$ corresponding to ($\dagger$) intersects the three domains of linearity in which $\phi_2^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$, each of determinant 1.
-    By Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with $i=1$.
-    This establishes the base of an induction on $i$.
+    Similarly, the boundary ray for $\cC_{2j}(\phi_{2j}\lambda)$ corresponding to ($\dagger$) intersects the three domains of linearity in which $\phi_2^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$, $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$.
+    By Lemma~\ref{le:transformed inequalities}, the inequality~($\dagger$) can be seen to transform by these into each of inequalities (b), (c), (d) with~$i=1$.
+    This establishes the base of our induction.
 
-    Assuming the inequalities (a)-(d) hold for $i$, we apply Lemma~\ref{le:transformed inequalities} with $\phi_2^{-1}$.
-    Both of the boundary rays corresponding to the inequalities (a) and (d) lie entirely in the region where $\phi_2^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
+    Assuming the inequalities (a)-(d) hold for $i$, we apply Lemma~\ref{le:transformed inequalities} for $\phi_2^{-1}$.
+    Both of the boundary rays corresponding to the inequalities (a) and (d) lie entirely in the region where $\phi_2^{-1}$ acts according to the matrix~$\left[ \begin{array}{cc} -1 & -b\\ c & bc-1 \end{array}\right]$, also the boundary segment corresponding to (b) intersects this region.
     Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
     \[u_{2i+2}^-\mu_0+u_{2i+1}^+\mu_1=(u_3^+u_{2i}^--u_2^-u_{2i-1}^+)\mu_0+(u_2^+u_{2i}^--u_1^-u_{2i-1}^+)\mu_1\le u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1,\]
     which is the inequality (a) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
@@ -761,8 +777,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
     For $k=2j+1$, $j\ge0$, and $\lambda\in\cI$, we get $\cC_{2j+1}(\phi_{2j+1}\lambda)\subset\RR^2$ is given by the inequalities 
     \[ (\dagger')\ -\mu_0\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1 \qquad\text{and}\qquad (\ddagger')\ \mu_1\le u_{2j+2}^-\lambda_0+u_{2j+1}^+\lambda_1.\]
-    Using that $\phi_{2j+1}^{-1}=\phi_2^{-j}\phi_1^{-1}$, we compute the image inductively as above.
-    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{2j+1}(\phi_{2j+1}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_1^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$ of determinant $-1$.
+    Using that $\phi_{2j+1}^{-1}=\left(\phi_2^{-1}\right)^j\phi_1^{-1}$, we compute the image inductively as above.
+    From \eqref{eq:forward mutation 1} and Lemma~\ref{le:imaginary stability}, we see that the boundary ray for $\cC_{2j+1}(\phi_{2j+1}\lambda)$ corresponding to ($\dagger'$) lies entirely in the region in which $\phi_1^{-1}$ acts according to the matrix $\left[ \begin{array}{cc} -1 & 0\\ c & 1 \end{array}\right]$.
     Thus applying Lemma~\ref{le:transformed inequalities}, the inequality ($\dagger'$) is transformed by $\phi_1^{-1}$ into the inequality $\mu_0\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1$.
     The boundary ray corresponding to ($\ddagger'$) intersects both domains of linearity for $\phi_1^{-1}$ and thus produces the inequalities
     \[ c\mu_0+\mu_1\le u_{2j+2}^-\lambda_0+u_{2j+1}^+\lambda_1 \qquad\text{and}\qquad \mu_1\le u_{2j+2}^-\lambda_0+u_{2j+1}^+\lambda_1.\]
@@ -780,8 +796,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   We are now ready to prove Theorem~\ref{th:dominance inequalities}.
   The dominance region $\cP_\lambda=\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$ for $\lambda\in\cI$ is obtained by imposing all of the inequalities from Lemma~\ref{le:dominance inequalities} together with $\mu_0 -\lambda_0 \le 0$ and $0 \le \mu_1 - \lambda_1$ coming from $k=0$.
 
-  To begin, observe that the boundary lines for \eqref{ineq:2} and \eqref{ineq:3} (and hence \eqref{ieq1} and \eqref{ieq2} below) intersect where $\mu_0=0$ and the boundary lines for \eqref{ineq:3} and \eqref{ineq:4} (and hence \eqref{ieq2} and \eqref{ieq3} with $k-1$) intersect where $\mu_1=0$.
-  We then rewrite the inequalities from Lemma~\ref{le:dominance inequalities} using the Chebyshev recursion.
+%  To begin, observe that the boundary lines for \eqref{ineq:2} and \eqref{ineq:3} (hence \eqref{ieq1} and \eqref{ieq2} below) intersect where $\mu_0=0$ and the boundary lines for \eqref{ineq:3} and \eqref{ineq:4} (hence \eqref{ieq2} and \eqref{ieq3} with $k-1$) intersect where $\mu_1=0$.
+  We rewrite the inequalities from Lemma~\ref{le:dominance inequalities} using the Chebyshev recursion.
   For $k>0$, we get
   \begin{align*}
     u_k^-(\mu_0-\lambda_0)+u_{k-1}^+(\mu_1-\lambda_1) &\le 0;\\
@@ -811,9 +827,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     -u_{k+1}^-(\mu_0-\lambda_0)-u_k^+(\mu_1-\lambda_1) &\le cu_k^+\lambda_0+bu_{k-1}^-\lambda_1;
   \end{align*}
   for $k<0$.
-  Then, using that $-u_k^\varepsilon<0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$, we divide by these to rewrite the inequalities again as
+
+  Then, using that $-u_k^\varepsilon<0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$, we rewrite the inequalities again as
   \begin{align}
-    \label{ieq1} 0 & \le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
+    \label{ieq1} 0 & \le -(\mu_0-\lambda_0)-\frac{u_k^+}{u_{k+1}^-}(\mu_1-\lambda_1);\\
     \label{ieq2} -c\lambda_0 & \le \frac{u_{k-1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
     \label{ieq3} -(\mu_0-\lambda_0)-\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1) &\le c\frac{u_{k+1}^+}{u_k^-}\lambda_0+b\lambda_1;
   \end{align}
@@ -827,11 +844,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   We now study each sequence of inequalities in turn.
 
   For $\mu_1-\lambda_1\ge 0$, the inequalities \eqref{ieq1} become more restrictive as $k$ gets larger since the sequence $\frac{-u_{k+1}^-}{u_k^+}$ of negative slopes is monotonically increasing (cf. Lemma~\ref{le:limits}).
-  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality 
-  \[ 0 \le \frac{-bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
-  or, equivalently,
-  \[ 0 \le -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \]
-  determining a boundary of $\cP_\lambda$.
+  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality below determining a boundary of $\cP_\lambda$:
+  \[ 0 \le -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1). \]
 
   Similarly, the inequalities \eqref{ieq2} become more restrictive for $\mu_0\le0$ and $\mu_1\ge0$ as $k$ gets larger since the sequence $\frac{u_{k-1}^-}{u_k^+}$ of positive slopes is monotonically increasing and the intersection with \eqref{ieq1} moves lower on the $\mu_1$-axis as $k$ increases.
   Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality
@@ -841,9 +855,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
 
   Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence $\frac{-u_k^-}{u_{k-1}^+}$ of negative slopes is monotonically increasing (cf. Lemma~\ref{le:limits}) and the intersection with \eqref{ieq2} (for $k+1$) moves to the right on the $\mu_0$-axis as $k$ increases.
-  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality
-  \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1 \]
-  determining a boundary of $\cP_\lambda$.
+  Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality below determining a boundary of $\cP_\lambda$:
+  \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1. \]
 
   %Similar arguments with the inequalities \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
   Similar arguments using \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
