@@ -974,21 +974,22 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   but, since $b\lambda'_1\le -2\lambda'_0$, the first coordinate is greater than $\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1$.
   Then, using $\frac{bc+\sqrt{bc(bc-4}}{2b}<c$ and $\lambda'_0<0$, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1=c\lambda'_0+\lambda'_1\le\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
 
-  To continue, we compare the support for an arbitrary basis element pointed at $\lambda\in\cI$ with the corresponding greedy basis elements with $\bfg$-vectors inside the dominance polygon $\cP_\lambda$.
+  To continue, we compare the support for an arbitrary basis element pointed at $\lambda\in\cI$ with the greedy basis elements having $\bfg$-vector inside the dominance polygon $\cP_\lambda$.
 
-  The support $\cG_\lambda$ of the greedy basis element of $\cA(b,c)$ with $\bfg$-vector $\lambda$ is well-known \cite{CGMMRSW17,LLZ14}.
+  The support region $\cG_\lambda$ of the greedy basis element with $\bfg$-vector $\lambda$ is well-known \cite{CGMMRSW17,LLZ14}.
   This is indicated by the solid and dotted lines in our figures where dotted lines indicate points that are excluded from the support.
-  For our purposes, it is enough to observe the following closure property for the greedy support.
+  (The actual support of the greedy basis element consists of the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cG_\lambda$.)
+  For our purposes, it is enough to observe the following closure property for the greedy support region which is evident from the figure in Theorem~\ref{th:maximum support}.
   \begin{definition}
-    A subset $\cS\subset\RR^2$ is called \scalebox{1.7}{$\llcorner$}-closed  \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
-    %$\lefthalfcup$
+    A subset $\cS\subset\RR^2$ is called \scalebox{1.7}{$\llcorner$}-closed if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to~$\big(\!\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
   \end{definition}
-  In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector $\lambda$ indicated by a black dot and the opposite $\bfg$-vector $\lambda'$ indicated by a white dot in Theorem~\ref{th:maximum support}.
-  Write $\overline{\cG}_\lambda$ for the downward scaling of the min-convex closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
+  In particular, (an upper bound for) the greedy support region $\cG_\lambda$ can be found using its $\bfg$-vector $\lambda$ %indicated by a black dot 
+  and its opposite $\bfg$-vector $\lambda'$. % indicated by a white dot in Theorem~\ref{th:maximum support}.
+  Write $\overline{\cG}_\lambda$ for the downward scaling of the \scalebox{1.7}{$\llcorner$}-closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\!\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
   Clearly, $\cG_\lambda\subset\overline{\cG}_\lambda$.
 
   As we saw above, for any $\bfg$-vector $\mu\in\cP_\lambda$ its opposite $\bfg$-vector $\mu'$ is also contained in $\cS_\lambda$.
-  But $\cS_\lambda$ is min-convex and closed under downward scaling, i.e. for any $\mu\in\cS_\lambda$ we have $t\mu\in\cS_\lambda$ for $0\le t\le 1$.
+  But $\cS_\lambda$ is \scalebox{1.7}{$\llcorner$}-closed and closed under downward scaling. %, i.e. for any $\mu\in\cS_\lambda$ we have $t\mu\in\cS_\lambda$ for $0\le t\le 1$.
   It follows that $\overline{\cG}_\mu\subset\cS_\lambda$ for any $\mu\in\cP_\lambda$ and hence, following Theorem~\ref{th:dominance}, the support of any basis element pointed at $\lambda$ is contained in $\cS_\lambda$.
 
   In particular, $\cG_\lambda\subset\cS_\lambda$.
