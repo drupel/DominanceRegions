@@ -1,6 +1,6 @@
 \documentclass{amsart}
 \usepackage{amsmath}
-\usepackage{MnSymbol}
+%\usepackage{MnSymbol}
 \usepackage{amssymb}
 \usepackage{latexsym}
 \usepackage{color}
@@ -980,7 +980,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   This is indicated by the solid and dotted lines in our figures where dotted lines indicate points that are excluded from the support.
   For our purposes, it is enough to observe the following closure property for the greedy support.
   \begin{definition}
-    A subset $\cS\subset\RR^2$ is called  $\lefthalfcup$-closed  \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
+    A subset $\cS\subset\RR^2$ is called \scalebox{1.7}{$\llcorner$}-closed  \emph{min-convex} if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to $\big(\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
+    %$\lefthalfcup$
   \end{definition}
   In particular, (an upper bound for) the greedy support can be found using the $\bfg$-vector $\lambda$ indicated by a black dot and the opposite $\bfg$-vector $\lambda'$ indicated by a white dot in Theorem~\ref{th:maximum support}.
   Write $\overline{\cG}_\lambda$ for the downward scaling of the min-convex closure of $\{\lambda,\lambda'\}$, that is $\overline{\cG}_\lambda$ contains the segments joining $\lambda$ and $\lambda'$ with $\big(\min(\lambda_0,\lambda'_0),\min(\lambda_1,\lambda'_1)\big)$ and for any $\mu\in\overline{\cG}_\lambda$ we have $t\mu\in\overline{\cG}_\lambda$ for $0\le t\le 1$.
