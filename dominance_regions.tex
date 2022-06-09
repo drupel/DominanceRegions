@@ -993,12 +993,12 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   It follows that $\overline{\cG}_\mu\subset\cS_\lambda$ for any $\mu\in\cP_\lambda$ and hence, following Theorem~\ref{th:dominance}, the support of any basis element pointed at $\lambda$ is contained in $\cS_\lambda$.
 
   In particular, $\cG_\lambda\subset\cS_\lambda$.
-  Note also that the dominance region $\cP_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR_1$ defined by the inequalities $\mu_0\ge0$ and $\lambda_1\mu_0-\lambda_0\mu_1\ge0$.
-  Similarly, the opposite dominance region $\cP'_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR_2$ defined by the inequalities $\mu_1\ge0$ and $-\lambda'_1\mu_0+\lambda'_0\mu_1\ge0$.
-  But $\cS_\lambda=\cG_\lambda\cup(\cS_\lambda\cap\cR_1)\cup(\cS_\lambda\cap\cR_2)$ so $\cS_\lambda$ is the maximum possible support for an element pointed at~$\lambda$.
+  Note also that the dominance region $\cP_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR$ defined by the inequalities $\mu_0\ge0$ and $\lambda_1\mu_0-\lambda_0\mu_1\ge0$.
+  Similarly, the opposite dominance region $\cP'_\lambda$ contains the intersection of $\cS_\lambda$ with the region $\cR'$ defined by the inequalities $\mu_1\ge0$ and $-\lambda'_1\mu_0+\lambda'_0\mu_1\ge0$.
+  But $\cS_\lambda=\cG_\lambda\cup(\cS_\lambda\cap\cR)\cup(\cS_\lambda\cap\cR')$ so $\cS_\lambda$ is the maximum possible support for an element pointed at~$\lambda$.
 
 
-\section{The affine case}
+\section{The untwisted affine case}
 \label{sec:affine}
 
   In this section we compare our main result with the construction of \cite{RSW19} in the case $b=c=2$.
@@ -1061,7 +1061,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       &=
       x_0^{-n} x_1^{-n} \sum_{k=0}^n \sum_{r=0}^{\lfloor n/2\rfloor} \sum_{\ell=k+r}^{n-r} {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa^{(n)},r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
     \end{align*}
-    But then rearranging terms and replacing $\ell$ by $\ell+r$, this becomes
+    But then, rearranging terms and replacing $\ell$ by $\ell+r$, this becomes
     \begin{align*}
       x_{(n,-n)}^{\bfa^{(n)}}
       &=
