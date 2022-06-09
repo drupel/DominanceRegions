@@ -3,16 +3,10 @@
 \usepackage{amssymb}
 \usepackage{latexsym}
 \usepackage{color}
-%\usepackage{ulem}
-%\usepackage[margin=1in,showframe]{geometry}
 \usepackage[margin=1in]{geometry}
 \usepackage{tikz}
 \usetikzlibrary{math}
 \usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
-
-\usepackage[draft]{say}
-\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf DR:}\;#1}}
-\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf SS:}\;#1}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -76,25 +70,14 @@
 \author{Salvatore Stella}
 \address[D. Rupel]{\href{mailto:rupel.dylan@pusd.us}{\textup{\texttt{rupel.dylan@pusd.us}}}, Math Academy, Pasadena Unified School District, Pasadena, CA 91109 USA}
 \address[S. Stella]{\href{mailto:salvatore.stella@univaq.it}{\textup{\texttt{salvatore.stella@univaq.it}}}, Dipartimento di Ingegneria e Scienze dell'Informazione e Matematica, Università degli Studi dell'Aquila, IT}
-%\email[Salvatore Stella]{stella@math.haifa.ac.il}
-%\keywords{}
 \thanks{Salvatore Stella was partially supported by the University of Leicester and the University of Rome ``La Sapienza''.}
-%\thanks{Nathan Reading was partially supported by the National Science Foundation under Grant Numbers DMS-1500949 and DMS-2054489 and by the Simons Foundation under award number 581608.\\
-%\indent Salvatore Stella was partially supported by ISF grant \#1144/16, the University of Haifa, the University of Leicester, and the University of Rome ``La Sapienza''.}
 
 \begin{document}
 
-
-  \begin{abstract}
-    We study the polygons defining the dominance order on $\bfg$-vectors in cluster algebras of rank 2.
-%    We investigate the shapes of the polytopes defining the dominance order for $\bfg$-vectors in cluster algebras of rank two.
-%    We arrive at a complete description: 
-%    \begin{itemize}
-%      \item cluster monomials are never deformable;
-%      \item the imaginary dominance polytopes are kites, triangles, or trapezoids which extend far outside the imaginary cone; the triangles appearing along rays corresponding to columns of the associated Cartan matrix.
-%    \end{itemize}
-  \end{abstract}
-  \maketitle
+\begin{abstract}
+  We study the polygons defining the dominance order on $\bfg$-vectors in cluster algebras of rank 2.
+\end{abstract}
+\maketitle
 \vspace{-1em}
 \begin{figure}[h!]
   \centering
@@ -189,8 +172,6 @@
   We therefore assume that $bc\ge4$.
   In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
   Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance region} $\cP_\lambda$.
-  %In this case, we compute the possible transitions between any two pointed bases.
-  %The collection of $\bfg$-vectors which can appear in the deformation of a pointed basis is the \emph{dominance region}.
   \begin{theorem}
     \label{th:dominance inequalities}
     The dominance region $\cP_\lambda$ of the $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)$ is the polygon consisting of those $\mu=(\mu_0,\mu_1)\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
@@ -209,21 +190,10 @@
         \end{array}
       \]
     }
-    %\begin{align}
-    %  0 & \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) && \leq \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)
-    %  \\
-    %  \min\left(-c\lambda_0,0\right) & \leq \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) && \leq 0
-    %  \\
-    %  0 & \leq -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) && \leq \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)
-    %  \\
-    %  \min\left(b \lambda_1,0\right) & \leq (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) && \leq 0
-    %\end{align}
     
   \vspace{-1.05em}
   \end{theorem}
-  %\vspace{-0.713em}
   \begin{remark}
-  %Interestingly, explicit calculations reveal that the $\bfg$-vectors actually appearing in the transitions between notable bases are far smaller than the entire dominance polygon.
     Explicit calculations reveal that for certain pairs of notable bases (e.g. greedy and triangular) most of the coeffiecients $q_{\lambda,\mu}$ are zero.
     Understanding this phenomenon might be worth further study.
   \end{remark}
@@ -291,7 +261,6 @@
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \q=1; \xx = \r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
-%      \fill[white] (\xmax-2,\ymax-1.5) rectangle (\xmax-1, \ymax-0.5);
       \draw (\xmin+1.5,\ymin+1) node{(1.a)};
     \end{scope}
     \begin{scope}[shift={(14,0)}]
@@ -331,7 +300,6 @@
       \tikzmath{ \t=5; \r=1; \q=1; \xx={\r*\b+\q*(\b*\c-1) }; \yy = {-\r -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
-      %\draw [dashed, thick]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) -- (\x,\y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(1.e)};
     \end{scope}
@@ -341,7 +309,6 @@
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \q=2; \xx={2*\r*\b+\q*(\b*\c-1) }; \yy = {-\r*\bcms -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
-      %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -354,7 +321,6 @@
       \boundingrays;
       \tikzmath{ \t=2; \r=0.3; \q=1; \xx={2*\r*\b }; \yy = {-\r*\bcps -\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
-      %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -367,7 +333,6 @@
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \q=2; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
       \fill (\x , \y)  circle (5pt);
-      %\fill ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (2pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -375,11 +340,6 @@
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{(2)};
     \end{scope}
-    %\draw[black,very thick] (-6.5,6.5) -- (45.5,6.5) -- (45.5,-19.5) -- (-6.5,-19.5) -- cycle;
-    %\draw[black,very thick] (-6.5,-6.5) -- (45.5,-6.5);
-    %\draw[black,very thick] (6.5,6.5) -- (6.5,-19.5);
-    %\draw[black,very thick] (19.5,6.5) -- (19.5,-19.5);
-    %\draw[black,very thick] (32.5,6.5) -- (32.5,-19.5);
     \draw (21,-22) node{The maximal supports $\cS_\lambda$ as described in Theorem \ref{th:maximum support}.};
   \end{tikzpicture}
 \end{figure}
@@ -402,8 +362,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     Observe that, by easy inductions, we have $u_{-i}^\varepsilon=-u_i^\varepsilon$ for $i\in\ZZ$ and $u_{2j+1}^+=u_{2j+1}^-$ for $j\in\ZZ$.
   \end{remark}
 
-  %The recursion can be written more succinctly as $u_{i+1}^\varepsilon=u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon$ with the additional initial condition $u_2^\varepsilon=\begin{cases} b & \text{if $\varepsilon=+$;}\\ c & \text{if $\varepsilon=-$.} \end{cases}$
-  %This leads to the following more general recursive structure.
   \begin{lemma}
     For $i,\ell\in\ZZ$ and $\varepsilon\in\{\pm\}$, we have
     \begin{equation}
@@ -546,7 +504,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   By an eigenvector of a piecewise-linear map $\phi$, we will mean a vector $\lambda$ such that for each $n>0$, there exists a positive scalar $\nu$ so that $\phi(\lambda)=\nu\lambda$.
   \begin{lemma}
-    Any nonzero eigenvector of $\phi_2$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
+    Any nonzero eigenvector of $\phi_2$ is a positive multiple of one of the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)\!$.
   \end{lemma}
   \begin{proof}
     First observe that, by equation \eqref{eq:forward two step mutation}, the equation $\phi_2(\lambda)=\nu\lambda$ cannot be satisfied with a positive $\nu$ unless $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1\ge 0$.
@@ -558,12 +516,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     As these represent the same relationship, the result immediately follows by inspection.
   \end{proof}
 
-  %\begin{lemma}
-  %  The vectors $\big(2b, -bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2b, -bc-\sqrt{bc(bc-4)}\big)$) and $\big(2c, bc+\sqrt{bc(bc-4)}\big)$ (resp. $\big(2c, bc-\sqrt{bc(bc-4)}\big)$) are perpendicular.
-  %\end{lemma}
-  %\begin{proof}
-  %  This is immediate from the equality $\big(-bc+\sqrt{bc(bc-4)}\big)\big(bc+\sqrt{bc(bc-4)}\big)=-4bc$.
-  %\end{proof}
   Observe that the imaginary cone $\cI$ is spanned by the eigenvectors of $\phi_{2}$ and that $\phi_{2}$ is linear in $\cI$.
   \begin{lemma}
     \label{le:imaginary stability}
@@ -671,7 +623,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       -u_{k+2}^-\mu_0-u_{k+1}^+\mu_1 &\le u_k^-\lambda_0+u_{k-1}^+\lambda_1.
     \end{align*}
     
-    %given as in the figure below:
 \begin{figure}[h!]
   \centering
     \newcommand{\setconstants}{
@@ -684,8 +635,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \draw [color=gray, thick] (0,2*\ymin) -- (0, 2*\ymax);
       \draw [color=gray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
       \draw [color=gray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
-      %\draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax / \b);
-      %\draw [color=lightgray, thick] (0,0) -- (2*\xmax, -2*\xmax * \c / \bcmo );
     }
   \begin{tikzpicture}[scale=.3]
     %negatives k=-3
@@ -805,7 +754,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   We are now ready to prove Theorem~\ref{th:dominance inequalities}.
   The dominance region $\cP_\lambda=\bigcap_{k\in\ZZ}\phi_k^{-1}\cC_k(\phi_k\lambda)$ for $\lambda\in\cI$ is obtained by imposing all of the inequalities from Lemma~\ref{le:dominance inequalities} together with $\mu_0 -\lambda_0 \le 0$ and $0 \le \mu_1 - \lambda_1$ coming from $k=0$.
 
-%  To begin, observe that the boundary lines for \eqref{ineq:2} and \eqref{ineq:3} (hence \eqref{ieq1} and \eqref{ieq2} below) intersect where $\mu_0=0$ and the boundary lines for \eqref{ineq:3} and \eqref{ineq:4} (hence \eqref{ieq2} and \eqref{ieq3} with $k-1$) intersect where $\mu_1=0$.
   We rewrite the inequalities from Lemma~\ref{le:dominance inequalities} using the Chebyshev recursion.
   For $k>0$, we get
   \begin{align*}
@@ -867,7 +815,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality below determining a boundary of $\cP_\lambda$:
   \[ -(\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le \frac{bc+\sqrt{bc(bc-4)}}{2c}c\lambda_0+b\lambda_1. \]
 
-  %Similar arguments with the inequalities \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
   Similar arguments using \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
   \[ 0 \le (\mu_0-\lambda_0)+\frac{bc+\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
   \[ b\lambda_1 \le (\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le 0;\]
@@ -924,23 +871,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \begin{proof}
     As stated above, we obtain the opposite $\bfg$-vector by interchanging $b$, $c$ and swapping the roles of $\lambda_0,\lambda_1$.
     Translating from Theorem~\ref{th:dominance inequalities}, it immediately follows that the opposite dominance region is given by the claimed inequalities.
-    %{
-    %  \everymath={\displaystyle}
-    %  \def\arraystretch{2.8}
-    %  \[
-    %    \begin{array}{rcccl}
-    %      0 & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \leq & c\lambda_0 + \frac{b c-\sqrt{b c (b c-4)}}{2 b}b\lambda_1
-    %      \\
-    %       & & (\mu_0-\lambda_0) -\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \leq & -\frac{b c+\sqrt{b c (b c-4)}}{2}(\lambda_0+b\lambda_1)+2b\lambda_1
-    %      \\
-    %      \frac{b c - 2 +\sqrt{b c (b c-4)}}{2}(c\lambda_0+(bc-2)\lambda_1) -c\lambda_0 -2\lambda_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
-    %      \\
-    %      -c\lambda_0+\frac{b c-2+\sqrt{b c (b c-4)}}{2}(c\lambda_0 + \sqrt{b c (b c-4)}\lambda_1) & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0) + (\mu_1-\lambda_1) & \leq & -c\lambda_0 - \frac{b c+\sqrt{b c (b c-4)}}{2 b}b\lambda_1 
-    %      \\
-    %      b\lambda_1 & \leq & - (\mu_0-\lambda_0) + \frac{b c+\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) 
-    %    \end{array}
-    %  \]
-    %}
   \end{proof}
 
   For $\lambda\in\cI$, the region $\cS_\lambda$ from Theorem~\ref{th:maximum support} is determined by the following inequalities:
@@ -973,9 +903,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \[ 0 \leq \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) \]
   defining another boundary of $\cP_\lambda$ is more restrictive than the inequality $\lambda'_0\leq\mu_0$ bounding $\cS_\lambda$.
   As above, the minimum value of $\mu_1$ inside $\cP'_\lambda$ occurs when $\mu_0=0$, i.e. either at the point $\big(0, \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1 \big)$
-  %\[\big(0, \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1 \big) = \big(0, -\frac{bc-\sqrt{bc(bc-4)}}{2b}(\lambda_0+b\lambda_1)+\lambda_1 \big)\]
   when $0 \leq 2\lambda'_0+b\lambda'_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, \lambda'_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda'_1 \big)$
-  %\[-\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, \lambda'_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda'_1 \big) = -\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, -\frac{bc-2+\sqrt{bc(bc-4)}}{2}(\lambda_0+b\lambda_1)+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1 \big)\]
   when $2\lambda'_0+b\lambda'_1<0$.
   The second point can be rewritten as
   \[\big(0, -\frac{bc+\sqrt{bc(bc-4)}}{2b} \lambda'_0-\frac{bc+\sqrt{bc(bc-4)}}{2b} b\lambda'_1+\lambda'_1 \big)\]
@@ -1020,7 +948,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     Then, together with all cluster monomials, the elements 
     \begin{equation}
       \label{eq:generalized minor}
-      x_{(n,-n)}^{\bfa^{(n)}}:= x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum\limits_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa^{(n)},r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
+      x_{(n,-n)}^{\bfa^{(n)}}:= x_0^{-n} x_1^{-n} \sum_{0 \leq k \leq \ell \leq n} \sum_{r=0}^\ell {\ell-r\choose k} {n-2r\choose \ell-r} S_{\bfa^{(n)},r}  \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}
     \end{equation}
     with
     \[
@@ -1102,11 +1030,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     for some coefficients $\gamma_i$ with $\gamma_r=1$, and the Fundamental Theorem of Symmetric Polynomials. 
   \end{proof}
 
-% bibliography
-% because of conflicts some keys needs to be fixed by hand.
-% to regenerate the bibliography delete the one below, uncomment the following two lines and recompile, comment the two lines again, edit monomialminors.bbl as needed and paste its content here
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}
 
 \end{document}
-
