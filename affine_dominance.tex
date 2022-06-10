@@ -1,0 +1,262 @@
+\documentclass{amsart}
+\usepackage{amsmath,amssymb,latexsym,color,ulem}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{tikz}
+\usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
+
+\usepackage[draft]{say}
+\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf DR:}\;#1}}
+\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf SS:}\;#1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}{Question}
+
+\numberwithin{theorem}{section}
+
+\newcommand{\bfc}{\boldsymbol{c}}
+\newcommand{\bfg}{\boldsymbol{g}}
+\newcommand{\bfr}{\boldsymbol{r}}
+\newcommand{\bfx}{\boldsymbol{x}}
+\newcommand{\bfy}{\boldsymbol{y}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+
+\newcommand{\fp}{\mathfrak{p}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\ol}[1]{{\overline{#1}}}
+\newcommand{\vv}[1]{{{}^\vee \! #1}}
+
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Col}{\operatorname{Col}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\dpt}{\operatorname{dp}}
+\newcommand{\hgt}{\operatorname{ht}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\obeta}{{\overline{\beta}}}
+\newcommand{\oi}{{\overline{\imath}}}
+\newcommand{\ot}{{\overline{t}}}
+\newcommand{\rsh}{{\operatorname{rsh}}}
+\newcommand{\sh}{{\operatorname{sh}}}
+\newcommand{\WA}{{W\!\!A}}
+\newcommand{\wt}{{\operatorname{wt}}}
+
+\title{Dominance Regions for Affine Cluster Algebras}
+
+\author{Dylan Rupel}
+\author{Salvatore Stella}
+
+\begin{document}
+  \begin{abstract}
+    We study the dominance order for $\bfg$-vectors in affine cluster algebras.
+  \end{abstract}
+  \maketitle
+
+  \section{Introduction}
+  A lot of the same first paragraph we had before.
+
+
+  \section{Lattice Mutations and Linear Inequalities}
+  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable integer matrix, i.e. there exists a diagonal integer matrix $D=\diag(d_1,\ldots,d_n)$ so that $DB$ is skew-symmetric, more precisely we have $d_i b_{ij}=-d_j b_{ji}$.
+  Write $\Col(B)$ for the span of the columns of $B$ inside $\RR^n$ and $\Col^+(B)$ for their non-negative span.
+  Define $\Col_\ZZ(B)$ and $\Col^+_\ZZ(B)$ analogously over the integers.
+
+  The matrix $B$ is \emph{acyclic} if there is no sequence $i_1,\ldots,i_m,i_{m+1}=i_1$ so that $b_{i_\ell i_{\ell+1}}>0$ for $1\le\ell\le m$.
+  This condition is naturally interpreted in terms of an associated quiver $Q_B$ with $n$ vertices and an arrow $i\to j$ whenever $b_{ji}>0$ (if we need to use representation theory at any point we'll have to change this to be $\gcd(b_{ij},b_{ji})$ arrows $i\to j$).
+  Indeed, this is precisely the condition that $Q_B$ has no oriented cycles.
+  In the case when $B$ is acyclic, there exists a labeling $\{k_1,\ldots,k_n\}=\{1,\ldots,n\}$ so that $\ell<\ell'$ implies $b_{k_{\ell'} k_\ell}\ge 0$.
+  The sequence $(k_1,\ldots,k_n)$ (resp. $(k_n,\ldots,k_1)$) is then said to be \emph{source-adapted} (resp. \emph{sink-adapted}) since the condition implies $k_1$ is a source and $k_n$ is a sink in $Q_B$.
+  %\sayDR{We need to pin down this convention.}
+
+  For $b\in\ZZ$, write $[b]_+=max(b,0)$.
+  Given a sign $\varepsilon\in\{\pm1\}$ and $k\in\{1,\ldots,n\}$, define a matrix $E_{k,\varepsilon}=(e_{ij})$ with
+  \begin{equation}
+    \label{eq:left mutation matrix}
+    e_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ [\varepsilon b_{ik}]_+ & \text{if $i\ne j=k$;}\\ 0 & \text{otherwise;} \end{cases}
+  \end{equation}
+  and a matrix $F_{k,\varepsilon}=(f_{ij})$ with
+  \begin{equation}
+    \label{eq:right mutation matrix}
+    f_{ij}=\begin{cases} 1 & \text{if $k\ne i=j$;}\\ -1 & \text{if $k=i=j$;}\\ [-\varepsilon b_{kj}]_+ & \text{if $k=i\ne j$;}\\ 0 & \text{otherwise.} \end{cases}
+  \end{equation}
+  Observe that $E^2_{k,\varepsilon}=\Id$ and $F^2_{k,\varepsilon}=\Id$ for any $k$ and any choice of $\varepsilon$.
+  \begin{lemma}
+    For $\varepsilon\in\{\pm1\}$ and $k\in\{1,\ldots,n\}$, we have $E_{k,-\varepsilon}E_{k,\varepsilon}=I_n+\varepsilon B^{\bullet k}$ and $E_{k,\varepsilon}-E_{k,-\varepsilon}=\varepsilon B^{\bullet k}$.
+  \end{lemma}
+  \begin{proof}
+    This is immediate from the equality $\varepsilon b_{ij}=[\varepsilon b_{ij}]_+-[-\varepsilon b_{ij}]_+$.
+  \end{proof}
+
+  The index $k\in\{1,\ldots,n\}$ also determines a new skew-symmetrizable matrix $\mu_k B=(b'_{ij})$ given by
+  \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
+  One easily observes that $\mu_k B$ is again skew-symmetrizable using the same matrix $D$.
+  \begin{remark}
+    Note that $\mu_k B=E_{k,\varepsilon} B F_{k,\varepsilon}$ for $\varepsilon=\pm 1$, the case $\varepsilon=1$ being obvious from the definitions and the case $\varepsilon=-1$ following from the identity $b_{ij}=[b_{ij}]_+-[-b_{ij}]_+$.
+  \end{remark}
+
+  To record sequences of these matrix mutations, we introduce the labeled $n$-regular rooted tree $\TT_n$ with root vertex $t_0$ and associate skew-symmetrizable matrices $B^t$ for $t\in\TT_n$ satisfying:
+  \begin{itemize}
+    \item $B^{t_0}=B$;
+    \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $B^{t'}=\mu_k B^t$.
+  \end{itemize}
+
+  For $t\in\TT_n$, define $\phi^t_k:\RR^n\to\RR^n$ as the piecewise-linear map
+  \[\phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}\]
+  where the entries of $E^t_{k,\varepsilon}$ are given by \eqref{eq:left mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
+  We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labeled $k$.
+  \begin{lemma}
+    Suppose $t,t'\in\TT_n$ are joined by an edge labeled $k$.
+    If $\mu\in\lambda+\Col(B^t)$, then $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(B^{t'})$.
+  \end{lemma}
+  \begin{proof}
+    Suppose $\mu=\lambda+B^t\alpha$ for some $\alpha\in\RR^n$.
+    Let $\varepsilon$ (resp. $\varepsilon'$) be such that $\phi^t_k(\mu)=E^t_{k,\varepsilon}\mu$ (resp. $\phi^t_k(\lambda)=E^t_{k,\varepsilon'}\lambda$).
+    Then 
+    \[\phi^t_k(\mu)=E^t_{k,\varepsilon}\mu=E^t_{k,\varepsilon}(\lambda+B^t\alpha)=E^t_{k,\varepsilon}\lambda + E^t_{k,\varepsilon} B^t F^t_{k,\varepsilon} F^t_{k,\varepsilon}\alpha=E^t_{k,\varepsilon}\lambda + B^{t'} F^t_{k,\varepsilon}\alpha.\]
+    If $\varepsilon'=\varepsilon$, this is equal to $\phi^t_k(\lambda) + B^{t'} F^t_{k,\varepsilon}\alpha$ and so $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(B^{t'})$.
+    Otherwise, 
+    \[E^t_{k,\varepsilon}\lambda=E^t_{k,\varepsilon'}\lambda+\varepsilon(B^t)^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon(B^{t'})^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon B^{t'} \lambda_k \mathbf{e}_k\]
+    and again we see that $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(B^{t'})$.
+  \end{proof}
+
+  For $t\in\TT_n$, define the piecewise-linear automorphisms $\phi_t:\RR^n\to\RR^n$ by
+  \begin{itemize}
+    \item $\phi_{t_0}=\Id$;
+    \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
+  \end{itemize}
+
+  Suppose $B$ is acyclic.
+  Given a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, define a quiver $Q_{B,\varepsilon}$ from $Q_B$ by removing all arrows starting at vertex $i$ whenever $\varepsilon_i=-1$.
+  For $1\le j\le n$, define $\cP_j(Q_{B,\varepsilon})$ as the set of paths in $Q_{B,\varepsilon}$ starting at vertex $j$.
+  Elements of $\cP_j(Q_{B,\varepsilon})$ are sequences of vertices $(p_1,\ldots,p_r)$ with $p_1=j$ and $b_{p_{t+1}p_t}>0$ for $1\le t\le r-1$.
+  Given a path $p\in\cP_j(Q_{B,\varepsilon})$, a vertex $i\in Q_0$, and a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, set
+  \[\wt_{i,\varepsilon}(p):=-b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}\prod_{t=1}^{r-1} b_{p_{t+1}p_t},\]
+  where the prefactor $b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}$ is omitted if $i=p_r$ or $\varepsilon_{p_r}=-1$.
+  \begin{lemma}
+    Suppose $B$ is acyclic with source-adapted sequence $k_1,\ldots,k_n$.
+    Consider $t_1,\ldots,t_n\in\TT_n$ so that $t_{\ell-1}$ is joined to $t_\ell$ by an edge in $\TT_n$ labeled by $k_\ell$ for $1\le\ell\le n$.
+    For a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, the product $E^{t_{n-1}}_{k_n,\varepsilon_{k_n}}\cdots E^{t_0}_{k_1,\varepsilon_{k_1}}$ is given by $\tau=(\tau_{ij})$ with
+    \begin{equation}
+      \label{eq:tropical twist}
+      \tau_{ij}=\sum_{p\in\cP_j(Q_{B,\varepsilon})}^* \wt_{i,\varepsilon}(p),
+    \end{equation}
+    where the $*$ indicates that the summation includes the trivial path at $j$ only if $i\le j$ when $\varepsilon_j=1$ and only if $i=j$ when $\varepsilon_j=-1$.
+
+    Then $\phi_{t_n}$ is the following piecewise-linear automorphism:
+    \begin{equation}
+      \label{eq:tropical twist}
+      \text{(This is going to require casework with the possible signs, we'll really only need it for imaginary $\bfg$-vectors though.)}
+    \end{equation}
+    The answer comes from selectively ``turning off'' arrows out of chosen vertices as indicated by choosing $\varepsilon_i=-1$.
+  \end{lemma}
+  \begin{proof}
+    We prove the following modified formula for the product $E^{t_{n-1}}_{k_n,\varepsilon_{k_n}}\cdots E^{t_{m-1}}_{k_m,\varepsilon_{k_m}}$ for $1\le m\le n$ by reverse induction on $m$.
+    Writing this matrix as $\tau^{(m)}=(\tau^{(m)}_{ij})$, we claim that
+    \begin{equation}
+      \label{eq:tropical twist}
+      \tau^{(m)}_{ij}=\begin{cases} \sum\limits_{p\in\cP_j(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) & \text{if $j=k_\ell$ with $m\le\ell$;}\\ \delta_{ij} & \text{otherwise;} \end{cases}
+    \end{equation}
+    where $Q_{B,\varepsilon}^{(m)}$ is the full subquiver of $Q_{B,\varepsilon}$ on vertices $k_m,\ldots,k_n$.
+    Note that the weight function follows the same definition as above.
+
+    Since the sequence $k_1,\ldots,k_n$ is source-adapted, the matrix $E^{t_{m-1}}_{k_m,\varepsilon_m}$, for $1\le m\le n$, has entries $e^{(m)}_{ij}$ given by
+    \begin{equation}
+      \label{eq:source mutation matrix}
+      e^{(m)}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k_m$;}\\ -1 & \text{if $i=j=k_m$;}\\ [-\varepsilon_{k_m} b_{ik_m}]_+ & \text{if $i=k_\ell$, $j=k_m$, $\ell<m$;}\\ [\varepsilon_{k_m} b_{ik_m}]_+ & \text{if $i=k_\ell$, $j=k_m$, $m<\ell$;}\\ 0 & \text{otherwise;} \end{cases}
+    \end{equation}
+    the entries for $\ell<m$ picking up the sign from the prior matrix mutations.
+
+    For $m=n$, it is clear that $\tau^{(n)}_{ij}=e^{(n)}_{ij}$ for $j\ne k_n$.
+    If $\varepsilon_{k_n}=1$, there is only the trivial path $(k_n)$ in $Q_{B,\varepsilon}^{(n)}$ and we have $\tau^{(n)}_{ik_n}=-b_{ik_n}$, which agrees with $e^{(n)}_{ik_n}$ in this case.
+    Otherwise, $\varepsilon_{k_n}=-1$ and the sum is empty for $i\ne k_n$ giving $\tau^{(n)}_{ik_n}=0=e^{(n)}_{ik_n}$ or only takes the trivial path for $i=k_n$ giving $\tau^{(n)}_{k_nk_n}=-1=e^{(n)}_{k_nk_n}$.
+    This gives the base of the induction.
+
+    Now suppose the matrix $\tau^{(m)}$ is given as above.
+    Using equation \eqref{eq:source mutation matrix}, we need to check that 
+    \begin{equation}
+      \label{eq:twist matrix recursion}
+      \tau^{(m-1)}_{ij}=\sum\limits_{p=1}^n \tau^{(m)}_{ip} e^{(m-1)}_{pj}=\begin{cases} \tau^{(m)}_{ij} & \text{if $j\ne k_{m-1}$;}\\ -\tau^{(m)}_{ik_{m-1}} + \sum\limits_{\ell=1}^{m-2} \tau^{(m)}_{i k_\ell} [-\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ + \sum\limits_{\ell=m}^n \tau^{(m)}_{i k_\ell} [\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ & \text{if $j=k_{m-1}$;}\end{cases}
+    \end{equation}
+    is computed by the formula above.
+    First observe that $\tau^{(m-1)}_{ij}=\tau^{(m)}_{ij}=\delta_{ij}$ if $j=k_\ell$ with $\ell<m-1$.  
+    Second observe that $\cP_j(Q_{B,\varepsilon}^{(m-1)})=\cP_j(Q_{B,\varepsilon}^{(m)})$ whenever $j=k_\ell$ with $m\le\ell$, i.e. the purported formulas for $\tau^{(m-1)}_{ij}$ and $\tau^{(m)}_{ij}$ agree in this case.
+    Therefore it remains to show that
+    \[
+      \tau^{(m-1)}_{i k_{m-1}}=-\delta_{ik_{m-1}} + \sum\limits_{\ell=1}^{m-2} \delta_{i k_\ell} [-\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+ + \sum\limits_{\ell=m}^n \sum\limits_{p\in\cP_{k_\ell}(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) [\varepsilon_{k_{m-1}} b_{k_\ell k_{m-1}}]_+
+    \]
+    agrees with the desired expression.
+    Indeed, for $\varepsilon_{k_{m-1}}=-1$ this reduces to $\tau^{(m-1)}_{i k_{m-1}}=-\delta_{i k_{m-1}}$ which matches with the desired expression in this case.
+    Then assuming $\varepsilon_{k_{m-1}}=1$, we are comparing with
+    \[
+      \tau^{(m-1)}_{i k_{m-1}}=-\delta_{ik_{m-1}} - \sum\limits_{\ell=1}^{m-2} \delta_{i k_\ell} b_{k_\ell k_{m-1}} + \sum\limits_{\ell=m}^n \sum\limits_{p\in\cP_{k_\ell}(Q_{B,\varepsilon}^{(m)})}^* \wt_{i,\varepsilon}(p) b_{k_\ell k_{m-1}}.
+    \]
+    But observe that the final summation above contributes the nontrivial paths to the summation $\sum\limits_{p\in\cP_{k_{m-1}}(Q_{B,\varepsilon}^{(m-1)})}^* \wt_{i,\varepsilon}(p)$ while the first two terms above give the contribution, depending on $i$, corresponding to the trivial path $(k_{m-1})$.
+  \end{proof}
+  \begin{question}
+    Is the trace of $\tau$ an invariant of matrix mutations?  P.A.: It is invariant under sink and source mutations since the trace is a class function and these mutations simply enact a cyclic shift in the factors of $\tau$.
+  \end{question}
+
+  For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
+  \begin{definition}
+    For $\lambda\in\RR^n$, define the \emph{dominance region} 
+    \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda). \]
+    When $\mu\in\cP(\lambda)$, we say \emph{$\lambda$ dominates $\mu$}.
+  \end{definition}
+  Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
+  \begin{lemma}
+    The sets $\cP(\lambda)$ are polytopes.
+  \end{lemma}
+
+
+  \begin{lemma}
+    \label{le:transformed inequalities}
+    Let $A$ be an invertible $n\times n$ matrix.
+    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\bfr\bullet(\bfx-\lambda)\le t$ with $\lambda,\bfr\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality \[(A^{-T}\bfr)\bullet(\bfy-A\lambda)\le t.\]
+  \end{lemma}
+  \begin{proof}
+    This is immediate from the equalities
+    \[\bfr\bullet(\bfx-\lambda)=\bfr^T(\bfx-\lambda)=\bfr^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfr)^T(A\bfx-A\lambda)=(A^{-T}\bfr)\bullet(\bfy-A\lambda).\]
+  \end{proof}
+
+
+  \section{Affine Types}
+  Associated to an acyclic skew-symmetrizable matrix $B=(b_{ij})$ there is a Cartan matrix $A=(a_{ij})$ with $a_{ii}=2$ and $a_{ij}=-|b_{ij}|$.
+  We say that $B$ is of affine type if its associated Cartan matrix gives rise to an affine Dynkin diagram.
+  In this section, we focus on understanding the dominance polytopes for affine matrices $B$.
+
+  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable matrix of affine type with associated Cartan matrix $A=(a_{ij})$.
+  
+  \begin{lemma}
+    One column is always in the positive span of the other columns.
+  \end{lemma}
+
+  \begin{definition}
+    Describe imaginary $\bfg$-vectors and those corresponding to cluster monomials.
+  \end{definition}
+
+  \begin{lemma}
+    Let $\lambda\in\ZZ^n$ correspond to a cluster monomial.
+    Then $\cP(\lambda)=\{\lambda\}$.
+  \end{lemma}
+  \begin{proof}
+    An explicit sequence of sink/source mutations should suffice.
+  \end{proof}
+
+   
+\end{document}
