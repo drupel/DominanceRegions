@@ -144,6 +144,55 @@
     \item if $t,t'\in\TT_n$ are joined by an edge labeled $k$, then $\phi_{t'}=\phi^t_k \phi_t$.
   \end{itemize}
 
+  
+  For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
+  \begin{definition}
+    For $\lambda\in\RR^n$, define the \emph{dominance region} 
+    \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda). \]
+    When $\mu\in\cP(\lambda)$, we say \emph{$\lambda$ dominates $\mu$}.
+  \end{definition}
+  Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
+  \begin{lemma}
+    The sets $\cP(\lambda)$ are polytopes.
+  \end{lemma}
+
+
+  \begin{lemma}
+    \label{le:transformed inequalities}
+    Let $A$ be an invertible $n\times n$ matrix.
+    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\langle\bfr,\bfx-\lambda\rangle\le t$ with $\lambda,\bfr\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality \[\langle A^{-T}\bfr,\bfy-A\lambda\rangle\le t.\]
+  \end{lemma}
+  \begin{proof}
+    This is immediate from the equalities
+    \[\langle\bfr,\bfx-\lambda\rangle=\bfr^T(\bfx-\lambda)=\bfr^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfr)^T(A\bfx-A\lambda)=\langle A^{-T}\bfr,\bfy-A\lambda\rangle.\]
+  \end{proof}
+
+
+  \section{Affine Types}
+  Associated to an acyclic skew-symmetrizable matrix $B=(b_{ij})$ there is a Cartan matrix $A=(a_{ij})$ with $a_{ii}=2$ and $a_{ij}=-|b_{ij}|$.
+  We say that $B$ is of affine type if its associated Cartan matrix gives rise to an affine Dynkin diagram.
+  In this section, we focus on understanding the dominance polytopes for affine matrices $B$.
+
+  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable matrix of affine type with associated Cartan matrix $A=(a_{ij})$.
+  
+  \begin{lemma}
+    One column is always in the positive span of the other columns.
+  \end{lemma}
+
+  \begin{definition}
+    Describe imaginary $\bfg$-vectors and those corresponding to cluster monomials.
+  \end{definition}
+
+  \begin{lemma}
+    Let $\lambda\in\ZZ^n$ correspond to a cluster monomial.
+    Then $\cP(\lambda)=\{\lambda\}$.
+  \end{lemma}
+  \begin{proof}
+    An explicit sequence of sink/source mutations should suffice.
+  \end{proof}
+
+  \section{Attempts at understanding $\tau$}
+
   Suppose the principal part $B$ of $\tilde{B}$ is acyclic.
   Given a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, define a quiver $Q_{B,\varepsilon}$ from $Q_B$ by removing all arrows starting at vertex $i$ whenever $\varepsilon_i=-1$.
   For $1\le j\le n$, define $\cP_j(Q_{B,\varepsilon})$ as the set of paths in $Q_{B,\varepsilon}$ starting at vertex $j$.
@@ -214,52 +263,6 @@
   \begin{question}
     Is the trace of $\tau$ an invariant of matrix mutations?  P.A.: It is invariant under sink and source mutations since the trace is a class function and these mutations simply enact a cyclic shift in the factors of $\tau$.
   \end{question}
-
-  For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
-  \begin{definition}
-    For $\lambda\in\RR^n$, define the \emph{dominance region} 
-    \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda). \]
-    When $\mu\in\cP(\lambda)$, we say \emph{$\lambda$ dominates $\mu$}.
-  \end{definition}
-  Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
-  \begin{lemma}
-    The sets $\cP(\lambda)$ are polytopes.
-  \end{lemma}
-
-
-  \begin{lemma}
-    \label{le:transformed inequalities}
-    Let $A$ be an invertible $n\times n$ matrix.
-    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\langle\bfr,\bfx-\lambda\rangle\le t$ with $\lambda,\bfr\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality \[\langle A^{-T}\bfr,\bfy-A\lambda\rangle\le t.\]
-  \end{lemma}
-  \begin{proof}
-    This is immediate from the equalities
-    \[\langle\bfr,\bfx-\lambda\rangle=\bfr^T(\bfx-\lambda)=\bfr^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfr)^T(A\bfx-A\lambda)=\langle A^{-T}\bfr,\bfy-A\lambda\rangle.\]
-  \end{proof}
-
-
-  \section{Affine Types}
-  Associated to an acyclic skew-symmetrizable matrix $B=(b_{ij})$ there is a Cartan matrix $A=(a_{ij})$ with $a_{ii}=2$ and $a_{ij}=-|b_{ij}|$.
-  We say that $B$ is of affine type if its associated Cartan matrix gives rise to an affine Dynkin diagram.
-  In this section, we focus on understanding the dominance polytopes for affine matrices $B$.
-
-  Let $B=(b_{ij})$ be an $n\times n$ skew-symmetrizable matrix of affine type with associated Cartan matrix $A=(a_{ij})$.
-  
-  \begin{lemma}
-    One column is always in the positive span of the other columns.
-  \end{lemma}
-
-  \begin{definition}
-    Describe imaginary $\bfg$-vectors and those corresponding to cluster monomials.
-  \end{definition}
-
-  \begin{lemma}
-    Let $\lambda\in\ZZ^n$ correspond to a cluster monomial.
-    Then $\cP(\lambda)=\{\lambda\}$.
-  \end{lemma}
-  \begin{proof}
-    An explicit sequence of sink/source mutations should suffice.
-  \end{proof}
 
    
 \end{document}
