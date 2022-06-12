@@ -4,29 +4,55 @@ class DominanceOrder(SageObject):
     """
 
     def __init__(self, B):
-        self.B = copy(B)
-        self.A = ClusterAlgebra(B, principal_coefficients=True)
-        self.Aop = ClusterAlgebra(-B, principal_coefficients=True)
+        #B is n x n
+        self.n = B.ncols()
+        self.B = copy(B).stack(identity_matrix(self.n))
+        self.A = ClusterAlgebra(self.B, principal_coefficients=True)
+        self.Aop = ClusterAlgebra((-B).stack(identity_matrix(self.n)), principal_coefficients=True)
 
     def paths_up_to_length(self, k):
         paths = [ s.path_from_initial_seed() for s in self.A.seeds(mutating_F=False, depth=k) ]
         prefixes = [ p[:-1] for p in paths ]
         return [ p for p in paths if p not in prefixes ]
 
+    def cut_along_sequence(self, g, B, seq):
+        r"""
+        Return the intersection of the cones dominated by all the translates of g along the sequence of mutations seq
+        """
+        if len(g) == self.n:
+            g = tuple(g) + tuple([0 for _ in range(self.n)])
+        g = vector(g)
+        current_cone = Polyhedron(rays=B.columns(),base_ring=QQ).translation(g)
+        if seq == []:
+            return current_cone
+        k = seq.pop()
+        Hp = Polyhedron(ieqs=[(0,)*(k+1)+(1,)+(0,)*(2*self.n-k-1)])
+        Ep = matrix(2*self.n, lambda i,j: (1 if i == j else 0) if j != k else (max(B[i,k],0) if i != k else -1) )
+        Hm = Polyhedron(ieqs=[(0,)*(k+1)+(-1,)+(0,)*(2*self.n-k-1)])
+        Em = matrix(2*self.n, lambda i,j: (1 if i == j else 0) if j != k else (max(-B[i,k],0) if i != k else -1) )
+        new_g = (Ep if g in Hp else Em) * g
+        new_B = copy(B)
+        new_B.mutate(k)
+        polytope = self.cut_along_sequence(new_g, new_B, seq)
+        polytope_p = Em*(polytope.intersection(Hp))
+        polytope_m = Ep*(polytope.intersection(Hm))
+        polytope = polytope_p.convex_hull(polytope_m)
+        return polytope.intersection(current_cone)
+
     @cached_method(key=lambda self, g, depth: (tuple(g), depth))
     def dominated_polytope(self, g, depth):
         paths = self.paths_up_to_length(depth)
         p = paths.pop()
-        polytope = cut_along_sequence(g,self.B,p)
+        polytope = self.cut_along_sequence(g,self.B,p)
         while paths:
             p = paths.pop()
-            polytope = polytope.intersection(cut_along_sequence(g,self.B,p))
+            polytope = polytope.intersection(self.cut_along_sequence(g,self.B,p))
         return polytope
 
     def dominated_g_vectors(self, g, depth):
         polytope = self.dominated_polytope(g, depth)
         pts = polytope.integral_points()
-        lattice = self.B.transpose().image()
+        lattice = Polyhedron(rays=self.B.columns(),base_ring=QQ)
         g = vector(g)
         return [ p for p in pts if p-g in lattice ]
 
