@@ -19,8 +19,11 @@
 \numberwithin{theorem}{section}
 
 \newcommand{\bfc}{\boldsymbol{c}}
+\newcommand{\bfe}{\boldsymbol{e}}
 \newcommand{\bfg}{\boldsymbol{g}}
+\newcommand{\bfn}{\boldsymbol{n}}
 \newcommand{\bfr}{\boldsymbol{r}}
+\newcommand{\bfu}{\boldsymbol{u}}
 \newcommand{\bfx}{\boldsymbol{x}}
 \newcommand{\bfy}{\boldsymbol{y}}
 
@@ -107,7 +110,10 @@
   \end{proof}
 
   The index $k\in\{1,\ldots,n\}$ also determines a new matrix $\mu_k \tilde{B}=(b'_{ij})$ given by
-  \[ b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases} \]
+  \begin{equation}
+    \label{eq:matrix mutation}
+    b'_{ij}=\begin{cases} -b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.} \end{cases}
+  \end{equation}
     One easily observes that the principal part of $\mu_k \tilde{B}$ is again skew-symmetrizable using the same matrix $D$.
   \begin{remark}
     Note that $\mu_k \tilde{B}=E_{k,\varepsilon} \tilde{B} F_{k,\varepsilon}$ for $\varepsilon=\pm 1$, the case $\varepsilon=1$ being obvious from the definitions and the case $\varepsilon=-1$ following from the identity $b_{ij}=[b_{ij}]_+-[-b_{ij}]_+$.
@@ -160,11 +166,11 @@
   \begin{lemma}
     \label{le:transformed inequalities}
     Let $A$ be an invertible $n\times n$ matrix.
-    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\langle\bfr,\bfx-\lambda\rangle\le t$ with $\lambda,\bfr\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality \[\langle A^{-T}\bfr,\bfy-A\lambda\rangle\le t.\]
+    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\langle\bfn,\bfx-\lambda\rangle\le t$ with $\lambda,\bfn\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality \[\langle A^{-T}\bfn,\bfy-A\lambda\rangle\le t.\]
   \end{lemma}
   \begin{proof}
     This is immediate from the equalities
-    \[\langle\bfr,\bfx-\lambda\rangle=\bfr^T(\bfx-\lambda)=\bfr^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfr)^T(A\bfx-A\lambda)=\langle A^{-T}\bfr,\bfy-A\lambda\rangle.\]
+    \[\langle\bfn,\bfx-\lambda\rangle=\bfn^T(\bfx-\lambda)=\bfn^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfn)^T(A\bfx-A\lambda)=\langle A^{-T}\bfn,\bfy-A\lambda\rangle.\]
   \end{proof}
 
 
@@ -199,7 +205,7 @@
   Elements of $\cP_j(Q_{B,\varepsilon})$ are sequences of vertices $(p_1,\ldots,p_r)$ with $p_1=j$ and $b_{p_{t+1}p_t}>0$ for $1\le t\le r-1$.
   Given a path $p\in\cP_j(Q_{B,\varepsilon})$, a vertex $i\in Q_0$, and a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, set
   \[\wt_{i,\varepsilon}(p):=-b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}\prod_{t=1}^{r-1} b_{p_{t+1}p_t},\]
-  where the prefactor $b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}$ is omitted if $i=p_r$ or $\varepsilon_{p_r}=-1$.
+  where the prefactor of $b_{ip_r}$ is omitted if $i=p_r$ or $\varepsilon_{p_r}=-1$.
   \begin{lemma}
     Suppose $B$ is acyclic with source-adapted sequence $k_1,\ldots,k_n$.
     Consider $t_1,\ldots,t_n\in\TT_n$ so that $t_{\ell-1}$ is joined to $t_\ell$ by an edge in $\TT_n$ labeled by $k_\ell$ for $1\le\ell\le n$.
@@ -263,6 +269,54 @@
   \begin{question}
     Is the trace of $\tau$ an invariant of matrix mutations?  P.A.: It is invariant under sink and source mutations since the trace is a class function and these mutations simply enact a cyclic shift in the factors of $\tau$.
   \end{question}
+
+
+\section{Iterated Mutations}
+
+  Let $B=(b_{ij})$ denote an acyclic $n\times n$ exchange matrix.
+  Write $Q_B$ for the corresponding quiver, here $b_{ij}>0$ means there is an arrow from $j$ to $i$ in $Q$.
+  Without loss of generality we assume $1,\ldots,n$ is a sink adapted sequence for $Q_B$, i.e. vertex $1$ is a sink and vertex $n$ is a source in $Q$.
+  This implies $B$ has positive entries above the diagonal.
+  \sayDR{This seemed to give the cleanest calculation.}
+  Define vectors $\bfc^{(k)}_r\in\ZZ^n$ for $1\le k\le n$ and $r\in\ZZ_{\ge0}$ recursively as follows:
+  \sayDR{A slight modification is needed to handle the opposite mutation sequence.}
+  \begin{itemize}
+    \item $\bfc^{(k)}_0=\bfe_k$ is the standard basis vector 
+    \item for $1\le \ell \le n$, we have $\bfc^{(k)}_{ns+\ell}=\begin{cases} -\bfc^{(k)}_{ns+\ell-1} & \text{if $\ell=k$;}\\ \bfc^{(k)}_{ns+\ell-1}+b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1} & \text{if $\ell<k$;}\\ \bfc^{(k)}_{ns+\ell-1}-b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1} & \text{if $\ell>k$.} \end{cases}$
+  \end{itemize}
+  For $r\in\ZZ$ and $1\le k\le n$, write $r\equiv_n k$ if $n|(r-k)$ and $r\not\equiv_n k$ otherwise.
+  \begin{lemma}
+    \label{lem:tropical signs}
+    Assume $B$ is not finite-type.
+    For $r\in\ZZ_{\ge0}$, the vector $\bfc^{(k)}_r$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
+  \end{lemma}
+  \begin{proof}
+    Induction?
+  \end{proof}
+
+  \begin{lemma}
+    For any $s\in\ZZ_{\ge0}$ and $0\le \ell \le n-1$, the matrix $\mu_\ell\cdots\mu_1(\mu_n\cdots\mu_1)^s\tilde B$ has principal part given by $(b'_{ij})$ where $b'_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(k)}_{ns+\ell}$ for $1\le k\le n$.
+  \end{lemma}
+  \begin{proof}
+    We work by induction on $ns+\ell$.
+    For $s=\ell=0$, we just get $\tilde B$ and the claim clearly holds.
+    Assume the claim holds for a chosen $s$ and $\ell-1$, we show the claim holds for $s$ and $\ell$ (the case $\ell=n$ gives rise to the claim for $s+1$ and $\ell=0$).
+    Write $\tilde B'=\mu_{\ell-1}\cdots\mu_1(\mu_n\cdots\mu_1)^s\tilde B$ and let $Q'_B$ denote the corresponding acyclic quiver.
+
+    By \eqref{eq:matrix mutation}, the mutation $\mu_\ell$ reverses the sign of the $\ell$-th row and column of $\tilde B'$.
+    It follows that the principal part of $\mu_\ell\tilde B'$ is given as follows:
+    \begin{itemize}
+      \item if $i,j<\ell$, or $i<\ell$ and $j>\ell$, or $i<\ell$ and $j>\ell$, then $(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}=(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}$;
+      \item if $i=\ell$ or $j=\ell$, then $(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}$;
+    \end{itemize}
+    in each case we obtain the desired expression.
+    In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(\ell)}_{ns+\ell-1}=\bfc^{(\ell)}_{ns+\ell}$ as desired.
+    By Lemma~\ref{lem:tropical signs}, the $\ell$-th $\bfc$-vector of $\tilde B'$ is non-negative.  
+    Observe further that vertex $\ell$ is a sink in $Q'_B$ so that the $\ell$-th row of $\tilde B'$ has non-negative entries, in particular we see that $b'_{ij}=-b_{ij}$ for $j<\ell$ and $b'_{ij}=b_{ij}$ for $j>\ell$.
+    It then follows from \eqref{eq:matrix mutation} that the $k$-th $\bfc$-vector of $\mu_\ell\tilde B'$ is given by $\bfc^{(k)}_{ns+\ell-1}+b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1}$ if $\ell<k$ and by $\bfc^{(k)}_{ns+\ell-1}-b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1}$ if $\ell>k$.
+    Each of these is equal to $\bfc^{(k)}_{ns+\ell}$ as desired.
+  \end{proof}
+
 
    
 \end{document}
