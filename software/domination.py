@@ -37,6 +37,7 @@ class DominanceOrder(SageObject):
         polytope_p = Em*(polytope.intersection(Hp))
         polytope_m = Ep*(polytope.intersection(Hm))
         polytope = polytope_p.convex_hull(polytope_m)
+        return polytope
         return polytope.intersection(current_cone)
 
     @cached_method(key=lambda self, g, depth: (tuple(g), depth))

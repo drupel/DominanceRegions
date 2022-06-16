@@ -22,6 +22,7 @@
 \newcommand{\bfa}{\boldsymbol{a}}
 \newcommand{\bfc}{\boldsymbol{c}}
 \newcommand{\bfg}{\boldsymbol{g}}
+\newcommand{\bfn}{\boldsymbol{n}}
 \newcommand{\bfr}{\boldsymbol{r}}
 \newcommand{\bfx}{\boldsymbol{x}}
 \newcommand{\bfy}{\boldsymbol{y}}
@@ -173,7 +174,7 @@
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
   We therefore assume that $bc\ge4$.
   In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
-  Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance region} $\cP_\lambda$.
+  Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance region} $\cP_\lambda$ (cf. Definition~\ref{def:dominance}).
   \begin{theorem}
     \label{th:dominance inequalities}
     The dominance region $\cP_\lambda$ of the $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)$ is the polygon consisting of those $\mu=(\mu_0,\mu_1)\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
@@ -586,24 +587,24 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   \begin{lemma}
     \label{le:transformed inequalities}
-    Let $A$ be an invertible $2\times 2$ matrix.
-    Under the left action of $A$, say $A\mu=\mu'$ for $\mu,\mu'\in\RR^2$, the region inside $\RR^2$ defined by the inequality $\langle\bfr,\mu\rangle \le t$ with $\bfr\in\RR^2$ and $t\in\RR$ is transformed into the region defined by the inequality 
+    Let $M$ be an invertible $2\times 2$ matrix.
+    Under the left action of $M$, say $M\mu=\mu'$ for $\mu,\mu'\in\RR^2$, the region inside $\RR^2$ defined by the inequality $\langle\alpha,\mu\rangle \le t$ with $\alpha\in\RR^2$ and $t\in\RR$ is transformed into the region defined by the inequality 
     \[
-      \langle A^{-T}\bfr,\mu'\rangle\le t.
+      \langle M^{-T}\alpha,\mu'\rangle\le t.
     \]
   \end{lemma}
   \begin{proof}
     This is immediate from the equalities
     \[
-      \langle \bfr,\mu\rangle
+      \langle \alpha,\mu\rangle
       =
-      \bfr^T\mu
+      \alpha^T\mu
       =
-      \bfr^TA^{-1}A\mu
+      \alpha^TM^{-1}M\mu
       =
-      (A^{-T}\bfr)^TA\mu
+      (M^{-T}\alpha)^TM\mu
       =
-      \langle A^{-T}\bfr,\mu'\rangle.
+      \langle M^{-T}\alpha,\mu'\rangle.
     \]
   \end{proof}
  
