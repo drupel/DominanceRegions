@@ -275,6 +275,7 @@
 
   Let $B=(b_{ij})$ denote an acyclic $n\times n$ exchange matrix.
   Write $Q_B$ for the corresponding quiver, here $b_{ij}>0$ means there is an arrow from $j$ to $i$ in $Q$.
+  \sayDR{Note that $Q_B$ is only recording the orientations of edges.}
   Without loss of generality we assume $1,\ldots,n$ is a sink adapted sequence for $Q_B$, i.e. vertex $1$ is a sink and vertex $n$ is a source in $Q$.
   This implies $B$ has positive entries above the diagonal.
   \sayDR{This seemed to give the cleanest calculation.}
@@ -294,29 +295,59 @@
     Induction?
   \end{proof}
 
+  Let $\TT_n$ denote the $n$-regular labeled tree with root vertex $t_0$.
+  Define vertices $t_r\in\TT_n$ for $r\in\ZZ$ by joining $t_{r-1}$ to $t_r$ by an edge labeled $\ell$ if $r\equiv_n\ell$.
+  Since $1,\ldots,n$ is sink adapted, this labels preprojective seeds by positive integers and postinjective seeds by negative integers.
+  Write $\tilde B^{t_r}$ for the extended exchange matrix associated to the seed at $t_r$.
   \begin{lemma}
-    For any $s\in\ZZ_{\ge0}$ and $0\le \ell \le n-1$, the matrix $\mu_\ell\cdots\mu_1(\mu_n\cdots\mu_1)^s\tilde B$ has principal part given by $(b'_{ij})$ where $b'_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(k)}_{ns+\ell}$ for $1\le k\le n$.
+    For $r\in\ZZ_{\ge0}$ with $r=ns+\ell$ for $1\le \ell \le n$, the matrix $\tilde B^{t_r}$ has principal part given by $b^{t_r}_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(k)}_r$ for $1\le k\le n$.
   \end{lemma}
   \begin{proof}
     We work by induction on $ns+\ell$.
     For $s=\ell=0$, we just get $\tilde B$ and the claim clearly holds.
-    Assume the claim holds for a chosen $s$ and $\ell-1$, we show the claim holds for $s$ and $\ell$ (the case $\ell=n$ gives rise to the claim for $s+1$ and $\ell=0$).
-    Write $\tilde B'=\mu_{\ell-1}\cdots\mu_1(\mu_n\cdots\mu_1)^s\tilde B$ and let $Q'_B$ denote the corresponding acyclic quiver.
+    Assume the claim holds for $r-1$, we show the claim holds for $r$.
 
-    By \eqref{eq:matrix mutation}, the mutation $\mu_\ell$ reverses the sign of the $\ell$-th row and column of $\tilde B'$.
-    It follows that the principal part of $\mu_\ell\tilde B'$ is given as follows:
+    By \eqref{eq:matrix mutation}, the mutation $\mu_\ell$ reverses the sign of the $\ell$-th row and column of $\tilde B^{t_{r-1}}$.
+    It follows that the principal part of $\tilde B^{t_r}$ is given as follows:
     \begin{itemize}
-      \item if $i,j<\ell$, or $i<\ell$ and $j>\ell$, or $i<\ell$ and $j>\ell$, then $(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}=(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}$;
+      \item if $i,j<\ell$, or $i<\ell$ and $j>\ell$, or $i<\ell$ and $j>\ell$, then 
+        \[b^{t_r}_{ij}=b^{t_{r-1}}_{ij}=(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};\]
       \item if $i=\ell$ or $j=\ell$, then $(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}$;
+        \[b^{t_r}_{ij}=-b^{t_{r-1}}_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};\]
     \end{itemize}
     in each case we obtain the desired expression.
-    In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(\ell)}_{ns+\ell-1}=\bfc^{(\ell)}_{ns+\ell}$ as desired.
-    By Lemma~\ref{lem:tropical signs}, the $\ell$-th $\bfc$-vector of $\tilde B'$ is non-negative.  
-    Observe further that vertex $\ell$ is a sink in $Q'_B$ so that the $\ell$-th row of $\tilde B'$ has non-negative entries, in particular we see that $b'_{ij}=-b_{ij}$ for $j<\ell$ and $b'_{ij}=b_{ij}$ for $j>\ell$.
-    It then follows from \eqref{eq:matrix mutation} that the $k$-th $\bfc$-vector of $\mu_\ell\tilde B'$ is given by $\bfc^{(k)}_{ns+\ell-1}+b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1}$ if $\ell<k$ and by $\bfc^{(k)}_{ns+\ell-1}-b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1}$ if $\ell>k$.
-    Each of these is equal to $\bfc^{(k)}_{ns+\ell}$ as desired.
+    In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(\ell)}_{r-1}=\bfc^{(\ell)}_r$ as desired.
+
+    By Lemma~\ref{lem:tropical signs}, the $\ell$-th $\bfc$-vector of $\tilde B^{t_{r-1}}$ is non-negative.  
+    Observe further that vertex $\ell$ being a sink implies that the $\ell$-th row of $\tilde B^{t_{r-1}}$ has non-negative entries, in particular we see that $b^{t_{r-1}}_{\ell k}=b_{\ell k}$ for $\ell<k$ and $b^{t_{r-1}}_{\ell k}=-b_{\ell k}$ for $\ell>k$.
+    It then follows from \eqref{eq:matrix mutation} that the $k$-th $\bfc$-vector of $\tilde B^{t_r}$ is given by $\bfc^{(k)}_{r-1}+b_{\ell k}\bfc^{(\ell)}_{r-1}$ if $\ell<k$ and by $\bfc^{(k)}_{r-1}-b_{\ell k}\bfc^{(\ell)}_{r-1}$ if $\ell>k$.
+    Each of these is equal to $\bfc^{(k)}_r$ as desired.
   \end{proof}
 
+  It follows that we may write explicit expressions for the $2n\times 2n$ mutation matrices $E^{t_r}_{k,\varepsilon}$ for $r\ge0$.
+  Indeed, taking $r=ns+\ell$ with $1 \le \ell \le n$ we get $E^{t_r}_{k,\varepsilon}=(e^{t_r}_{ij})$ with
+  \begin{equation}
+    \label{eq:preprojective mutation matrices}
+    e^{t_r}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{ik} & \text{if $\varepsilon=+$ and $i<j=k\le\ell$ or $j=k\le\ell<i$ or $\ell<i<j=k$;}\\ -b_{ik} & \text{if $\varepsilon=-$ and $j=k<i\le\ell$ or $i\le\ell<j=k$ or $\ell<j=k<i$;} \\ 0 & \text{otherwise;} \end{cases}
+  \end{equation}
 
+  \[
+    \left[\begin{array}{cc|c|cccc}
+      0 & + & + & - & - & \cdots & -\\
+      - & 0 & + & - & - & \cdots & -\\
+      \hline
+      - & - & 0 & - & - & \cdots & -\\
+      \hline
+      + & + & + & 0 & + & \cdots & +\\
+      + & + & + & - & 0 & \cdots & +\\
+      \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+      + & + & + & - & - & \cdots & 0
+    \end{array}\right]
+  \]
+  where the bottom $n$ entries in column $k$ are given as follows:
+  \begin{itemize}
+    \item if $\varepsilon=+$, we have $\bfc^{(k)}_r$ if $r\not\equiv_n k$ and zero otherwise;
+    \item if $\varepsilon=-$, we have $-\bfc^{(k)}_r$ if $r\equiv_n k$ and zero otherwise.
+  \end{itemize}
    
 \end{document}

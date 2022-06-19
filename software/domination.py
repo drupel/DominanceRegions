@@ -40,6 +40,33 @@ class DominanceOrder(SageObject):
         return polytope
         return polytope.intersection(current_cone)
 
+    def cut_along_sequence(self, g, B, seq, return_steps=1000000):
+        r"""
+        Return the intersection of the cones dominated by all the translates of g along the sequence of mutations seq
+        """
+        if len(g) == self.n:
+            g = tuple(g) + tuple([0 for _ in range(self.n)])
+        g = vector(g)
+        current_cone = Polyhedron(rays=B.columns(),base_ring=QQ).translation(g)
+        if seq == []:
+            return return_steps, current_cone
+        k = seq.pop()
+        Hp = Polyhedron(ieqs=[(0,)*(k+1)+(1,)+(0,)*(2*self.n-k-1)])
+        Ep = matrix(2*self.n, lambda i,j: (1 if i == j else 0) if j != k else (max(B[i,k],0) if i != k else -1) )
+        Hm = Polyhedron(ieqs=[(0,)*(k+1)+(-1,)+(0,)*(2*self.n-k-1)])
+        Em = matrix(2*self.n, lambda i,j: (1 if i == j else 0) if j != k else (max(-B[i,k],0) if i != k else -1) )
+        new_g = (Ep if g in Hp else Em) * g
+        new_B = copy(B)
+        new_B.mutate(k)
+        remaining_steps, polytope = self.cut_along_sequence(new_g, new_B, seq, return_steps)
+        if remaining_steps > 0:
+            polytope_p = Em*(polytope.intersection(Hp))
+            polytope_m = Ep*(polytope.intersection(Hm))
+            polytope = polytope_p.convex_hull(polytope_m)
+            remaining_steps -= 1
+        return remaining_steps, polytope
+        return polytope.intersection(current_cone)
+
     @cached_method(key=lambda self, g, depth: (tuple(g), depth))
     def dominated_polytope(self, g, depth):
         paths = self.paths_up_to_length(depth)
