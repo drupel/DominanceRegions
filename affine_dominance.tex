@@ -279,20 +279,28 @@
   Without loss of generality we assume $1,\ldots,n$ is a sink adapted sequence for $Q_B$, i.e. vertex $1$ is a sink and vertex $n$ is a source in $Q$.
   This implies $B$ has positive entries above the diagonal.
   \sayDR{This seemed to give the cleanest calculation.}
-  Define vectors $\bfc^{(k)}_r\in\ZZ^n$ for $1\le k\le n$ and $r\in\ZZ_{\ge0}$ recursively as follows:
+  Define vectors $\bfc^{(r)}_k\in\ZZ^n$ for $1\le k\le n$ and $r\in\ZZ_{\ge0}$ recursively as follows:
   \sayDR{A slight modification is needed to handle the opposite mutation sequence.}
   \begin{itemize}
-    \item $\bfc^{(k)}_0=\bfe_k$ is the standard basis vector 
-    \item for $1\le \ell \le n$, we have $\bfc^{(k)}_{ns+\ell}=\begin{cases} -\bfc^{(k)}_{ns+\ell-1} & \text{if $\ell=k$;}\\ \bfc^{(k)}_{ns+\ell-1}+b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1} & \text{if $\ell<k$;}\\ \bfc^{(k)}_{ns+\ell-1}-b_{\ell k}\bfc^{(\ell)}_{ns+\ell-1} & \text{if $\ell>k$.} \end{cases}$
+    \item $\bfc^{(0)}_k=\bfe_k$ is the standard basis vector 
+    \item for $r=ns+\ell$ with $1 \le \ell \le n$, we have $\bfc^{(r)}_k=\begin{cases} -\bfc^{(r-1)}_k & \text{if $\ell=k$;}\\ \bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell<k$;}\\ \bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell>k$.} \end{cases}$
   \end{itemize}
   For $r\in\ZZ$ and $1\le k\le n$, write $r\equiv_n k$ if $n|(r-k)$ and $r\not\equiv_n k$ otherwise.
   \begin{lemma}
     \label{lem:tropical signs}
     Assume $B$ is not finite-type.
-    For $r\in\ZZ_{\ge0}$, the vector $\bfc^{(k)}_r$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
+    For $r\in\ZZ_{\ge0}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
   \end{lemma}
   \begin{proof}
     Induction?
+  \end{proof}
+
+  \begin{lemma}
+    Consider $r=ns+\ell$ with $1\le\ell\le n$.
+    The limiting ray $\lim_{s\to\infty} \RR_{\ge0}\bfc^{(r)}_k$ is (up to sign) independent of $k$ and $\ell$ and is spanned by an eigenvector for $\tau$ acting on roots corresponding to the largest real eigenvalue (or maybe its inverse).
+  \end{lemma}
+  \begin{proof}
+    \cite{Tak94} should be relevant to this.
   \end{proof}
 
   Let $\TT_n$ denote the $n$-regular labeled tree with root vertex $t_0$.
@@ -300,13 +308,16 @@
   Since $1,\ldots,n$ is sink adapted, this labels preprojective seeds by positive integers and postinjective seeds by negative integers.
   Write $\tilde B^{t_r}$ for the extended exchange matrix associated to the seed at $t_r$.
   \begin{lemma}
-    For $r\in\ZZ_{\ge0}$ with $r=ns+\ell$ for $1\le \ell \le n$, the matrix $\tilde B^{t_r}$ has principal part given by $b^{t_r}_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(k)}_r$ for $1\le k\le n$.
+    \label{lem:preprojective exchange matrices}
+    For $r\in\ZZ_{\ge0}$ with $r=ns+\ell$ for $1\le \ell \le n$, the matrix $\tilde B^{t_r}$ has principal part given by $b^{t_r}_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(r)}_k$ for $1\le k\le n$.
   \end{lemma}
   \begin{proof}
-    We work by induction on $ns+\ell$.
-    For $s=\ell=0$, we just get $\tilde B$ and the claim clearly holds.
+    We work by induction on $r$.
+    For $r=0$, we just get $\tilde B$ and the claim clearly holds.
     Assume the claim holds for $r-1$, we show the claim holds for $r$.
 
+    Write $r=ns+\ell$ with $1 \le \ell \le n$.
+    Then $\tilde B^{t_r}$ is obtained from $\tilde B^{t_{r-1}}$ by mutation in direction $\ell$.
     By \eqref{eq:matrix mutation}, the mutation $\mu_\ell$ reverses the sign of the $\ell$-th row and column of $\tilde B^{t_{r-1}}$.
     It follows that the principal part of $\tilde B^{t_r}$ is given as follows:
     \begin{itemize}
@@ -316,13 +327,15 @@
         \[b^{t_r}_{ij}=-b^{t_{r-1}}_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};\]
     \end{itemize}
     in each case we obtain the desired expression.
-    In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(\ell)}_{r-1}=\bfc^{(\ell)}_r$ as desired.
+    In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(r-1)}_\ell=\bfc^{(r)}_\ell$ as desired.
 
     By Lemma~\ref{lem:tropical signs}, the $\ell$-th $\bfc$-vector of $\tilde B^{t_{r-1}}$ is non-negative.  
     Observe further that vertex $\ell$ being a sink implies that the $\ell$-th row of $\tilde B^{t_{r-1}}$ has non-negative entries, in particular we see that $b^{t_{r-1}}_{\ell k}=b_{\ell k}$ for $\ell<k$ and $b^{t_{r-1}}_{\ell k}=-b_{\ell k}$ for $\ell>k$.
-    It then follows from \eqref{eq:matrix mutation} that the $k$-th $\bfc$-vector of $\tilde B^{t_r}$ is given by $\bfc^{(k)}_{r-1}+b_{\ell k}\bfc^{(\ell)}_{r-1}$ if $\ell<k$ and by $\bfc^{(k)}_{r-1}-b_{\ell k}\bfc^{(\ell)}_{r-1}$ if $\ell>k$.
-    Each of these is equal to $\bfc^{(k)}_r$ as desired.
+    It then follows from \eqref{eq:matrix mutation} that the $k$-th $\bfc$-vector of $\tilde B^{t_r}$ is given by $\bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell$ if $\ell<k$ and by $\bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell$ if $\ell>k$.
+    Each of these is equal to $\bfc^{(r)}_k$ as desired.
   \end{proof}
+
+  Following Lemma~\ref{lem:preprojective exchange matrices}, we identify $\bfc^{(r)}_k$ with the vector $(b^{t_r}_{ik})$ with $n+1\le i\le 2n$.
 
   It follows that we may write explicit expressions for the $2n\times 2n$ mutation matrices $E^{t_r}_{k,\varepsilon}$ for $r\ge0$.
   Indeed, taking $r=ns+\ell$ with $1 \le \ell \le n$ we get $E^{t_r}_{k,\varepsilon}=(e^{t_r}_{ij})$ with
@@ -330,6 +343,11 @@
     \label{eq:preprojective mutation matrices}
     e^{t_r}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{ik} & \text{if $\varepsilon=+$ and $i<j=k\le\ell$ or $j=k\le\ell<i$ or $\ell<i<j=k$;}\\ -b_{ik} & \text{if $\varepsilon=-$ and $j=k<i\le\ell$ or $i\le\ell<j=k$ or $\ell<j=k<i$;} \\ 0 & \text{otherwise;} \end{cases}
   \end{equation}
+  where the bottom $n$ entries in column $k$ are given as follows:
+  \begin{itemize}
+    \item if $\varepsilon=+$, we have $\bfc^{(r)}_k$ if $r\not\equiv_n k$ and zero otherwise;
+    \item if $\varepsilon=-$, we have $-\bfc^{(r)}_k$ if $r\equiv_n k$ and zero otherwise.
+  \end{itemize}
 
   \[
     \left[\begin{array}{cc|c|cccc}
@@ -344,10 +362,22 @@
       + & + & + & - & - & \cdots & 0
     \end{array}\right]
   \]
-  where the bottom $n$ entries in column $k$ are given as follows:
-  \begin{itemize}
-    \item if $\varepsilon=+$, we have $\bfc^{(k)}_r$ if $r\not\equiv_n k$ and zero otherwise;
-    \item if $\varepsilon=-$, we have $-\bfc^{(k)}_r$ if $r\equiv_n k$ and zero otherwise.
-  \end{itemize}
-   
+
+  For $\lambda\in\ZZ^n$ and $r\in\ZZ_{\ge0}$ with $r=ns+\ell$ for $1\le\ell\le n$, the tropical transformation $\phi_{t_r}(\lambda)$ is given by
+  \[E^{t_{r-1}}_{\ell,\varepsilon_{r-1}} \cdots E^{t_1}_{2,\varepsilon_1} E^{t_0}_{1,\varepsilon_0} \lambda\]
+  for a sequence of signs $\varepsilon_0,\ldots,\varepsilon_{r-1}$ depending on $\lambda$.
+  \begin{lemma}
+    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_j$ above is equal to $-$.
+    \sayDR{Can we use this as a definition of imaginary $\bfg$-vectors?}
+  \end{lemma}
+  \begin{proof}
+    With $1,\ldots,n$ being sink adapted, this choice gives the most complicated transformation at each step.
+    That should mean that $\lambda$ is sufficiently far from the initial chamber and remains there under all mutations.
+  \end{proof}
+
+
+
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}  
+
 \end{document}
