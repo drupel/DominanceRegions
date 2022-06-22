@@ -279,25 +279,29 @@
   Without loss of generality we assume $1,\ldots,n$ is a sink adapted sequence for $Q_B$, i.e. vertex $1$ is a sink and vertex $n$ is a source in $Q$.
   This implies $B$ has positive entries above the diagonal.
   \sayDR{This seemed to give the cleanest calculation.}
-  Define vectors $\bfc^{(r)}_k\in\ZZ^n$ for $1\le k\le n$ and $r\in\ZZ_{\ge0}$ recursively as follows:
-  \sayDR{A slight modification is needed to handle the opposite mutation sequence.}
+  Define vectors $\bfc^{(r)}_k\in\ZZ^n$ for $1\le k\le n$ and $r\in\ZZ$ recursively as follows:
   \begin{itemize}
-    \item $\bfc^{(0)}_k=\bfe_k$ is the standard basis vector 
-    \item for $r=ns+\ell$ with $1 \le \ell \le n$, we have $\bfc^{(r)}_k=\begin{cases} -\bfc^{(r-1)}_k & \text{if $\ell=k$;}\\ \bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell<k$;}\\ \bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell>k$.} \end{cases}$
+    \item for $-n\le r\le 0$, we have $\bfc^{(r)}_k=\bfe_k$ for $1\le k\le r+n$ and $\bfc^{(r)}_k=-\bfe_k$ for $r+n<k\le n$, where $\bfe_k
+      $ is the standard basis vector;
+    \item for $r=ns+\ell>0$ with $1 \le \ell \le n$, we have $\bfc^{(r)}_k=\begin{cases} -\bfc^{(r-1)}_k & \text{if $\ell=k$;}\\ \bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell<k$;}\\ \bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell>k$.} \end{cases}$
+    \item for $r=ns+\ell<-n$ with $1 \le \ell \le n$, we have $\bfc^{(r-1)}_k=\begin{cases} -\bfc^{(r)}_k & \text{if $\ell=k$;}\\ \bfc^{(r)}_k-b_{\ell k}\bfc^{(r)}_\ell & \text{if $\ell<k$;}\\ \bfc^{(r)}_k+b_{\ell k}\bfc^{(r)}_\ell & \text{if $\ell>k$.} \end{cases}$
   \end{itemize}
   For $r\in\ZZ$ and $1\le k\le n$, write $r\equiv_n k$ if $n|(r-k)$ and $r\not\equiv_n k$ otherwise.
   \begin{lemma}
     \label{lem:tropical signs}
     Assume $B$ is not finite-type.
-    For $r\in\ZZ_{\ge0}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
+    \begin{itemize}
+      \item For $r\in\ZZ_{>0}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
+      \item For $r\in\ZZ_{<-n}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\equiv_n k$ and non-positive when $r\not\equiv_n k$.
+    \end{itemize}
   \end{lemma}
   \begin{proof}
-    Induction?
+    Induction
   \end{proof}
 
   \begin{lemma}
     Consider $r=ns+\ell$ with $1\le\ell\le n$.
-    The limiting ray $\lim_{s\to\infty} \RR_{\ge0}\bfc^{(r)}_k$ is (up to sign) independent of $k$ and $\ell$ and is spanned by an eigenvector for $\tau$ acting on roots corresponding to the largest real eigenvalue (or maybe its inverse).
+    The limiting rays $\lim_{s\to\infty} \RR_{\ge0}\bfc^{(r)}_k$ and $\lim_{s\to-\infty} \RR_{\ge0}\bfc^{(r)}_k$ are each (up to sign) independent of $k$ and $\ell$ and are spanned by eigenvectors for $\tau$ acting on roots corresponding to the largest real eigenvalue and its inverse.
   \end{lemma}
   \begin{proof}
     \cite{Tak94} should be relevant to this.
@@ -309,10 +313,11 @@
   Write $\tilde B^{t_r}$ for the extended exchange matrix associated to the seed at $t_r$.
   \begin{lemma}
     \label{lem:preprojective exchange matrices}
-    For $r\in\ZZ_{\ge0}$ with $r=ns+\ell$ for $1\le \ell \le n$, the matrix $\tilde B^{t_r}$ has principal part given by $b^{t_r}_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(r)}_k$ for $1\le k\le n$.
+    For $r\in\ZZ$ with $r=ns+\ell$ for $1\le \ell \le n$, the matrix $\tilde B^{t_r}$ has principal part given by $b^{t_r}_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(r)}_k$ for $1\le k\le n$.
   \end{lemma}
   \begin{proof}
-    We work by induction on $r$.
+    We work by upward and downward induction on $r$.
+    \sayDR{Downward case still needed}
     For $r=0$, we just get $\tilde B$ and the claim clearly holds.
     Assume the claim holds for $r-1$, we show the claim holds for $r$.
 
@@ -363,23 +368,28 @@
     \end{array}\right]
   \]
 
-  For $\lambda\in\ZZ^n$ and $r\in\ZZ_{\ge0}$ with $r=ns+\ell$ for $1\le\ell\le n$, the tropical transformation $\phi_{t_r}(\lambda)$ is given by
-  \[E^{t_{r-1}}_{\ell,\varepsilon_{r-1}} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell}} E^{t_{ns-1}}_{n,\varepsilon_{ns-1}} \cdots E^{t_1}_{2,\varepsilon_1} E^{t_0}_{1,\varepsilon_0} \lambda\]
-  for a sequence of signs $\varepsilon_0,\ldots,\varepsilon_{r-1}$ depending on $\lambda$.
+  For $\lambda\in\ZZ^n$ and $r\in\ZZ_{>0}$ with $r=ns+\ell$ for $1\le\ell\le n$, the tropical transformation $\phi_{t_r}(\lambda)$ is given by
+  \[E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda\]
+  for a sequence of signs $\varepsilon_1,\ldots,\varepsilon_r$ depending on $\lambda$.
+  Similarly, the tropical transformation $\phi_{t_{-r}}(\lambda)$ is given by
+  \[E^{t_{-r+1}}_{n-\ell+1,\varepsilon_{-r}} \cdots E^{t_{-r+\ell}}_{n,\varepsilon_{-r+\ell-1}} E^{t_{-ns+1}}_{1,\varepsilon_{-ns}} \cdots E^{t_{-1}}_{n-1,\varepsilon_{-2}} E^{t_0}_{n,\varepsilon_{-1}} \lambda\]
+  for a sequence of signs $\varepsilon_{-1},\ldots,\varepsilon_{-r}$ depending on $\lambda$.
   \begin{lemma}
-    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_j$ above is equal to $-$.
-    \sayDR{Can we use this as a definition of imaginary $\bfg$-vectors?}
+    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_j$ with $j>0$ above is equal to $-$ and every sign $\varepsilon_j$ with $j<0$ above is equal to $+$.
   \end{lemma}
   \begin{proof}
-    With $1,\ldots,n$ being sink adapted, this choice gives the most complicated transformation at each step.
+    With $1,\ldots,n$ being sink adapted, these choices give the most complicated transformation at each step.
     That should mean that $\lambda$ is sufficiently far from the initial chamber and remains there under all mutations.
   \end{proof}
 
   For a $\bfg$-vector $\lambda\in\ZZ^n$, write $\tilde\lambda\in\ZZ^{2n}$ for its extension by zeros.
   \begin{lemma}
-    For any imaginary $\bfg$-vector $\lambda\in\ZZ^n$ and any source or sink adapted sequence of mutations, the coefficient part of
-    \[E^{t_{r-1}}_{\ell,\varepsilon_{r-1}} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell}} E^{t_{ns-1}}_{n,\varepsilon_{ns-1}} \cdots E^{t_1}_{2,\varepsilon_1} E^{t_0}_{1,\varepsilon_0} \tilde\lambda\]
-    stabilizes after the first $n$ mutations.
+    Let $\lambda\in\ZZ^n$ be an imaginary $\bfg$-vector.
+    \begin{itemize}
+      \item For any $r\in\ZZ_{>0}$, the coefficient part of $\phi_{t_r}(\tilde\lambda)$ is just the zero vector.
+      \item For $1\le r\le n$, the coefficient part of  $\phi_{t_{-r}}(\tilde\lambda)$ is given by ...
+      \item For any $r\in\ZZ_{>n}$, the coefficient part of  $\phi_{t_{-r}}(\tilde\lambda)$ is independent of $r$ and is given by ...
+    \end{itemize}
   \end{lemma}
   \begin{proof}
     If the sequence is sink adapted, the coefficient part is always just zero.
