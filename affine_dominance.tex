@@ -408,14 +408,38 @@
   for a sequence of signs $\varepsilon_{-1},\ldots,\varepsilon_{-r}$ depending on $\lambda$.
   \begin{lemma}
     \label{lem:imaginary mutations}
-    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_j$ with $j>0$ above is equal to $-$ and every sign $\varepsilon_j$ with $j<0$ above is equal to $+$.
+    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_r$ with $r>0$ above is equal to $-$ and every sign $\varepsilon_r$ with $r<0$ above is equal to $+$.
   \end{lemma}
   \begin{proof}
     With $1,\ldots,n$ being sink adapted, these sign choices give the most complicated transformation at each step.
     That should mean that $\lambda$ is sufficiently far from the initial chamber and remains there under all mutations.
   \end{proof}
 
+  Using this we explicitly compute the action of $\phi_{t_r}$ on imaginary $\bfg$-vectors. 
   For a $\bfg$-vector $\lambda\in\ZZ^n$, write $\tilde\lambda\in\ZZ^{2n}$ for its extension by zeros.
+  \begin{proposition}
+    Suppose $\lambda\in\ZZ^n$ is imaginary.
+    For $r\in\ZZ$, write $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
+    Then the following hold:
+    \begin{itemize}
+      \item For $r>0$ with $r=ns+\ell$, we have (this is for $s=0$ so far)
+        \begin{equation}
+          \label{eq:positive g-vector mutations}
+          \lambda'_k=
+            \begin{cases} 
+              \lambda_k+\sum\limits_{1\le i_1<\cdots<i_m\le \ell} (-1)^m b_{ki_m} \prod\limits_{p=2}^m b_{i_p i_{p-1}}\lambda_{i_1} & \text{if $\ell+1\le k\le n$;}\\
+              -\lambda_k-\sum\limits_{1\le i_1<\cdots<i_m\le \ell} (-1)^m b_{ki_m} \prod\limits_{p=2}^m b_{i_pi_{p-1}}\lambda_{i_1} & \text{if $1\le k\le \ell$;}\\
+            \end{cases}
+        \end{equation}
+        and $\lambda'_{n+k}=0$ for $1\le k\le n$.
+      \item For $-n\le r\le -1$, we have $\lambda'_{n+k}=0$ for $1\le k\le n+r$ and \[\lambda'_{n+k}=\lambda_k+\sum\limits_{k<i_1<\cdots<i_m\le n} b_{ki_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
+      for $n+r+1\le k\le n$.
+      \item For any $r<-n$, we have 
+        \[\lambda'_{n+k}=\lambda_k+\sum\limits_{k<i_1<\cdots<i_m\le n} b_{ki_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
+        for $1\le k\le n$.
+    \end{itemize}
+
+  \end{proposition}
   \begin{lemma}
     Let $\lambda\in\ZZ^n$ be an imaginary $\bfg$-vector.
     For $r\in\ZZ$, write $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
