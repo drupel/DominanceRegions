@@ -126,7 +126,9 @@
   \end{itemize}
 
   For $t\in\TT_n$ and $k\in\{1,\ldots,n\}$, define $\phi^t_k:\RR^{2n}\to\RR^{2n}$ as the piecewise-linear map
-  \[\phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}\]
+  \[
+    \phi^t_k(\lambda)=\begin{cases} E^t_{k,+}\lambda & \text{if $\lambda_k\ge0$;}\\ E^t_{k,-}\lambda & \text{if $\lambda_k<0$;} \end{cases}
+  \]
   where the entries of $E^t_{k,\varepsilon}$ are given by \eqref{eq:left mutation matrix} with $b^t_{ij}$ in place of $b_{ij}$.
   We leave it as an exercise for the reader to check that $(\phi^t_k)^{-1}=\phi^{t'}_k$ whenever $t,t'\in\TT_n$ are joined by an edge labeled $k$.
   \begin{lemma}
@@ -137,10 +139,14 @@
     Suppose $\mu=\lambda+\tilde{B}^t\alpha$ for some $\alpha\in\RR^n$.
     Let $\varepsilon$ (resp. $\varepsilon'$) be such that $\phi^t_k(\mu)=E^t_{k,\varepsilon}\mu$ (resp. $\phi^t_k(\lambda)=E^t_{k,\varepsilon'}\lambda$).
     Then 
-    \[\phi^t_k(\mu)=E^t_{k,\varepsilon}\mu=E^t_{k,\varepsilon}(\lambda+\tilde{B}^t\alpha)=E^t_{k,\varepsilon}\lambda + E^t_{k,\varepsilon} \tilde{B}^t F^t_{k,\varepsilon} F^t_{k,\varepsilon}\alpha=E^t_{k,\varepsilon}\lambda + \tilde{B}^{t'} F^t_{k,\varepsilon}\alpha.\]
+    \[
+      \phi^t_k(\mu)=E^t_{k,\varepsilon}\mu=E^t_{k,\varepsilon}(\lambda+\tilde{B}^t\alpha)=E^t_{k,\varepsilon}\lambda + E^t_{k,\varepsilon} \tilde{B}^t F^t_{k,\varepsilon} F^t_{k,\varepsilon}\alpha=E^t_{k,\varepsilon}\lambda + \tilde{B}^{t'} F^t_{k,\varepsilon}\alpha.
+    \]
     If $\varepsilon'=\varepsilon$, this is equal to $\phi^t_k(\lambda) + \tilde{B}^{t'} F^t_{k,\varepsilon}\alpha$ and so $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(\tilde{B}^{t'})$.
     Otherwise, 
-    \[E^t_{k,\varepsilon}\lambda=E^t_{k,\varepsilon'}\lambda+\varepsilon(\tilde{B}^t)^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon(\tilde{B}^{t'})^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon \tilde{B}^{t'} \lambda_k \mathbf{e}_k\]
+    \[
+      E^t_{k,\varepsilon}\lambda=E^t_{k,\varepsilon'}\lambda+\varepsilon(\tilde{B}^t)^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon(\tilde{B}^{t'})^{\bullet k}\lambda=\phi^t_k(\lambda)-\varepsilon \tilde{B}^{t'} \lambda_k \mathbf{e}_k
+    \]
     and again we see that $\phi^t_k(\mu)\in\phi^t_k(\lambda)+\Col(\tilde{B}^{t'})$.
   \end{proof}
 
@@ -154,7 +160,9 @@
   For $\lambda\in\RR^n$, define the \emph{$B_t$-cone} $\cC_t(\lambda):=\lambda+B_t\cdot\RR_{\ge0}^n$ pointed at $\lambda$.
   \begin{definition}
     For $\lambda\in\RR^n$, define the \emph{dominance region} 
-    \[ \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda). \]
+    \[
+      \cP(\lambda) = \bigcap_{t\in\TT_n} \phi_t^{-1} \cC_t(\phi_t \lambda).
+    \]
     When $\mu\in\cP(\lambda)$, we say \emph{$\lambda$ dominates $\mu$}.
   \end{definition}
   Our goal is to understand the dominance polytopes $\cP(\lambda)$ for all $\lambda$.
@@ -166,11 +174,13 @@
   \begin{lemma}
     \label{le:transformed inequalities}
     Let $A$ be an invertible $n\times n$ matrix.
-    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\langle\bfn,\bfx-\lambda\rangle\le t$ with $\lambda,\bfn\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality \[\langle A^{-T}\bfn,\bfy-A\lambda\rangle\le t.\]
+    Under the left action of $A$, say $A\bfx=\bfy$ for $\bfx,\bfy\in\RR^n$, the region inside $\RR^n$ defined by the inequality $\langle\bfn,\bfx-\lambda\rangle\le t$ with $\lambda,\bfn\in\RR^n$ and $t\in\RR$ is transformed into the region defined by the inequality $\langle A^{-T}\bfn,\bfy-A\lambda\rangle\le t$.
   \end{lemma}
   \begin{proof}
     This is immediate from the equalities
-    \[\langle\bfn,\bfx-\lambda\rangle=\bfn^T(\bfx-\lambda)=\bfn^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfn)^T(A\bfx-A\lambda)=\langle A^{-T}\bfn,\bfy-A\lambda\rangle.\]
+    \[
+      \langle\bfn,\bfx-\lambda\rangle=\bfn^T(\bfx-\lambda)=\bfn^TA^{-1}A(\bfx-\lambda)=(A^{-T}\bfn)^T(A\bfx-A\lambda)=\langle A^{-T}\bfn,\bfy-A\lambda\rangle.
+    \]
   \end{proof}
 
 
@@ -204,7 +214,9 @@
   For $1\le j\le n$, define $\cP_j(Q_{B,\varepsilon})$ as the set of paths in $Q_{B,\varepsilon}$ starting at vertex $j$.
   Elements of $\cP_j(Q_{B,\varepsilon})$ are sequences of vertices $(p_1,\ldots,p_r)$ with $p_1=j$ and $b_{p_{t+1}p_t}>0$ for $1\le t\le r-1$.
   Given a path $p\in\cP_j(Q_{B,\varepsilon})$, a vertex $i\in Q_0$, and a sequence of signs $\varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)$, set
-  \[\wt_{i,\varepsilon}(p):=-b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}\prod_{t=1}^{r-1} b_{p_{t+1}p_t},\]
+  \[
+    \wt_{i,\varepsilon}(p):=-b_{ip_r}^{(1-\delta_{ip_r})(1+\varepsilon_{p_r})/2}\prod_{t=1}^{r-1} b_{p_{t+1}p_t},
+  \]
   where the prefactor of $b_{ip_r}$ is omitted if $i=p_r$ or $\varepsilon_{p_r}=-1$.
   \begin{lemma}
     Suppose $B$ is acyclic with source-adapted sequence $k_1,\ldots,k_n$.
@@ -327,9 +339,13 @@
     It follows that the principal part of $\tilde B^{t_r}$ is given as follows:
     \begin{itemize}
       \item if $i,j<\ell$, or $i<\ell$ and $j>\ell$, or $i<\ell$ and $j>\ell$, then 
-        \[b^{t_r}_{ij}=b^{t_{r-1}}_{ij}=(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};\]
+        \[
+          b^{t_r}_{ij}=b^{t_{r-1}}_{ij}=(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};
+        \]
       \item if $i=\ell$ or $j=\ell$, then $(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}$;
-        \[b^{t_r}_{ij}=-b^{t_{r-1}}_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};\]
+        \[
+          b^{t_r}_{ij}=-b^{t_{r-1}}_{ij}=-(-1)^{\epsilon(i,\ell-1)+\epsilon(j,\ell-1)}b_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij};
+        \]
     \end{itemize}
     in each case we obtain the desired expression.
     In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(r-1)}_\ell=\bfc^{(r)}_\ell$ as desired.
@@ -366,37 +382,84 @@
       \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
       + & + & + & - & - & \cdots & 0
     \end{array}\right]
+    \qquad
+    \left[\begin{array}{cccc|c|cc}
+      0 & \cdots & + & + & - & - & -\\
+      \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+      - & \cdots & 0 & + & - & - & -\\
+      - & \cdots & - & 0 & - & - & -\\
+      \hline
+      + & \cdots & + & + & 0 & + & +\\
+      \hline
+      + & \cdots & + & + & - & 0 & +\\
+      +& \cdots & + & + & - & - & 0
+    \end{array}\right]
   \]
 
   For $\lambda\in\ZZ^n$ and $r\in\ZZ_{>0}$ with $r=ns+\ell$ for $1\le\ell\le n$, the tropical transformation $\phi_{t_r}(\lambda)$ is given by
-  \[E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda\]
+  \[
+    E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda
+  \]
   for a sequence of signs $\varepsilon_1,\ldots,\varepsilon_r$ depending on $\lambda$.
   Similarly, the tropical transformation $\phi_{t_{-r}}(\lambda)$ is given by
-  \[E^{t_{-r+1}}_{n-\ell+1,\varepsilon_{-r}} \cdots E^{t_{-r+\ell}}_{n,\varepsilon_{-r+\ell-1}} E^{t_{-ns+1}}_{1,\varepsilon_{-ns}} \cdots E^{t_{-1}}_{n-1,\varepsilon_{-2}} E^{t_0}_{n,\varepsilon_{-1}} \lambda\]
+  \[
+    E^{t_{-r+1}}_{n-\ell+1,\varepsilon_{-r}} \cdots E^{t_{-r+\ell}}_{n,\varepsilon_{-r+\ell-1}} E^{t_{-ns+1}}_{1,\varepsilon_{-ns}} \cdots E^{t_{-1}}_{n-1,\varepsilon_{-2}} E^{t_0}_{n,\varepsilon_{-1}} \lambda
+  \]
   for a sequence of signs $\varepsilon_{-1},\ldots,\varepsilon_{-r}$ depending on $\lambda$.
   \begin{lemma}
+    \label{lem:imaginary mutations}
     If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_j$ with $j>0$ above is equal to $-$ and every sign $\varepsilon_j$ with $j<0$ above is equal to $+$.
   \end{lemma}
   \begin{proof}
-    With $1,\ldots,n$ being sink adapted, these choices give the most complicated transformation at each step.
+    With $1,\ldots,n$ being sink adapted, these sign choices give the most complicated transformation at each step.
     That should mean that $\lambda$ is sufficiently far from the initial chamber and remains there under all mutations.
   \end{proof}
 
   For a $\bfg$-vector $\lambda\in\ZZ^n$, write $\tilde\lambda\in\ZZ^{2n}$ for its extension by zeros.
   \begin{lemma}
     Let $\lambda\in\ZZ^n$ be an imaginary $\bfg$-vector.
+    For $r\in\ZZ$, write $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
     \begin{itemize}
-      \item For any $r\in\ZZ_{>0}$, the coefficient part of $\phi_{t_r}(\tilde\lambda)$ is just the zero vector.
-      \item For $1\le r\le n$, the coefficient part of  $\phi_{t_{-r}}(\tilde\lambda)$ is given by ...
-      \item For any $r\in\ZZ_{>n}$, the coefficient part of  $\phi_{t_{-r}}(\tilde\lambda)$ is independent of $r$ and is given by ...
+      \item For any $r\ge0$, we have $\lambda'_{n+s}=0$ for $1\le s\le n$.
+      \item For $-n\le r\le -1$, we have $\lambda'_{n+s}=0$ for $1\le s\le n+r$ and \[\lambda'_{n+s}=\lambda_s+\sum\limits_{s<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
+      for $n+r+1\le s\le n$.
+      \item For any $r<-n$, we have 
+        \[\lambda'_{n+s}=\lambda_s+\sum\limits_{s<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
+        for $1\le s\le n$.
     \end{itemize}
   \end{lemma}
   \begin{proof}
-    If the sequence is sink adapted, the coefficient part is always just zero.
+    We work by induction on $r\in\ZZ_{\ge0}$.
+    For $r=0$, the claim is immediate from the definition of $\tilde\lambda$.
+    Following Lemma~\ref{lem:imaginary mutations}, for $r>0$ we have $\varepsilon_r=-$.
+    Writing $r=ns+\ell$, from Lemma~\ref{lem:tropical signs} and Lemma~\ref{lem:preprojective exchange matrices} we see that the $\ell$-th column of $\tilde B^{t_{r-1}}$ has $\bfc$-vector part given by $\bfc^{(r-1)}_\ell$ which is a positive vector.
+    It follows that the matrix $E^{t_{r-1}}_{\ell,\varepsilon_r}$ acts as the identity in the last $n$ components and the claim for $r$ follows from the claim for $r-1$.
 
-    For a source adapted sequence, this should follow from an explicit calculation.
+    An analogous argument shows that the coefficient part of $\phi_{t_{-r}}(\tilde\lambda)$ stabilizes for $r\in\ZZ_{>n}$.
+
   \end{proof}
 
+  For $1\le r\le n$, write $\phi_{t_{-r}}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
+  Then we claim that
+  \[
+    \lambda'_s=
+    \begin{cases} 
+      \lambda_s+\sum\limits_{n-r<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m} & \text{if $1\le s\le n-r$;}\\
+      -\lambda_s-\sum\limits_{n-r<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m} & \text{if $n-r+1\le s\le n$;}\\
+      \lambda_{s-n}+\sum\limits_{s-n<i_1<\cdots<i_m\le n} b_{s-n,i_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m} & \text{if $2n-r+1\le s\le 2n$;}\\
+      0 & \text{if $n+1\le s\le 2n-r$.}
+    \end{cases}
+  \]
+
+  For $1\le r\le n$, write $\phi_{t_r}(\lambda)=(\lambda'_1,\ldots,\lambda'_n)$.
+  Then we claim that
+  \[
+    \lambda'_s=
+    \begin{cases} 
+      \lambda_s+\sum\limits_{1\le i_1<\cdots<i_m\le r} (-1)^m b_{si_m} \prod\limits_{p=2}^m b_{i_p i_{p-1}}\lambda_{i_1} & \text{if $r+1\le s\le n$;}\\
+      -\lambda_s-\sum\limits_{1\le i_1<\cdots<i_m\le r} (-1)^m b_{si_m} \prod\limits_{p=2}^m b_{i_pi_{p-1}}\lambda_{i_1} & \text{if $1\le s\le r$;}\\
+    \end{cases}
+  \]
 
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}  
