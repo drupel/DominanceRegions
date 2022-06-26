@@ -422,68 +422,69 @@
     For $r\in\ZZ$, write $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
     Then the following hold:
     \begin{itemize}
-      \item For $r>0$ with $r=ns+\ell$, we have (this is for $s=0$ so far)
+      \item For $r>0$ with $r=ns+\ell$ for $1\le\ell\le n$, we have (this is for $s=0$ so far)
         \begin{equation}
           \label{eq:positive g-vector mutations}
           \lambda'_k=
-            \begin{cases} 
-              \lambda_k+\sum\limits_{1\le i_1<\cdots<i_m\le \ell} (-1)^m b_{ki_m} \prod\limits_{p=2}^m b_{i_p i_{p-1}}\lambda_{i_1} & \text{if $\ell+1\le k\le n$;}\\
-              -\lambda_k-\sum\limits_{1\le i_1<\cdots<i_m\le \ell} (-1)^m b_{ki_m} \prod\limits_{p=2}^m b_{i_pi_{p-1}}\lambda_{i_1} & \text{if $1\le k\le \ell$;}\\
-            \end{cases}
+          \begin{cases} 
+            -\lambda_k-\sum\limits_{1\le \ell^{(0)}_1<\cdots<\ell^{(0)}_{m_0}\le \ell} (-1)^{m_0} b_{k\ell^{(0)}_{m_0}} \prod\limits_{w=2}^{m_0} b_{\ell^{(0)}_w \ell^{(0)}_{w-1}}\lambda_{\ell^{(0)}_1} & \text{if $1\le k\le \ell$.}\\
+            \lambda_k+\sum\limits_{1\le \ell^{(0)}_1<\cdots<\ell^{(0)}_{m_0}\le \ell} (-1)^{m_0} b_{k\ell^{(0)}_{m_0}} \prod\limits_{w=2}^{m_0} b_{\ell^{(0)}_w \ell^{(0)}_{w-1}}\lambda_{\ell^{(0)}_1} & \text{if $\ell+1\le k\le n$;}
+          \end{cases}
         \end{equation}
+        \[
+          -\lambda_k-\sum\limits_{1\le \ell^{(1)}_1<\cdots<\ell^{(1)}_{m_{1}}\le n} (-1)^{m_{1}} b_{k\ell^{(1)}_{m_{1}}} \prod\limits_{w=2}^{m_{1}} b_{\ell^{(1)}_w \ell^{(1)}_{w-1}}\lambda_{\ell^{(1)}_1}
+        \]
+        \[
+          -\lambda_{\ell^{(0)}_1}-\sum\limits_{1\le \ell^{(1)}_1<\cdots<\ell^{(1)}_{m_{1}}\le n} (-1)^{m_{1}} b_{\ell^{(0)}_1 \ell^{(1)}_{m_{1}}} \prod\limits_{w=2}^{m_{1}} b_{\ell^{(1)}_w \ell^{(1)}_{w-1}}\lambda_{\ell^{(1)}_1}
+        \]
         and $\lambda'_{n+k}=0$ for $1\le k\le n$.
-      \item For $-n\le r\le -1$, we have $\lambda'_{n+k}=0$ for $1\le k\le n+r$ and \[\lambda'_{n+k}=\lambda_k+\sum\limits_{k<i_1<\cdots<i_m\le n} b_{ki_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
-      for $n+r+1\le k\le n$.
-      \item For any $r<-n$, we have 
-        \[\lambda'_{n+k}=\lambda_k+\sum\limits_{k<i_1<\cdots<i_m\le n} b_{ki_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
+        \begin{equation}
+          \label{eq:positive g-vector mutations}
+          (-1)^s\lambda'_k=
+          \begin{cases} 
+            -\lambda_k-\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{1\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le \ell\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big((-1)^{m_{v_p}} b_{\ell^{(v_{p-1})}_1 \ell^{(v_p)}_{m_{v_p}}} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_w \ell^{(v_p)}_{w-1}}\Big)\lambda_{\ell^{(v_q)}_1} & \text{if $1\le k\le \ell$.}\\
+            \lambda_k+\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{1\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le \ell\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big((-1)^{m_{v_p}} b_{\ell^{(v_{p-1})}_1 \ell^{(v_p)}_{m_{v_p}}} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_w \ell^{(v_p)}_{w-1}}\Big)\lambda_{\ell^{(v_q)}_1} & \text{if $\ell+1\le k\le n$;}
+          \end{cases}
+        \end{equation}
+        with the convention the $\ell^{(v_{-1})}_1=k$.
+      \item For $r<0$ with $r=ns+\ell-1$ for $1\le\ell\le n$, we have (this is for $s=-1$ so far)
+        \begin{align}
+          \label{eq:first negative g-vector mutations}
+          \lambda'_k &=
+          \begin{cases} 
+            \lambda_k+\sum\limits_{\ell\le \ell_1<\cdots<\ell_m\le n} b_{k\ell_1} \prod\limits_{p=2}^m b_{\ell_{p-1} \ell_p}\lambda_{\ell_m} & \text{if $1\le k\le \ell-1$;}\\
+            -\lambda_k-\sum\limits_{\ell\le \ell_1<\cdots<\ell_m\le n} b_{k\ell_1} \prod\limits_{p=2}^m b_{\ell_{p-1} \ell_p}\lambda_{\ell_m} & \text{if $\ell\le k\le n$;}
+          \end{cases}\\
+          \nonumber
+          \lambda'_{n+k} &=
+          \begin{cases}
+            0 & \text{if $s=-1$ and $1\le k\le \ell-1$;}\\
+            \lambda_k+\sum\limits_{k<\ell_1<\cdots<\ell_m\le n} b_{k\ell_1} \prod\limits_{p=2}^m b_{\ell_{p-1} \ell_p}\lambda_{\ell_m} & \text{if $s<-1$ or $s=-1$ and $\ell\le k\le n$;}
+          \end{cases}
+        \end{align}
         for $1\le k\le n$.
     \end{itemize}
-
   \end{proposition}
-  \begin{lemma}
-    Let $\lambda\in\ZZ^n$ be an imaginary $\bfg$-vector.
-    For $r\in\ZZ$, write $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
-    \begin{itemize}
-      \item For any $r\ge0$, we have $\lambda'_{n+s}=0$ for $1\le s\le n$.
-      \item For $-n\le r\le -1$, we have $\lambda'_{n+s}=0$ for $1\le s\le n+r$ and \[\lambda'_{n+s}=\lambda_s+\sum\limits_{s<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
-      for $n+r+1\le s\le n$.
-      \item For any $r<-n$, we have 
-        \[\lambda'_{n+s}=\lambda_s+\sum\limits_{s<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m}\]
-        for $1\le s\le n$.
-    \end{itemize}
-  \end{lemma}
   \begin{proof}
-    We work by induction on $r\in\ZZ_{\ge0}$.
-    For $r=0$, the claim is immediate from the definition of $\tilde\lambda$.
+    We work by induction on $r$.
     Following Lemma~\ref{lem:imaginary mutations}, for $r>0$ we have $\varepsilon_r=-$.
-    Writing $r=ns+\ell$, from Lemma~\ref{lem:tropical signs} and Lemma~\ref{lem:preprojective exchange matrices} we see that the $\ell$-th column of $\tilde B^{t_{r-1}}$ has $\bfc$-vector part given by $\bfc^{(r-1)}_\ell$ which is a positive vector.
-    It follows that the matrix $E^{t_{r-1}}_{\ell,\varepsilon_r}$ acts as the identity in the last $n$ components and the claim for $r$ follows from the claim for $r-1$.
+    Writing $r=ns+\ell$, from Lemma~\ref{lem:preprojective exchange matrices} and Lemma~\ref{lem:tropical signs} we see that the $\ell$-th column of $\tilde B^{t_{r-1}}$ has the first $n$ entries non-positive and the last $n$ entries non-negative.
+    It follows that the matrix $E^{t_{r-1}}_{\ell,\varepsilon_r}$ always acts as the identity in the last $n$ components of $\tilde\lambda$ and we get that $\lambda'_{n+k}=0$ for $1\le k\le n$.
+    Moreover, writing $\phi_{t_{r-1}}(\tilde\lambda)=(\lambda''_1,\ldots,\lambda''_{2n})$ we also see from Lemma~\ref{lem:preprojective exchange matrices} that $\phi_{t_r}(\tilde\lambda)=E^{t_{r-1}}_{\ell,\varepsilon_r}\phi_{t_{r-1}}(\tilde\lambda)$ is given by
+    \[(\lambda''_1+b_{1\ell}\lambda''_\ell,\ldots,\lambda''_{\ell-1}+b_{\ell-1,\ell}\lambda''_\ell,-\lambda''_\ell,\lambda''_{\ell-1}-b_{\ell+1,\ell}\lambda''_\ell,\ldots,\lambda''_n-b_{n\ell}\lambda''_\ell,0,\ldots,0).\]
+    Iterating this, starting from $\ell=1$, we obtain the formula
+    \begin{equation}
+      \lambda'_k=
+      \begin{cases} 
+        -\lambda_k-\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $1\le k\le \ell$.}\\
+        \lambda_k+\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $\ell+1\le k\le n$;}
+      \end{cases}
+    \end{equation}
+    for $1\le k\le n$ when $s=0$.
 
-    An analogous argument shows that the coefficient part of $\phi_{t_{-r}}(\tilde\lambda)$ stabilizes for $r\in\ZZ_{>n}$.
+    An analogous argument shows that the coefficient part of $\phi_{t_r}(\tilde\lambda)$ stabilizes for $r\in\ZZ_{<-n}$.
 
   \end{proof}
-
-  For $1\le r\le n$, write $\phi_{t_{-r}}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
-  Then we claim that
-  \[
-    \lambda'_s=
-    \begin{cases} 
-      \lambda_s+\sum\limits_{n-r<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m} & \text{if $1\le s\le n-r$;}\\
-      -\lambda_s-\sum\limits_{n-r<i_1<\cdots<i_m\le n} b_{si_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m} & \text{if $n-r+1\le s\le n$;}\\
-      \lambda_{s-n}+\sum\limits_{s-n<i_1<\cdots<i_m\le n} b_{s-n,i_1} \prod\limits_{p=2}^m b_{i_{p-1}i_p}\lambda_{i_m} & \text{if $2n-r+1\le s\le 2n$;}\\
-      0 & \text{if $n+1\le s\le 2n-r$.}
-    \end{cases}
-  \]
-
-  For $1\le r\le n$, write $\phi_{t_r}(\lambda)=(\lambda'_1,\ldots,\lambda'_n)$.
-  Then we claim that
-  \[
-    \lambda'_s=
-    \begin{cases} 
-      \lambda_s+\sum\limits_{1\le i_1<\cdots<i_m\le r} (-1)^m b_{si_m} \prod\limits_{p=2}^m b_{i_p i_{p-1}}\lambda_{i_1} & \text{if $r+1\le s\le n$;}\\
-      -\lambda_s-\sum\limits_{1\le i_1<\cdots<i_m\le r} (-1)^m b_{si_m} \prod\limits_{p=2}^m b_{i_pi_{p-1}}\lambda_{i_1} & \text{if $1\le s\le r$;}\\
-    \end{cases}
-  \]
 
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}  
