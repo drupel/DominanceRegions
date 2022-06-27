@@ -463,6 +463,14 @@
           \end{cases}
         \end{align}
         for $1\le k\le n$.
+        \begin{equation}
+          \label{eq:negative g-vector mutations}
+          (-1)^s\lambda'_k =
+          \begin{cases} 
+            \lambda_k+\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{\ell\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le n\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big( b_{\ell^{(v_{p-1})}_{m_{v_{p-1}}}\ell^{(v_p)}_1} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_{w-1} \ell^{(v_p)}_w} \Big)\lambda_{\ell^{(v_q)}_{m_{v_q}}} & \text{if $1\le k\le \ell-1$;}\\
+            -\lambda_k-\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{\ell\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le n\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big( b_{\ell^{(v_{p-1})}_{m_{v_{p-1}}}\ell^{(v_p)}_1} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_{w-1} \ell^{(v_p)}_w} \Big)\lambda_{\ell^{(v_q)}_{m_{v_q}}} & \text{if $\ell\le k\le n$;}
+          \end{cases}
+        \end{equation}
     \end{itemize}
   \end{proposition}
   \begin{proof}
