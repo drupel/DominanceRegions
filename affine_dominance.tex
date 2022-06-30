@@ -494,6 +494,18 @@
 
   \end{proof}
 
+  Define an infinite quiver $\widehat{Q}$ with vertices $(k,s)\in [n]\times\ZZ_{\ge0}$ and the following arrows:
+  \begin{itemize}
+    \item an arrow $(\ell,s)\to (k,s)$ of weight $b_{k\ell}$ whenever $k<\ell$ and $s\ge0$;
+    \item an arrow $(k,s+1)\to (\ell,s)$ of weight $-b_{k\ell}$ whenever $k<\ell$ and $s\ge0$;
+    \item an arrow $(k,s+1)\to (k,s)$ of weight $-1$ whenever $s\ge0$.
+  \end{itemize}
+  Given a path $p$ in $\widehat{Q}$, write $\wt(p)$ for the product of the weights along the arrows in $p$.
+  Let $i(p)$ and $t(p)$ denote the initial and terminal vertex along the path $p$.
+  Write $\hgt(p)$ for the largest $s$ appearing as the second component of a vertex along the path $p$.
+  Then for $r<0$ with $r=ns+\ell$ for $1\le\ell\le n$, we have
+  \[\lambda'_k=\begin{cases}\sum\limits_{\substack{p\subset\widehat{Q}\\ \hgt(p)=-s-1, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $1\le k\le\ell-1$;}\\ \sum\limits_{\substack{p\subset\widehat{Q}\\ \hgt(p)=-s, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $\ell\le k\le n$;} \end{cases}\]
+
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}  
 
