@@ -57,6 +57,7 @@
 \newcommand{\ot}{{\overline{t}}}
 \newcommand{\rsh}{{\operatorname{rsh}}}
 \newcommand{\sh}{{\operatorname{sh}}}
+\newcommand{\uleps}{{\underline{\varepsilon}}}
 \newcommand{\WA}{{W\!\!A}}
 \newcommand{\wt}{{\operatorname{wt}}}
 
@@ -494,11 +495,11 @@
 
   \end{proof}
 
-  Define an infinite quiver $\widehat{Q}$ with vertices $(k,s)\in [n]\times\ZZ_{\ge0}$ and the following arrows:
+  Given a sequence of signs $\uleps=(\varepsilon_1,\varepsilon_2,\ldots)$ with $\varepsilon_i\in\{\pm\}$, define an infinite quiver $\widehat{Q}_\uleps$ with vertices $(k,s)\in [n]\times\ZZ_{\ge0}$ and the following arrows:
   \begin{itemize}
-    \item an arrow $(\ell,s)\to (k,s)$ of weight $b_{k\ell}$ whenever $k<\ell$ and $s\ge0$;
-    \item an arrow $(k,s+1)\to (\ell,s)$ of weight $-b_{k\ell}$ whenever $k<\ell$ and $s\ge0$;
-    \item an arrow $(k,s+1)\to (k,s)$ of weight $-1$ whenever $s\ge0$.
+    \item an arrow $(\ell,s)\to (k,s)$ of weight $b_{k\ell}$ whenever $k<\ell$, $s\ge0$, and $\varepsilon_{ns+\ell}=-$;
+    \item an arrow $(\ell,s+1)\to (k,s)$ of weight $-b_{k\ell}$ whenever $\ell<k$, $s\ge0$, and $\varepsilon_{ns+\ell}=-$;
+    \item an arrow $(\ell,s+1)\to (\ell,s)$ of weight $-1$ whenever $s\ge0$.
   \end{itemize}
   Given a path $p$ in $\widehat{Q}$, write $\wt(p)$ for the product of the weights along the arrows in $p$.
   Let $i(p)$ and $t(p)$ denote the initial and terminal vertex along the path $p$.
