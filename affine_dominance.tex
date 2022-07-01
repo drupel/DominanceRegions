@@ -418,7 +418,7 @@
   for a sequence of signs $\varepsilon_1,\ldots,\varepsilon_r$ depending on $\lambda$.
   Similarly, the tropical transformation $\phi_{t_{-r}}(\lambda)$ is given by
   \[
-    E^{t_{-r+1}}_{n-\ell+1,\varepsilon_{-r}} \cdots E^{t_{-r+\ell}}_{n,\varepsilon_{-r+\ell-1}} E^{t_{-ns+1}}_{1,\varepsilon_{-ns}} \cdots E^{t_{-1}}_{n-1,\varepsilon_{-2}} E^{t_0}_{n,\varepsilon_{-1}} \lambda
+    E^{t_{-r+1}}_{n-\ell+1,\varepsilon_{-r+1}} \cdots E^{t_{-r+\ell}}_{n,\varepsilon_{-r+\ell}} E^{t_{-ns+1}}_{1,\varepsilon_{-ns+1}} \cdots E^{t_{-1}}_{n-1,\varepsilon_{-1}} E^{t_0}_{n,\varepsilon_0} \lambda
   \]
   for a sequence of signs $\varepsilon_{-1},\ldots,\varepsilon_{-r}$ depending on $\lambda$.
   \begin{lemma}
@@ -430,84 +430,8 @@
     That should mean that $\lambda$ is sufficiently far from the initial chamber and remains there under all mutations.
   \end{proof}
 
-  Using this we explicitly compute the action of $\phi_{t_r}$ on imaginary $\bfg$-vectors. 
+  Using this we explicitly compute the action of $\phi_{t_r}$ on $\bfg$-vectors. 
   For a $\bfg$-vector $\lambda\in\ZZ^n$, write $\tilde\lambda\in\ZZ^{2n}$ for its extension by zeros.
-  \begin{proposition}
-    Suppose $\lambda\in\ZZ^n$ is imaginary.
-    For $r\in\ZZ$, write $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_{2n})$.
-    Then the following hold:
-    \begin{itemize}
-      \item For $r>0$ with $r=ns+\ell$ for $1\le\ell\le n$, we have (this is for $s=0$ so far)
-        \begin{equation}
-          \label{eq:positive g-vector mutations}
-          \lambda'_k=
-          \begin{cases} 
-            -\lambda_k-\sum\limits_{1\le \ell^{(0)}_1<\cdots<\ell^{(0)}_{m_0}\le \ell} (-1)^{m_0} b_{k\ell^{(0)}_{m_0}} \prod\limits_{w=2}^{m_0} b_{\ell^{(0)}_w \ell^{(0)}_{w-1}}\lambda_{\ell^{(0)}_1} & \text{if $1\le k\le \ell$.}\\
-            \lambda_k+\sum\limits_{1\le \ell^{(0)}_1<\cdots<\ell^{(0)}_{m_0}\le \ell} (-1)^{m_0} b_{k\ell^{(0)}_{m_0}} \prod\limits_{w=2}^{m_0} b_{\ell^{(0)}_w \ell^{(0)}_{w-1}}\lambda_{\ell^{(0)}_1} & \text{if $\ell+1\le k\le n$;}
-          \end{cases}
-        \end{equation}
-        \[
-          -\lambda_k-\sum\limits_{1\le \ell^{(1)}_1<\cdots<\ell^{(1)}_{m_{1}}\le n} (-1)^{m_{1}} b_{k\ell^{(1)}_{m_{1}}} \prod\limits_{w=2}^{m_{1}} b_{\ell^{(1)}_w \ell^{(1)}_{w-1}}\lambda_{\ell^{(1)}_1}
-        \]
-        \[
-          -\lambda_{\ell^{(0)}_1}-\sum\limits_{1\le \ell^{(1)}_1<\cdots<\ell^{(1)}_{m_{1}}\le n} (-1)^{m_{1}} b_{\ell^{(0)}_1 \ell^{(1)}_{m_{1}}} \prod\limits_{w=2}^{m_{1}} b_{\ell^{(1)}_w \ell^{(1)}_{w-1}}\lambda_{\ell^{(1)}_1}
-        \]
-        and $\lambda'_{n+k}=0$ for $1\le k\le n$.
-        \begin{equation}
-          \label{eq:positive g-vector mutations}
-          (-1)^s\lambda'_k=
-          \begin{cases} 
-            -\lambda_k-\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{1\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le \ell\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big((-1)^{m_{v_p}} b_{\ell^{(v_{p-1})}_1 \ell^{(v_p)}_{m_{v_p}}} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_w \ell^{(v_p)}_{w-1}}\Big)\lambda_{\ell^{(v_q)}_1} & \text{if $1\le k\le \ell$.}\\
-            \lambda_k+\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{1\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le \ell\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big((-1)^{m_{v_p}} b_{\ell^{(v_{p-1})}_1 \ell^{(v_p)}_{m_{v_p}}} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_w \ell^{(v_p)}_{w-1}}\Big)\lambda_{\ell^{(v_q)}_1} & \text{if $\ell+1\le k\le n$;}
-          \end{cases}
-        \end{equation}
-        with the convention the $\ell^{(v_{-1})}_1=k$.
-      \item For $r<0$ with $r=ns+\ell-1$ for $1\le\ell\le n$, we have (this is for $s=-1$ so far)
-        \begin{align}
-          \label{eq:first negative g-vector mutations}
-          \lambda'_k &=
-          \begin{cases} 
-            \lambda_k+\sum\limits_{\ell\le \ell_1<\cdots<\ell_m\le n} b_{k\ell_1} \prod\limits_{p=2}^m b_{\ell_{p-1} \ell_p}\lambda_{\ell_m} & \text{if $1\le k\le \ell-1$;}\\
-            -\lambda_k-\sum\limits_{\ell\le \ell_1<\cdots<\ell_m\le n} b_{k\ell_1} \prod\limits_{p=2}^m b_{\ell_{p-1} \ell_p}\lambda_{\ell_m} & \text{if $\ell\le k\le n$;}
-          \end{cases}\\
-          \nonumber
-          \lambda'_{n+k} &=
-          \begin{cases}
-            0 & \text{if $s=-1$ and $1\le k\le \ell-1$;}\\
-            \lambda_k+\sum\limits_{k<\ell_1<\cdots<\ell_m\le n} b_{k\ell_1} \prod\limits_{p=2}^m b_{\ell_{p-1} \ell_p}\lambda_{\ell_m} & \text{if $s<-1$ or $s=-1$ and $\ell\le k\le n$;}
-          \end{cases}
-        \end{align}
-        for $1\le k\le n$.
-        \begin{equation}
-          \label{eq:negative g-vector mutations}
-          (-1)^s\lambda'_k =
-          \begin{cases} 
-            \lambda_k+\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{\ell\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le n\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big( b_{\ell^{(v_{p-1})}_{m_{v_{p-1}}}\ell^{(v_p)}_1} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_{w-1} \ell^{(v_p)}_w} \Big)\lambda_{\ell^{(v_q)}_{m_{v_q}}} & \text{if $1\le k\le \ell-1$;}\\
-            -\lambda_k-\sum_{0\le v_0<v_1<\cdots<v_q\le s}\sum\limits_{\substack{\ell\le \ell^{(v_0)}_1<\cdots<\ell^{(v_0)}_{m_{v_0}}\le n\\ 1\le \ell^{(v_1)}_1<\cdots<\ell^{(v_1)}_{m_{v_1}}\le n\\ \vdots\\ 1\le \ell^{(v_q)}_1<\cdots<\ell^{(v_q)}_{m_{v_q}}\le n}} \prod\limits_{p=0}^q \Big( b_{\ell^{(v_{p-1})}_{m_{v_{p-1}}}\ell^{(v_p)}_1} \prod\limits_{w=2}^{m_{v_p}} b_{\ell^{(v_p)}_{w-1} \ell^{(v_p)}_w} \Big)\lambda_{\ell^{(v_q)}_{m_{v_q}}} & \text{if $\ell\le k\le n$;}
-          \end{cases}
-        \end{equation}
-    \end{itemize}
-  \end{proposition}
-  \begin{proof}
-    We work by induction on $r$.
-    Following Lemma~\ref{lem:imaginary mutations}, for $r>0$ we have $\varepsilon_r=-$.
-    Writing $r=ns+\ell$, from Lemma~\ref{lem:preprojective exchange matrices} and Lemma~\ref{lem:tropical signs} we see that the $\ell$-th column of $\tilde B^{t_{r-1}}$ has the first $n$ entries non-positive and the last $n$ entries non-negative.
-    It follows that the matrix $E^{t_{r-1}}_{\ell,\varepsilon_r}$ always acts as the identity in the last $n$ components of $\tilde\lambda$ and we get that $\lambda'_{n+k}=0$ for $1\le k\le n$.
-    Moreover, writing $\phi_{t_{r-1}}(\tilde\lambda)=(\lambda''_1,\ldots,\lambda''_{2n})$ we also see from Lemma~\ref{lem:preprojective exchange matrices} that $\phi_{t_r}(\tilde\lambda)=E^{t_{r-1}}_{\ell,\varepsilon_r}\phi_{t_{r-1}}(\tilde\lambda)$ is given by
-    \[(\lambda''_1+b_{1\ell}\lambda''_\ell,\ldots,\lambda''_{\ell-1}+b_{\ell-1,\ell}\lambda''_\ell,-\lambda''_\ell,\lambda''_{\ell-1}-b_{\ell+1,\ell}\lambda''_\ell,\ldots,\lambda''_n-b_{n\ell}\lambda''_\ell,0,\ldots,0).\]
-    Iterating this, starting from $\ell=1$, we obtain the formula
-    \begin{equation}
-      \lambda'_k=
-      \begin{cases} 
-        -\lambda_k-\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $1\le k\le \ell$.}\\
-        \lambda_k+\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $\ell+1\le k\le n$;}
-      \end{cases}
-    \end{equation}
-    for $1\le k\le n$ when $s=0$.
-
-    An analogous argument shows that the coefficient part of $\phi_{t_r}(\tilde\lambda)$ stabilizes for $r\in\ZZ_{<-n}$.
-
-  \end{proof}
 
   Given a sequence of signs $\beps=(\varepsilon_1,\varepsilon_2,\ldots,\varepsilon_r)$ with $\varepsilon_i\in\{\pm\}$, define a quiver $Q^{(r)}_\beps$ with vertices $(\ell,s)\in [n]\times\ZZ_{\ge0}$ satisfying $ns+\ell\le n+r$ and having the following arrows:
   \begin{itemize}
@@ -516,7 +440,16 @@
     \item an arrow $(\ell,s)\to (\ell,s+1)$ of weight $-1$ whenever $ns+\ell\le r$.
   \end{itemize}
   For $1\le\ell\le r$, write $\hat{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ maximal.
-  Below we freely identify each vertex $(\ell,0)$ with $\ell$.
+  Below we freely identify each vertex $(\ell,0)$ with $\ell$ itself.
+
+  Given a sequence of signs $\beps=(\varepsilon_0,\varepsilon_{-1},\varepsilon_{-2},\ldots,\varepsilon_{-r+1})$ with $\varepsilon_i\in\{\pm\}$, define a quiver $Q^{(-r)}_\beps$ with vertices $(\ell,s)\in [n]\times\ZZ_{<0}$ satisfying $-n-r<ns+\ell$ and having the following arrows:
+  \begin{itemize}
+    \item an arrow $(\ell,s)\to (k,s)$ of weight $-b_{k\ell}$ whenever $k<\ell$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
+    \item an arrow $(\ell,s)\to (k,s+1)$ of weight $b_{k\ell}$ whenever $\ell<k$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
+    \item an arrow $(\ell,s)\to (\ell,s-1)$ of weight $-1$ whenever $-r<ns+\ell$.
+  \end{itemize}
+  For $1\le\ell\le r$, write $\check{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ minimal.
+  Below we freely identify each vertex $(\ell,-1)$ with $\ell$ itself.
 
   Given a path $\fp\subset Q^{(r)}_\beps$, write $\wt(\fp)$ for the product of the weights along the arrows in $\fp$.
   Let $i(\fp)$ and $t(\fp)$ denote the initial and terminal vertex along the path $\fp$.
@@ -528,11 +461,11 @@
       E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda
     \]
     with the signs $\beps=(\varepsilon_1,\cdots,\varepsilon_r)$ determined by $\lambda$.
-    Then
+    Then for $1\le k\le n$ we have
     \[
       \lambda'_k=\sum\limits_{\fp\subset Q^{(r)}_\beps, t(\fp)=\hat{k}} \wt(\fp)\lambda_{i(\fp)}.
     \]
-    and $\lambda'_{n+k}=0$ for $1\le k\le n$ and $r<0$ if $\varepsilon_i=-$ for all $i$.
+    and $\lambda'_{n+k}=0$ if $r<0$ and $\varepsilon_i=-$ for all $i$.
     \sayDR{We need this for arbitrary sequences of signs and to include $r>0$.}
   \end{proposition}
   \begin{proof}
