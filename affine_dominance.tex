@@ -451,22 +451,32 @@
   For $1\le\ell\le r$, write $\check{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ minimal.
   Below we freely identify each vertex $(\ell,-1)$ with $\ell$ itself.
 
-  Given a path $\fp\subset Q^{(r)}_\beps$, write $\wt(\fp)$ for the product of the weights along the arrows in $\fp$.
+  Given a path $\fp\subset Q^{(\pm r)}_\beps$, write $\wt(\fp)$ for the product of the weights along the arrows in $\fp$.
   Let $i(\fp)$ and $t(\fp)$ denote the initial and terminal vertex along the path $\fp$.
-  Below we only consider paths $\fp\subset Q^{(r)}_\beps$ with $i(\fp)=(\ell,0)$ for some $\ell$.
+  Below we only consider paths $\fp\subset Q^{(r)}_\beps$ with $i(\fp)=(\ell,0)$ for some $\ell$ and paths $\fp\subset Q^{(-r)}_\beps$ with $i(\fp)=(\ell,-1)$ for some $\ell$.
   \begin{proposition}
     Consider $r>0$ with $r=ns+\ell$ for $1\le\ell\le n$.
-    For $\lambda\in\ZZ^n$, suppose the tropical transformation $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_n,\lambda'_{n+1},\cdots,\lambda'_{2n})$ is given by
-    \[
-      E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda
-    \]
-    with the signs $\beps=(\varepsilon_1,\cdots,\varepsilon_r)$ determined by $\lambda$.
-    Then for $1\le k\le n$ we have
-    \[
-      \lambda'_k=\sum\limits_{\fp\subset Q^{(r)}_\beps, t(\fp)=\hat{k}} \wt(\fp)\lambda_{i(\fp)}.
-    \]
-    and $\lambda'_{n+k}=0$ if $r<0$ and $\varepsilon_i=-$ for all $i$.
-    \sayDR{We need this for arbitrary sequences of signs and to include $r>0$.}
+    \begin{enumerate}
+      \item For $\lambda\in\ZZ^n$, suppose the tropical transformation $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_n,\lambda'_{n+1},\cdots,\lambda'_{2n})$ is given by
+        \[
+          E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda
+        \]
+        with the signs $\beps=(\varepsilon_1,\cdots,\varepsilon_r)$ determined by $\lambda$.
+        Then for $1\le k\le n$ we have
+        \[
+          \lambda'_k=\sum\limits_{\fp\subset Q^{(r)}_\beps\!,\, t(\fp)=\hat{k}} \wt(\fp)\lambda_{i(\fp)}.
+        \]
+      \sayDR{We still need to deal with extended $\bfg$-vectors.}
+      \item For $\lambda\in\ZZ^n$, suppose the tropical transformation $\phi_{t_{-r}}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_n,\lambda'_{n+1},\cdots,\lambda'_{2n})$ is given by
+        \[
+          E^{t_{-r+1}}_{n-\ell+1,\varepsilon_{-r+1}} \cdots E^{t_{-r+\ell}}_{n,\varepsilon_{-r+\ell}} E^{t_{-ns+1}}_{1,\varepsilon_{-ns+1}} \cdots E^{t_{-1}}_{n-1,\varepsilon_{-1}} E^{t_0}_{n,\varepsilon_0} \lambda
+        \]
+        with the signs $\beps=(\varepsilon_0,\varepsilon_{-1},\cdots,\varepsilon_{-r+1})$ determined by $\lambda$.
+        Then for $1\le k\le n$ we have
+        \[
+          \lambda'_k=\sum\limits_{\fp\subset Q^{(-r)}_\beps\!,\, t(\fp)=\check{k}} \wt(\fp)\lambda_{i(\fp)}.
+        \]
+    \end{enumerate}
   \end{proposition}
   \begin{proof}
     We work by induction on $r$.
@@ -480,19 +490,7 @@
         (\lambda''_1,\ldots,\lambda''_{\ell-1},-\lambda''_\ell,\lambda''_{\ell+1},\ldots,\lambda''_n,\lambda''_{n+1}-b^{t_{r-1}}_{n+1,\ell}\lambda''_\ell,\ldots,\lambda''_{2n}-b^{t_{r-1}}_{2n,\ell}\lambda''_\ell) & \text{if $\varepsilon_r=-$.}\\
       \end{cases}
     \]
-    Iterating this, starting from $\ell=1$, we obtain the formula
-    \begin{equation}
-      \lambda'_k=
-      \begin{cases} 
-        -\lambda_k-\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $1\le k\le \ell$.}\\
-        \lambda_k+\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $\ell+1\le k\le n$;}
-      \end{cases}
-    \end{equation}
-    for $1\le k\le n$ when $s=0$.
   \end{proof}
-
-  Then for $r<0$ with $r=ns+\ell$ for $1\le\ell\le n$, we have
-  \[\lambda'_k=\begin{cases}\sum\limits_{\substack{p\subset\widehat{Q}_\beps\\ \hgt(p)=-s-1, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $1\le k\le\ell-1$;}\\ \sum\limits_{\substack{p\subset\widehat{Q}\\ \hgt(p)=-s, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $\ell\le k\le n$;} \end{cases}\]
 
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}  
