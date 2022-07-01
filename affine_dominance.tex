@@ -445,7 +445,7 @@
   Given a sequence of signs $\beps=(\varepsilon_0,\varepsilon_{-1},\varepsilon_{-2},\ldots,\varepsilon_{-r+1})$ with $\varepsilon_i\in\{\pm\}$, define a quiver $Q^{(-r)}_\beps$ with vertices $(\ell,s)\in [n]\times\ZZ_{<0}$ satisfying $-n-r<ns+\ell$ and having the following arrows:
   \begin{itemize}
     \item an arrow $(\ell,s)\to (k,s)$ of weight $-b_{k\ell}$ whenever $k<\ell$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
-    \item an arrow $(\ell,s)\to (k,s+1)$ of weight $b_{k\ell}$ whenever $\ell<k$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
+    \item an arrow $(\ell,s)\to (k,s-1)$ of weight $b_{k\ell}$ whenever $\ell<k$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
     \item an arrow $(\ell,s)\to (\ell,s-1)$ of weight $-1$ whenever $-r<ns+\ell$.
   \end{itemize}
   For $1\le\ell\le r$, write $\check{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ minimal.
