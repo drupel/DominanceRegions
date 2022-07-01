@@ -289,23 +289,23 @@
   Let $B=(b_{ij})$ denote an acyclic $n\times n$ exchange matrix.
   Write $Q_B$ for the corresponding quiver, here $b_{ij}>0$ means there is an arrow from $j$ to $i$ in $Q$.
   \sayDR{Note that $Q_B$ is only recording the orientations of edges.}
-  Without loss of generality we assume $1,\ldots,n$ is a sink adapted sequence for $Q_B$, i.e. vertex $1$ is a sink and vertex $n$ is a source in $Q$.
-  This implies $B$ has positive entries above the diagonal.
-  \sayDR{This seemed to give the cleanest calculation.}
+  Without loss of generality, we assume $1,\ldots,n$ is a source adapted sequence for $Q_B$, i.e. vertex $1$ is a source and vertex $n$ is a sink in $Q$.
+  This implies $B$ has positive entries below the diagonal.
+  \sayDR{I changed back because of a stupid discrepancy between signs.}
   Define vectors $\bfc^{(r)}_k\in\ZZ^n$ for $1\le k\le n$ and $r\in\ZZ$ recursively as follows:
   \begin{itemize}
-    \item for $-n\le r\le 0$, we have $\bfc^{(r)}_k=\bfe_k$ for $1\le k\le r+n$ and $\bfc^{(r)}_k=-\bfe_k$ for $r+n<k\le n$, where $\bfe_k
-      $ is the standard basis vector;
-    \item for $r=ns+\ell>0$ with $1 \le \ell \le n$, we have $\bfc^{(r)}_k=\begin{cases} -\bfc^{(r-1)}_k & \text{if $\ell=k$;}\\ \bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell<k$;}\\ \bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $\ell>k$.} \end{cases}$
-    \item for $r=ns+\ell<-n$ with $1 \le \ell \le n$, we have $\bfc^{(r-1)}_k=\begin{cases} -\bfc^{(r)}_k & \text{if $\ell=k$;}\\ \bfc^{(r)}_k-b_{\ell k}\bfc^{(r)}_\ell & \text{if $\ell<k$;}\\ \bfc^{(r)}_k+b_{\ell k}\bfc^{(r)}_\ell & \text{if $\ell>k$.} \end{cases}$
+    \item for $0\le r\le n$, we have $\bfc^{(r)}_k=-\bfe_k$ for $1\le k\le r$ and $\bfc^{(r)}_k=\bfe_k$ for $r<k\le n$, where $\bfe_k$ is the standard basis vector;
+    \item for $r=ns+\ell>n$ with $1 \le \ell \le n$, we have $\bfc^{(r)}_k=\begin{cases} -\bfc^{(r-1)}_k & \text{if $k=\ell$;}\\ \bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $k>\ell$;}\\ \bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell & \text{if $k<\ell$.} \end{cases}$
+    \item for $r=ns+\ell\le 0$ with $1 \le \ell \le n$, we have $\bfc^{(r-1)}_k=\begin{cases} -\bfc^{(r)}_k & \text{if $k=\ell$;}\\ \bfc^{(r)}_k-b_{\ell k}\bfc^{(r)}_\ell & \text{if $k>\ell$;}\\ \bfc^{(r)}_k+b_{\ell k}\bfc^{(r)}_\ell & \text{if $k<\ell$.} \end{cases}$
   \end{itemize}
+
   For $r\in\ZZ$ and $1\le k\le n$, write $r\equiv_n k$ if $n|(r-k)$ and $r\not\equiv_n k$ otherwise.
   \begin{lemma}
     \label{lem:tropical signs}
     Assume $B$ is not finite-type.
     \begin{itemize}
-      \item For $r\in\ZZ_{>0}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
-      \item For $r\in\ZZ_{<-n}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\equiv_n k$ and non-positive when $r\not\equiv_n k$.
+      \item For $r\in\ZZ_{>n}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\equiv_n k$ and non-positive when $r\not\equiv_n k$.
+      \item For $r\in\ZZ_{<0}$, the vector $\bfc^{(r)}_k$ is non-negative if $r\not\equiv_n k$ and non-positive when $r\equiv_n k$.
     \end{itemize}
   \end{lemma}
   \begin{proof}
@@ -322,10 +322,10 @@
 
   Let $\TT_n$ denote the $n$-regular labeled tree with root vertex $t_0$.
   Define vertices $t_r\in\TT_n$ for $r\in\ZZ$ by joining $t_{r-1}$ to $t_r$ by an edge labeled $\ell$ if $r\equiv_n\ell$.
-  Since $1,\ldots,n$ is sink adapted, this labels preprojective seeds by positive integers and postinjective seeds by negative integers.
+  Since $1,\ldots,n$ is source adapted, this labels preprojective seeds by negative integers and postinjective seeds by positive integers.
   Write $\tilde B^{t_r}$ for the extended exchange matrix associated to the seed at $t_r$.
   \begin{lemma}
-    \label{lem:preprojective exchange matrices}
+    \label{lem:transjective exchange matrices}
     For $r\in\ZZ$ with $r=ns+\ell$ for $1\le \ell \le n$, the matrix $\tilde B^{t_r}$ has principal part given by $b^{t_r}_{ij}=(-1)^{\epsilon(i,\ell)+\epsilon(j,\ell)}b_{ij}$ for $\epsilon(i,j)=\begin{cases} 1 & \text{if $i\le j$;}\\ 0 & \text{otherwise;}\end{cases}$ and the $\bfc$-vector part of the $k$-th column is given by $\bfc^{(r)}_k$ for $1\le k\le n$.
   \end{lemma}
   \begin{proof}
@@ -351,6 +351,8 @@
     in each case we obtain the desired expression.
     In addition, we see that the $\ell$-th $\bfc$-vector is given by $-\bfc^{(r-1)}_\ell=\bfc^{(r)}_\ell$ as desired.
 
+    ***The next part needs adjustment since the source-sink convention changed***
+
     By Lemma~\ref{lem:tropical signs}, the $\ell$-th $\bfc$-vector of $\tilde B^{t_{r-1}}$ is non-negative.  
     Observe further that vertex $\ell$ being a sink implies that the $\ell$-th row of $\tilde B^{t_{r-1}}$ has non-negative entries, in particular we see that $b^{t_{r-1}}_{\ell k}=b_{\ell k}$ for $\ell<k$ and $b^{t_{r-1}}_{\ell k}=-b_{\ell k}$ for $\ell>k$.
     It then follows from \eqref{eq:matrix mutation} that the $k$-th $\bfc$-vector of $\tilde B^{t_r}$ is given by $\bfc^{(r-1)}_k+b_{\ell k}\bfc^{(r-1)}_\ell$ if $\ell<k$ and by $\bfc^{(r-1)}_k-b_{\ell k}\bfc^{(r-1)}_\ell$ if $\ell>k$.
@@ -359,43 +361,55 @@
 
   Following Lemma~\ref{lem:preprojective exchange matrices}, we identify $\bfc^{(r)}_k$ with the vector $(b^{t_r}_{ik})$ with $n+1\le i\le 2n$.
 
-  It follows that we may write explicit expressions for the $2n\times 2n$ mutation matrices $E^{t_r}_{k,\varepsilon}$ for $r\ge0$.
-  Indeed, taking $r=ns+\ell$ with $1 \le \ell \le n$ we get $E^{t_r}_{k,\varepsilon}=(e^{t_r}_{ij})$ with
+  It follows that we may write explicit expressions for the $2n\times 2n$ mutation matrices $E^{t_r}_{k,\varepsilon}$.
+  Indeed, taking $r=ns+\ell>n$ with $1 \le \ell \le n$ we get $E^{t_r}_{k,\varepsilon}=(e^{t_r}_{ij})$ with
   \begin{equation}
-    \label{eq:preprojective mutation matrices}
-    e^{t_r}_{ij}=\begin{cases} 1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{ik} & \text{if $\varepsilon=+$ and $i<j=k\le\ell$ or $j=k\le\ell<i$ or $\ell<i<j=k$;}\\ -b_{ik} & \text{if $\varepsilon=-$ and $j=k<i\le\ell$ or $i\le\ell<j=k$ or $\ell<j=k<i$;} \\ 0 & \text{otherwise;} \end{cases}
+    \label{eq:postinjective mutation matrices}
+    e^{t_r}_{ij}=
+    \begin{cases}
+      1 & \text{if $i=j\ne k$;}\\
+      -1 & \text{if $i=j=k$;}\\
+      b_{ik} & \text{if $\varepsilon=-$ and $j=k\le\ell<i$;}\\
+      -b_{ik} & \text{if $\varepsilon=-$ and $i<j=k\le\ell$ or $\ell<i<j=k$;}\\
+      b_{ik} & \text{if $\varepsilon=+$ and $j=k<i\le\ell$ or $\ell<j=k<i$;}\\
+      -b_{ik} & \text{if $\varepsilon=+$ and $i\le\ell<j=k$;}\\
+      0 & \text{otherwise;}
+    \end{cases}
   \end{equation}
   where the bottom $n$ entries in column $k$ are given as follows:
   \begin{itemize}
-    \item if $\varepsilon=+$, we have $\bfc^{(r)}_k$ if $r\not\equiv_n k$ and zero otherwise;
-    \item if $\varepsilon=-$, we have $-\bfc^{(r)}_k$ if $r\equiv_n k$ and zero otherwise.
+    \item if $\varepsilon=+$, we have $\bfc^{(r)}_k$ if $r\equiv_n k$ and zero otherwise;
+    \item if $\varepsilon=-$, we have $-\bfc^{(r)}_k$ if $r\not\equiv_n k$ and zero otherwise.
   \end{itemize}
 
+  \begin{remark}
+  The result after mutation:
   \[
     \left[\begin{array}{cc|c|cccc}
-      0 & + & + & - & - & \cdots & -\\
-      - & 0 & + & - & - & \cdots & -\\
+      0 & - & - & + & + & \cdots & +\\
+      + & 0 & - & + & + & \cdots & +\\
       \hline
-      - & - & 0 & - & - & \cdots & -\\
+      + & + & 0 & + & + & \cdots & +\\
       \hline
-      + & + & + & 0 & + & \cdots & +\\
-      + & + & + & - & 0 & \cdots & +\\
+      - & - & - & 0 & - & \cdots & -\\
+      - & - & - & + & 0 & \cdots & -\\
       \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
-      + & + & + & - & - & \cdots & 0
+      - & - & - & + & + & \cdots & 0
     \end{array}\right]
     \qquad
     \left[\begin{array}{cccc|c|cc}
-      0 & \cdots & + & + & - & - & -\\
+      0 & \cdots & - & - & + & + & +\\
       \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \vdots\\
-      - & \cdots & 0 & + & - & - & -\\
-      - & \cdots & - & 0 & - & - & -\\
+      + & \cdots & 0 & - & + & + & +\\
+      + & \cdots & + & 0 & + & + & +\\
       \hline
-      + & \cdots & + & + & 0 & + & +\\
+      - & \cdots & - & - & 0 & - & -\\
       \hline
-      + & \cdots & + & + & - & 0 & +\\
-      +& \cdots & + & + & - & - & 0
+      - & \cdots & - & - & + & 0 & -\\
+      - & \cdots & - & - & + & + & 0
     \end{array}\right]
   \]
+  \end{remark}
 
   For $\lambda\in\ZZ^n$ and $r\in\ZZ_{>0}$ with $r=ns+\ell$ for $1\le\ell\le n$, the tropical transformation $\phi_{t_r}(\lambda)$ is given by
   \[
@@ -409,10 +423,10 @@
   for a sequence of signs $\varepsilon_{-1},\ldots,\varepsilon_{-r}$ depending on $\lambda$.
   \begin{lemma}
     \label{lem:imaginary mutations}
-    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_r$ with $r>0$ above is equal to $-$ and every sign $\varepsilon_r$ with $r<0$ above is equal to $+$.
+    If $\lambda\in\ZZ^n$ is imaginary, then every sign $\varepsilon_r$ with $r>0$ above is equal to $+$ and every sign $\varepsilon_r$ with $r<0$ above is equal to $-$.
   \end{lemma}
   \begin{proof}
-    With $1,\ldots,n$ being sink adapted, these sign choices give the most complicated transformation at each step.
+    With $1,\ldots,n$ being source adapted, these sign choices give the most complicated transformation at each step.
     That should mean that $\lambda$ is sufficiently far from the initial chamber and remains there under all mutations.
   \end{proof}
 
@@ -495,17 +509,57 @@
 
   \end{proof}
 
-  Given a sequence of signs $\beps=(\varepsilon_1,\varepsilon_2,\ldots)$ with $\varepsilon_i\in\{\pm\}$, define an infinite quiver $\widehat{Q}_\beps$ with vertices $(k,s)\in [n]\times\ZZ_{\ge0}$ and the following arrows:
+  Given a sequence of signs $\beps=(\varepsilon_1,\varepsilon_2,\ldots,\varepsilon_r)$ with $\varepsilon_i\in\{\pm\}$, define a quiver $Q^{(r)}_\beps$ with vertices $(\ell,s)\in [n]\times\ZZ_{\ge0}$ satisfying $ns+\ell\le n+r$ and having the following arrows:
   \begin{itemize}
-    \item an arrow $(\ell,s)\to (k,s)$ of weight $b_{k\ell}$ whenever $k<\ell$, $s\ge0$, and $\varepsilon_{ns+\ell}=-$;
-    \item an arrow $(\ell,s+1)\to (k,s)$ of weight $-b_{k\ell}$ whenever $\ell<k$, $s\ge0$, and $\varepsilon_{ns+\ell}=-$;
-    \item an arrow $(\ell,s+1)\to (\ell,s)$ of weight $-1$ whenever $s\ge0$.
+    \item an arrow $(\ell,s)\to (k,s)$ of weight $b_{k\ell}$ whenever $\ell<k$, $ns+\ell\le r$, and $\varepsilon_{ns+\ell}=+$;
+    \item an arrow $(\ell,s)\to (k,s+1)$ of weight $-b_{k\ell}$ whenever $k<\ell$, $ns+\ell\le r$, and $\varepsilon_{ns+\ell}=+$;
+    \item an arrow $(\ell,s)\to (\ell,s+1)$ of weight $-1$ whenever $ns+\ell\le r$.
   \end{itemize}
-  Given a path $p$ in $\widehat{Q}$, write $\wt(p)$ for the product of the weights along the arrows in $p$.
-  Let $i(p)$ and $t(p)$ denote the initial and terminal vertex along the path $p$.
-  Write $\hgt(p)$ for the largest $s$ appearing as the second component of a vertex along the path $p$.
+  For $1\le\ell\le r$, write $\hat{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ maximal.
+  Below we freely identify each vertex $(\ell,0)$ with $\ell$.
+
+  Given a path $\fp\subset Q^{(r)}_\beps$, write $\wt(\fp)$ for the product of the weights along the arrows in $\fp$.
+  Let $i(\fp)$ and $t(\fp)$ denote the initial and terminal vertex along the path $\fp$.
+  Below we only consider paths $\fp\subset Q^{(r)}_\beps$ with $i(\fp)=(\ell,0)$ for some $\ell$.
+  \begin{proposition}
+    Consider $r>0$ with $r=ns+\ell$ for $1\le\ell\le n$.
+    For $\lambda\in\ZZ^n$, suppose the tropical transformation $\phi_{t_r}(\tilde\lambda)=(\lambda'_1,\ldots,\lambda'_n,\lambda'_{n+1},\cdots,\lambda'_{2n})$ is given by
+    \[
+      E^{t_{r-1}}_{\ell,\varepsilon_r} \cdots E^{t_{r-\ell}}_{1,\varepsilon_{r-\ell+1}} E^{t_{ns-1}}_{n,\varepsilon_{ns}} \cdots E^{t_1}_{2,\varepsilon_2} E^{t_0}_{1,\varepsilon_1} \lambda
+    \]
+    with the signs $\beps=(\varepsilon_1,\cdots,\varepsilon_r)$ determined by $\lambda$.
+    Then
+    \[
+      \lambda'_k=\sum\limits_{\fp\subset Q^{(r)}_\beps, t(\fp)=\hat{k}} \wt(\fp)\lambda_{i(\fp)}.
+    \]
+    and $\lambda'_{n+k}=0$ for $1\le k\le n$ and $r<0$ if $\varepsilon_i=-$ for all $i$.
+    \sayDR{We need this for arbitrary sequences of signs and to include $r>0$.}
+  \end{proposition}
+  \begin{proof}
+    We work by induction on $r$.
+    Write $r=ns+\ell$.
+    From Lemma~\ref{lem:transjective exchange matrices} and Lemma~\ref{lem:tropical signs}, we see that the $\ell$-th column of $\tilde B^{t_{r-1}}$ has the first $n$ entries non-negative and the last $n$ entries non-positive.
+
+    Writing $\phi_{t_{r-1}}(\tilde\lambda)=(\lambda''_1,\ldots,\lambda''_{2n})$ we also see from Lemma~\ref{lem:transjective exchange matrices} that $\phi_{t_r}(\tilde\lambda)=E^{t_{r-1}}_{\ell,\varepsilon_r}\phi_{t_{r-1}}(\tilde\lambda)$ is given by
+    \[
+      \begin{cases}
+        (\lambda''_1-b_{1\ell}\lambda''_\ell,\ldots,\lambda''_{\ell-1}-b_{\ell-1,\ell}\lambda''_\ell,-\lambda''_\ell,\lambda''_{\ell+1}+b_{\ell+1,\ell}\lambda''_\ell,\ldots,\lambda''_n+b_{n\ell}\lambda''_\ell,\lambda''_{n+1},\ldots,\lambda''_{2n}) & \text{if $\varepsilon_r=+$;}\\
+        (\lambda''_1,\ldots,\lambda''_{\ell-1},-\lambda''_\ell,\lambda''_{\ell+1},\ldots,\lambda''_n,\lambda''_{n+1}-b^{t_{r-1}}_{n+1,\ell}\lambda''_\ell,\ldots,\lambda''_{2n}-b^{t_{r-1}}_{2n,\ell}\lambda''_\ell) & \text{if $\varepsilon_r=-$.}\\
+      \end{cases}
+    \]
+    Iterating this, starting from $\ell=1$, we obtain the formula
+    \begin{equation}
+      \lambda'_k=
+      \begin{cases} 
+        -\lambda_k-\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $1\le k\le \ell$.}\\
+        \lambda_k+\sum\limits_{1\le \ell_1<\cdots<\ell_m\le \ell} (-1)^m b_{k\ell_m} \prod\limits_{w=2}^m b_{\ell_w \ell_{w-1}}\lambda_{\ell_1} & \text{if $\ell+1\le k\le n$;}
+      \end{cases}
+    \end{equation}
+    for $1\le k\le n$ when $s=0$.
+  \end{proof}
+
   Then for $r<0$ with $r=ns+\ell$ for $1\le\ell\le n$, we have
-  \[\lambda'_k=\begin{cases}\sum\limits_{\substack{p\subset\widehat{Q}\\ \hgt(p)=-s-1, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $1\le k\le\ell-1$;}\\ \sum\limits_{\substack{p\subset\widehat{Q}\\ \hgt(p)=-s, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $\ell\le k\le n$;} \end{cases}\]
+  \[\lambda'_k=\begin{cases}\sum\limits_{\substack{p\subset\widehat{Q}_\beps\\ \hgt(p)=-s-1, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $1\le k\le\ell-1$;}\\ \sum\limits_{\substack{p\subset\widehat{Q}\\ \hgt(p)=-s, t(p)=(k,0)}}\wt(p)\lambda_{i(p)} & \text{if $\ell\le k\le n$;} \end{cases}\]
 
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}  
