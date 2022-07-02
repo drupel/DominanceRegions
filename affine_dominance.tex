@@ -435,34 +435,32 @@
   For a $\bfg$-vector $\lambda\in\ZZ^n$, write $\tilde\lambda\in\ZZ^{2n}$ for its extension by zeros.
 
   Given a sequence of signs $\beps=(\varepsilon_1,\varepsilon_2,\ldots,\varepsilon_r)$ with $\varepsilon_i\in\{\pm\}$, define a quiver $Q^{(r)}_\beps$ with vertices 
-  \[\{(\ell,s)\in [n]\times\ZZ_{\ge0}:ns+\ell\le n+r\}\cup\{k:n+1\le k\le 2n\}\]
+  \[\{(\ell,s)\in [n]\times\ZZ_{\ge0}:ns+\ell\le n+r\}\cup\{(n+k,0):1\le k\le n\}\]
   and having the following arrows:
   \begin{itemize}
     \item an arrow $(\ell,s)\to (k,s)$ of weight $b_{k\ell}$ whenever $\ell<k$, $ns+\ell\le r$, and $\varepsilon_{ns+\ell}=+$;
     \item an arrow $(\ell,s)\to (k,s+1)$ of weight $-b_{k\ell}$ whenever $k<\ell$, $ns+\ell\le r$, and $\varepsilon_{ns+\ell}=+$;
     \item an arrow $(\ell,s)\to (\ell,s+1)$ of weight $-1$ whenever $ns+\ell\le r$;
-    \item an arrow $(\ell,s)\to k$ of weight $\varepsilon_{ns+\ell}\bfc^{(ns+\ell)}_{k\ell}$ whenever $\varepsilon_{ns+\ell}=\sgn(\bfc^{(ns+\ell)}_{k\ell})$.
+    \item an arrow $(\ell,s)\to (n+k,0)$ of weight $\varepsilon_{ns+\ell}\bfc^{(ns+\ell)}_{k\ell}$ whenever $\varepsilon_{ns+\ell}=\sgn(\bfc^{(ns+\ell)}_{k\ell})$.
   \end{itemize}
   For $1\le\ell\le r$, write $\hat{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ maximal.
-  For $n+1\le k\le 2n$, $\hat{k}=k$.
   Below we freely identify each vertex $(\ell,0)$ with $\ell$ itself.
 
   Given a sequence of signs $\beps=(\varepsilon_0,\varepsilon_{-1},\varepsilon_{-2},\ldots,\varepsilon_{-r+1})$ with $\varepsilon_i\in\{\pm\}$, define a quiver $Q^{(-r)}_\beps$ with vertices 
-  \[\{(\ell,s)\in [n]\times\ZZ_{<0}:-n-r<ns+\ell\}\cup\{k:n+1\le k\le 2n\}\]
+  \[\{(\ell,s)\in [n]\times\ZZ_{<0}:-n-r<ns+\ell\}\cup\{(n+k,-1):1\le k\le n\}\]
   and having the following arrows:
   \begin{itemize}
     \item an arrow $(\ell,s)\to (k,s)$ of weight $-b_{k\ell}$ whenever $k<\ell$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
     \item an arrow $(\ell,s)\to (k,s-1)$ of weight $b_{k\ell}$ whenever $\ell<k$, $-r<ns+\ell$, and $\varepsilon_{ns+\ell}=-$;
     \item an arrow $(\ell,s)\to (\ell,s-1)$ of weight $-1$ whenever $-r<ns+\ell$.
-    \item an arrow $(\ell,s)\to k$ of weight $\varepsilon_{ns+\ell}\bfc^{(ns+\ell)}_{k\ell}$ whenever $\varepsilon_{ns+\ell}=\sgn(\bfc^{(ns+\ell)}_{k\ell})$.
+    \item an arrow $(\ell,s)\to (n+k,-1)$ of weight $\varepsilon_{ns+\ell}\bfc^{(ns+\ell)}_{k\ell}$ whenever $\varepsilon_{ns+\ell}=\sgn(\bfc^{(ns+\ell)}_{k\ell})$.
   \end{itemize}
   For $1\le\ell\le r$, write $\check{\ell}$ for the vertex $(\ell,s)$ of $Q^{(r)}_\beps$ with $s$ minimal.
-  For $n+1\le k\le 2n$, $\check{k}=k$.
   Below we freely identify each vertex $(\ell,-1)$ with $\ell$ itself.
 
   Given a path $\fp\subset Q^{(\pm r)}_\beps$, write $\wt(\fp)$ for the product of the weights along the arrows in $\fp$.
   Let $i(\fp)$ and $t(\fp)$ denote the initial and terminal vertex along the path $\fp$.
-  Below we only consider paths $\fp\subset Q^{(r)}_\beps$ with $i(\fp)=(\ell,0)$ for some $\ell$ and paths $\fp\subset Q^{(-r)}_\beps$ with $i(\fp)=(\ell,-1)$ for some $\ell$ or paths with $i(\fp)=k$ for some $n+1\le k\le 2n$.
+  Below we only consider paths $\fp\subset Q^{(r)}_\beps$ with $i(\fp)=(\ell,0)$ for some $\ell$ and paths $\fp\subset Q^{(-r)}_\beps$ with $i(\fp)=(\ell,-1)$ for some $\ell$.
   \begin{proposition}
     Consider $r>0$ with $r=ns+\ell$ for $1\le\ell\le n$.
     \begin{enumerate}
