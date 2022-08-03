@@ -228,7 +228,7 @@
   We achieve the same conclusion in our setting by elementary calculations (cf. Lemma~\ref{le:cluster monomials}).
 
   Elements of any pointed basis are parametrized by $\ZZ^2$ thought of as the collection of possible $\bfg$-vectors.
-  Qin introduced a partial order $\preceq$ on $\bfg$-vectors called the \emph{dominance order} and showed that it provides a characterization of pointed bases.
+  Qin introduced a partial order $\preceq$ on $\bfg$-vectors called the \emph{dominance order}, refining the order used in \cite[Proposition 4.3]{CILS15}, and showed that it provides a characterization of pointed bases.
   We restate his results in the generality needed for this paper and using our notation.
   \begin{theorem}
     \label{th:dominance}
@@ -251,16 +251,17 @@
       \def\arraystretch{2.2}
       \[
         \begin{array}{rcccl}
-          0 & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & \max\left(-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1,0\right)\!\!;
+          0 & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & \left[-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1\right]_+\!\!;
           \\
-          \min\left(-c\lambda_0,0\right) & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) & \!\leq\! & 0;
+          0 & \!\leq\! & -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & \left[c\lambda_0\right]_+;
           \\
-          0 & \!\leq\! &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \!\leq\! & \max\left(\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1,0\right)\!\!;
+          0 & \!\leq\! &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \!\leq\! & \left[\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1\right]_+\!\!;
           \\
-          \min\left(b \lambda_1,0\right) & \!\leq\! & (\mu_0-\lambda_0) - \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \!\leq\! & 0.
+          0 & \!\leq\! & -(\mu_0-\lambda_0) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \!\leq\! & \left[-b \lambda_1\right]_+;
         \end{array}
       \]
     }
+    where $[x]_+:=\max(x,0)$.
     
   \vspace{-1.05em}
   \end{theorem}
@@ -325,14 +326,14 @@
       \draw [color=gray, thick, dashed] (0,0) -- (2*\xmax, -\xmax * \bcms / \b); 
       \draw [color=gray, thick, dashed] (0,0) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin); 
     }
-  \begin{tikzpicture}[scale=.3]
+  \begin{tikzpicture}[scale=.22]
     \begin{scope}[shift={(0,0)}]
       \setconstants;
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (2*\xmax,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \q=1; \xx = \r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
       \fill (\x,\y) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.a)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.a)};
     \end{scope}
     \begin{scope}[shift={(14,0)}]
       \setconstants;
@@ -342,7 +343,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
       \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.b)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.b)};
     \end{scope}
     \begin{scope}[shift={(28,0)}]
       \setconstants;
@@ -352,7 +353,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
       \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.c)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.c)};
     \end{scope}
     \begin{scope}[shift={(42, 0)}]
       \setconstants;
@@ -362,7 +363,7 @@
       \fill (\x, \y) circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
       \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.d)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.d)};
     \end{scope}
     \begin{scope}[shift={(0,-14)}]
       \setconstants;
@@ -372,7 +373,7 @@
       \fill (\x,\y) circle (5pt);
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.e)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.e)};
     \end{scope}
     \begin{scope}[shift={(14,-14)}]
       \setconstants;
@@ -384,7 +385,7 @@
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.f)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.f)};
     \end{scope}
     \begin{scope}[shift={(28,-14)}]
       \setconstants;
@@ -396,7 +397,7 @@
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(1.f)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(1.f)};
     \end{scope}
     \begin{scope}[shift={(42,-14)}]
       \setconstants;
@@ -409,7 +410,7 @@
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
       \draw [thick, join=round, line cap=round, dash pattern=on {\gap*\pgflinewidth} off {2*\gap*\pgflinewidth} ] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) --  (\bcps*\x/\s + \bcps*\b*\y/2/\s, -\bcps*\c*\x/2/\s - \bcps*\b*\c*\y/2/\s + \bcps*\y/\s) --  (\x , \y);
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
-      \draw (\xmin+1.5,\ymin+1) node{(2)};
+      \draw (\xmin+1.5,\ymin+1) node{\small(2)};
     \end{scope}
     \draw (21,-22) node{The maximal supports $\cS_\lambda$ as described in Theorem \ref{th:maximum support}.};
   \end{tikzpicture}
@@ -844,13 +845,13 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   Moreover, for $k=1$ the third and fourth inequalities in the first list are the same so we can increment $k$ in the last equality without losing any information and similarly for $k=-1$ in the second list. 
   This gives
   \begin{align*}
-    u_{k+1}^-(\mu_0-\lambda_0)+u_k^+(\mu_1-\lambda_1) &\le 0;\\
+    0 \le -u_{k+1}^-(\mu_0-\lambda_0)+u_k^-(\mu_1-\lambda_1); &\\
     -u_{k-1}^-(\mu_0-\lambda_0)+u_k^+(\mu_1-\lambda_1) &\le cu_k^+\lambda_0;\\
     -u_k^-(\mu_0-\lambda_0)-u_{k-1}^+(\mu_1-\lambda_1) &\le cu_{k+1}^+\lambda_0+bu_k^-\lambda_1;
   \end{align*}
   for $k>0$ and
   \begin{align*}
-    u_k^-(\mu_0-\lambda_0)+u_{k-1}^+(\mu_1-\lambda_1) &\le 0;\\
+    0 \le -u_k^-(\mu_0-\lambda_0)+u_{k-1}^-(\mu_1-\lambda_1); &\\
     u_k^-(\mu_0-\lambda_0)-u_{k+1}^+(\mu_1-\lambda_1) &\le bu_k^-\lambda_1;\\
     -u_{k+1}^-(\mu_0-\lambda_0)-u_k^+(\mu_1-\lambda_1) &\le cu_k^+\lambda_0+bu_{k-1}^-\lambda_1;
   \end{align*}
@@ -858,15 +859,15 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   Then, using that $-u_k^\varepsilon<0$ for $k>0$ and $u_k^\varepsilon<0$ for $k<0$, we rewrite the inequalities again as
   \begin{align}
-    \label{ieq1} 0 & \le -(\mu_0-\lambda_0)-\frac{u_k^+}{u_{k+1}^-}(\mu_1-\lambda_1);\\
-    \label{ieq2} -c\lambda_0 & \le \frac{u_{k-1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);\\
+    \label{ieq1} 0 \le -(\mu_0-\lambda_0)-\frac{u_k^+}{u_{k+1}^-}(\mu_1-\lambda_1); & \\
+    \label{ieq2} -\frac{u_{k-1}^-}{u_k^+}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \le c\lambda_0;\\
     \label{ieq3} -(\mu_0-\lambda_0)-\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1) &\le c\frac{u_{k+1}^+}{u_k^-}\lambda_0+b\lambda_1;
   \end{align}
   for $k>0$ and
   \begin{align}
-    \label{ieq4} 0 &\le (\mu_0-\lambda_0)+\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1);\\
-    \label{ieq5} b\lambda_1 &\le (\mu_0-\lambda_0)-\frac{u_{k+1}^+}{u_k^-}(\mu_1-\lambda_1);\\
-    \label{ieq6} c\lambda_0+b\frac{u_{k-1}^-}{u_k^+}\lambda_1 &\le \frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)-(\mu_1-\lambda_1);
+    \label{ieq4} 0 \le (\mu_0-\lambda_0)+\frac{u_{k-1}^+}{u_k^-}(\mu_1-\lambda_1); & \\
+    \label{ieq5} -(\mu_0-\lambda_0)+\frac{u_{k+1}^+}{u_k^-}(\mu_1-\lambda_1) &\le -b\lambda_1;\\
+    \label{ieq6} -\frac{-u_{k+1}^-}{u_k^+}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) &\le -c\lambda_0-b\frac{u_{k-1}^-}{u_k^+}\lambda_1;
   \end{align}
   for $k<0$.
   We now study each sequence of inequalities in turn.
@@ -877,10 +878,10 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   Similarly, the inequalities \eqref{ieq2} become more restrictive for $\mu_0\le0$ and $\mu_1\ge0$ as $k$ gets larger since the sequence $\frac{u_{k-1}^-}{u_k^+}$ of positive slopes is monotonically increasing and the intersection with \eqref{ieq1} moves lower on the $\mu_1$-axis as $k$ increases.
   Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality
-  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \]
+  \[ -\frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) \le c\lambda_0 \]
   determining a boundary of $\cP_\lambda$.
   Observe further that the inequalities $\mu_0-\lambda_0 \le 0$ and $0 \le \mu_1-\lambda_1$ allow to strengthen this as
-  \[ -c\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1) \le 0. \]
+  \[ 0 \le -\frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) \le c\lambda_0. \]
 
   Finally, the inequalities \eqref{ieq3} become more restrictive for $\mu_1\le0$ as $k$ gets larger since the sequence $\frac{-u_k^-}{u_{k-1}^+}$ of negative slopes is monotonically increasing (cf. Lemma~\ref{le:limits}) and the intersection with \eqref{ieq2} (for $k+1$) moves to the right on the $\mu_0$-axis as $k$ increases.
   Thus, following Lemma~\ref{le:limits}, in the limit as $k\to\infty$, we obtain the inequality below determining a boundary of $\cP_\lambda$:
@@ -888,8 +889,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   Similar arguments using \eqref{ieq4}-\eqref{ieq6} lead to the remaining inequalities determining the boundary of $\cP_\lambda$:
   \[ 0 \le (\mu_0-\lambda_0)+\frac{bc+\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1);\]
-  \[ b\lambda_1 \le (\mu_0-\lambda_0)-\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le 0;\]
-  \[ c\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2b}b\lambda_1 \le -\frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)-(\mu_1-\lambda_1).\]
+  \[ 0 \le -(\mu_0-\lambda_0)+\frac{bc-\sqrt{bc(bc-4)}}{2c}(\mu_1-\lambda_1) \le -b\lambda_1;\]
+  \[ 0 \le \frac{bc-\sqrt{bc(bc-4)}}{2b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) \le -c\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2b}b\lambda_1.\]
   These can easily be seen to be equivalent to the remaining inequalities from Theorem~\ref{th:dominance inequalities} and this complete the proof.
 
 
@@ -930,11 +931,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
         \begin{array}{rcccl}
           0 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) & \leq & -b\lambda'_1-\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda'_0
           \\
-          -b\lambda'_1 & \leq & \frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)-(\mu_0-\lambda'_0)
+          0 & \leq & -\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda'_1)+(\mu_0-\lambda'_0) & \leq & b\lambda'_1
           \\
           0 & \leq &  -(\mu_1-\lambda'_1)-\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda'_0) & \leq & \frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda'_1+c\lambda'_0
           \\
-          c \lambda'_0 & \leq & (\mu_1-\lambda'_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 b} (\mu_0-\lambda'_0)
+          0 & \leq & (\mu_1-\lambda'_1) - \frac{b c-\sqrt{b c (b c-4)}}{2 b} (\mu_0-\lambda'_0) & \leq & -c \lambda'_0
         \end{array}
       \]
     }
