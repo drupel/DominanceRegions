@@ -266,7 +266,7 @@
   \vspace{-1.05em}
   \end{theorem}
   \begin{remark}
-    Explicit calculations reveal that for certain pairs of notable bases (e.g. greedy and triangular) most of the coeffiecients $q_{\lambda,\mu}$ are zero.
+    Explicit calculations reveal that for certain pairs of notable bases (e.g. greedy and triangular) most of the coefficients $q_{\lambda,\mu}$ are zero.
     Understanding this phenomenon might be worth further study.
   \end{remark}
 
@@ -444,19 +444,19 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   \begin{proof}
     We work by induction on $\ell$ for all $i$ simultaneously, the cases $\ell=0,1$ being tautological and reproducing the defining recursions, respectively.
     Using the claim for $\ell>0$ and then the defining recursion twice, $u_{i+\ell+1}^\varepsilon$ can be rewritten for $\ell$ odd as
-    \[
+    \begin{align*}
       u_{\ell+1}^\varepsilon u_{i+1}^{-\varepsilon}-u_\ell^{-\varepsilon} u_i^\varepsilon
-      =u_{\ell+1}^\varepsilon(u_2^{-\varepsilon}u_i^\varepsilon-u_{i-1}^{-\varepsilon}) -u_\ell^{-\varepsilon} u_i^\varepsilon 
-      =(u_2^{-\varepsilon} u_{\ell+1}^\varepsilon-u_\ell^{-\varepsilon}) u_i^\varepsilon-u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
-      =u_{\ell+2}^{-\varepsilon} u_i^\varepsilon - u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
-    \]
+      &=u_{\ell+1}^\varepsilon(u_2^{-\varepsilon}u_i^\varepsilon-u_{i-1}^{-\varepsilon}) -u_\ell^{-\varepsilon} u_i^\varepsilon\\
+      &=(u_2^{-\varepsilon} u_{\ell+1}^\varepsilon-u_\ell^{-\varepsilon}) u_i^\varepsilon-u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}\\
+      &=u_{\ell+2}^{-\varepsilon} u_i^\varepsilon - u_{\ell+1}^\varepsilon u_{i-1}^{-\varepsilon}
+    \end{align*}
     and for $\ell$ even as
-    \[
+    \begin{align*}
       u_{\ell+1}^{-\varepsilon} u_{i+1}^\varepsilon-u_\ell^\varepsilon u_i^{-\varepsilon}
-      =u_{\ell+1}^{-\varepsilon}(u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon) -u_\ell^\varepsilon u_i^{-\varepsilon}
-      =(u_2^\varepsilon u_{\ell+1}^{-\varepsilon}-u_\ell^\varepsilon) u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon
-      =u_{\ell+2}^\varepsilon u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon.
-    \]
+      &=u_{\ell+1}^{-\varepsilon}(u_2^\varepsilon u_i^{-\varepsilon}-u_{i-1}^\varepsilon) -u_\ell^\varepsilon u_i^{-\varepsilon}\\
+      &=(u_2^\varepsilon u_{\ell+1}^{-\varepsilon}-u_\ell^\varepsilon) u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon\\
+      &=u_{\ell+2}^\varepsilon u_i^{-\varepsilon}-u_{\ell+1}^{-\varepsilon} u_{i-1}^\varepsilon.
+    \end{align*}
     This gives the claimed recursion for $\ell+1$.
     These calculations can be reversed to show the result for $\ell<0$.
   \end{proof}
@@ -482,14 +482,22 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     \[u_i^\varepsilon=\begin{cases} \frac{\sqrt{b}}{2^i\sqrt{c(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=+$;}\\ \frac{\sqrt{c}}{2^i\sqrt{b(bc-4)}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is even and $\varepsilon=-$;}\\ \frac{1}{2^i\sqrt{bc-4}}\left(\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i\right) & \text{if $i$ is odd.} \end{cases}\]
 
     For any $i\ne1$, we have
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}.\]
+    \[\scalebox{0.95}{$\displaystyle\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}=\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}}$.}\]
     It follows that
-    \[\lim_{i\to\infty} \frac{u_i^-}{u_{i-1}^+} = \lim_{i\to\infty} \left( \frac{\sqrt{c}}{2\sqrt{b}}\cdot\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right) = \frac{\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),\]
+    \begin{align*}
+      \lim_{i\to\infty} \frac{u_i^-}{u_{i-1}^+}
+      &=\lim_{i\to\infty} \left( \frac{\sqrt{c}}{2\sqrt{b}}\cdot\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)}{1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}} \right)\\
+      &=\frac{\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}+\sqrt{bc-4}\big),
+    \end{align*}
     which is equivalent to the desired expression.
     Similarly, for $i\ne0$ we have
-    \[\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\big(\sqrt{bc}-\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)},\]
+    \[\scalebox{0.925}{$\displaystyle\frac{\big(\sqrt{bc}+\sqrt{bc-4}\big)^{i-1}-\big(\sqrt{bc}-\sqrt{bc-4}\big)^{i-1}}{\big(\sqrt{bc}+\sqrt{bc-4}\big)^i-\big(\sqrt{bc}-\sqrt{bc-4}\big)^i}=\frac{\big(\sqrt{bc}-\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)}$,}\]
     so that
-    \[\lim_{i\to\infty} \frac{u_{i-1}^-}{u_i^+} = \lim_{i\to\infty} \left( \frac{2\sqrt{c}}{\sqrt{b}}\cdot\frac{\big(\sqrt{bc}-\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)} \right) = \frac{\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),\]
+    \begin{align*}
+      \lim_{i\to\infty} \frac{u_{i-1}^-}{u_i^+}
+      &=\lim_{i\to\infty} \left( \frac{2\sqrt{c}}{\sqrt{b}}\cdot\frac{\big(\sqrt{bc}-\sqrt{bc-4}\big)\cdot\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^{i-1}\right)}{4\left(1-\left(\frac{\sqrt{bc}-\sqrt{bc-4}}{\sqrt{bc}+\sqrt{bc-4}}\right)^i\right)} \right)\\
+      &=\frac{\sqrt{c}}{2\sqrt{b}}\cdot\big(\sqrt{bc}-\sqrt{bc-4}\big),
+    \end{align*}
     which is again equivalent to the desired expression.
     This proves the claim for $i\to\infty$, the cases $i\to-\infty$ follow from these using $u_{-i}^\varepsilon=-u_i^\varepsilon$.
 
@@ -497,16 +505,16 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     This inequality is then immediate, for $i>0$, from the following inductions:
     \begin{align*}
       u_{i+1}^{-}u_{i-1}^+
-      =(cu_i^+-u_{i-1}^{-})u_{i-1}^+
-      =cu_i^+ u_{i-1}^+-u_{i-1}^{-} u_{i-1}^+
-      <cu_i^+ u_{i-1}^+-u_i^+ u_{i-2}^{-}
+      &=(cu_i^+-u_{i-1}^{-})u_{i-1}^+
+      =cu_i^+ u_{i-1}^+-u_{i-1}^{-} u_{i-1}^+\\
+      &<cu_i^+ u_{i-1}^+-u_i^+ u_{i-2}^{-}
       =u_i^+(cu_{i-1}^+-u_{i-2}^{-})
       =u_i^+ u_i^{-};
       \\
       u_{i+1}^{+}u_{i-1}^-
-      =(bu_i^--u_{i-1}^{+})u_{i-1}^-
-      =bu_i^- u_{i-1}^--u_{i-1}^{+} u_{i-1}^-
-      <bu_i^- u_{i-1}^--u_i^- u_{i-2}^{+}
+      &=(bu_i^--u_{i-1}^{+})u_{i-1}^-
+      =bu_i^- u_{i-1}^--u_{i-1}^{+} u_{i-1}^-\\
+      &<bu_i^- u_{i-1}^--u_i^- u_{i-2}^{+}
       =u_i^-(bu_{i-1}^--u_{i-2}^{+})
       =u_i^- u_i^{+}.
     \end{align*}
@@ -529,14 +537,15 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       (-\lambda_0,c\lambda_0+\lambda_1) & \text{if $\lambda_0 \ge 0$;}\\
       (-\lambda_0,\lambda_1) & \text{if $\lambda_0 < 0$;}
     \end{cases}
-    \qquad
+  \end{equation}
+  \[
     \phi_{-1}(\lambda)
     :=
     \begin{cases} 
       (\lambda_0,-\lambda_1) & \text{if $\lambda_1 \ge 0$;}\\
       (\lambda_0+b\lambda_1,-\lambda_1) & \text{if $\lambda_1 < 0$.}
     \end{cases}
-  \end{equation}
+  \]
   For $k\in\ZZ$ with $|k|>1$, define piecewise-linear maps
   \[\phi_k
     :=
@@ -582,7 +591,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     First observe that, by equation \eqref{eq:forward two step mutation}, the equation $\phi_2(\lambda)=\nu\lambda$ cannot be satisfied with a positive $\nu$ unless $\lambda_0\ge 0$ and $c\lambda_0+\lambda_1\ge 0$.
     In this region, $\phi_2$ is linear with eigenvalue $\nu$ satisfying $\nu^2-(bc-2)\nu+1=0$, i.e.~$\nu=\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}$.
     We thus require 
-    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_0=(bc-1)\lambda_0+b\lambda_1 \qquad\text{and}\qquad \frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1= -c\lambda_0-\lambda_1,\]
+    \[\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_0=(bc-1)\lambda_0+b\lambda_1\,\,\,\text{and}\,\,\,\frac{bc-2\pm\sqrt{bc(bc-4)}}{2}\lambda_1= -c\lambda_0-\lambda_1,\]
     or equivalently
     \[\frac{-bc\pm\sqrt{bc(bc-4)}}{2b}\lambda_0=\lambda_1 \qquad\text{and}\qquad \frac{-bc\mp\sqrt{bc(bc-4)}}{2c}\lambda_1=\lambda_0.\]
     As these represent the same relationship, the result immediately follows by inspection.
@@ -613,7 +622,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     Therefore, after applying the equivalences for odd Chebyshev polynomials from Remark~\ref{rem:equivalences}, we have
     \begin{align*}
       \phi_{2j+2}(\lambda)&=\phi_2\phi_{2j}(\lambda)\\
-      &=\big( (u_3^- u_{2j+1}^+-u_2^+u_{2j}^-)\lambda_0+(u_3^-u_{2j}^+-u_2^+u_{2j-1}^-)\lambda_1,-(u_2^-u_{2j+1}^+-u_1^+u_{2j}^-)\lambda_0-(u_2^-u_{2j}^+-u_1^+u_{2j-1}^-)\lambda_1 \big)\\
+      &=\Big( (u_3^- u_{2j+1}^+-u_2^+u_{2j}^-)\lambda_0+(u_3^-u_{2j}^+-u_2^+u_{2j-1}^-)\lambda_1,\\
+      &\qquad-(u_2^-u_{2j+1}^+-u_1^+u_{2j}^-)\lambda_0-(u_2^-u_{2j}^+-u_1^+u_{2j-1}^-)\lambda_1 \Big)\\
       &=(u_{2j+3}^+\lambda_0+u_{2j+2}^+\lambda_1, -u_{2j+2}^-\lambda_0-u_{2j+1}^-\lambda_1),
     \end{align*}
     where the last equality uses \eqref{eq:long Chebyshev recursion} with $i=2j+1$ and $\ell=2$.
@@ -789,7 +799,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     Thus applying Lemma~\ref{le:transformed inequalities} to (a) gives the inequality 
     \[u_{2i+2}^-\mu_0+u_{2i+1}^+\mu_1=(u_3^+u_{2i}^--u_2^-u_{2i-1}^+)\mu_0+(u_2^+u_{2i}^--u_1^-u_{2i-1}^+)\mu_1\le u_{2j}^-\lambda_0+u_{2j-1}^+\lambda_1,\]
     which is the inequality (a) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}; while applying this to (d) gives the inequality 
-    \[-u_{2i+1}^-\mu_0-u_{2i}^+\mu_1=(-u_3^+u_{2i-1}^-+u_2^-u_{2i-2}^+)\mu_0+(-u_2^+u_{2i-1}^-+u_1^-u_{2i-2}^+)\mu_1\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1,\]
+    \begin{align*}
+      -u_{2i+1}^-\mu_0-u_{2i}^+\mu_1
+      &=(-u_3^+u_{2i-1}^-+u_2^-u_{2i-2}^+)\mu_0+(-u_2^+u_{2i-1}^-+u_1^-u_{2i-2}^+)\mu_1\\
+      &\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1,
+    \end{align*}
     which is the inequality (d) for $i+1$ again by Lemma~\ref{eq:long Chebyshev recursion}; finally applying this to (b) gives the inequality 
     \[u_{2i+3}^-\mu_0+u_{2i+2}^+\mu_1=(u_3^+u_{2i+1}^--u_2^-u_{2i}^+)\mu_0+(u_2^+u_{2i+1}^--u_1^-u_{2i}^+)\mu_1\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1,\]
     which is the inequality (b) for $i+1$.
@@ -799,7 +813,11 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     which is the inequality (d) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}, in particular we see that the segment determined by (c) and the ray determined by (d) align in the image.
     Lastly, the boundary segment corresponding to (b) also intersects the regions where $\phi_2^{-1}$ acts according to the matrices $\left[ \begin{array}{cc} -1 & -b\\ 0 & -1 \end{array}\right]$ and $\left[ \begin{array}{cc} -1 & 0\\ 0 & -1 \end{array}\right]$ respectively.
     Applying Lemma~\ref{le:transformed inequalities} to (b) with the first matrix gives the inequality 
-    \[-u_{2i+1}^-\mu_0+u_{2i+2}^+\mu_1=(-u_1^+u_{2i+1}^-+u_0^-u_{2i}^+)\mu_0+(u_2^+u_{2i+1}^--u_1^-u_{2i,+})\mu_1\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1,\]
+    \begin{align*}
+      -u_{2i+1}^-\mu_0+u_{2i+2}^+\mu_1
+      &=(-u_1^+u_{2i+1}^-+u_0^-u_{2i}^+)\mu_0+(u_2^+u_{2i+1}^--u_1^-u_{2i,+})\mu_1\\
+      &\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1,
+    \end{align*}
     which is the inequality (c) for $i+1$ by Lemma~\ref{eq:long Chebyshev recursion}, while applying Lemma~\ref{le:transformed inequalities} to (b) with the second matrix gives the inequality 
     \[-u_{2i+1}^-\mu_0-u_{2i}^+\mu_1\le u_{2j+1}^-\lambda_0+u_{2j}^+\lambda_1,\]
     which again reproduces the inequality (d) and aligns with the previous segment and ray in the image.
@@ -1035,16 +1053,16 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   In order to use Theorem \ref{th:dominance} we need to fix a reference pointed basis of $\cA(2,2)$; to simplify our computations, we choose to work with the \emph{generic basis}.
   This basis consists of the cluster monomials of $\cA(2,2)$ together with the elements
-  \[
+  \begin{align*}
     x_{(n,-n)}^{ge}
-    :=
-		\Big(x_0 x_1^{-1} + x_0^{-1}x_1^{-1} + x_0^{-1}x_1\Big)^n
-		=
+    &:=
+    \Big(x_0 x_1^{-1} + x_0^{-1}x_1^{-1} + x_0^{-1}x_1\Big)^n\\
+    &=
     x_0^{-n} x_1^{-n}
     \sum_{0 \leq k \leq \ell \leq n}
     {\ell\choose k} {n\choose \ell}
     \, x_0^{2(\ell-k)} x_1^{2(n-\ell)}.
-  \]
+  \end{align*}
 
   \begin{proposition}
     \label{prop:rewrite}
@@ -1073,8 +1091,8 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     \begin{align*}
       x_{(n,-n)}^{\bfa^{(n)}}
       &=
-      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}
-      =
+      \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_0^{-n+2r} x_1^{-n+2r} \sum_{k=0}^n \sum_{\ell=k}^{n-2r} {\ell\choose k} {n-2r\choose \ell} \, x_0^{2(\ell-k)} x_1^{2(n-2r-\ell)}\\
+      &=
       \sum_{r=0}^{\lfloor n/2\rfloor} S_{\bfa^{(n)},r}\, x_{n-2r,-n+2r}^{ge}
     \end{align*}
     as desired.
@@ -1104,9 +1122,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
 \bmhead{Acknowledgments}
 
-Acknowledgments are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
-
-Please refer to Journal-level guidance for any specific requirements.
+Salvatore Stella was partially supported by the University of Leicester and the University of Rome ``La Sapienza''.
 
 
 %%===========================================================================================%%
