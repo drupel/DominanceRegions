@@ -241,28 +241,30 @@
 
   When $bc\le3$, the cluster algebra $\cA(b,c)$ will be of finite-type and cluster monomials form its only pointed basis.
   We therefore assume that $bc\ge4$.
-  In this case we give an explicit description of the dominance relation among $\bfg$-vectors.
+  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
+  Lattice points outside of $\cI$ are precisely the $\bfg$-vectors of cluster monomials in $\cA(b,c)$.
+
+  We give an explicit description of the dominance relation among $\bfg$-vectors.
   Specifically, we show that the $\bfg$-vector $\lambda$ dominates the collection of $\bfg$-vectors of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside its \emph{dominance region} $\cP_\lambda$ (cf. Definition~\ref{def:dominance}).
   \begin{theorem}
     \label{th:dominance inequalities}
-    The dominance region $\cP_\lambda$ of the $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)$ is the polygon consisting of those $\mu=(\mu_0,\mu_1)\in\RR^2$ satisfying $\mu_0 \leq \lambda_0, \mu_1 \geq\lambda_1$, and the following inequalities:
+    If $\lambda$ lies outside of $\cI$, then the dominance region $\cP_\lambda$ is the point $\lambda$.
+    Otherwise the dominance region $\cP_\lambda$ of the $\bfg$-vector $\lambda=(\lambda_0,\lambda_1)$ is the polygon consisting of those $\mu=(\mu_0,\mu_1)\in\RR^2$ satisfying the following inequalities:
     {
       \everymath={\displaystyle}
       \def\arraystretch{2.2}
       \[
         \begin{array}{rcccl}
-          0 & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & \left[-c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1\right]_+\!\!;
+          0 & \!\leq\! & \frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & -c\lambda_0-\frac{b c+\sqrt{b c (b c-4)}}{2b}b\lambda_1;
           \\
-          0 & \!\leq\! & -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & \left[c\lambda_0\right]_+;
+          0 & \!\leq\! & -\frac{b c-\sqrt{b c (b c-4)}}{2 b}(\mu_0-\lambda_0)+(\mu_1-\lambda_1) & \!\leq\! & c\lambda_0;
           \\
-          0 & \!\leq\! &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \!\leq\! & \left[\frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1\right]_+\!\!;
+          0 & \!\leq\! &  -(\mu_0-\lambda_0)-\frac{b c-\sqrt{b c (b c-4)}}{2 c}(\mu_1-\lambda_1) & \!\leq\! & \frac{b c+\sqrt{b c (b c-4)}}{2c}c\lambda_0+b\lambda_1;
           \\
-          0 & \!\leq\! & -(\mu_0-\lambda_0) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \!\leq\! & \left[-b \lambda_1\right]_+;
+          0 & \!\leq\! & -(\mu_0-\lambda_0) + \frac{b c-\sqrt{b c (b c-4)}}{2 c} (\mu_1-\lambda_1) & \!\leq\! & -b \lambda_1.
         \end{array}
       \]
     }
-    where $[x]_+:=\max(x,0)$.
-    
   \vspace{-1.05em}
   \end{theorem}
   \begin{remark}
@@ -270,8 +272,6 @@
     Understanding this phenomenon might be worth further study.
   \end{remark}
 
-  Write $\cI \subset \RR^2$ for the \emph{imaginary cone} (positively) spanned by the vectors $\big(2b,-bc\pm\sqrt{bc(bc-4)}\big)$.
-  Lattice points outside of $\cI$ are precisely the $\bfg$-vectors of cluster monomials in $\cA(b,c)$.
   \begin{corollary}
     \label{cor:dominance vertices}
     There are six classes of dominance polygons.
@@ -637,7 +637,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 \label{sec:dominance inequalities}
 
   Here we explicitly compute the dominance regions $\cP_\lambda$.
-  When $\lambda$ is not imaginary, the dominance region is particularly simple.
+  The following Lemma proves Theorem~\ref{th:dominance inequalities} for~$\lambda\not\in\cI$.
   \begin{lemma}
     \label{le:cluster monomials}
     If $\lambda\in\ZZ^2\setminus\cI$, then $\cP_\lambda=\{\lambda\}$.
@@ -653,13 +653,6 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     In particular, the intersection of $\phi_{k+1}^{-1}\cC_{k+1}(\phi_{k+1}\lambda)$ with the cone containing $\lambda$ is a (possibly degenerate) convex quadrilateral with corners at the origin and $\lambda$.
     Combining these observations proves the result for $k$ odd, the case of even $k$ is similar.
   \end{proof}
-  To compare with Theorem~\ref{th:dominance inequalities}, we consider three cases in which $\lambda\in\ZZ^2\setminus\cI$:
-  \begin{itemize}
-    \item if $\lambda_0 \le 0$ and $\lambda_1 \ge 0$, the second and fourth pairs of inequalities become equations for lines which intersect at $\lambda$;
-    \item if $\lambda_0 > 0$ and $\lambda_1 \ge \frac{-bc+\sqrt{bc(bc-4)}}{2b}\lambda_0$, the first and second pairs of inequalities become equations for lines which intersect at $\lambda$;
-    \item if $\lambda_1 < 0$ and $\lambda_0 \le \frac{bc-\sqrt{bc(bc-4)}}{2c}\lambda_1$, the third and fourth pairs of inequalities become equations for lines which intersect at $\lambda$.
-  \end{itemize}
-  Since $\lambda$ satisfies all the inequalities, these observations prove Theorem~\ref{th:dominance inequalities} when $\lambda\notin\cI$.
 
   Next we aim to understand how inequalities transform under the action of a piecewise-linear map.
   The following well known fact about linear maps will suffice.
