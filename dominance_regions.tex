@@ -647,7 +647,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)/(\b*\c-2)/\b*(\x-\p)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {(\b*\c-1)*(-\x+\p)/\b-(\b*\c-2)*\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {-((\b*\c-1)*\x+\b*(\b*\c-2)*\y+\p)/\b});
-      \fill (\x , \y)  circle (5pt) node[below]{$\lambda$};
+      \fill (\x , \y)  circle (4pt) node[below]{$\lambda$};
       \draw[thick] (\xmax, {\c*(\x-\xmax)/(\b*\c-1)+\y}) --  (\x,\y) -- ({\x+\b*(\b*\c-2)*\y/(\b*\c-1)},0) -- (0,{-(\b*\c-1)*\x/\b-(\b*\c-2)*\y}) -- (\xmax, {-(\b*\c-1)*\x/\b-(\b*\c-2)*\y-\xmax/\b});
     \end{scope}
     \draw (0,-7) node{$\phi_{-3}^{-1}\cC_{-3}(\phi_{-3}\lambda)$};
@@ -665,7 +665,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*(\x-\p)+\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {\c*(\b*\c-2)/(\b*\c-1)*\x+\c/(\b*\c-1)*\p +\y});
       \draw[domain=\xmin:\xmax, smooth, variable=\p, black!60, very thin] plot ({\p}, {-\c*(\b*\c-2)*\x-\c*\p -(\b*\c-1)*\y});
-      \fill (\x , \y)  circle (5pt) node[right]{$\lambda$};
+      \fill (\x , \y)  circle (4pt) node[right]{$\lambda$};
       \draw[thick] ({\x+\b*(\y-\ymin)/(\b*\c-1)}, \ymin) -- (\x,\y) -- (0, {\c*(\b*\c-2)*\x/(\b*\c-1)+\y}) -- ({-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},0) -- ({-\ymin/\c-(\b*\c-2)*\x-(\b*\c-1)*\y/\c},\ymin);
     \end{scope}
     \draw (20,-7) node{$\phi_{3}^{-1}\cC_{3}(\phi_{3}\lambda)$};
