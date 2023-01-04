@@ -24,6 +24,7 @@
 
 %%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
 \RequirePackage{tikz}
+\usetikzlibrary{plotmarks}
 \documentclass[pdflatex,sn-mathphys]{sn-jnl}% Math and Physical Sciences Reference Style
 %%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
 %%\documentclass[sn-vancouver]{sn-jnl}% Vancouver Reference Style
@@ -147,7 +148,7 @@
 
 \maketitle
 
-\vspace{-1em}
+\vspace{-4.1902em}
 \begin{figure}[h!]
   \centering
     \newcommand{\setconstants}{
@@ -193,6 +194,13 @@
       \draw [darkgreen](2.5,1) node{$\cP_\lambda$};
       \draw [red](-2,6.5) node{$\cP'_\lambda$};
   \end{tikzpicture}
+  \label{fig:1}
+  \begin{caption}
+    {
+    The dominance region $\cP_\lambda$, the opposite dominance region $\cP'_\lambda$, and the maximal support region $\cS_\lambda$ for $\lambda=(4,-3)$ when $b=3$ and $c=2$.
+    Highlighted lattice points in the region bounded by solid black lines and dashed lines represent the maximal support of an element pointed at $\lambda$; the dotted lines indicate which lattice points are in the support of the corresponding greedy basis element.
+    }
+  \end{caption}
 \end{figure}
 \vspace{-1em}
 
@@ -205,6 +213,7 @@
   All of their elements share the property of being ``pointed''; this turned out to be a desirable feature for a basis to have and a natural question is to find all bases enjoying this property.
   Recently Qin studied the deformability of pointed bases whenever the cluster algebra has full rank \cite{Qin19}. 
   As no explicit calculation is carried out in his work, we aim here at describing explicitly the space of deformability for pointed bases in rank two, i.e. when clusters contain a pair of mutable cluster variables.
+  By doing so we shed more light on the conbinatorial structure of such bases.
   In this setting, frozen variables do not carry any additional information so we will work in the coefficient-free case. 
 
   Fix integers $b,c>0$.
@@ -220,7 +229,8 @@
     \label{eq:pointed}
     x_0^{\lambda_0}x_1^{\lambda_1}\sum\limits_{\alpha_0,\alpha_1 \ge 0} \rho_{\alpha_0,\alpha_1} x_0^{-b\alpha_0} x_1^{c\alpha_1}
   \end{equation}
-  with $\rho_{0,0}=1$.
+  with $\rho_{0,0}=1$ and $\rho_{\alpha_0,\alpha_1}\in\ZZ$.
+  This definition agrees  with the notion of $\bfg$-vector from \cite{FZ07} defined for cluster variables.
   An element of $\cA(b,c)$ is \emph{pointed} if an analogous structure reproduces after expanding in terms of any pair $\{x_k,x_{k+1}\}$; a basis is pointed if it consists entirely of pointed elements.
 
   Important examples of pointed elements are the \emph{cluster monomials} of $\cA(b,c)$, i.e.~the elements of the form $x_k^{\alpha_k}x_{k+1}^{\alpha_{k+1}}$ for some $k\in\ZZ$ and $\alpha_k,\alpha_{k+1}$ non-negative integers.
@@ -299,14 +309,15 @@
     \begin{enumerate}
       \item If $\lambda$ lies outside of $\cI$, then the support of $x_\lambda$ is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside the region $\cS_\lambda$ given as follows:
         \begin{enumerate}
-          \item If $0\le\lambda_0,\lambda_1$, then $\cS_\lambda$ is just the point $\lambda$.
-          \item If $\lambda_1 < 0$ and $0\le\lambda_0+b\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0+b\lambda_1,\lambda_1)$.
-          \item If $\lambda_0 < 0$ and $0\le\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $(\lambda_0,-c\lambda_0+\lambda_1)$.
-          \item If $\lambda_0,\lambda_1 < 0$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and ${(\lambda_0,-c\lambda_0+\lambda_1)}$.
-          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
-          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.  Here the point $(0,0)$ and its adjacent open segments are excluded from $\cS_\lambda$.
+          \item If $0\le\lambda_0,\lambda_1$, then $\cS_\lambda$ is just the point $\lambda=\lambda'$.
+          \item If $\lambda_1 < 0$ and $0\le\lambda_0+b\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $\lambda'=(\lambda_0+b\lambda_1,\lambda_1)$.
+          \item If $\lambda_0 < 0$ and $0\le\lambda_1$, then $\cS_\lambda$ is the segment joining $\lambda$ and $\lambda'=(\lambda_0,-c\lambda_0+\lambda_1)$.
+          \item If $\lambda_0,\lambda_1 < 0$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\lambda'=\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and ${(\lambda_0,-c\lambda_0+\lambda_1)}$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $-c\lambda_0-(bc-1)\lambda_1\le 0$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\lambda'=\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\big((bc+1)\lambda_0-b^2c\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$.
+          \item If $\lambda_0 > 0$, $\lambda_0+b\lambda_1 < 0$, and $0 < -c\lambda_0-(bc-1)\lambda_1$, then $\cS_\lambda$ has  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\lambda'=\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $(0,0)$.  Here the point $(0,0)$ and its adjacent open segments are excluded from $\cS_\lambda$ while both $\lambda$ and $\lambda'$ are included.
         \end{enumerate}
-      \item If $\lambda$ lies inside of $\cI$, then the support of $x_\lambda$ is contained in $\cS_\lambda$ with  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$.
+      \item If $\lambda$ lies inside of $\cI$, then the support of $x_\lambda$ is contained in $\cS_\lambda$ with  vertices $\lambda$, $(\lambda_0+b\lambda_1,\lambda_1)$, $\lambda'=\big(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1\big)$, and $\frac{bc+\sqrt{bc(bc-4)}}{2\sqrt{bc(bc-4)}}\big(2\lambda_0+b\lambda_1,-c\lambda_0-(bc-2)\lambda_1\big)$. This last point and its adjacent open segments are excluded from $\cS_\lambda$ while both $\lambda$ and $\lambda'$ are included.
+
         Moreover, there is an element pointed at $\lambda$ whose support is precisely the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cS_\lambda$.
     \end{enumerate}
   \end{theorem}
@@ -332,7 +343,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (2*\xmax,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \q=1; \xx = \r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{\small(1.a)};
     \end{scope}
     \begin{scope}[shift={(14,0)}]
@@ -340,7 +351,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax,0) -- (4*\xmax,-2*\xmax / \b) --  (2*\xmax,-2*\xmax / \b) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=2; \q=1; \xx = \r + \b*\q; \yy=-\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x, \y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x+\b * \y},\y);
       \draw [thick, fill=white] ({\x+\b * \y},\y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{\small(1.b)};
@@ -350,7 +361,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymax) --  (0,2*\ymax) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=3; \r=1; \q=1; \xx=-\r; \yy=\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x, \y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x, \y) -- (\x,{\y - \c * \x});
       \draw [thick, fill=white] (\x,{\y - \c * \x}) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{\small(1.c)};
@@ -360,7 +371,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmin,0) -- (2*\xmin,2*\ymin) --  (0,2*\ymin) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=1; \r=1; \q=1; \xx=-\r; \yy=-\q; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x, \y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x, \y) -- ({\x + \b * \y}, \y) -- ({\x + \b * \y}, {\y -\c*(\x + \b * \y)}) -- (\x, {\y - \c*\x}) -- cycle;
       \draw [thick, fill=white] ({\x + \b * \y}, {\y -\c*(\x + \b * \y)})  circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{\small(1.d)};
@@ -370,7 +381,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -2*\xmax / \b) -- (4*\xmax, -2*\xmax / \b-2*\xmax * \c / \bcmo ) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \q=1; \xx={\r*\b+\q*(\b*\c-1) }; \yy = {-\r -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x,\y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- ( \b*\c*\x + \x + \b*\b*\c*\y,  -\c*\x - \b*\c*\y + \y) --  cycle;
       \draw [thick, fill=white] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{\small(1.e)};
@@ -380,7 +391,7 @@
       \draw[draw=none, fill=gray!20] (0,0) --  (2*\xmax, -2*\xmax * \c / \bcmo ) -- (4*\xmax, -2*\xmax * \c / \bcmo -\xmax * \bcms / \b) -- (2*\xmax, -\xmax * \bcms / \b) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \q=2; \xx={2*\r*\b+\q*(\b*\c-1) }; \yy = {-\r*\bcms -\c*\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -392,7 +403,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (0, 2*\ymin) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin +2*\ymin) --  ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=2; \r=0.3; \q=1; \xx={2*\r*\b }; \yy = {-\r*\bcps -\q};  \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)}; }
-      \fill (\x,\y) circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y , \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth} on {\gap*\pgflinewidth} off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -404,7 +415,7 @@
       \draw[draw=none, fill=gray!20] (0,0) -- (2*\xmax, -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps + 2*\xmax, 2*\ymin  -\xmax * \bcms / \b) -- ( - 4 * \b * \ymin / \bcps, 2*\ymin) -- cycle; 
       \boundingrays;
       \tikzmath{ \t=5; \r=1; \q=2; \xx={2*(\r+\q)*\b }; \yy = {-\r*\bcps -\q*\bcms}; \x={\t*\xx/sqrt((\xx)^2+(\yy)^2)}; \y={\t*\yy/sqrt((\xx)^2+(\yy)^2)};  }
-      \fill (\x , \y)  circle (5pt);
+      \draw [thick, fill=black] (\x , \y)  circle (5pt);
       \draw [thick, join=round] (\x , \y) -- ( \x+\b*\y, \y) -- ( \x+\b*\y , -\c*\x - \b*\c*\y + \y);;
       \tikzmath{ \gap=3.1; }
       \draw [thick, join=round, line cap=round, dash pattern=on 0pt off {\gap*\pgflinewidth}] ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) -- (0,0) --  (\x , \y);
@@ -412,8 +423,14 @@
       \draw [thick, fill=white]  ( \x+\b*\y , -\c*\x - \b*\c*\y + \y) circle (5pt);
       \draw (\xmin+1.5,\ymin+1) node{\small(2)};
     \end{scope}
-    \draw (21,-22) node{The maximal supports $\cS_\lambda$ as described in Theorem \ref{th:maximum support}.};
   \end{tikzpicture}
+  \begin{caption}
+    {
+    The maximal supports $\cS_\lambda$ as described in Theorem \ref{th:maximum support} with $\lambda$ marked by a black dot and $\lambda'$ by a white dot.
+    Dashed edges indicate the maximal support of an element pointed at $\lambda$ while dotted edges indicate the support of the corresponding greedy basis element.
+    }
+    \label{fig:2}
+  \end{caption}
 \end{figure}
 
 The paper is organized as follows.
@@ -546,7 +563,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       (\lambda_0+b\lambda_1,-\lambda_1) & \text{if $\lambda_1 < 0$.}
     \end{cases}
   \]
-  For $k\in\ZZ$ with $|k|>1$, define piecewise-linear maps
+  For $k\in\ZZ$ with $\lvert k\rvert>1$, define piecewise-linear maps
   \[\phi_k
     :=
     \begin{cases}
@@ -932,7 +949,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     \end{itemize}
   \end{lemma}
 
-  In particular, we obtain an opposite dominance region $\cP'_\lambda$ for each $\bfg$-vector $\lambda$.
+  In particular, we get an opposite dominance region $\cP'_\lambda$ for each $\bfg$-vector $\lambda$.
   \begin{lemma}
     For $\lambda\in\cI$, the opposite dominance polygon $\cP'_\lambda$ pointed at its opposite $\bfg$-vector $\lambda'=(\lambda'_0,\lambda'_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \geq \lambda'_0, \mu_1 \leq\lambda'_1$, and the following inequalities:
     {
@@ -974,7 +991,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
 
   It follows from Corollary~\ref{cor:dominance vertices} that the minimum value for $\mu_0$ inside $\cP_\lambda$ occurs when $\mu_1=0$, i.e. either at the point $\big( \lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1 , 0 \big)$ when $0 \leq c\lambda_0+2\lambda_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2c} \big( \frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda_0+\lambda_1 , 0 \big)$ when $c\lambda_0+2\lambda_1<0$.
   The second point can be rewritten as
-  \[\big(\lambda_0 -\frac{bc+\sqrt{bc(bc-4)}}{2c} c\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c} \lambda_1 , 0 \big)\]
+  \[\left(\lambda_0 -\frac{bc+\sqrt{bc(bc-4)}}{2c} c\lambda_0-\frac{bc+\sqrt{bc(bc-4)}}{2c} \lambda_1 , 0 \right)\]
   but, since $c\lambda_0 < -2\lambda_1$, the first coordinate is greater than $\lambda_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda_1$.
   Then, using $\frac{bc+\sqrt{bc(bc-4)}}{2c}<b$ and $\lambda_1<0$, we see that the minimum value of $\mu_0$ inside $\cP_\lambda$ satisfies the inequality $\lambda'_0=\lambda_0+b\lambda_1 \leq \mu_0$.
   In particular, combining with the observation above, we see that $\cP_\lambda\subset\cS_\lambda$.
@@ -989,14 +1006,14 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   when $0 \leq 2\lambda'_0+b\lambda'_1$ or at the point $-\frac{bc+\sqrt{bc(bc-4)}}{2b} \big(0, \lambda'_0+\frac{bc+\sqrt{bc(bc-4)}}{2c}\lambda'_1 \big)$
   when $2\lambda'_0+b\lambda'_1<0$.
   The second point can be rewritten as
-  \[\big(0, -\frac{bc+\sqrt{bc(bc-4)}}{2b} \lambda'_0-\frac{bc+\sqrt{bc(bc-4)}}{2b} b\lambda'_1+\lambda'_1 \big)\]
+  \[\left(0, -\frac{bc+\sqrt{bc(bc-4)}}{2b} \lambda'_0-\frac{bc+\sqrt{bc(bc-4)}}{2b} b\lambda'_1+\lambda'_1 \right)\]
   but, since $b\lambda'_1\le -2\lambda'_0$, the first coordinate is greater than $\frac{bc+\sqrt{bc(bc-4)}}{2b}\lambda'_0+\lambda'_1$.
   Then, using $\frac{bc+\sqrt{bc(bc-4}}{2b}<c$ and $\lambda'_0<0$, we see that the minimum value of $\mu_1$ inside $\cP'_\lambda$ satisfies the inequality $\lambda_1=c\lambda'_0+\lambda'_1\le\mu_1$ and so $\cP'_\lambda\subset\cS_\lambda$.
 
   To continue, we compare the support for an arbitrary basis element pointed at $\lambda\in\cI$ with the greedy basis elements having $\bfg$-vector inside the dominance polygon $\cP_\lambda$.
 
   The support region $\cG_\lambda$ of the greedy basis element with $\bfg$-vector $\lambda$ is well-known \cite{CGMMRSW17,LLZ14}.
-  This is indicated by the solid and dotted lines in our figures where dotted lines indicate points that are excluded from the support.
+This is indicated by the solid and dotted lines in Figures \ref{fig:1} and \ref{fig:2}, where dotted lines indicate points that are excluded from the support.
   (The actual support of the greedy basis element consists of the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cG_\lambda$.)
   For our purposes, it is enough to observe the following closure property for the greedy support region which is evident from the figure in Theorem~\ref{th:maximum support}.
   \begin{definition}
