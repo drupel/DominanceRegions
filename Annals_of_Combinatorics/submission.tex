@@ -278,7 +278,7 @@
   \vspace{-1.05em}
   \end{theorem}
   \begin{remark}
-    Explicit calculations reveal that for certain pairs of notable bases (e.g. greedy and triangular) most of the coefficients $q_{\lambda,\mu}$ are zero.
+    Empirical calculations reveal that for certain pairs of notable bases (e.g. greedy and triangular) most of the coefficients $q_{\lambda,\mu}$ are zero.
     Understanding this phenomenon might be worth further study.
   \end{remark}
 
@@ -299,6 +299,7 @@
     Note that the rays which separate the regions inside $\cI$ correspond exactly to the columns of the associated Cartan matrix. % $\left[ \begin{array}{cc} 2 & -b \\ -c & 2 \end{array} \right]$.
     Moreover the expression for the dominance regions along those rays coincide.
     These unexpected coincidences are one of our reasons for deciding to write down these results.
+    Unfortunately, at the moment, we are unable to explain the reason behind it.
   \end{remark}
 
   Given a Laurent polynomial in $\ZZ[x_0^{\pm1},x_1^{\pm1}]$, its \emph{support} is the set of its exponent vectors inside $\ZZ^2$.
@@ -428,6 +429,7 @@
     {
     The maximal supports $\cS_\lambda$ as described in Theorem \ref{th:maximum support} with $\lambda$ marked by a black dot and $\lambda'$ by a white dot.
     Dashed edges indicate the maximal support of an element pointed at $\lambda$ while dotted edges indicate the support of the corresponding greedy basis element.
+    The imaginary cone $\cI$ is dashed; the shaded cones correspond to the cases in Theorem \ref{th:maximum support}.
     }
     \label{fig:2}
   \end{caption}
@@ -766,7 +768,14 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
     \end{scope}
     \draw (20,-7) node{$\phi_{3}^{-1}\cC_{3}(\phi_{3}\lambda)$};
   \end{tikzpicture}
+  \begin{caption}
+    {
+      Two examples of the regions in Lemma \ref{le:dominance inequalities}. 
+      Each inequlity is represented by a shaded halfspace, darker regions cosist of points satisfying multiple inequalities.
+    }
+  \end{caption}
 \end{figure}
+\vspace{-2em}
 
   \end{lemma}
   \begin{proof}
@@ -939,6 +948,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   
   Every pointed basis element for $\cA(b,c)$ admits an opposite $\bfg$-vector arising by interchanging the roles of $b$, $c$ and $x_0$, $x_1$ in \eqref{eq:pointed}. 
   One can easily compute the following correspondence.
+  \vspace{-1em}
   \begin{lemma}
     Given a $\bfg$-vector $\lambda$, the opposite $\bfg$-vector $\lambda'$ is obtained as follows:
     \begin{itemize}
@@ -948,8 +958,9 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \item otherwise, $\lambda'=(\lambda_0+b\lambda_1,-c\lambda_0-(bc-1)\lambda_1)$.
     \end{itemize}
   \end{lemma}
-
+  \vspace{-1em}
   In particular, we get an opposite dominance region $\cP'_\lambda$ for each $\bfg$-vector $\lambda$.
+  \vspace{-1em}
   \begin{lemma}
     For $\lambda\in\cI$, the opposite dominance polygon $\cP'_\lambda$ pointed at its opposite $\bfg$-vector $\lambda'=(\lambda'_0,\lambda'_1)$ is the region consisting of those $\mu\in\RR^2$ satisfying $\mu_0 \geq \lambda'_0, \mu_1 \leq\lambda'_1$, and the following inequalities:
     {
@@ -968,6 +979,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
       \]
     }
   \end{lemma}
+  \vspace{-1em}
   \begin{proof}
     As stated above, we obtain the opposite $\bfg$-vector by interchanging $b$, $c$ and swapping the roles of $\lambda_0,\lambda_1$.
     Translating from Theorem~\ref{th:dominance inequalities}, it immediately follows that the opposite dominance region is given by the claimed inequalities.
@@ -1015,7 +1027,7 @@ The paper ends with Section~\ref{sec:affine} interpreting the dominance polygons
   The support region $\cG_\lambda$ of the greedy basis element with $\bfg$-vector $\lambda$ is well-known \cite{CGMMRSW17,LLZ14}.
 This is indicated by the solid and dotted lines in Figures \ref{fig:1} and \ref{fig:2}, where dotted lines indicate points that are excluded from the support.
   (The actual support of the greedy basis element consists of the points of the form $\lambda+(b \alpha_0 ,c \alpha_1)$, $\alpha_0,\alpha_1\in\ZZ$, inside $\cG_\lambda$.)
-  For our purposes, it is enough to observe the following closure property for the greedy support region which is evident from the figure in Theorem~\ref{th:maximum support}.
+  For our purposes, it is enough to observe the following closure property for the greedy support region which is evident from Figure \ref{fig:2}.
   \begin{definition}
     A subset $\cS\subset\RR^2$ is called \scalebox{1.7}{$\llcorner$}-closed if $\lambda,\mu\in\cS$ implies the segments joining $\lambda$ and $\mu$ to~$\big(\!\min(\lambda_0,\mu_0),\min(\lambda_1,\mu_1)\big)$ are contained in $\cS$.
   \end{definition}
